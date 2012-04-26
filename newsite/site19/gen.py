@@ -321,11 +321,11 @@ def emit_item( page, DCT, item, PK=None, RDCT=None, PREFIX=None):
 	html += "left: %dpx;\n" % x
 	html += "top: %dpx;\n" % y
 	html += "z-index: %d;\n" % z
-	#html += "border: 10px dashed #333;"
+	#html += "border: 1px dashed #333;"
 	if info['el'] == 'imganim':
 		html += "visibility: hidden;\n"	
         html += "}\n"
-	html += "#%s.hover { border: 10px dashed #333; }\n" % nm
+	html += "#%s.hover { border: 1px dashed #333; }\n" % nm
 	html += "</style>\n"
 
 
@@ -346,12 +346,15 @@ def emit_item( page, DCT, item, PK=None, RDCT=None, PREFIX=None):
 		html += '<source src="%s" />' % mpath
 		html += '</video>'
 	elif mc!="":
-		html += '<img id=%s src="%s" ondragstart="DS=this;DSL=this.offsetLeft;DST=this.offsetTop;" ondrop="console.log(DS);console.log(DT);DS.style.left=DTL;DS.style.top=DTT;DT.style.left=DSL;DT.style.top=DST;DT.className=\'\';" ondragover="this.className=\'hover\';return false" ondragenter="DT=this;DTL=this.offsetLeft;DTT=this.offsetTop;" ondragleave="this.className=\'\'" onmouseover="%s" onmouseout="%s" onclick="console.log(this);%s" />\n' % (nm,fpath,mover,mout,mc)
+		html += '<img id=%s src="%s" ondragstart="DS=this;DSL=this.offsetLeft;DST=this.offsetTop;" ondrop="console.log(event);console.log(DS);console.log(DT);DS.style.left=DTL;DS.style.top=DTT;DT.style.left=DSL;DT.style.top=DST;DT.className=\'\';" ondragover="this.className=\'hover\';return false" ondragenter="DT=this;DTL=this.offsetLeft;DTT=this.offsetTop;" ondragleave="this.className=\'\'" onmouseover="%s" onmouseout="%s" onclick="console.log(this);%s" />\n' % (nm,fpath,mover,mout,mc)
 	elif link:
 		html += '<a href="%s">' % (link+'.html')
 		html += '<img id=%s src="%s" onmouseover="%s" onmouseout="%s"  />\n' % (nm,fpath,mover,mout)
 		html += '</a>'
+	elif nm=='gsbb':
+		html += '<img id=%s src="%s" ondrop="alert(this);" ondragover="return false" ondragenter="alert(this);" />\n' % (nm,fpath)
 	else:
+		html += '<img id=%s src="%s" />\n' % (nm,fpath)
 		html += '<img id=%s src="%s" />\n' % (nm,fpath)
 
 	if False and item=='c2m':
