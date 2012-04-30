@@ -315,18 +315,21 @@ def emit_item( page, DCT, item, PK=None, RDCT=None, PREFIX=None):
 		print "DBG: emitem->",info, me, mo
 
 	html = ""
-	html += "<style>\n"
-        html += "#%s {\n" % nm
-	html += "position: absolute;"
-	html += "left: %dpx;\n" % x
-	html += "top: %dpx;\n" % y
-	html += "z-index: %d;\n" % z
+	style = ""
+	#html += "<style>\n"
+        style += "#%s {\n" % nm
+	style += "position: absolute;"
+	style += "left: %dpx;\n" % x
+	style += "top: %dpx;\n" % y
+	style += "z-index: %d;\n" % z
+	style += "overflow: hidden;\n"
+	style += "border: 0px;\n"
 	#html += "border: 1px dashed #333;"
 	if info['el'] == 'imganim':
-		html += "visibility: hidden;\n"	
-        html += "}\n"
-	html += "#%s.hover { border: 1px dashed #333; }\n" % nm
-	html += "</style>\n"
+		style += "visibility: hidden;\n"	
+        style += "}\n"
+	style += "#%s.hover { border: 1px dashed #333; }\n" % nm
+	#html += "</style>\n"
 
 
 	# create the hover/out dhtml script...
@@ -346,7 +349,7 @@ def emit_item( page, DCT, item, PK=None, RDCT=None, PREFIX=None):
 		html += '<source src="%s" />' % mpath
 		html += '</video>'
 	elif mc!="":
-		html += '<img id=%s src="%s" ondragstart="DS=this;DSL=this.offsetLeft;DST=this.offsetTop;" ondrop="console.log(event);console.log(DS);console.log(DT);DS.style.left=DTL;DS.style.top=DTT;DT.style.left=DSL;DT.style.top=DST;DT.className=\'\';" ondragover="this.className=\'hover\';return false" ondragenter="DT=this;DTL=this.offsetLeft;DTT=this.offsetTop;" ondragleave="this.className=\'\'" onmouseover="%s" onmouseout="%s" onclick="console.log(this);%s" />\n' % (nm,fpath,mover,mout,mc)
+		html += '<img id=%s src="%s" ondragstart="DS=this;DSL=this.offsetLeft;DST=this.offsetTop;" ondrop="DODROP(event);" ondragover="this.className=\'hover\';return false" ondragenter="DT=this;DTL=this.offsetLeft;DTT=this.offsetTop;" ondragleave="this.className=\'\'" onmouseover="%s" onmouseout="%s" onclick="console.log(this);%s" />\n' % (nm,fpath,mover,mout,mc)
 	elif link:
 		html += '<a href="%s">' % (link+'.html')
 		html += '<img id=%s src="%s" onmouseover="%s" onmouseout="%s"  />\n' % (nm,fpath,mover,mout)
@@ -355,14 +358,13 @@ def emit_item( page, DCT, item, PK=None, RDCT=None, PREFIX=None):
 		html += '<img id=%s src="%s" ondrop="alert(this);" ondragover="return false" ondragenter="alert(this);" />\n' % (nm,fpath)
 	else:
 		html += '<img id=%s src="%s" />\n' % (nm,fpath)
-		html += '<img id=%s src="%s" />\n' % (nm,fpath)
 
 	if False and item=='c2m':
 		#print item, info
 		#print html
 		sys.exit(0)
 
-	return html
+	return [ html, style ]
 
 #
 # Process desired pages...
@@ -370,18 +372,15 @@ def emit_item( page, DCT, item, PK=None, RDCT=None, PREFIX=None):
 counter = 15
 
 for page in PAGES:
+	style = ""
 	html =  "<html>\n"
 	html += "<head>\n"
-	html += "<script>\n"
-	html += "  var DSL;\n"
-	html += "  var DTL;\n"
-	html += "  var DST;\n"
-	html += "  var DTT;\n"
-	html += "  var DS;\n"
-	html += "  var DT;\n"
-	html += "</script>\n"
+	f = open("HEAD_SCRIPT.txt",'r')
+	txt = f.read()
+	f.close()
+	html += txt
 	html += "</head>\n"
-	html += "<body>\n"
+	body = ""
 
 	page_items = PAGE_DCT[page]
 	for page_item_key in page_items.keys():
@@ -406,12 +405,14 @@ for page in PAGES:
 				if info['sel']<1 or override_sel:
 					txt = emit_item( page, WEBPAGE_TEMPLATE_DCT, asset )
 					if txt == False: continue
-					html += txt
+					body += txt[0]
+					style += txt[1]
 
 		elif item.startswith("P"): # web page phil...
 			if item.startswith("Ptj"): continue
 			txt = emit_item( page, WEBPAGE_PHIL_DCT, item, page, PAGE_DCT, PHIL_PREFIX )
-			html += txt
+			body += txt[0]
+			style += txt[1]
 	
 		else: # look in assets then in template...
 			# search assets first...
@@ -419,7 +420,8 @@ for page in PAGES:
 			if txt == False:
 				# search template then
 				txt = emit_item( page, WEBPAGE_TEMPLATE_DCT, item, page, PAGE_DCT )	
-			html += txt
+			body += txt[0]
+			style += txt[1]
 
 		if False and page == "e01":
 			counter -= 1
@@ -427,7 +429,12 @@ for page in PAGES:
 				print "BREAK EARLY->", page, item
 				break
 
-	html += "</body>\n"
+	html += "<body>"
+	html += "<style>"
+	html += style
+	html += "</style>"
+	html += body
+	html += "</body>"	
 	html += "</html>\n"
 
 	#print html
