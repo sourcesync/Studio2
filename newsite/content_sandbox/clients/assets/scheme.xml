@@ -1,2 +1,10 @@
 <scheme type="simplemenu">
+	<option item="01" >
+		<menu x="0" y="0" />
+		<main x="0" y="100" />
+	</option>
+	<option item="02" >
+		<menu x="100" y="0" />
+		<main x="0" y="100" />
+	</option>
 </scheme>
