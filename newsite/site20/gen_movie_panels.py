@@ -2,7 +2,7 @@
 # Configuration...
 #
 
-MOVIES_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHFxcjk0RlA3RkxlaWdxdmIyZWJlM1E&output=csv"
+MOVIES_PANEL_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHpERzFkdWxHMGpobXAzMHp3dkVNWkE&output=csv"
 
 MOVIES1_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../movies"
@@ -14,7 +14,7 @@ import common
 import os
 
 def get_dct():
-	items = common.parse_spreadsheet1( MOVIES_DEF )
+	items = common.parse_spreadsheet1( MOVIES_PANEL_DEF )
 	dct = common.dct_join( items,'name')
 	return dct
 
@@ -23,13 +23,12 @@ def get_item_path( name, movies_dct ):
 	path = item_def['path']
         fname = item_def['filename']
         fpath = os.path.join(path,fname)
-        fpath = fpath.replace("MOVIES",MOVIES1_PREFIX)
-        fpath = fpath.replace("MOVIES",MOVIES2_PREFIX)
+        fpath = fpath.replace("MOVIES1",MOVIES1_PREFIX)
+        fpath = fpath.replace("MOVIES2",MOVIES2_PREFIX)
 	return fpath
 	
 
 def expand_item( asset_def, movies_dct, images_dct ):
-
 	print "asset_def->", asset_def
 	asset_name = asset_def["asset_name"]
 	item_def = movies_dct[asset_name][0]

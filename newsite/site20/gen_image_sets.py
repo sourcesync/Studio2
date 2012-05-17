@@ -3,11 +3,11 @@
 # Configuration...
 #
 
-IMAGES_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFd0ZV81SS1yZmZqQnpGdVBUeTlvVEE&output=csv"
+IMAGE_SETS_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFlPUUdVV0YzZkZoR01lNmNTTkhfSWc&output=csv"
 
+PHIL_PREFIX = "../phil_assets"
 MOVIES1_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../movies"
-
 
 #
 # Library...
@@ -15,7 +15,7 @@ MOVIES2_PREFIX = "../movies"
 import common
 import os
 
-def expand_item( asset_def, images_dct, onclick):
+def expand_item( asset_def, images_dct, option_script=None ):
         print "asset_def->", asset_def
         asset_name = asset_def["asset_name"]
         item_def = images_dct[asset_name][0]
@@ -35,8 +35,15 @@ def expand_item( asset_def, images_dct, onclick):
         style += common.emit_line( "}" )
         style += common.emit_line( "</style>")
 
-	if onclick:
-		content = common.emit_line( "<img id=%s src=\"%s\" onclick=\"%s\" >" % (htmlid,image_path, onclick) )
+	on_click = False
+	link = asset_def["link"]
+	if link!="":
+		ltype,parm = link.split(":")
+		if ltype=="option":
+			on_click = option_script[parm]		
+
+	if on_click:
+		content = common.emit_line( "<img id=%s src=\"%s\" onclick=\"%s\" >" % (htmlid,image_path, on_click) )
 	else:
 		content = common.emit_line( "<img id=%s src=\"%s\" >" % (htmlid,image_path ) )
 		
@@ -49,10 +56,11 @@ def get_item_path( name, images_dct ):
         fpath = os.path.join(path,fname)
         fpath = fpath.replace("MOVIES1",MOVIES1_PREFIX)
         fpath = fpath.replace("MOVIES2",MOVIES2_PREFIX)
+        fpath = fpath.replace("PHIL",PHIL_PREFIX)
         return fpath
 
 def get_dct():
-	items = common.parse_spreadsheet1( IMAGES_DEF )
+	items = common.parse_spreadsheet1( IMAGE_SETS_DEF )
 	dct = common.dct_join( items,'name')
 	return dct
 

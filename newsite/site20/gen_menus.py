@@ -32,7 +32,7 @@ def create_option_scripts( asset_name, menus_dct ):
 	print "SCRIPTS->", script
 	return script	
 
-def expand_option( menu_def, option_name, images_dct, script ):
+def expand_option( menu_def, option_name, images_dct, option_script_dct ):
 	option_def = menu_def[option_name]
 	tot_style = ""
 	tot_content = ""
@@ -40,9 +40,22 @@ def expand_option( menu_def, option_name, images_dct, script ):
 		print "option item->", item
 		asset_name = item["asset_name"]
 		if asset_name.startswith("img"):
+
+			# determine the script, if any...
+			script = None
+			if item.has_key("link") and item("link")!="":
+        			link = asset_def["link"]
+                		ltype,parm = link.split(":")
+                		if ltype=="option":
+                        		script = option_script_dct[parm]
+				else:
+					print "ERROR: Unknown link type"
+					sys.exit(1)	
+
 			style, content = gen_images.expand_item( item, images_dct, script )
 			tot_style += style
 			tot_content += content
+
 	return [ tot_style, tot_content ]
 
 def expand_item(item, images_dct, menus_dct):

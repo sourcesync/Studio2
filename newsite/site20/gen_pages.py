@@ -4,14 +4,21 @@
 
 PAGE_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGQwQ3lkazQ4akh2SDRwVXF5ck1ZWGc&output=csv"
 
+SUBSET = ["c01"]
+
 #
 # Library...
 #
+import sys
+import os
 import common
 import gen_subpages
 import gen_movies
 import gen_images
 import gen_menus
+import gen_movie_panels
+import gen_click_panels
+import gen_slide_shows
 
 def get_dct():
 	items = common.parse_spreadsheet1( PAGE_DEF )
@@ -21,7 +28,7 @@ def get_dct():
 def emitLine(f, str):
 	f.write("%s\n" % str)	
 
-def gen_page( page_name, page_def, movies_dct, images_dct, menus_dct ):
+def gen_page( page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, slide_shows_dct ):
 	accum_body = ""
 	accum_style = ""	
 	for item in page_def:
@@ -33,8 +40,12 @@ def gen_page( page_name, page_def, movies_dct, images_dct, menus_dct ):
 			style, content = gen_images.expand_item( item, images_dct )
 		elif asset_name.startswith("menu"):
 			style, content = gen_menus.expand_item( item, images_dct, menus_dct )
+		elif asset_name.startswith("cp"):
+			style, content = gen_click_panels.expand_item( item, images_dct, movies_dct, movie_panels_dct, click_panels_dct )
+		elif asset_name.startswith("ss"):
+			style, content = gen_slide_shows.expand_item( item, images_dct, movies_dct, movie_panels_dct, click_panels_dct, slide_shows_dct )
 		else:
-			print "ERROR: Unknown asset type"
+			print "ERROR: Unknown asset type->", asset_name
 			sys.exit(1)
 		accum_style += style
 		accum_body += content
@@ -69,8 +80,23 @@ if __name__ == "__main__":
 	menus_dct = gen_menus.get_dct()
 	print menus_dct
 
+	# get click panels...
+	click_panels_dct = gen_click_panels.get_dct()
+	
+	# get movie panels...
+	movie_panels_dct = gen_movie_panels.get_dct()
+	
+	# get slide shows...
+	slide_shows_dct = gen_slide_shows.get_dct()
+
 	# iterate pages...
-	for key in dct.keys():
+	if SUBSET and len(SUBSET)>0:
+		pagekeys = SUBSET
+		print "SUBSET->", pagekeys
+	else:
+		pagekeys = dct.keys()
+
+	for key in pagekeys:
 		page_name = key
 		page_def = []
 
@@ -81,4 +107,4 @@ if __name__ == "__main__":
 			for subpage_item in subpage_items:
 				page_def.append( subpage_item )
 		
-		gen_page( page_name, page_def, movies_dct, images_dct, menus_dct )
+		gen_page( page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, slide_shows_dct )

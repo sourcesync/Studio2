@@ -37,6 +37,8 @@ def dct_join(items,join_key,key2=None):
 		#print "item->", item, join_key
 
 		key = item[join_key]
+		if (key==""):
+			continue
 		val = item
 		print "KV->", key, val
 	
