@@ -16,10 +16,8 @@ import common
 import os
 
 def expand_item( asset_def, images_dct, option_script=None ):
-        print "asset_def->", asset_def
         asset_name = asset_def["asset_name"]
         item_def = images_dct[asset_name][0]
-        print "item_def->", item_def
 
         htmlid = asset_name
 

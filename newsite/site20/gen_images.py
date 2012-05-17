@@ -15,25 +15,28 @@ MOVIES2_PREFIX = "../movies"
 import common
 import os
 
-def expand_item( asset_def, images_dct, onclick):
-        print "asset_def->", asset_def
+
+def expand_item( accum_ids, asset_def, images_dct, onclick):
         asset_name = asset_def["asset_name"]
         item_def = images_dct[asset_name][0]
-        print "item_def->", item_def
 
-        htmlid = asset_name
+        htmlid = common.get_id(asset_name,accum_ids)
+	accum_ids.append( htmlid )
 
         image_path = get_item_path( asset_name, images_dct )
         x = asset_def['x']
         y = asset_def['y']
 
-        style  = common.emit_line( "<style>" )
+	style  = ""
+        #style  = common.emit_line( "<style>" )
         style += common.emit_line( "#%s {" % htmlid )
         style += common.emit_line( "position: absolute;")
         style += common.emit_line( "left: %dpx;" % int(x) )
         style += common.emit_line( "top: %dpx;" % int(y) )
+	if asset_def.has_key('z'):
+        	style += common.emit_line( "z-index: %d;" % int(asset_def['z']) )
         style += common.emit_line( "}" )
-        style += common.emit_line( "</style>")
+        #style += common.emit_line( "</style>")
 
 	if onclick:
 		content = common.emit_line( "<img id=%s src=\"%s\" onclick=\"%s\" >" % (htmlid,image_path, onclick) )

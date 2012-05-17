@@ -27,10 +27,8 @@ def get_item_path( name, movies_dct ):
 	
 
 def expand_item( asset_def, images_dct, movies_dct, movie_panels_dct, click_panels_dct ):
-	print "asset_def->", asset_def
 	asset_name = asset_def["asset_name"]
 	item_def = click_panels_dct[asset_name]
-	print "CLICK PANELS, item_def->", item_def
 
 	tot_style = ""
 	tot_content = ""

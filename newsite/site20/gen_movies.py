@@ -30,11 +30,8 @@ def get_item_path( name, movies_dct ):
 
 def expand_item( asset_def, movies_dct, images_dct ):
 
-	print "asset_def->", asset_def
 	asset_name = asset_def["asset_name"]
 	item_def = movies_dct[asset_name][0]
-	print "item_def->", item_def
-
 	htmlid = asset_name
 
 	poster_path = ""
@@ -45,13 +42,14 @@ def expand_item( asset_def, movies_dct, images_dct ):
 	x = asset_def['x']
 	y = asset_def['y']
 
-	style  = common.emit_line( "<style>" )
+	style  = ""
+	#style  = common.emit_line( "<style>" )
 	style += common.emit_line( "#%s {" % htmlid )
 	style += common.emit_line( "position: absolute;")
 	style += common.emit_line( "left: %dpx;" % int(x) )
 	style += common.emit_line( "top: %dpx;" % int(y) )
 	style += common.emit_line( "}" )
-	style += common.emit_line( "</style>")
+	#style += common.emit_line( "</style>")
 
 	if poster_path == "":	
 		content = common.emit_line( "<video controls id=%s ><source src=\"%s\" /></video>" % (htmlid, movie_path) )

@@ -29,7 +29,6 @@ def create_option_scripts( asset_name, menus_dct ):
 	menu_def = menus_dct[asset_name]
 	for key in menu_def.keys():
 		script[key] = create_option_script( asset_name, key, menus_dct )
-	print "SCRIPTS->", script
 	return script	
 
 def expand_option( menu_def, option_name, images_dct, option_script_dct ):
@@ -37,7 +36,6 @@ def expand_option( menu_def, option_name, images_dct, option_script_dct ):
 	tot_style = ""
 	tot_content = ""
 	for item in option_def:
-		print "option item->", item
 		asset_name = item["asset_name"]
 		if asset_name.startswith("img"):
 
@@ -59,12 +57,9 @@ def expand_option( menu_def, option_name, images_dct, option_script_dct ):
 	return [ tot_style, tot_content ]
 
 def expand_item(item, images_dct, menus_dct):
-	print "expand->",item
 	key = item["asset_name"]
 	menu_def = menus_dct[key]
-	print "menu_def->", menu_def
 	scripts = create_option_scripts( key, menus_dct)
-	print "SCRIPTS->",scripts
 	tot_style = ""
 	tot_content = ""
 	for key in menu_def.keys():

@@ -14,27 +14,24 @@ MOVIES2_PREFIX = "../movies"
 #
 import common
 import os
+import sys
 import gen_images
 
-def expand_item( asset_def, images_dct, movies_dct, movie_panels_dct, click_panels_dct, slide_shows_dct ):
+def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct, click_panels_dct, slide_shows_dct ):
 
-        print "asset_def->", asset_def
         asset_name = asset_def["asset_name"]
         item_def = slide_shows_dct[asset_name]
-        print "item_def->", item_def
 
 	# create page scripts...
 	script_dct = {}
 	for pagekey1 in item_def.keys():
 		script = ""
-		dopage = 1
 		for pagekey2 in item_def.keys():
-			divname = "%s_%d" % ( asset_name, dopage )
+			divname = "%s_%d" % ( asset_name, int(pagekey2) )
 			if pagekey1 == pagekey2:
 				script += "document.getElementById('%s').style.visibility='visible';" % divname
 			else:
 				script += "document.getElementById('%s').style.visibility='hidden';" % divname
-			dopage += 1
 		script_dct[pagekey1] = script
 
 	tot_style = ""
@@ -44,9 +41,11 @@ def expand_item( asset_def, images_dct, movies_dct, movie_panels_dct, click_pane
 		if not item_def.has_key( str(dopage) ):
 			break
 	
-		divname = "%s_%d" % ( asset_name, dopage )
+		divname = common.get_id( "%s_%d" % ( asset_name, dopage ), accum_ids )
+		accum_ids.append(divname)
 
-		style  = common.emit_line("<style>")
+		style  = ""
+		#style  = common.emit_line("<style>")
 		style += common.emit_line("#%s {" % divname )
 		style += common.emit_line(" top:0px;")
 		style += common.emit_line(" left:0px;")
@@ -55,16 +54,14 @@ def expand_item( asset_def, images_dct, movies_dct, movie_panels_dct, click_pane
 		else:
 			style += common.emit_line(" visibility:hidden;")
 		style += common.emit_line("}")
-		style += common.emit_line("</style>")
+		#style += common.emit_line("</style>")
 		tot_style += style
 
 		tot_content  += common.emit_line("<div id=%s >" % divname)
 		
 		pagedef = item_def[str(dopage)]
-		print "pagedef->", pagedef
 
 		for page_item in pagedef:
-			print "page item->", page_item
 			page_asset_name = page_item["asset_name"]
 
 			if ( page_asset_name.startswith("img") ):
@@ -79,9 +76,9 @@ def expand_item( asset_def, images_dct, movies_dct, movie_panels_dct, click_pane
 					else:
 						print "ERROR: unknown link type", ltype
 						sys.exit(1)
-				print "SCRIPT!!", script
 	
-				style, content = gen_images.expand_item( page_item, images_dct, script)
+				style, content = gen_images.expand_item( accum_ids, page_item, images_dct, script)
+
 				tot_style += style
 				tot_content += content
 
