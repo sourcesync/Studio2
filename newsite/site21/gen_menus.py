@@ -54,10 +54,15 @@ def expand_option( accum_ids, menu_def, option_name, images_dct, option_script_d
 			init_vis = True
 			if item.has_key("initial_visibility") and item["initial_visibility"]!="":
 				init_vis = item["initial_visibility"] == "1"
-			print "iv->", item["initial_visibility"]
 			style, content = gen_images.expand_item( accum_ids, item, images_dct, script, init_vis )
 			tot_style += style
 			tot_content += content
+
+		#elif asset_name.startswith("ss"):
+
+		else:
+			print "ERROR: Can't process asset->", asset_name, item
+			sys.exit(1)
 
 	return [ tot_style, tot_content ]
 

@@ -12,6 +12,8 @@ MOVIES2_PREFIX = "../movies"
 #
 import common
 import os
+import sys
+import gen_movies
 
 def get_dct():
 	items = common.parse_spreadsheet1( MOVIES_PANEL_DEF )
@@ -28,35 +30,29 @@ def get_item_path( name, movies_dct ):
 	return fpath
 	
 
-def expand_item( asset_def, movies_dct, images_dct ):
-	asset_name = asset_def["asset_name"]
-	item_def = movies_dct[asset_name][0]
+def expand_item( accum_ids, page_item, images_dct, movies_dct, movie_panels_dct ):
+	asset_name = page_item["asset_name"]
+	item_def = movie_panels_dct[asset_name]
 
-	htmlid = asset_name
+	tot_style = ""
+	tot_content = ""
 
-	poster_path = ""
-	if item_def["poster"].strip()!="":
-		poster_path = gen_images.get_item_path( poster )
+	htmlid = common.get_id( asset_name, accum_ids )
+	accum_ids.append( htmlid )
 
-	movie_path = get_item_path( asset_name, movies_dct )
-	x = asset_def['x']
-	y = asset_def['y']
-	
-	style  = ""
-	#style  = common.emit_line( "<style>" )
-	style += common.emit_line( "#%s {" % htmlid )
-	style += common.emit_line( "position: absolute;")
-	style += common.emit_line( "left: %dpx;" % int(x) )
-	style += common.emit_line( "top: %dpx;" % int(y) )
-	style += common.emit_line( "}" )
-	#style += common.emit_line( "</style>")
+	for item in item_def:
+		print "MP ITEM->", item
 
-	if poster_path == "":	
-		content = common.emit_line( "<video controls id=%s ><source src=\"%s\" /></video>" % (htmlid, movie_path) )
-	else:	
-		content = common.emit_line( "<video controls id=%s poster=\"%s\" ><source src=\"%s\" /></video>" % (htmlid, poster_path, movie_path) )
-	
-	return [ style, content ]
+		asn = item["asset_name"]
+		if asn.startswith("mov"):
+			style, content = gen_movies.expand_item( accum_ids, item, images_dct, movies_dct )
+			tot_style += style
+			tot_content += content
+
+		else:
+			print "ERROR: Cannot process->", item
+			sys.exit(1)				
+	return [ tot_style, tot_content ]
 
 if __name__ == "__main__":
 	dct = get_dct()

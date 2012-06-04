@@ -2,7 +2,11 @@
 # Configuration...
 #
 
-PAGE_TEMPLATE_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFlhZlgwc292b0poYjY3X2JYaU5SRWc&output=csv"
+#PAGE_TEMPLATE_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFlhZlgwc292b0poYjY3X2JYaU5SRWc&output=csv"
+
+PAGE_TEMPLATE_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFZheXFtTlk1eHhTZDF4cG9jcmRiTHc&output=csv" , \
+	"whoweare":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEM5amE4UFV4WjliQTUzNkcwOW9TOVE&output=csv", \
+	"sneakpeek":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFhUN1gwaVZQVF9UcFpjSXNiZTRIVHc&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../movies"
@@ -153,20 +157,28 @@ def render_page(accum_ids, page, page_templates_dct, template_dct, template_asse
 		wth_x = page_template_item["with_x"]
 		wth_y = page_template_item["with_y"]
 
-		if image_code == "temp" and  replace!="" and render_dct.has_key(replace):
+		print "GOT->", page, image_code, replace, render_dct.keys()
 
-			# first look in template dct...
-			if template_dct_cp.has_key(wth):
-				findel = template_dct_cp[wth][0]
-				render_dct[replace] = [ copy.deepcopy(findel) ]
+		if image_code == "temp":
+
+			# Is there a replace directive ? ...
+			if replace!="" and render_dct.has_key(replace):
 			
-			# then look in temmplate assets...
-			else:
-				print "ERROR: For replace, could not find->", wth
-				sys.exit(0)
+				# first look in template dct...
+				if template_dct_cp.has_key(wth):
+					findel = template_dct_cp[wth][0]
+					render_dct[replace] = [ copy.deepcopy(findel) ]
+			
+				# then look in temmplate assets...
+				else:
+					print "ERROR: For replace, could not find->", wth
+					sys.exit(0)
 	
 		elif image_code != "":
 
+			print "TEMPLATE_DCT_CP->", template_dct_cp
+			print "TEMPLATE_ASSETS_DCT->", template_assets_dct
+	
 			# first look in template dct...
 			if template_dct_cp.has_key(image_code):
 				findel = template_dct_cp[image_code][0]
@@ -177,7 +189,7 @@ def render_page(accum_ids, page, page_templates_dct, template_dct, template_asse
 				findel = template_assets_dct[image_code][0]
 				render_dct[replace] = [ copy.deepcopy(findel) ]
 			else:
-				print "ERROR: For replacexy, could not find->", image_code
+				print "ERROR: (1)For replacexy, could not find->", page, image_code
 				sys.exit(0)
 
 			# do any x replace here...
@@ -200,10 +212,15 @@ def render_page(accum_ids, page, page_templates_dct, template_dct, template_asse
 
 	return [ tot_style, tot_content ]
 
-def get_dct():
-	items = common.parse_spreadsheet1( PAGE_TEMPLATE_DEF )
-	dct = common.dct_join( items,'page_code')
-	return dct
+def get_dct( pagekey=None ):
+	if pagekey == None:
+		pagekey = PAGE_TEMPLATE_DEFS.keys()
+	newdct = {}
+	for code in pagekey:
+		items = common.parse_spreadsheet1( PAGE_TEMPLATE_DEFS[code] )
+		dct = common.dct_join( items,'page_code')
+		newdct[ code ] = dct[code]
+	return newdct
 
 if __name__ == "__main__":
 	dct = get_dct()

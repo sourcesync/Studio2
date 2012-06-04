@@ -1,0 +1,14 @@
+name,path,filename
+who we are,,
+img_c1m,assets/main/C/,c01_main.png
+img_c2m,assets/main/C/,c02_main.png
+img_c3m,assets/main/C/,c03_main.png
+img_c4m,assets/main/C/,c04_main.png
+img_c5m,assets/main/C/,c05_main.png
+img_cmary,assets/main/C/,c_mary.png
+img_cgary,assets/main/C/,c_gary.png
+img_gagl,assets/main/assets_general/moving/,arrow_l_g.png
+img_gagr,assets/main/assets_general/moving/,arrow_r_g.png
+img_gxbr,assets/main/assets_general/stationary/,xbox_r.png
+img_gsbr,assets/main/assets_general/stationary/,semiborder_r.png
+img_gsbr2,assets/main/assets_general/stationary/,semiborder_r_2.png

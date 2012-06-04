@@ -4,7 +4,9 @@
 
 PAGE_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGQwQ3lkazQ4akh2SDRwVXF5ck1ZWGc&output=csv"
 
-SUBSET = ["whoweare","etcetera","animation"]
+#SUBSET = ["whoweare","etcetera","animation"]
+#SUBSET = ["animation"]
+SUBSET = [ "home","whoweare","sneakpeek"]
 
 #
 # Library...
@@ -39,7 +41,7 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
 	for item in page_def:
 		asset_name = item["asset_name"]
 		if asset_name.startswith("mov"):
-			style, content = gen_movies.expand_item( item, movies_dct, images_dct )
+			style, content = gen_movies.expand_item( accum_ids, item, images_dct, movies_dct )
 		elif asset_name.startswith("img"):
 			style, content = gen_images.expand_item( accum_ids, item, images_dct )
 		elif asset_name.startswith("menu"):
@@ -60,14 +62,20 @@ if __name__ == "__main__":
 	dct = get_dct()
 	print dct
 
+        # figure out which pages to render...
+        if SUBSET and len(SUBSET)>0:
+                pagekeys = SUBSET
+        else:
+                pagekeys = dct.keys()
+
 	# get subpages...
-	subpages_dct = gen_subpages.get_dct()
+	subpages_dct = gen_subpages.get_dct( )
 
 	# get movies...
-	movies_dct = gen_movies.get_dct()
+	movies_dct = gen_movies.get_dct( pagekeys )
 
 	# get images...
-	images_dct = gen_images.get_dct()
+	images_dct = gen_images.get_dct( pagekeys )
 
 	# get menus...
 	menus_dct = gen_menus.get_dct()
@@ -76,10 +84,10 @@ if __name__ == "__main__":
 	click_panels_dct = gen_click_panels.get_dct()
 	
 	# get movie panels...
-	movie_panels_dct = gen_movie_panels.get_dct()
+	movie_panels_dct = gen_movie_panels.get_dct( )
 	
 	# get slide shows...
-	slide_shows_dct = gen_slide_shows.get_dct()
+	slide_shows_dct = gen_slide_shows.get_dct( pagekeys )
 
 	# get old template schema...
 	template_dct = gen_templates.get_dct()
@@ -88,13 +96,8 @@ if __name__ == "__main__":
 	template_assets_dct = gen_template_assets.get_dct()
 
 	# get old pages template dct..
-	page_templates_dct = gen_page_templates.get_dct()
-
-	# figure out which pages to render...
-	if SUBSET and len(SUBSET)>0:
-		pagekeys = SUBSET
-	else:
-		pagekeys = dct.keys()
+	page_templates_dct = gen_page_templates.get_dct( pagekeys )
+	print "PTDCT->", page_templates_dct
 
 	# iterate over all pages or subset...
 	for page_name in pagekeys:

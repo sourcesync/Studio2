@@ -1,4 +1,10 @@
 import urllib2
+import urlparse
+import os
+
+CACHE_DIR = "cache"
+
+USE_CACHE = False
 
 def emit_line(str):
 	return "%s\n" % str
@@ -21,8 +27,23 @@ def gen_page( filename, style, content ):
 	print "INFO: Wrote file->", filename
 
 def parse_spreadsheet1 ( url ):
-	response = urllib2.urlopen( url )
-        data = response.read()
+	print "Getting->", url
+	parts = urlparse.urlparse(url)
+	cache_name = parts.query.replace("=","_")
+	cache_name = cache_name.replace("&","_")
+	cache_file = os.path.join( CACHE_DIR, cache_name )
+	if os.path.exists( cache_file ) and USE_CACHE:
+		f = open( cache_file, 'r')
+		data = f.read()
+		f.close()
+	else: 
+		response = urllib2.urlopen( url )
+        	data = response.read()
+		f = open( cache_file, 'w')
+		f.write( data )
+		f.flush()
+		f.close()
+
         lines = data.split("\n")
 
 	# assume first line is header info...

@@ -35,10 +35,20 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 	tot_content = ""
 	for item in item_def:
 		asn = item["asset_name"]
+
 		if asn.startswith("img"):
 			style, content = gen_images.expand_item( accum_ids, item, images_dct )
 			tot_style += style
 			tot_content += content
+
+		elif asn.startswith("mp"):
+			style, content = gen_movie_panels.expand_item( accum_ids, item, images_dct )
+			tot_style += style
+			tot_content += content
+
+		else:
+			print "ERROR: Cannot process asset->", item
+			sys.exit(0)
 
 	return [ tot_style, tot_content ]
 

@@ -3,7 +3,7 @@
 # Configuration...
 #
 
-SLIDE_SHOW_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGluSVVuQmpBUEhiQnV4REtxOEVSVWc&output=csv"
+SLIDE_SHOW_DEFS = { "whoweare": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEdJVkZzYkRNNF9vdllIVlFYYVFQVFE&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../movies"
@@ -16,6 +16,7 @@ import common
 import os
 import sys
 import gen_images
+import gen_movie_panels
 
 def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct, click_panels_dct, slide_shows_dct ):
 
@@ -62,8 +63,9 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 		pagedef = item_def[str(dopage)]
 
 		for page_item in pagedef:
+			#print "SS page item->", page_item	
 			page_asset_name = page_item["asset_name"]
-
+	
 			if ( page_asset_name.startswith("img") ):
 
 				# determine script, if any...
@@ -78,9 +80,19 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 						sys.exit(1)
 	
 				style, content = gen_images.expand_item( accum_ids, page_item, images_dct, script)
-
 				tot_style += style
 				tot_content += content
+
+			elif ( page_asset_name.startswith("mp") ):
+				
+				style, content = gen_movie_panels.expand_item( accum_ids, page_item, images_dct, movies_dct, movie_panels_dct )
+				tot_style += style
+				tot_content += content
+				
+
+			else:
+				print "ERROR: Cannot process->", page_item
+				sys.exit(1)
 
 		tot_content  += common.emit_line("</div>")
 
@@ -97,10 +109,17 @@ def get_item_path( name, images_dct ):
         fpath = fpath.replace("MOVIES2",MOVIES2_PREFIX)
         return fpath
 
-def get_dct():
-	items = common.parse_spreadsheet1( SLIDE_SHOW_DEF )
-	dct = common.dct_join( items,'name','page')
-	return dct
+def get_dct(pagekeys=None):
+	if pagekeys == None:
+		pagekeys = SLIDE_SHOW_DEF.keys()
+	newdct = {}
+	for code in pagekeys:
+		if ( not SLIDE_SHOW_DEFS.has_key(code) ): continue
+		items = common.parse_spreadsheet1( SLIDE_SHOW_DEFS[code] )
+		dct = common.dct_join( items,'name','page')
+		for ky in dct.keys():
+			newdct[ky] = dct[ky]
+	return newdct
 
 if __name__ == "__main__":
 	dct = get_dct()

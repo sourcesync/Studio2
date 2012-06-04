@@ -3,7 +3,11 @@
 # Configuration...
 #
 
-IMAGES_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFd0ZV81SS1yZmZqQnpGdVBUeTlvVEE&output=csv"
+#IMAGES_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFd0ZV81SS1yZmZqQnpGdVBUeTlvVEE&output=csv"
+
+IMAGES_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFJXcU9NdTFhcFV5MlU2dnpTODdjX2c&output=csv", \
+	"whoweare":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEstNlZoTlN0WXhwbnR6VHpoSGc1Vmc&output=csv", \
+	"sneakpeek":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHdlNS0wOHJ2Q1NzTjRsTF9XU25zSEE&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../movies"
@@ -59,10 +63,16 @@ def get_item_path( name, images_dct ):
         fpath = fpath.replace("MOVIES2",MOVIES2_PREFIX)
         return fpath
 
-def get_dct():
-	items = common.parse_spreadsheet1( IMAGES_DEF )
-	dct = common.dct_join( items,'name')
-	return dct
+def get_dct( pagekeys=None ):
+	if pagekeys==None:
+		pagekeys = IMAGES_DEFS.keys()
+	newdct = {}
+	for code in pagekeys:
+		items = common.parse_spreadsheet1( IMAGES_DEFS[code] )
+		dct = common.dct_join( items,'name')
+		for ky in dct.keys():
+			newdct[ky] = dct[ky]
+	return newdct
 
 if __name__ == "__main__":
 	dct = get_dct()
