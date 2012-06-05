@@ -4,9 +4,8 @@
 
 PAGE_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGQwQ3lkazQ4akh2SDRwVXF5ck1ZWGc&output=csv"
 
-#SUBSET = ["whoweare","etcetera","animation"]
-#SUBSET = ["animation"]
-SUBSET = [ "home","whoweare","sneakpeek"]
+#SUBSET = [ "partners" ]
+SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,"community", "map", "partners", "photos" ]
 
 #
 # Library...

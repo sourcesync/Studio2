@@ -1,5 +1,12 @@
 <html><body>
-<style>#dint {
+<style>#gsbr3 {
+position: absolute;left: 391px;
+top: 215px;
+z-index: 0;
+overflow: hidden;
+border: 0px;
+}
+#dint {
 position: absolute;left: 735px;
 top: 558px;
 z-index: 0;
@@ -35,7 +42,7 @@ overflow: hidden;
 border: 0px;
 visibility: hidden;
 }
-#swv {
+#dwv {
 position: absolute;left: 139px;
 top: 206px;
 z-index: 0;
@@ -85,7 +92,7 @@ overflow: hidden;
 border: 0px;
 visibility: hidden;
 }
-#dcl {
+#scl {
 position: absolute;left: 139px;
 top: 292px;
 z-index: 0;
@@ -231,12 +238,50 @@ z-index: 0;
 overflow: hidden;
 border: 0px;
 }
-#mov_home_reel {
+#img_f1m {
+position: absolute;
+left: 399px;
+top: 230px;
+z-index: 0;
+visibility: visible;
+}
+#img_f1c {
 position: absolute;
 left: 391px;
-top: 212px;
+top: 180px;
+z-index: 0;
+visibility: visible;
+}
+#img_f1t {
+position: absolute;
+left: 511px;
+top: 180px;
+z-index: 0;
+visibility: visible;
+}
+#img_f2m {
+position: absolute;
+left: 403px;
+top: 263px;
+z-index: 0;
+visibility: hidden;
+}
+#img_f2c {
+position: absolute;
+left: 391px;
+top: 180px;
+z-index: 0;
+visibility: hidden;
+}
+#img_f2t {
+position: absolute;
+left: 511px;
+top: 180px;
+z-index: 0;
+visibility: hidden;
 }
 </style>
+<img id=gsbr3 src="assets/main/assets_general/stationary/semiborder_r_3.png" />
 <a href="m01_1.html">
 <img id=dint src="assets/margin_bottom/assets_deselected/d_interactive.png" onmouseover="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_selected/s_interactive.png'" onmouseout="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_deselected/d_interactive.png'"  />
 </a>
@@ -246,7 +291,9 @@ top: 212px;
 </a>
 <img id=logo src="assets/margin_left/assets_deselected/logo.png" />
 <img id=conline src="assets/main/assets_general/moving/underline.png" />
-<img id=swv src="assets/margin_left/assets_selected/s_watchvideo.png" />
+<a href="home.html">
+<img id=dwv src="assets/margin_left/assets_deselected/d_watchvideo.png" onmouseover="document.getElementById('dwvline').style.visibility='visible';document.getElementById('dwvline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dwvline').style.visibility='hidden';"  />
+</a>
 <a href="sneakpeek.html">
 <img id=lm src="assets/margin_top/learnmore.png" />
 </a>
@@ -263,9 +310,7 @@ top: 212px;
 <img id=dan src="assets/margin_bottom/assets_deselected/d_animation.png" onmouseover="document.getElementById('dan').style.visibility='visible';document.getElementById('dan').src='assets/margin_bottom/assets_selected/s_animation.png'" onmouseout="document.getElementById('dan').style.visibility='visible';document.getElementById('dan').src='assets/margin_bottom/assets_deselected/d_animation.png'"  />
 </a>
 <img id=dcomline src="assets/main/assets_general/moving/underline.png" />
-<a href="clients.html">
-<img id=dcl src="assets/margin_left/assets_deselected/d_clients.png" onmouseover="document.getElementById('dcline').style.visibility='visible';document.getElementById('dcline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dcline').style.visibility='hidden';"  />
-</a>
+<img id=scl src="assets/margin_left/assets_selected/s_clients.png" />
 <img id=dphline src="assets/main/assets_general/moving/underline.png" />
 <img id=wo src="assets/margin_bottom/assets_deselected/work.png" />
 <img id=bm src="assets/margin_top/banner_margin.png" />
@@ -301,5 +346,10 @@ top: 212px;
 <a href="photos.html">
 <img id=dph src="assets/margin_left/assets_deselected/d_photos.png" onmouseover="document.getElementById('dphline').style.visibility='visible';document.getElementById('dphline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dphline').style.visibility='hidden';"  />
 </a>
-<video controls id=mov_home_reel poster="assets/main/B/b01_main.png" ><source src="../phil_assets/Home Page/homePage_reel.mov" /></video>
+<img id=img_f1m src="assets/main/F/f01_main.png" onmouseover="" onmouseout="" >
+<img id=img_f1c src="assets/main/F/f01_clients.png" onmouseover="" onmouseout="" >
+<img id=img_f1t src="assets/main/F/f01_testi.png" onclick="document.getElementById('img_f1m').style.visibility='hidden';document.getElementById('img_f1c').style.visibility='hidden';document.getElementById('img_f1t').style.visibility='hidden';document.getElementById('img_f2m').style.visibility='visible';document.getElementById('img_f2c').style.visibility='visible';document.getElementById('img_f2t').style.visibility='visible';" onmouseover="" onmouseout="" >
+<img id=img_f2m src="assets/main/F/f02_main.png" onmouseover="" onmouseout="" >
+<img id=img_f2c src="assets/main/F/f02_clients.png" onclick="document.getElementById('img_f1m').style.visibility='visible';document.getElementById('img_f1c').style.visibility='visible';document.getElementById('img_f1t').style.visibility='visible';document.getElementById('img_f2m').style.visibility='hidden';document.getElementById('img_f2c').style.visibility='hidden';document.getElementById('img_f2t').style.visibility='hidden';" onmouseover="" onmouseout="" >
+<img id=img_f2t src="assets/main/F/f02_testi.png" onmouseover="" onmouseout="" >
 </body></html>

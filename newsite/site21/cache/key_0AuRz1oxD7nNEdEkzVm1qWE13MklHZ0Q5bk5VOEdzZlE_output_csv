@@ -1,0 +1,9 @@
+menu_name,option_name,asset_name,x,y,link,init
+,,,,,,
+partners,,,,,,
+menu_c2d_dirs,c2d,img_d1c,391,180,,visible
+menu_c2d_dirs,c2d,img_d1d,533,180,option:dirs,visible
+menu_c2d_dirs,c2d,img_d1m,402,243,,visible
+menu_c2d_dirs,dirs,img_d4c,391,180,option:c2d,hidden
+menu_c2d_dirs,dirs,img_d4d,533,180,,hidden
+menu_c2d_dirs,dirs,img_d4m,391,215,,hidden

@@ -2,7 +2,10 @@
 # Configuration...
 #
 
-MENUS_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDZCVTJodXFXOXFjMjNFb0o5WnpFTkE&output=csv"
+#MENUS_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDZCVTJodXFXOXFjMjNFb0o5WnpFTkE&output=csv"
+
+MENUS_DEFS = { "clients":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFdDRm1sTDVndGpfcVplamRtRWllU2c&output=csv",\
+	"partners":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEkzVm1qWE13MklHZ0Q5bk5VOEdzZlE&output=csv" }
 
 #
 # Library...
@@ -51,9 +54,10 @@ def expand_option( accum_ids, menu_def, option_name, images_dct, option_script_d
 					sys.exit(1)	
 
 			# determine initial css visibility, if any...
-			init_vis = True
-			if item.has_key("initial_visibility") and item["initial_visibility"]!="":
-				init_vis = item["initial_visibility"] == "1"
+			init_vis = None
+			if item.has_key("init") and item["init"]!="":
+				init_vis = item["init"] 
+			print "MENU->INIT->", init_vis
 			style, content = gen_images.expand_item( accum_ids, item, images_dct, script, init_vis )
 			tot_style += style
 			tot_content += content
@@ -78,10 +82,19 @@ def expand_item(accum_ids, item, images_dct, menus_dct):
 		tot_content += content
 	return [ tot_style, tot_content ]
 
-def get_dct():
-	items = common.parse_spreadsheet1( MENUS_DEF )
-	dct = common.dct_join( items,'menu_name','option_name')
-	return dct
+def get_dct( pagekeys=None ):
+	
+	if pagekeys==None:
+		pagekeys = MENUS_DEFS.keys()
+
+	newdct = {}
+	for code in pagekeys:	
+		if ( not code in pagekeys): continue
+		items = common.parse_spreadsheet1( MENUS_DEFS[code] )
+		dct = common.dct_join( items,'menu_name','option_name')
+		for ky in dct.keys():
+			newdct[ky] = dct[ky]	
+	return newdct
 
 if __name__ == "__main__":
 	dct = get_dct()

@@ -2,9 +2,9 @@ parent page key,sub page key
 ,
 home,subpage_home_movie
 ,
-f01,subpage_clients
+clients,subpage_clients
 ,
-d01,subpage_partners
+partners,subpage_partners
 ,
 m01,subpage_interactive
 ,
@@ -17,3 +17,11 @@ whoweare,subpage_whoweare
 animation,subpage_animation
 ,
 sneakpeek,subpage_sneakpeek
+,
+contacts,subpage_contacts
+,
+community,subpage_community
+,
+map,subpage_map
+,
+photos,subpage_photos

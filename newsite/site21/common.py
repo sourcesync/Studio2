@@ -5,6 +5,7 @@ import os
 CACHE_DIR = "cache"
 
 USE_CACHE = False
+#USE_CACHE = True
 
 def emit_line(str):
 	return "%s\n" % str

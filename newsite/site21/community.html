@@ -1,5 +1,12 @@
 <html><body>
-<style>#dint {
+<style>#line {
+position: absolute;left: 138px;
+top: 438px;
+z-index: 0;
+overflow: hidden;
+border: 0px;
+}
+#dint {
 position: absolute;left: 735px;
 top: 558px;
 z-index: 0;
@@ -35,7 +42,7 @@ overflow: hidden;
 border: 0px;
 visibility: hidden;
 }
-#swv {
+#dwv {
 position: absolute;left: 139px;
 top: 206px;
 z-index: 0;
@@ -56,7 +63,7 @@ z-index: 1;
 overflow: hidden;
 border: 0px;
 }
-#dcom {
+#scom {
 position: absolute;left: 139px;
 top: 426px;
 z-index: 0;
@@ -231,12 +238,20 @@ z-index: 0;
 overflow: hidden;
 border: 0px;
 }
-#mov_home_reel {
+#img_community1 {
 position: absolute;
-left: 391px;
-top: 212px;
+left: 508px;
+top: 261px;
+z-index: 0;
+}
+#img_community2 {
+position: absolute;
+left: 508px;
+top: 261px;
+z-index: 0;
 }
 </style>
+<img id=line src="assets/main/assets_general/moving/underline.png" />
 <a href="m01_1.html">
 <img id=dint src="assets/margin_bottom/assets_deselected/d_interactive.png" onmouseover="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_selected/s_interactive.png'" onmouseout="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_deselected/d_interactive.png'"  />
 </a>
@@ -246,16 +261,16 @@ top: 212px;
 </a>
 <img id=logo src="assets/margin_left/assets_deselected/logo.png" />
 <img id=conline src="assets/main/assets_general/moving/underline.png" />
-<img id=swv src="assets/margin_left/assets_selected/s_watchvideo.png" />
+<a href="home.html">
+<img id=dwv src="assets/margin_left/assets_deselected/d_watchvideo.png" onmouseover="document.getElementById('dwvline').style.visibility='visible';document.getElementById('dwvline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dwvline').style.visibility='hidden';"  />
+</a>
 <a href="sneakpeek.html">
 <img id=lm src="assets/margin_top/learnmore.png" />
 </a>
 <a href="sneakpeek.html">
 <img id=ts src="assets/margin_top/text_sneak.png" />
 </a>
-<a href="community.html">
-<img id=dcom src="assets/margin_left/assets_deselected/d_community.png" onmouseover="document.getElementById('dcomline').style.visibility='visible';document.getElementById('dcomline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dcomline').style.visibility='hidden';"  />
-</a>
+<img id=scom src="assets/margin_left/assets_selected/s_community.png" />
 <a href="sneakpeek.html">
 <img id=td src="assets/margin_top/text_descr.png" />
 </a>
@@ -301,5 +316,6 @@ top: 212px;
 <a href="photos.html">
 <img id=dph src="assets/margin_left/assets_deselected/d_photos.png" onmouseover="document.getElementById('dphline').style.visibility='visible';document.getElementById('dphline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dphline').style.visibility='hidden';"  />
 </a>
-<video controls id=mov_home_reel poster="assets/main/B/b01_main.png" ><source src="../phil_assets/Home Page/homePage_reel.mov" /></video>
+<img id=img_community1 src="assets/main/I/i01_tempmain.png" onmouseover="" onmouseout="" >
+<img id=img_community2 src="assets/main/I/i01_tempmain.png" onmouseover="" onmouseout="" >
 </body></html>

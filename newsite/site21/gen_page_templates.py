@@ -6,7 +6,13 @@
 
 PAGE_TEMPLATE_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFZheXFtTlk1eHhTZDF4cG9jcmRiTHc&output=csv" , \
 	"whoweare":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEM5amE4UFV4WjliQTUzNkcwOW9TOVE&output=csv", \
-	"sneakpeek":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFhUN1gwaVZQVF9UcFpjSXNiZTRIVHc&output=csv" }
+	"sneakpeek":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFhUN1gwaVZQVF9UcFpjSXNiZTRIVHc&output=csv", \
+	"clients":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEJOVGtOUDg3M0p3MFpLUGF4R0dTOGc&output=csv", \
+	"contacts":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEJjZGxQYTZvdzFIemNzZUlkYWdaVVE&output=csv", \
+	"community":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFZlUnE0bFJmdVY2R0hPWjJ1a2lMTWc&output=csv", \
+	"map":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDJfLVRIU0NXOXV6bTVuNGlsMEJZSXc&output=csv", \
+	"partners":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFp2d192TG1GckJBUkR3MzVlSWxpT1E&output=csv", \
+	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFgtRlBjR1dzS19ZWFNLbnBadmtYcGc&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../movies"
