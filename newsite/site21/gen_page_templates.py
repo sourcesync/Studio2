@@ -12,7 +12,9 @@ PAGE_TEMPLATE_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuR
 	"community":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFZlUnE0bFJmdVY2R0hPWjJ1a2lMTWc&output=csv", \
 	"map":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDJfLVRIU0NXOXV6bTVuNGlsMEJZSXc&output=csv", \
 	"partners":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFp2d192TG1GckJBUkR3MzVlSWxpT1E&output=csv", \
-	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFgtRlBjR1dzS19ZWFNLbnBadmtYcGc&output=csv" }
+	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFgtRlBjR1dzS19ZWFNLbnBadmtYcGc&output=csv", \
+	"etcetera":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFBWV3JXdndDSkpqVTl0ajl3X2EyakE&output=csv", \
+	"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHp0N2ZTemc3YjMySmE4bkdRMk5VT2c&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../movies"

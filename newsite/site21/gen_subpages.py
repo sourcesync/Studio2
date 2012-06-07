@@ -12,17 +12,20 @@ SUB_PAGE_DEFS = { "home":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7
 	"community":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGJRcnZvck00R0dIRXZuYkJDVm5iM3c&output=csv", \
 	"map":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDhzajRpU1JsdlZ2amFyMGlMekw4a2c&output=csv", \
 	"partners":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGpJM1FEVGg3RVhaTHJjcFRwVEtsQXc&output=csv", \
-	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHpGaC1Xam5xeFR1MGpwc05aYU1YZlE&output=csv" }
+	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHpGaC1Xam5xeFR1MGpwc05aYU1YZlE&output=csv", \
+	"etcetera":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFhUTFlOQjVqR0VwRVg4UW9YeGc1d1E&output=csv", \
+	"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHg4NTRKUU90cDZNczRxN0RVeEJDNXc&output=csv" }
 
 #
 # Library...
 #
 import common
 
-def get_dct():
+def get_dct( subset=None ):
 
 	newdct = {}
-	for code in SUB_PAGE_DEFS.keys():
+	if subset==None: subset = SUB_PAGE_DEFS.keys()
+	for code in subset:
 		items = common.parse_spreadsheet1( SUB_PAGE_DEFS[code] )
 		print "SPD->",items
 		dct = common.dct_join( items,'subpage_key')

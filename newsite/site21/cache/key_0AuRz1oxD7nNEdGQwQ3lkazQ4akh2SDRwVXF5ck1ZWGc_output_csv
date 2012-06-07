@@ -25,3 +25,5 @@ community,subpage_community
 map,subpage_map
 ,
 photos,subpage_photos
+,
+interactive,subpage_interactive

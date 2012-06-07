@@ -13,7 +13,9 @@ IMAGES_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7n
 	"community":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEVrOUcxQ3dkMlNzejVGdERYZ2tXb2c&output=csv", \
 	"map":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEZnY3B0UkZnNlFNYTI2TWNBRVJwSUE&output=csv", \
 	"partners":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHNwVmwyMGRRT2xBWkJJcVd2MW93bnc&output=csv", \
-	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDAwTzFCaHZpZDNaT0dPbmtldXdoUlE&output=csv" }
+	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDAwTzFCaHZpZDNaT0dPbmtldXdoUlE&output=csv", \
+	"etcetera":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHR0LV9KX2pHVnR2Y3BVMkl6c1NuU0E&output=csv", \
+	"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGs5U3hqZkZ0VE1RblVTYTJrRndTZlE&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 PHIL_PREFIX = "../phil_assets"
@@ -74,6 +76,7 @@ def mouse_script_item( srcid, val, images_dct ):
 		print "WARNING: Nothing for mouse script item"
 		return ""
 
+
 def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None):
 
 	# get the asset definition...
@@ -123,6 +126,7 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None):
         style += common.emit_line( "position: absolute;")
         style += common.emit_line( "left: %dpx;" % int(x) )
         style += common.emit_line( "top: %dpx;" % int(y) )
+	print "Z->",z
         style += common.emit_line( "z-index: %d;" % int(z) )
 	if init_vis!=None:
 		if init_vis:
@@ -140,8 +144,12 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None):
 	else:
 		content = common.emit_line( "<img id=%s src=\"%s\" onmouseover=\"%s\" onmouseout=\"%s\" >" % \
 			(htmlid,image_path, onmouseover, onmouseout ) )
-		
-        return [ style, content ]
+
+	scriptlet_dct = {}
+	scriptlet_dct['on'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'visible' )
+	scriptlet_dct['off']  = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'hidden' )
+
+        return [ style, content, "", scriptlet_dct ]
 
 def get_item_path( name, images_dct ):
         item_def = images_dct[name][0]
@@ -160,6 +168,7 @@ def get_dct( pagekeys=None ):
 	for code in pagekeys:
 		if not IMAGES_DEFS.has_key(code): continue
 		items = common.parse_spreadsheet1( IMAGES_DEFS[code] )
+		print "it->", code, pagekeys, IMAGES_DEFS[code], type(items), items
 		dct = common.dct_join( items,'name')
 		for ky in dct.keys():
 			newdct[ky] = dct[ky]

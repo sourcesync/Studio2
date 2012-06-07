@@ -1,11 +1,12 @@
 import urllib2
 import urlparse
 import os
+import sys
 
 CACHE_DIR = "cache"
 
-USE_CACHE = False
-#USE_CACHE = True
+#USE_CACHE = False
+USE_CACHE = True
 
 def emit_line(str):
 	return "%s\n" % str
@@ -16,13 +17,16 @@ def get_id(base,ids):
 	while (True):
 		if not (tryname in ids):
 			return tryname
+		else:
+			print "ERROR: Cannot repeat id!", tryname, ids
+			sys.exit(1)
 		counter += 1
 		tryname = "%s_%d" % (base,counter)
-		
 
-def gen_page( filename, style, content ):
+def gen_page( filename, style, content, head_script, load_script ):
 	f = open(filename,'w')
-	f.write("<html><body>\n%s\n%s</body></html>" % (style, content))
+	loader = "function docload () { %s; } \n\n window.onload=docload;" % load_script
+	f.write("<html>\n<body>\n%s\n<script>\n%s\n%s\n</script>\n%s\n</body></html>" % (style, head_script, loader, content))
 	f.flush()
 	f.close()
 	print "INFO: Wrote file->", filename

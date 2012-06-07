@@ -13,7 +13,7 @@ img,wo,work.png,0,assets/margin_bottom/assets_deselected,36,528,0,-1,,
 img,dpr,d_previs.png,0,assets/margin_bottom/assets_deselected,49,560,j01,0,spr:replace,dpr:replace
 img,dan,d_animation.png,0,assets/margin_bottom/assets_deselected,279,560,k01,0,san:replace,dan:replace
 img,dmd,d_motiondesign.png,0,assets/margin_bottom/assets_deselected,508,560,l01,0,smd:replace,dmd:replace
-img,dint,d_interactive.png,0,assets/margin_bottom/assets_deselected,735,558,m01_1,0,sint:replace,dint:replace
+img,dint,d_interactive.png,0,assets/margin_bottom/assets_deselected,735,558,interactive,0,sint:replace,dint:replace
 img,detc,d_etcetera.png,0,assets/margin_bottom/assets_deselected,968,560,etcetera,0,setc:replace,detc:replace
 ,,,,,,,,,,
 img,spr,s_previs.png,1,assets/margin_bottom/assets_selected,49,560,0,0,,
