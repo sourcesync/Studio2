@@ -4,8 +4,8 @@ ss_whoweare,img_c2m,2,406,242,0,
 ss_whoweare,img_c3m,3,405,240,0,
 ss_whoweare,img_c4m,4,405,240,0,
 ss_whoweare,img_c5m,5,405,240,0,
-ss_whoweare,img_cmary,1,939,242,0,page:3
-ss_whoweare,img_cgary,1,939,298,0,page:5
+ss_whoweare,img_cmary,1,939,242,1,page:3
+ss_whoweare,img_cgary,1,939,298,1,page:5
 ,,,,,,
 ss_whoweare,img_gagr,1,880,496,1,page:2
 ss_whoweare,img_gagl,2,880,496,1,page:1

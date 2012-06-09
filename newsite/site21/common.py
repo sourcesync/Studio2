@@ -5,8 +5,8 @@ import sys
 
 CACHE_DIR = "cache"
 
-#USE_CACHE = False
-USE_CACHE = True
+USE_CACHE = False
+#USE_CACHE = True
 
 def emit_line(str):
 	return "%s\n" % str
@@ -17,9 +17,9 @@ def get_id(base,ids):
 	while (True):
 		if not (tryname in ids):
 			return tryname
-		else:
-			print "ERROR: Cannot repeat id!", tryname, ids
-			sys.exit(1)
+		#else:
+		#print "ERROR: Cannot repeat id!", tryname, ids
+		#sys.exit(1)
 		counter += 1
 		tryname = "%s_%d" % (base,counter)
 

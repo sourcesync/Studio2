@@ -44,9 +44,6 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 	# insert parent div...
 	tot_style += common.emit_line("#%s {" % asset_name)
 	tot_style += common.emit_line(" visibility:inherit;")
-	tot_style += common.emit_line(" width:100px;")
-	tot_style += common.emit_line(" height:100px;")
-	tot_style += common.emit_line(" background-color:green;")
 	tot_style += common.emit_line("}")
 	tot_content += common.emit_line("<div id=%s >" % asset_name )
 

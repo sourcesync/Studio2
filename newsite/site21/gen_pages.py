@@ -45,18 +45,19 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
 	for item in page_def:
 
 		scriptlet_dct = {}
+		script = ""
 
 		asset_name = item["asset_name"]
 		if asset_name.startswith("mov"):
 			style, content = gen_movies.expand_item( accum_ids, item, images_dct, movies_dct )
 		elif asset_name.startswith("img"):
-			style, content = gen_images.expand_item( accum_ids, item, images_dct )
+			style, content, script, scriptlet_dct = gen_images.expand_item( accum_ids, item, images_dct )
 		elif asset_name.startswith("menu"):
 			style, content, script, scriptlet_dct  = gen_menus.expand_item( accum_ids, item, images_dct, menus_dct, slide_shows_dct )
 		elif asset_name.startswith("cp"):
 			style, content = gen_click_panels.expand_item( accum_ids, item, images_dct, movies_dct, movie_panels_dct, click_panels_dct )
 		elif asset_name.startswith("ss"):
-			style, content, script = gen_slide_shows.expand_item( accum_ids, item, images_dct, movies_dct, movie_panels_dct, click_panels_dct, slide_shows_dct )
+			style, content, script, scriptlet_dct = gen_slide_shows.expand_item( accum_ids, item, images_dct, movies_dct, movie_panels_dct, click_panels_dct, slide_shows_dct )
 		else:
 			print "ERROR: Unknown asset type->", asset_name
 			sys.exit(1)
