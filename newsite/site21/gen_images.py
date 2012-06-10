@@ -23,7 +23,7 @@ IMAGES_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7n
 MOVIES1_PREFIX = "../phil_assets"
 PHIL_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../movies"
-
+VIDEOS_PREFIX = "../videos"
 
 #
 # Library...
@@ -173,6 +173,7 @@ def get_item_path( name, images_dct ):
         fpath = fpath.replace("PHIL",PHIL_PREFIX)
         fpath = fpath.replace("MOVIES1",MOVIES1_PREFIX)
         fpath = fpath.replace("MOVIES2",MOVIES2_PREFIX)
+        fpath = fpath.replace("VIDEOS",VIDEOS_PREFIX)
         return fpath
 
 def get_dct( pagekeys=None ):

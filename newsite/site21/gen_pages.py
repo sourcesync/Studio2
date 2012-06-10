@@ -6,7 +6,7 @@ PAGE_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGQwQ3lkazQ
 
 #SUBSET = [ "partners" ]
 #SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,"community", "map", "partners", "photos", "etcetera", "interactive" ]
-SUBSET = [ "map" ]
+SUBSET = [ "clients" ]
 
 #
 # Library...

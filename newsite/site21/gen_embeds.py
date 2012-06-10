@@ -54,6 +54,13 @@ def expand_item( accum_ids, asset_def, embeds_dct ):
 		f = open(path,'r')
 		code = f.read()
 		f.close()	
+
+		# insert id...
+		print "CODEVAL-->%s<--" % code, code.startswith("<div ")
+		if ( code.startswith("<div ") ):
+			code = code[0:5] + " id=%s " % htmlid + code[5:]
+			print "REPLACE 1!!", code
+
 	else:
 		print "ERROR: Invalid code value"
 		sys.exit(1)	
@@ -61,7 +68,6 @@ def expand_item( accum_ids, asset_def, embeds_dct ):
         x = get_attr( 'x', asset_name, asset_def, embeds_dct )
         y = get_attr( 'y', asset_name, asset_def, embeds_dct )
         z = get_attr( 'z', asset_name, asset_def, embeds_dct,'0')
-
 	
 	# style...
 	style  = ""
@@ -69,12 +75,11 @@ def expand_item( accum_ids, asset_def, embeds_dct ):
         style += common.emit_line( "position: absolute;")
         style += common.emit_line( "left: %dpx;" % int(x) )
         style += common.emit_line( "top: %dpx;" % int(y) )
-	print "Z->",z
         style += common.emit_line( "z-index: %d;" % int(z) )
 
 	# content...
+
 	content = common.emit_line( code )
-	print "CONTENT->", content
 
 	scriptlet_dct = {}
 	#scriptlet_dct['on'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'visible' )
