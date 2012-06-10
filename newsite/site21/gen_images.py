@@ -133,10 +133,8 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
         style += common.emit_line( "z-index: %d;" % int(z) )
 	if init_vis!=None:
 		if init_vis:
-        		#style += common.emit_line( "visibility: visible;"  )
         		style += common.emit_line( "visibility: %s;" % init_vis  )
 		else:
-        		#style += common.emit_line( "visibility: hidden;"  )
         		style += common.emit_line( "visibility: %s;" % init_vis )
         style += common.emit_line( "}" )
 
@@ -162,6 +160,8 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
 	scriptlet_dct = {}
 	scriptlet_dct['on'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'visible' )
 	scriptlet_dct['off']  = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'hidden' )
+	if init_vis!=None:
+		scriptlet_dct['init'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, init_vis)
 
         return [ style, content, "", scriptlet_dct ]
 

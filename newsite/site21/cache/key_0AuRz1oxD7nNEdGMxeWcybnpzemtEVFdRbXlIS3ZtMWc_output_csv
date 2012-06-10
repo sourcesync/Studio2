@@ -1,0 +1,6 @@
+menu_name,option_name,asset_name,x,y,link,init
+interactive,,,,,,
+menu_animation,first,img_?,?,?,?,visible
+,,,,,,
+,,,,,,
+menu_animation,second,img_?,?,?,?,inherit

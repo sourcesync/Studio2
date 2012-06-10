@@ -245,6 +245,11 @@ left: 392px;
 top: 233px;
 z-index: 0;
 }
+#embed_map {
+position: absolute;
+left: 0px;
+top: 0px;
+z-index: 1;
 </style>
 <script>
 
@@ -318,5 +323,7 @@ function docload () { document.getElementById('img_map').style.visibility = 'vis
 <img id=dph src="assets/margin_left/assets_deselected/d_photos.png" onmouseover="document.getElementById('dphline').style.visibility='visible';document.getElementById('dphline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dphline').style.visibility='hidden';"  />
 </a>
 <img id=img_map src="assets/main/H/h01_main.png" onmouseover="" onmouseout="" >
+<div style="width:300px;height:300px"><iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=12%2BWest%2B27th%2Bst%2BNew%2BYork%2C%2BNY%2B10001(TheStudio)@40.744685,-73.989242&ie=UTF8&z=15&t=m&iwloc=near&output=embed"></iframe><br><table width="300" cellpadding="0" cellspacing="0" border="0"><tr><td align="left"><small><a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=12%2BWest%2B27th%2Bst%2BNew%2BYork%2C%2BNY%2B10001(TheStudio)@40.744685,-73.989242&ie=UTF8&z=15&t=m&iwloc=near">View Larger Map</a></small></td><td align="right"><small><a href="http://www.embedgooglemap.com">embed google map</a></small></td></tr></table></div>
+
 
 </body></html>

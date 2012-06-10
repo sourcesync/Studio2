@@ -6,7 +6,7 @@ PAGE_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGQwQ3lkazQ
 
 #SUBSET = [ "partners" ]
 #SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,"community", "map", "partners", "photos", "etcetera", "interactive" ]
-SUBSET = [ "interactive" ]
+SUBSET = [ "map" ]
 
 #
 # Library...
@@ -21,6 +21,7 @@ import gen_menus
 import gen_movie_panels
 import gen_click_panels
 import gen_slide_shows
+import gen_embeds
 
 # old style...
 import gen_templates
@@ -35,7 +36,7 @@ def get_dct():
 def emitLine(f, str):
 	f.write("%s\n" % str)	
 
-def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, slide_shows_dct ):
+def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, slide_shows_dct, embeds_dct ):
 	accum_body = ""
 	accum_style = ""
 	accum_script = ""	
@@ -52,6 +53,8 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
 			style, content = gen_movies.expand_item( accum_ids, item, images_dct, movies_dct )
 		elif asset_name.startswith("img"):
 			style, content, script, scriptlet_dct = gen_images.expand_item( accum_ids, item, images_dct )
+		elif asset_name.startswith("embed"):
+			style, content, script, scriptlet_dct = gen_embeds.expand_item( accum_ids, item, embeds_dct )
 		elif asset_name.startswith("menu"):
 			style, content, script, scriptlet_dct  = gen_menus.expand_item( accum_ids, item, images_dct, menus_dct, slide_shows_dct )
 		elif asset_name.startswith("cp"):
@@ -61,12 +64,15 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
 		else:
 			print "ERROR: Unknown asset type->", asset_name
 			sys.exit(1)
+
 		accum_style += style
 		accum_body += content
 		accum_script += script
 
 		# deal with page onload scripts...
-		if scriptlet_dct.has_key("on"):
+		if scriptlet_dct.has_key("init"):
+			load_script += scriptlet_dct['init']
+		elif scriptlet_dct.has_key("on"):
 			load_script += scriptlet_dct['on']
 
 	return accum_style, accum_body, accum_script, load_script
@@ -90,6 +96,9 @@ if __name__ == "__main__":
 	# get images...
 	images_dct = gen_images.get_dct( pagekeys )
 
+	# get images...
+	embeds_dct = gen_embeds.get_dct( pagekeys )
+	
 	# get menus...
 	menus_dct = gen_menus.get_dct()
 
@@ -132,7 +141,7 @@ if __name__ == "__main__":
 	
 		# generate the subpage content...	
 		subpage_style, subpage_content, subpage_head_script, subpage_load_script = \
-			gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, slide_shows_dct )
+			gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, slide_shows_dct, embeds_dct )
 
 		# create all the html content...	
 		style = "<style>%s</style>" % (template_style + subpage_style)

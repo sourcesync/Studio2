@@ -1,0 +1,8 @@
+menu_name,option_name,asset_name,x,y,link,init
+previs,,,,,,
+menu_previs,anim_cinem,ss_anim_cinem,?,?,?,?
+menu_previs,anim_cinem,img_?,?,?,?,?
+,,,,,,
+menu_previs,stbd_artists,img_?,?,?,?,?
+,,,,,,
+menu_previs,char_dev,img_?,?,?,?,?
