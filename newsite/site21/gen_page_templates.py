@@ -15,7 +15,9 @@ PAGE_TEMPLATE_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuR
 	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFgtRlBjR1dzS19ZWFNLbnBadmtYcGc&output=csv", \
 	"etcetera":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFBWV3JXdndDSkpqVTl0ajl3X2EyakE&output=csv", \
 	"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHp0N2ZTemc3YjMySmE4bkdRMk5VT2c&output=csv", \
-	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHRjelI1SGw0ZDhXOEhYUHhxRnBPV0E&output=csv" \
+	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHRjelI1SGw0ZDhXOEhYUHhxRnBPV0E&output=csv", \
+	"motiondesign":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDZQRHBXbFhWLWV4Z3B5NkRRTDI3ZFE&output=csv", \
+	"animation":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdE9XeFA2Sl9qZHZNWEcxYTBGcEszRWc&output=csv" \
 	}
 
 MOVIES1_PREFIX = "../phil_assets"
