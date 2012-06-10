@@ -2,8 +2,9 @@
 # Configuration...
 #
 
-SLIDE_SHOW_DEFS = { "whoweare": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEdJVkZzYkRNNF9vdllIVlFYYVFQVFE&output=csv",
-	"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDNWT3dveVQxaWdjV1dHY3ZUSnp6VkE&output=csv" }
+SLIDE_SHOW_DEFS = { "whoweare": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEdJVkZzYkRNNF9vdllIVlFYYVFQVFE&output=csv", \
+	"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDNWT3dveVQxaWdjV1dHY3ZUSnp6VkE&output=csv", \
+	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGVJVWlwNS1iN0M4ZjJGbFNIb1MxWVE&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../movies"
@@ -77,15 +78,22 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 			
 			if ( page_asset_name.startswith("img") ):
 
-				# determine script, if any...
+				# determine script, ahref, if any...
 				script = None
+				ahref = None
 				if page_item.has_key("link") and page_item["link"]!="":
 					link = page_item["link"]
-					ltype,parm = link.split(":")
-					if ltype=="page":
+					print "LINKLINK->", link
+					if link.startswith("page"):
+						ltype,parm = link.split(":")
 						funcname = "func_%s_%s" % ( asset_name, parm )
 						test = action_scripts[funcname]
 						script = "%s ();" % funcname
+					elif link.startswith("url"):
+						idx = link.find(":")+1
+						url = link[idx:]
+						print "URL->", url
+						ahref = url
 					else:
 						print "ERROR: unknown link type", ltype
 						sys.exit(1)
@@ -93,7 +101,7 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 				# determine init vis, if any...
 				init_vis = "inherit"
 	
-				style, content, script, scriptlet_dct = gen_images.expand_item( accum_ids, page_item, images_dct, script, init_vis )
+				style, content, script, scriptlet_dct = gen_images.expand_item( accum_ids, page_item, images_dct, script, init_vis, ahref )
 				tot_style += style
 				tot_content += content
 				tot_scripts += script

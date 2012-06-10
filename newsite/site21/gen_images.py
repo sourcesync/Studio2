@@ -15,7 +15,8 @@ IMAGES_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7n
 	"partners":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHNwVmwyMGRRT2xBWkJJcVd2MW93bnc&output=csv", \
 	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDAwTzFCaHZpZDNaT0dPbmtldXdoUlE&output=csv", \
 	"etcetera":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHR0LV9KX2pHVnR2Y3BVMkl6c1NuU0E&output=csv", \
-	"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGs5U3hqZkZ0VE1RblVTYTJrRndTZlE&output=csv" }
+	"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGs5U3hqZkZ0VE1RblVTYTJrRndTZlE&output=csv", \
+	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDRPby1XeDZHckd6bW1FcWZrcHFOM0E&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 PHIL_PREFIX = "../phil_assets"
@@ -77,7 +78,7 @@ def mouse_script_item( srcid, val, images_dct ):
 		return ""
 
 
-def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None):
+def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, ahref=None ):
 
 	# get the asset definition...
         asset_name = asset_def["asset_name"]
@@ -137,13 +138,24 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None):
         		style += common.emit_line( "visibility: %s;" % init_vis )
         style += common.emit_line( "}" )
 
+	# content...
+	content = ""
+
+	# a href...
+	if ahref:
+		content += common.emit_line("<a href=%s >\n" % ahref )
+
 	# onclick script...
 	if onclick:
-		content = common.emit_line( "<img id=%s src=\"%s\" onclick=\"%s\" onmouseover=\"%s\" onmouseout=\"%s\" >" % \
+		content += common.emit_line( "<img id=%s src=\"%s\" onclick=\"%s\" onmouseover=\"%s\" onmouseout=\"%s\" >" % \
 			(htmlid,image_path, onclick, onmouseover, onmouseout) )
 	else:
-		content = common.emit_line( "<img id=%s src=\"%s\" onmouseover=\"%s\" onmouseout=\"%s\" >" % \
+		content += common.emit_line( "<img id=%s src=\"%s\" onmouseover=\"%s\" onmouseout=\"%s\" >" % \
 			(htmlid,image_path, onmouseover, onmouseout ) )
+
+	# end a href...	
+	if ahref:
+		content += common.emit_line("</a>\n" )
 
 	scriptlet_dct = {}
 	scriptlet_dct['on'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'visible' )

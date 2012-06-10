@@ -14,7 +14,9 @@ SUB_PAGE_DEFS = { "home":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7
 	"partners":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGpJM1FEVGg3RVhaTHJjcFRwVEtsQXc&output=csv", \
 	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHpGaC1Xam5xeFR1MGpwc05aYU1YZlE&output=csv", \
 	"etcetera":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFhUTFlOQjVqR0VwRVg4UW9YeGc1d1E&output=csv", \
-	"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHg4NTRKUU90cDZNczRxN0RVeEJDNXc&output=csv" }
+	"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHg4NTRKUU90cDZNczRxN0RVeEJDNXc&output=csv", \
+	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFlmQ0NTU012Q192MW82X1dsLWgxTmc&output=csv" \
+	}
 
 #
 # Library...
