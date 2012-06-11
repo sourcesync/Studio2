@@ -57,13 +57,18 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 
 			# determine the script, if any...
 			script = None
+			ahref = None
 			if item.has_key("link") and item["link"]!="":
         			link = item["link"]
-                		ltype,parm = link.split(":")
-                		if ltype=="option":
+                		if link.startswith("option:"):
+                			ltype,parm = link.split(":")
 					funcname = "func_%s_%s" % (menu_name, parm)
                         		test = action_scripts[funcname]
 					script = "%s ();" % funcname
+				elif link.startswith("url:"):
+					idx = link.find(":") + 1
+					ahref = link[idx:]		
+					print "MENUS AHREF->", ahref
 				else:
 					print "ERROR: Unknown link type"
 					sys.exit(1)	
@@ -72,7 +77,7 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 			init_vis = None
 			if item.has_key("init") and item["init"]!="":
 				init_vis = item["init"] 
-			style, content, script, scriptlet_dct = gen_images.expand_item( accum_ids, item, images_dct, script, init_vis )
+			style, content, script, scriptlet_dct = gen_images.expand_item( accum_ids, item, images_dct, script, init_vis, ahref )
 
 			tot_style += style
 			tot_content += content
@@ -151,7 +156,6 @@ def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct ):
 	# scriptlet dct...
 	scriptlet_dct = {}
 	scriptlet_dct['off'] = tot_off
-	print type(tot_off), type(init_script)
 	scriptlet_dct['on'] = tot_off + init_script
 
 	return [ tot_style, tot_content, tot_script, scriptlet_dct ]

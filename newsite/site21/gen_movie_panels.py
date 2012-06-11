@@ -2,7 +2,8 @@
 # Configuration...
 #
 
-MOVIES_PANEL_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHpERzFkdWxHMGpobXAzMHp3dkVNWkE&output=csv"
+MOVIE_PANEL_DEFS = { \
+	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEg4VGhhZzVKNU5JdmE4ejhfLUNtVmc&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../movies"
@@ -14,11 +15,19 @@ import common
 import os
 import sys
 import gen_movies
+import gen_images
 
-def get_dct():
-	items = common.parse_spreadsheet1( MOVIES_PANEL_DEF )
-	dct = common.dct_join( items,'name')
-	return dct
+def get_dct( pagekeys=None ):
+        if pagekeys==None:
+                pagekeys = MOVIE_PANEL_DEFS.keys()
+        newdct = {}
+        for code in pagekeys:
+                if not MOVIE_PANEL_DEFS.has_key(code): continue
+                items = common.parse_spreadsheet1( MOVIE_PANEL_DEFS[code] )
+                dct = common.dct_join( items,'name')
+                for ky in dct.keys():
+                        newdct[ky] = dct[ky]
+        return newdct
 
 def get_item_path( name, movies_dct ):
 	item_def = movies_dct[name][0]
@@ -46,6 +55,11 @@ def expand_item( accum_ids, page_item, images_dct, movies_dct, movie_panels_dct 
 		asn = item["asset_name"]
 		if asn.startswith("mov"):
 			style, content = gen_movies.expand_item( accum_ids, item, images_dct, movies_dct )
+			tot_style += style
+			tot_content += content
+		
+		elif asn.startswith("img"):
+			style, content, foo, scriptlet_dct = gen_images.expand_item( accum_ids, item, images_dct, None, None, None )
 			tot_style += style
 			tot_content += content
 

@@ -27,3 +27,5 @@ map,subpage_map
 photos,subpage_photos
 ,
 interactive,subpage_interactive
+,
+animation_gallery,subpage_animation_gallery

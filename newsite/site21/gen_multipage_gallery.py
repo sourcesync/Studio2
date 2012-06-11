@@ -3,23 +3,7 @@
 # Configuration...
 #
 
-#IMAGES_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFd0ZV81SS1yZmZqQnpGdVBUeTlvVEE&output=csv"
-
-IMAGES_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFJXcU9NdTFhcFV5MlU2dnpTODdjX2c&output=csv", \
-	"whoweare":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEstNlZoTlN0WXhwbnR6VHpoSGc1Vmc&output=csv", \
-	"sneakpeek":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHdlNS0wOHJ2Q1NzTjRsTF9XU25zSEE&output=csv", \
-	"clients":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFRjOXdiRFJEazRadTh5ZFlIbk1CTVE&output=csv", \
-	"contacts":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDN6d2xaYktMSlBCZnpqaXJGOEVnY0E&output=csv", \
-	"community":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEVrOUcxQ3dkMlNzejVGdERYZ2tXb2c&output=csv", \
-	"map":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEZnY3B0UkZnNlFNYTI2TWNBRVJwSUE&output=csv", \
-	"partners":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHNwVmwyMGRRT2xBWkJJcVd2MW93bnc&output=csv", \
-	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDAwTzFCaHZpZDNaT0dPbmtldXdoUlE&output=csv", \
-	"etcetera":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHR0LV9KX2pHVnR2Y3BVMkl6c1NuU0E&output=csv", \
-	"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGs5U3hqZkZ0VE1RblVTYTJrRndTZlE&output=csv", \
-	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDRPby1XeDZHckd6bW1FcWZrcHFOM0E&output=csv", \
-	"motiondesign":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHJ1eUlfN2FNNFVDdnN2RVduOEFBNXc&output=csv", \
-	"animation":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHlEV3RzRjJINmFpREo5SWtFajBvbGc&output=csv", \
-	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdG9ncThyNTRrMXIwdGJnYkpDUzhVZ1E&output=csv" }
+MPG_DEFS = { "animation_gallery": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGR5RGRySEhpenV1Z3ZocklGZTF3ekE&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 PHIL_PREFIX = "../phil_assets"
@@ -31,7 +15,11 @@ VIDEOS_PREFIX = "../videos"
 #
 import common
 import os
+import sys
 
+import gen_movie_panels
+import gen_movies
+import gen_images
 
 def get_attr( prop, asset_name, asset_def, images_dct, default=None):
 	if asset_def.has_key(prop):
@@ -46,39 +34,6 @@ def get_attr( prop, asset_name, asset_def, images_dct, default=None):
 			return default
 		else:
 			return False
-
-def click_script_item( target, operation, src, images_dct ):
-        info = images_dct[ src ][0]
-        fpath = os.path.join( info['path'], info['filename'] )
-	fpath = fpath.replace("PHIL",PHIL_PREFIX)
-        script = "document.getElementById('%s').src='%s';document.getElementById('%s').style.visibility='visible';" % (target,fpath,target)
-        return script
-
-def mouse_script_item( srcid, val, images_dct ):
-	anim = val.split(":")
-        a = anim[0]
-        b = anim[1]
-        if (b=="show"):
-                nm = a
-                info = images_dct.has_key(nm)
-                fpath = os.path.join( info['path'], info['filename'] )
-		fpath = fpath.replace("PHIL", PHIL_PREFIX )
-                script = "document.getElementById('%s').style.visibility='visible';document.getElementById('%s').src='%s'" % (nm,nm,fpath)
-		return script
-        elif ( b=="hide"):
-                nm = a
-                script = "document.getElementById('%s').style.visibility='hidden';" % nm
-		return script
-        elif ( b=="replace" ):
-                nm = a
-                info = images_dct[nm][0]
-                fpath = os.path.join( info['path'], info['filename'] )
-		fpath = fpath.replace("PHIL", PHIL_PREFIX )
-                script = "document.getElementById('%s').style.visibility='visible';document.getElementById('%s').src='%s'" % (srcid,srcid,fpath)
-        	return script
-	else:
-		print "WARNING: Nothing for mouse script item"
-		return ""
 
 
 def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, ahref=None ):
@@ -173,14 +128,63 @@ def get_item_path( name, images_dct ):
         fpath = fpath.replace("VIDEOS",VIDEOS_PREFIX)
         return fpath
 
+def gen_page( multipage_def, multipage_style, multipage_content, mp_dct, movies_dct, img_dct ):
+
+	# iterate over pages...
+	for page_def in multipage_def:
+
+		accum_ids = []
+	
+		# intialize page style and content from template...
+		tot_style = multipage_style
+		tot_content = multipage_content
+
+		# expand each asset...
+		if page_def['asset_name'].startswith("mp"):
+			style, content = gen_movie_panels.expand_item( accum_ids, page_def, img_dct, movies_dct, mp_dct )
+
+			tot_style += style
+			tot_content += content
+
+		else:
+			print "ERROR: Cannot process this asset type->", page_def
+			sys.exit(1)
+
+
+
+
+		# create all the html content...
+                style = "<style>%s</style>" % (tot_style)
+                content = tot_content
+                head_script = "" #subpage_head_script
+                load_script  = "" #subpage_load_script
+
+		# get the page name...
+		page_name = page_def['page_name']
+
+                # write the file...
+                common.gen_page( "%s.html" % page_name, style, content, head_script, load_script )
+
+
+def gen_pages( multipage_style, multipage_content, mp_dct, movies_dct, img_dct ):
+	mpgs_dct = get_dct()
+
+	# iterate over all multipage sets ( or subset )...
+	for key in mpgs_dct.keys():
+		multipage_def = mpgs_dct[key]
+		print "MULTIPAGE DCT->", multipage_def
+
+		# generate the pages for this set...
+		gen_page( multipage_def, multipage_style, multipage_content, mp_dct, movies_dct, img_dct )
+
 def get_dct( pagekeys=None ):
 	if pagekeys==None:
-		pagekeys = IMAGES_DEFS.keys()
+		pagekeys = MPG_DEFS.keys()
 	newdct = {}
 	for code in pagekeys:
-		if not IMAGES_DEFS.has_key(code): continue
-		items = common.parse_spreadsheet1( IMAGES_DEFS[code] )
-		dct = common.dct_join( items,'name')
+		if not MPG_DEFS.has_key(code): continue
+		items = common.parse_spreadsheet1( MPG_DEFS[code] )
+		dct = common.dct_join( items,'multipage_key')
 		for ky in dct.keys():
 			newdct[ky] = dct[ky]
 	return newdct

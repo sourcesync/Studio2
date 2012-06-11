@@ -83,7 +83,6 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 				ahref = None
 				if page_item.has_key("link") and page_item["link"]!="":
 					link = page_item["link"]
-					print "LINKLINK->", link
 					if link.startswith("page"):
 						ltype,parm = link.split(":")
 						funcname = "func_%s_%s" % ( asset_name, parm )
@@ -92,7 +91,6 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 					elif link.startswith("url"):
 						idx = link.find(":")+1
 						url = link[idx:]
-						print "URL->", url
 						ahref = url
 					else:
 						print "ERROR: unknown link type", ltype
@@ -145,7 +143,6 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 	# accumulate the scriptlet dct for this control...
 	scriptlet_dct = {}
 	scriptlet_dct['on'] = all_off + init_script
-	print "SCRIPTDCT ON->", scriptlet_dct['on']
 	scriptlet_dct['off'] = all_off
 
 	# finalize the global action script dct for this control...

@@ -6,7 +6,7 @@ PAGE_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGQwQ3lkazQ
 
 #SUBSET = [ "partners" ]
 #SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,"community", "map", "partners", "photos", "etcetera", "interactive" ]
-SUBSET = [ "clients" ]
+SUBSET = [ "animation", "animation_gallery" ]
 
 #
 # Library...
@@ -22,6 +22,7 @@ import gen_movie_panels
 import gen_click_panels
 import gen_slide_shows
 import gen_embeds
+import gen_multipage_gallery
 
 # old style...
 import gen_templates
@@ -49,18 +50,26 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
 		script = ""
 
 		asset_name = item["asset_name"]
+
 		if asset_name.startswith("mov"):
 			style, content = gen_movies.expand_item( accum_ids, item, images_dct, movies_dct )
+
 		elif asset_name.startswith("img"):
 			style, content, script, scriptlet_dct = gen_images.expand_item( accum_ids, item, images_dct )
+
 		elif asset_name.startswith("embed"):
 			style, content, script, scriptlet_dct = gen_embeds.expand_item( accum_ids, item, embeds_dct )
+
 		elif asset_name.startswith("menu"):
 			style, content, script, scriptlet_dct  = gen_menus.expand_item( accum_ids, item, images_dct, menus_dct, slide_shows_dct )
+
 		elif asset_name.startswith("cp"):
 			style, content = gen_click_panels.expand_item( accum_ids, item, images_dct, movies_dct, movie_panels_dct, click_panels_dct )
+
 		elif asset_name.startswith("ss"):
-			style, content, script, scriptlet_dct = gen_slide_shows.expand_item( accum_ids, item, images_dct, movies_dct, movie_panels_dct, click_panels_dct, slide_shows_dct )
+			style, content, script, scriptlet_dct = \
+				gen_slide_shows.expand_item( accum_ids, item, images_dct, movies_dct, movie_panels_dct, click_panels_dct, slide_shows_dct )
+
 		else:
 			print "ERROR: Unknown asset type->", asset_name
 			sys.exit(1)
@@ -119,7 +128,6 @@ if __name__ == "__main__":
 
 	# get old pages template dct..
 	page_templates_dct = gen_page_templates.get_dct( pagekeys )
-	print "PTDCT->", page_templates_dct
 
 	# iterate over all pages or subset...
 	for page_name in pagekeys:
@@ -129,7 +137,7 @@ if __name__ == "__main__":
 
 		# get the template based content...
 		template_style, template_content = gen_page_templates.render_page( accum_ids, page_name, page_templates_dct, template_dct, template_assets_dct )
-	
+
 		# get the subpage items...	
 		page_def = []
 		page_subpage_items = dct[page_name]
@@ -138,18 +146,24 @@ if __name__ == "__main__":
 			subpage_items = subpages_dct[ subpage_key ]
 			for subpage_item in subpage_items:
 				page_def.append( subpage_item )
-	
-		# generate the subpage content...	
-		subpage_style, subpage_content, subpage_head_script, subpage_load_script = \
-			gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, slide_shows_dct, embeds_dct )
 
-		# create all the html content...	
-		style = "<style>%s</style>" % (template_style + subpage_style)
-		content = template_content + subpage_content
-		head_script = subpage_head_script
-		load_script  = subpage_load_script
+		print "PAGE_DEF->", page_def
+		if page_def[0]['asset_name'] == "mpg_animation_gallery":
+			
+			gen_multipage_gallery.gen_pages( template_style, template_content, movie_panels_dct, movies_dct, images_dct )
 
-		# write the file...
-		common.gen_page( "%s.html" % page_name, style, content, head_script, load_script )
+		else:
+			# generate the subpage content...	
+			subpage_style, subpage_content, subpage_head_script, subpage_load_script = \
+				gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, slide_shows_dct, embeds_dct )
+
+			# create all the html content...	
+			style = "<style>%s</style>" % (template_style + subpage_style)
+			content = template_content + subpage_content
+			head_script = subpage_head_script
+			load_script  = subpage_load_script
+
+			# write the file...
+			common.gen_page( "%s.html" % page_name, style, content, head_script, load_script )
 	
 		
