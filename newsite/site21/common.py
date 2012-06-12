@@ -17,9 +17,9 @@ def get_id(base,ids):
 	while (True):
 		if not (tryname in ids):
 			return tryname
-		#else:
-		#print "ERROR: Cannot repeat id!", tryname, ids
-		#sys.exit(1)
+		else:
+			print "ERROR: Cannot repeat id!", tryname, ids
+			sys.exit(1)
 		counter += 1
 		tryname = "%s_%d" % (base,counter)
 
@@ -31,8 +31,11 @@ def gen_page( filename, style, content, head_script, load_script ):
 	f.close()
 	print "INFO: Wrote file->", filename
 
-def parse_spreadsheet1 ( url ):
-	print "Getting->", url
+def parse_spreadsheet1 ( url, descr=None ):
+	if descr:
+		print "Common: Getting %s ->" % descr, url
+	else:
+		print "Common: Getting->", url
 	parts = urlparse.urlparse(url)
 	cache_name = parts.query.replace("=","_")
 	cache_name = cache_name.replace("&","_")

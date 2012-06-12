@@ -1,8 +1,8 @@
 <html>
 <body>
-<style>#gxbb {
-position: absolute;left: 1171px;
-top: 215px;
+<style>#line {
+position: absolute;left: 138px;
+top: 260px;
 z-index: 0;
 overflow: hidden;
 border: 0px;
@@ -225,13 +225,6 @@ z-index: 0;
 overflow: hidden;
 border: 0px;
 }
-#se {
-position: absolute;left: 1015px;
-top: 163px;
-z-index: 0;
-overflow: hidden;
-border: 0px;
-}
 #dph {
 position: absolute;left: 139px;
 top: 270px;
@@ -239,62 +232,36 @@ z-index: 0;
 overflow: hidden;
 border: 0px;
 }
-#img_d4c {
+#img_d4d {
 position: absolute;
 left: 391px;
 top: 180px;
 z-index: 0;
 visibility: hidden;
 }
-#img_d4d {
-position: absolute;
-left: 533px;
-top: 180px;
-z-index: 0;
-visibility: hidden;
-}
-#img_d4m {
+#img_directors_main {
 position: absolute;
 left: 391px;
 top: 215px;
-z-index: 0;
+z-index: 1;
 visibility: hidden;
 }
-#img_d1c {
+#mov_directors {
 position: absolute;
-left: 391px;
-top: 180px;
-z-index: 0;
-visibility: visible;
-}
-#img_d1d {
-position: absolute;
-left: 533px;
-top: 180px;
-z-index: 0;
-visibility: visible;
-}
-#img_d1m {
-position: absolute;
-left: 402px;
-top: 243px;
-z-index: 0;
-visibility: visible;
+left: 393px;
+top: 215px;
+z-index: 1;
 }
 </style>
 <script>
 
 
-function func_menu_c2d_dirs_dirs () { document.getElementById('img_d4c').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_d4m').style.visibility = 'hidden';document.getElementById('img_d1c').style.visibility = 'hidden';document.getElementById('img_d1d').style.visibility = 'hidden';document.getElementById('img_d1m').style.visibility = 'hidden';document.getElementById('img_d4c').style.visibility = 'visible';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_d4m').style.visibility = 'visible'; };
-
-function func_menu_c2d_dirs_c2d () { document.getElementById('img_d4c').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_d4m').style.visibility = 'hidden';document.getElementById('img_d1c').style.visibility = 'hidden';document.getElementById('img_d1d').style.visibility = 'hidden';document.getElementById('img_d1m').style.visibility = 'hidden';document.getElementById('img_d1c').style.visibility = 'visible';document.getElementById('img_d1d').style.visibility = 'visible';document.getElementById('img_d1m').style.visibility = 'visible'; };
-function docload () { document.getElementById('img_d4c').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_d4m').style.visibility = 'hidden';document.getElementById('img_d1c').style.visibility = 'hidden';document.getElementById('img_d1d').style.visibility = 'hidden';document.getElementById('img_d1m').style.visibility = 'hidden';document.getElementById('img_d4c').style.visibility = 'visible';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_d4m').style.visibility = 'visible';; } 
+function func_menu_c2d_dirs_dirs () { document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_directors_main').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_directors_main').style.visibility = 'visible'; };
+function docload () { document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_directors_main').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_directors_main').style.visibility = 'visible';; } 
 
  window.onload=docload;
 </script>
-<a href="link.html">
-<img id=gxbb src="assets/main/assets_general/stationary/xbox_b.png" />
-</a>
+<img id=line src="assets/main/assets_general/moving/underline.png" />
 <a href="interactive.html">
 <img id=dint src="assets/margin_bottom/assets_deselected/d_interactive.png" onmouseover="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_selected/s_interactive.png'" onmouseout="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_deselected/d_interactive.png'"  />
 </a>
@@ -319,7 +286,7 @@ function docload () { document.getElementById('img_d4c').style.visibility = 'hid
 <a href="sneakpeek.html">
 <img id=td src="assets/margin_top/text_descr.png" />
 </a>
-<a href="k01.html">
+<a href="animation.html">
 <img id=dan src="assets/margin_bottom/assets_deselected/d_animation.png" onmouseover="document.getElementById('dan').style.visibility='visible';document.getElementById('dan').src='assets/margin_bottom/assets_selected/s_animation.png'" onmouseout="document.getElementById('dan').style.visibility='visible';document.getElementById('dan').src='assets/margin_bottom/assets_deselected/d_animation.png'"  />
 </a>
 <img id=dcomline src="assets/main/assets_general/moving/underline.png" />
@@ -340,10 +307,10 @@ function docload () { document.getElementById('img_d4c').style.visibility = 'hid
 </a>
 <img id=dpaline src="assets/main/assets_general/moving/underline.png" />
 <img id=fo src="assets/margin_bottom/assets_deselected/footer.png" />
-<a href="l01.html">
+<a href="motiondesign.html">
 <img id=dmd src="assets/margin_bottom/assets_deselected/d_motiondesign.png" onmouseover="document.getElementById('dmd').style.visibility='visible';document.getElementById('dmd').src='assets/margin_bottom/assets_selected/s_motiondesign.png'" onmouseout="document.getElementById('dmd').style.visibility='visible';document.getElementById('dmd').src='assets/margin_bottom/assets_deselected/d_motiondesign.png'"  />
 </a>
-<a href="j01.html">
+<a href="previs.html">
 <img id=dpr src="assets/margin_bottom/assets_deselected/d_previs.png" onmouseover="document.getElementById('dpr').style.visibility='visible';document.getElementById('dpr').src='assets/margin_bottom/assets_selected/s_previs.png'" onmouseout="document.getElementById('dpr').style.visibility='visible';document.getElementById('dpr').src='assets/margin_bottom/assets_deselected/d_previs.png'"  />
 </a>
 <img id=dwwaline src="assets/main/assets_general/moving/underline.png" />
@@ -355,15 +322,11 @@ function docload () { document.getElementById('img_d4c').style.visibility = 'hid
 <img id=dmapline src="assets/main/assets_general/moving/underline.png" />
 <img id=dwvline src="assets/main/assets_general/moving/underline.png" />
 <img id=con src="assets/margin_left/assets_deselected/contact.png" />
-<img id=se src="assets/margin_top/search.png" />
 <a href="photos.html">
 <img id=dph src="assets/margin_left/assets_deselected/d_photos.png" onmouseover="document.getElementById('dphline').style.visibility='visible';document.getElementById('dphline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dphline').style.visibility='hidden';"  />
 </a>
-<img id=img_d4c src="assets/main/D/d04_c2d.png" onclick="func_menu_c2d_dirs_c2d ();" onmouseover="" onmouseout="" >
 <img id=img_d4d src="assets/main/D/d04_directors.png" onmouseover="" onmouseout="" >
-<img id=img_d4m src="assets/main/D/d04_main.png" onmouseover="" onmouseout="" >
-<img id=img_d1c src="assets/main/D/d01_c2d.png" onmouseover="" onmouseout="" >
-<img id=img_d1d src="assets/main/D/d01_directors.png" onclick="func_menu_c2d_dirs_dirs ();" onmouseover="" onmouseout="" >
-<img id=img_d1m src="assets/main/D/d01_main.png" onmouseover="" onmouseout="" >
+<img id=img_directors_main src="assets/pages/partners/partners_directors_main.png" onmouseover="" onmouseout="" >
+<video controls id=mov_directors poster="assets/main/D/d04_directors.png" ><source src="../videos/Video Files For Web/REELS/h264/DirectorsReelShort.mov" /></video>
 
 </body></html>

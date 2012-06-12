@@ -1,3 +1,15 @@
-menu_name,option_name,asset_name,x,y,link,init
-interactive,,,,,,
-menu_motiondesign,first,img_?,?,?,?,visible
+menu_name,option_name,asset_name,x,y,link,init,z
+motion design,,,,,,,
+menu_motiondesign,first,img_tfi_thumb,391,243,url:tfi.html,visible,2
+menu_motiondesign,first,img_mymet_thumb,520,243,url:mymet.html,visible,2
+menu_motiondesign,first,img_greenfish_thumb,649,243,url:greenfish.html,visible,2
+menu_motiondesign,first,img_gerber_thumb,778,243,url:gerber.html,visible,2
+menu_motiondesign,first,img_wi_thumb,907,243,url:wi.html,visible,2
+menu_motiondesign,first,img_pfizer_thumb,1036,243,url:pfizer.html,visible,2
+menu_motiondesign,first,img_abc_industrial_thumb,391,368,url:abc_industrial.html,visible,2
+menu_motiondesign,first,img_og_thumb,520,368,url:og.html,visible,2
+menu_motiondesign,first,img_poltron_thumb,649,368,url:poltron.html,visible,2
+menu_motiondesign,first,img_dexnet_thumb,778,368,url:dexnet.html,visible,2
+menu_motiondesign,first,img_particles_thumb,907,368,url:particles.html,visible,2
+menu_motiondesign,first,img_emd_thumb,1036,368,url:emd.html,visible,2
+menu_motiondesign,first,img_captions,426,333,,visible,1

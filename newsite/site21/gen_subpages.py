@@ -18,7 +18,8 @@ SUB_PAGE_DEFS = { "home":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7
 	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFlmQ0NTU012Q192MW82X1dsLWgxTmc&output=csv", \
 	"motiondesign":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdE90aTV1V0h2X0FMM2RRVWtaNHBkNWc&output=csv", \
 	"animation":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGlEWjNVYWM5VlcwcXZ6V3MydzB4Y3c&output=csv", \
-	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDRJbnhOeFZOMjdSMWp1TmZzZVV4S2c&output=csv" \
+	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDRJbnhOeFZOMjdSMWp1TmZzZVV4S2c&output=csv", \
+	"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedHpTS0VGcmxoUnI4ckRwRHA1N2ZpdkE&output=csv" \
 	}
 
 #
@@ -31,7 +32,7 @@ def get_dct( subset=None ):
 	newdct = {}
 	if subset==None: subset = SUB_PAGE_DEFS.keys()
 	for code in subset:
-		items = common.parse_spreadsheet1( SUB_PAGE_DEFS[code] )
+		items = common.parse_spreadsheet1( SUB_PAGE_DEFS[code], "subpages %s" % code )
 		dct = common.dct_join( items,'subpage_key')
 		for ky in dct.keys():
 			newdct[ky] = dct[ky]

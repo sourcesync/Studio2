@@ -6,11 +6,11 @@ clients,subpage_clients
 ,
 partners,subpage_partners
 ,
-m01,subpage_interactive
+interactive,subpage_interactive
 ,
 etcetera,subpage_etcetera
 ,
-k01,subpage_animation
+animation,subpage_animation
 ,
 whoweare,subpage_whoweare
 ,
@@ -26,6 +26,12 @@ map,subpage_map
 ,
 photos,subpage_photos
 ,
-interactive,subpage_interactive
 ,
 animation_gallery,subpage_animation_gallery
+,
+previs,subpage_previs
+,
+motiondesign,subpage_motiondesign
+,
+,
+motiondesign_gallery,subpage_motiondesign_gallery

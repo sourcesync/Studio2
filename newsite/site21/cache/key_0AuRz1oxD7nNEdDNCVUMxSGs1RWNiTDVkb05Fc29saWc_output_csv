@@ -6,13 +6,13 @@ img,bss,o01_banner.png,1,assets/main/O/,616,72,0,1,,
 img,ts,text_sneak.png,0,assets/margin_top,616,72,sneakpeek,1,,
 img,td,text_descr.png,0,assets/margin_top,1006,86,sneakpeek,1,,
 img,lm,learnmore.png,0,assets/margin_top,1096,132,sneakpeek,1,,
-img,se,search.png,0,assets/margin_top,1015,163,0,0,,
+,,,,,,,,,,
 ,,,,,,,,,,
 img,fo,footer.png,0,assets/margin_bottom/assets_deselected,616,717,0,0,,
 img,wo,work.png,0,assets/margin_bottom/assets_deselected,36,528,0,-1,,
-img,dpr,d_previs.png,0,assets/margin_bottom/assets_deselected,49,560,j01,0,spr:replace,dpr:replace
-img,dan,d_animation.png,0,assets/margin_bottom/assets_deselected,279,560,k01,0,san:replace,dan:replace
-img,dmd,d_motiondesign.png,0,assets/margin_bottom/assets_deselected,508,560,l01,0,smd:replace,dmd:replace
+img,dpr,d_previs.png,0,assets/margin_bottom/assets_deselected,49,560,previs,0,spr:replace,dpr:replace
+img,dan,d_animation.png,0,assets/margin_bottom/assets_deselected,279,560,animation,0,san:replace,dan:replace
+img,dmd,d_motiondesign.png,0,assets/margin_bottom/assets_deselected,508,560,motiondesign,0,smd:replace,dmd:replace
 img,dint,d_interactive.png,0,assets/margin_bottom/assets_deselected,735,558,interactive,0,sint:replace,dint:replace
 img,detc,d_etcetera.png,0,assets/margin_bottom/assets_deselected,968,560,etcetera,0,setc:replace,detc:replace
 ,,,,,,,,,,

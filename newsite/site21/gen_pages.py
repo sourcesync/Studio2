@@ -4,9 +4,11 @@
 
 PAGE_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGQwQ3lkazQ4akh2SDRwVXF5ck1ZWGc&output=csv"
 
-#SUBSET = [ "partners" ]
-#SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,"community", "map", "partners", "photos", "etcetera", "interactive" ]
-SUBSET = [ "animation", "animation_gallery" ]
+SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,\
+	"community", "map", "partners", "photos", "etcetera", "interactive", "animation", \
+	"animation_gallery", "motiondesign","motiondesign_gallery" ]
+
+SUBSET = [ "clients" ]
 
 #
 # Library...
@@ -18,6 +20,7 @@ import gen_subpages
 import gen_movies
 import gen_images
 import gen_menus
+import gen_movies
 import gen_movie_panels
 import gen_click_panels
 import gen_slide_shows
@@ -30,7 +33,7 @@ import gen_page_templates
 import gen_template_assets
 
 def get_dct():
-	items = common.parse_spreadsheet1( PAGE_DEF )
+	items = common.parse_spreadsheet1( PAGE_DEF , "pagedef" )
 	dct = common.dct_join( items,'parent page key')
 	return dct
 
@@ -43,6 +46,8 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
 	accum_script = ""	
 
 	load_script = ""
+
+	print "MAIN - GEN PAGE ITEMS->", [ a["asset_name"] for a in page_def ]
 
 	for item in page_def:
 
@@ -61,7 +66,9 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
 			style, content, script, scriptlet_dct = gen_embeds.expand_item( accum_ids, item, embeds_dct )
 
 		elif asset_name.startswith("menu"):
-			style, content, script, scriptlet_dct  = gen_menus.expand_item( accum_ids, item, images_dct, menus_dct, slide_shows_dct )
+			print "MAIN - CALLING GEN MENUS EXPAND", asset_name
+			style, content, script, scriptlet_dct  = gen_menus.expand_item( accum_ids, item, images_dct, menus_dct, \
+				slide_shows_dct, movies_dct, movie_panels_dct )
 
 		elif asset_name.startswith("cp"):
 			style, content = gen_click_panels.expand_item( accum_ids, item, images_dct, movies_dct, movie_panels_dct, click_panels_dct )
@@ -88,7 +95,6 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
 
 if __name__ == "__main__":
 	dct = get_dct()
-	print dct
 
         # figure out which pages to render...
         if SUBSET and len(SUBSET)>0:
@@ -97,7 +103,7 @@ if __name__ == "__main__":
                 pagekeys = dct.keys()
 
 	# get subpages...
-	subpages_dct = gen_subpages.get_dct( )
+	subpages_dct = gen_subpages.get_dct( pagekeys )
 
 	# get movies...
 	movies_dct = gen_movies.get_dct( pagekeys )
@@ -109,13 +115,13 @@ if __name__ == "__main__":
 	embeds_dct = gen_embeds.get_dct( pagekeys )
 	
 	# get menus...
-	menus_dct = gen_menus.get_dct()
+	menus_dct = gen_menus.get_dct( pagekeys )
 
 	# get click panels...
-	click_panels_dct = gen_click_panels.get_dct()
+	click_panels_dct = None #gen_click_panels.get_dct( pagekeys )
 	
 	# get movie panels...
-	movie_panels_dct = gen_movie_panels.get_dct( )
+	movie_panels_dct = gen_movie_panels.get_dct( pagekeys )
 	
 	# get slide shows...
 	slide_shows_dct = gen_slide_shows.get_dct( pagekeys )
@@ -147,12 +153,18 @@ if __name__ == "__main__":
 			for subpage_item in subpage_items:
 				page_def.append( subpage_item )
 
-		print "PAGE_DEF->", page_def
+		print "MAIN - PAGE DEF", page_name, dct, page_def
+
 		if page_def[0]['asset_name'] == "mpg_animation_gallery":
-			
-			gen_multipage_gallery.gen_pages( template_style, template_content, movie_panels_dct, movies_dct, images_dct )
+			gen_multipage_gallery.gen_pages( page_def[0], template_style, template_content, movie_panels_dct, movies_dct, images_dct )
+		
+		elif page_def[0]['asset_name'] == "mpg_motiondesign_gallery":
+			gen_multipage_gallery.gen_pages( page_def[0], template_style, template_content, movie_panels_dct, movies_dct, images_dct )
 
 		else:
+
+			print "MAIN - GENERATING PAGE FOR", page_name
+
 			# generate the subpage content...	
 			subpage_style, subpage_content, subpage_head_script, subpage_load_script = \
 				gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, slide_shows_dct, embeds_dct )

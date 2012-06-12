@@ -1,0 +1,22 @@
+name,path,filename,,,
+img_j1m,assets/main/J/,j01_main.png,,391,243
+img_jsr,assets/main/J/,j_story_r.png,,391,180
+img_jaw1,assets/main/J/,j_ani_w.png,,578,180
+img_jaw2,assets/main/J/,j_ani_w.png,,578,180
+img_jaw3,assets/main/J/,j_ani_w.png,,578,180
+img_jcw1,assets/main/J/,j_char_w.png,,767,180
+img_jcw2,assets/main/J/,j_char_w.png,,767,180
+img_jcw3,assets/main/J/,j_char_w.png,,767,180
+img_j2m,assets/main/J/,j02_main.png,,391,215
+img_jsw1,assets/main/J/,j_story_w.png,,391,180
+img_jsw2,assets/main/J/,j_story_w.png,,391,180
+img_jsw3,assets/main/J/,j_story_w.png,,391,180
+img_jar,assets/main/J/,j_ani_r.png,,578,180
+img_j3m1,assets/main/J/,j03_1_tempmain.png,,379,244
+img_j3m2,assets/main/J/,j03_2_tempmain.png,,379,244
+img_jcr,assets/main/J/,j_char_r.png,,767,180
+img_jl,assets/main/J/,j_links.png,,1012,484
+img_j107,assets/main/J/,j01_matt01temp.png,,391,215
+,,,,,
+img_anim_cinem_poster,VPOSTERS/Video Poster Images/reels/,Cinematics_Animatics_Reel.png,,,
+img_xboxlol,assets/pages/strybrd_artists,strybrd_artists_xboxlol.png,,,

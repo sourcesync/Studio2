@@ -18,7 +18,8 @@ PAGE_TEMPLATE_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuR
 	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHRjelI1SGw0ZDhXOEhYUHhxRnBPV0E&output=csv", \
 	"motiondesign":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDZQRHBXbFhWLWV4Z3B5NkRRTDI3ZFE&output=csv", \
 	"animation":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdE9XeFA2Sl9qZHZNWEcxYTBGcEszRWc&output=csv", \
-	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdENHMnNHaHlheFZMU3FqNzFwY3A1Ymc&output=csv" \
+	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdENHMnNHaHlheFZMU3FqNzFwY3A1Ymc&output=csv", \
+	"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedFhBR3hzT1JGX1ZibkNsX1A0YjdXdUE&output=csv" \
 	}
 
 MOVIES1_PREFIX = "../phil_assets"
@@ -170,6 +171,9 @@ def render_page(accum_ids, page, page_templates_dct, template_dct, template_asse
 		wth_x = page_template_item["with_x"]
 		wth_y = page_template_item["with_y"]
 
+
+		print "IMAGECODE->", image_code
+
 		if image_code == "temp":
 
 			# Is there a replace directive ? ...
@@ -223,6 +227,7 @@ def render_page(accum_ids, page, page_templates_dct, template_dct, template_asse
 def get_dct( pagekey=None ):
 	if pagekey == None:
 		pagekey = PAGE_TEMPLATE_DEFS.keys()
+	print "GETDCT PK->", pagekey
 	newdct = {}
 	for code in pagekey:
 		items = common.parse_spreadsheet1( PAGE_TEMPLATE_DEFS[code] )

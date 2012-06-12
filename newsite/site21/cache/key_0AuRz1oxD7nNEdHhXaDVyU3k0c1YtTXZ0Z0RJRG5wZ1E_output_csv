@@ -1,20 +1,20 @@
-name,path,filename,poster
-animation gallery,,,
-mov_bumbleville,MOVIES2/Video Files For Web/animation/h264/,01_Bumbleville.mov,img_bumble
-mov_takemethere,MOVIES2/Video Files For Web/animation/h264/,02_TakeMeThere.mov,img_takemethere
-mov_airhead,MOVIES2/Video Files For Web/animation/h264/,03_Airhead.mov,img_airhead
-mov_volt,MOVIES2/Video Files For Web/animation/h264/,04_ChevyVolt.mov,img_volt
-mov_aparecio,MOVIES2/Video Files For Web/animation/h264/,05_Aparecio.mov,img_aparecio
-mov_aquafina,MOVIES2/Video Files For Web/animation/h264/,06_Aquafina.mov,img_aquafina
-mov_aparecio,MOVIES2/Video Files For Web/animation/h264/,05_Aparecio.mov,img_takemethere
-mov_colgate,MOVIES2/Video Files For Web/animation/h264/,07_Colgate_Scientist.mov,img_colgate
-mov_thompson,MOVIES2/Video Files For Web/animation/h264/,08_ThompsonReuters.mov,img_thompson
-mov_digitas,MOVIES2/Video Files For Web/animation/h264/,09_Yahoo_Digitas.mov,img_digitas
-mov_globalfund,MOVIES2/Video Files For Web/animation/h264/,10_Global_Fund.mov,img_globalfund
-mov_successacademy,MOVIES2/Video Files For Web/animation/h264/,11_SuccessAcademy.mov,img_successacademy
-mov_bizzywater,MOVIES2/Video Files For Web/animation/h264/,12_BizzyWater.mov,img_bizzywater
-mov_lovesentence,MOVIES2/Video Files For Web/animation/h264/,13_LoveSentence.mov,img_lovesentence
-mov_pristiq,MOVIES2/Video Files For Web/animation/h264/,14_Pristiq.mov,img_pristiq
-mov_abc1,MOVIES2/Video Files For Web/animation/h264/,15_ABC_car.mov,img_abc1
-mov_abc2,MOVIES2/Video Files For Web/animation/h264/,16_ABC_headset.mov,img_abc2
-mov_etrade,MOVIES2/Video Files For Web/animation/h264/,17_eTrade.mov,img_etrade
+name,path,filename,poster,z
+animation gallery,,,,
+mov_bumbleville,MOVIES2/Video Files For Web/animation/h264/,01_Bumbleville.mov,img_bumbleville_poster,1
+mov_takemethere,MOVIES2/Video Files For Web/animation/h264/,02_TakeMeThere.mov,img_takemethere_poster,1
+mov_airhead,MOVIES2/Video Files For Web/animation/h264/,03_Airhead.mov,img_airhead_poster,1
+mov_volt,MOVIES2/Video Files For Web/animation/h264/,04_ChevyVolt.mov,img_volt_poster,1
+mov_aparecio,MOVIES2/Video Files For Web/animation/h264/,05_Aparecio.mov,img_aparecio_poster,1
+mov_aquafina,MOVIES2/Video Files For Web/animation/h264/,06_Aquafina.mov,img_aquafina_poster,1
+mov_aparecio,MOVIES2/Video Files For Web/animation/h264/,05_Aparecio.mov,img_takemethere_poster,1
+mov_colgate,MOVIES2/Video Files For Web/animation/h264/,07_Colgate_Scientist.mov,img_colgate_poster,1
+mov_thompson,MOVIES2/Video Files For Web/animation/h264/,08_ThompsonReuters.mov,img_thompson_poster,1
+mov_digitas,MOVIES2/Video Files For Web/animation/h264/,09_Yahoo_Digitas.mov,img_digitas_poster,1
+mov_globalfund,MOVIES2/Video Files For Web/animation/h264/,10_Global_Fund.mov,img_globalfund_poster,1
+mov_successacademy,MOVIES2/Video Files For Web/animation/h264/,11_SuccessAcademy.mov,img_successacademy_poster,1
+mov_bizzywater,MOVIES2/Video Files For Web/animation/h264/,12_BizzyWater.mov,img_bizzywater_poster,1
+mov_lovesentence,MOVIES2/Video Files For Web/animation/h264/,13_LoveSentence.mov,img_lovesentence_poster,1
+mov_pristiq,MOVIES2/Video Files For Web/animation/h264/,14_Pristiq.mov,img_pristiq_poster,1
+mov_abc1,MOVIES2/Video Files For Web/animation/h264/,15_ABC_car.mov,img_abc1_poster,1
+mov_abc2,MOVIES2/Video Files For Web/animation/h264/,16_ABC_headset.mov,img_abc2_poster,1
+mov_etrade,MOVIES2/Video Files For Web/animation/h264/,17_eTrade.mov,img_etrade_poster,1

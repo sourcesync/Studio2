@@ -19,12 +19,14 @@ IMAGES_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7n
 	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDRPby1XeDZHckd6bW1FcWZrcHFOM0E&output=csv", \
 	"motiondesign":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHJ1eUlfN2FNNFVDdnN2RVduOEFBNXc&output=csv", \
 	"animation":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHlEV3RzRjJINmFpREo5SWtFajBvbGc&output=csv", \
-	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdG9ncThyNTRrMXIwdGJnYkpDUzhVZ1E&output=csv" }
+	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdG9ncThyNTRrMXIwdGJnYkpDUzhVZ1E&output=csv", \
+	"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedG5BenJiMzdGZzQyYmk4ZDh5SFllQ3c&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 PHIL_PREFIX = "../phil_assets"
-MOVIES2_PREFIX = "../movies"
+MOVIES2_PREFIX = "../videos"
 VIDEOS_PREFIX = "../videos"
+POSTERS_PREFIX = "../posters"
 
 #
 # Library...
@@ -42,7 +44,7 @@ def get_attr( prop, asset_name, asset_def, images_dct, default=None):
         		val = item_def[prop]
 			return val	
 		elif default!=None:
-			print "WARNING: Returning default value->", default, prop, asset_name
+			#print "WARNING: Returning default value->", default, prop, asset_name
 			return default
 		else:
 			return False
@@ -82,6 +84,7 @@ def mouse_script_item( srcid, val, images_dct ):
 
 
 def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, ahref=None ):
+	print "IMAGE EXPAND"
 
 	# get the asset definition...
         asset_name = asset_def["asset_name"]
@@ -141,7 +144,9 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
 	# a href...
 	if ahref:
 		content += common.emit_line("<a href=%s >\n" % ahref )
-
+	#else:
+	#content += common.emit_line("<a href=# >\n"  )
+		
 	# onclick script...
 	if onclick:
 		content += common.emit_line( "<img id=%s src=\"%s\" onclick=\"%s\" onmouseover=\"%s\" onmouseout=\"%s\" >" % \
@@ -153,6 +158,8 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
 	# end a href...	
 	if ahref:
 		content += common.emit_line("</a>\n" )
+	#else:
+	#content += common.emit_line("</a>\n" )
 
 	scriptlet_dct = {}
 	scriptlet_dct['on'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'visible' )
@@ -171,6 +178,7 @@ def get_item_path( name, images_dct ):
         fpath = fpath.replace("MOVIES1",MOVIES1_PREFIX)
         fpath = fpath.replace("MOVIES2",MOVIES2_PREFIX)
         fpath = fpath.replace("VIDEOS",VIDEOS_PREFIX)
+        fpath = fpath.replace("VPOSTERS",POSTERS_PREFIX)
         return fpath
 
 def get_dct( pagekeys=None ):
@@ -179,7 +187,7 @@ def get_dct( pagekeys=None ):
 	newdct = {}
 	for code in pagekeys:
 		if not IMAGES_DEFS.has_key(code): continue
-		items = common.parse_spreadsheet1( IMAGES_DEFS[code] )
+		items = common.parse_spreadsheet1( IMAGES_DEFS[code], "images %s" % code )
 		dct = common.dct_join( items,'name')
 		for ky in dct.keys():
 			newdct[ky] = dct[ky]

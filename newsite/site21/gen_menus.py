@@ -2,8 +2,6 @@
 # Configuration...
 #
 
-#MENUS_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDZCVTJodXFXOXFjMjNFb0o5WnpFTkE&output=csv"
-
 MENUS_DEFS = { "clients":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFdDRm1sTDVndGpfcVplamRtRWllU2c&output=csv",\
 	"partners":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEkzVm1qWE13MklHZ0Q5bk5VOEdzZlE&output=csv", \
 	"etcetera":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHNZR1hwZWswcXQ3NEIxSjQ0S0hpY3c&output=csv", \
@@ -18,6 +16,8 @@ MENUS_DEFS = { "clients":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7
 import common
 import gen_images
 import gen_slide_shows
+import gen_movies
+import gen_movie_panels
 
 def create_option_script( asset_name, option, menus_dct ):
 	menu_def = menus_dct[asset_name]
@@ -40,7 +40,7 @@ def create_option_scripts( asset_name, menus_dct ):
 		script[key] = create_option_script( asset_name, key, menus_dct )
 	return script	
 
-def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, action_scripts, init_hidden, slide_shows_dct ):
+def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, action_scripts, init_hidden, slide_shows_dct, movies_dct, mp_dct ):
 	option_def = menu_def[option_name]
 
 	tot_style = ""
@@ -54,7 +54,6 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 		asset_name = item["asset_name"]
 
 		if asset_name.startswith("img"):
-
 			# determine the script, if any...
 			script = None
 			ahref = None
@@ -70,7 +69,7 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 					ahref = link[idx:]		
 					print "MENUS AHREF->", ahref
 				else:
-					print "ERROR: Unknown link type"
+					print "ERROR: Unknown link type", asset_name, item
 					sys.exit(1)	
 
 			# determine initial css visibility, if any...
@@ -88,7 +87,7 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 			on_scriptlet += scriptlet_dct['on']	
 
 		elif asset_name.startswith("ss"):
-
+			print "MENU - CALLING GEN SLIDE SHOWS EXPAND", asset_name
 			style, content, script, scriptlet_dct = gen_slide_shows.expand_item( accum_ids, item, images_dct, None, None, None, slide_shows_dct )
 
 			tot_style += style
@@ -98,6 +97,16 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 			# accumulate on/off scriptlet...
                         off_scriptlet += scriptlet_dct['off']
                         on_scriptlet += scriptlet_dct['on']
+
+                elif asset_name.startswith("mov"):
+                        style, content = gen_movies.expand_item( accum_ids, item, images_dct, movies_dct )
+                        tot_style += style
+                        tot_content += content
+                
+		elif asset_name.startswith("mp"):
+			style, content = gen_movie_panels.expand_item( accum_ids, item, images_dct, movies_dct, mp_dct )
+			tot_style += style
+			tot_content += content
 
 		else:
 			print "ERROR: Can't process asset->", asset_name, item
@@ -110,7 +119,8 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 
 	return [ tot_style, tot_content, tot_scripts, scriptlet_dct ]
 
-def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct ):
+def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct, movies_dct, mp_dct ):
+	print "MENU EXPAND"
 	menu_name = item["asset_name"]
 	menu_def = menus_dct[menu_name]
 
@@ -119,6 +129,13 @@ def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct ):
 	for option in menu_def.keys():
 		funcname = "func_%s_%s" % ( menu_name, option )
 		action_scripts[ funcname ] = None
+
+	# get init option, if any...
+	init_option_name = None
+	if item.has_key("init"):
+		val = item["init"]
+		if val.startswith("option:"):
+			foo, init_option_name = val.split(":")
 
 	# iterate individual assets and expand...
 	tot_style = ""
@@ -129,19 +146,29 @@ def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct ):
 
 	# iterate the options...
 	for option in menu_def.keys():
-		style, content, script, scriptlet_dct = expand_option( accum_ids, menu_name, menu_def, option, images_dct, action_scripts, True, slide_shows_dct )
+
+		item_def = menu_def[option]
+
+		style, content, script, scriptlet_dct = expand_option( \
+			accum_ids, menu_name, menu_def, option, images_dct, action_scripts, True, slide_shows_dct, movies_dct, mp_dct )
 		tot_style += style
 		tot_content += content
 		tot_script += script
 		scriptlets_dct[option] = scriptlet_dct
-		# first option is the init...
-		if not init_script:
+
+		# possibly use this option as init...
+		if not init_script and option == init_option_name:
 			init_script = scriptlets_dct[option]['on']
 
         # create a total off scriplet for menu...
         tot_off = ""
         for option in scriptlets_dct.keys():
                 tot_off += scriptlets_dct[option]['off']
+        
+	# create a total on scriplet for menu...
+        tot_on = ""
+        for option in scriptlets_dct.keys():
+                tot_on += scriptlets_dct[option]['on']
 
 	# finalize the action script dct...
 	for option in menu_def.keys():
@@ -156,7 +183,8 @@ def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct ):
 	# scriptlet dct...
 	scriptlet_dct = {}
 	scriptlet_dct['off'] = tot_off
-	scriptlet_dct['on'] = tot_off + init_script
+	scriptlet_dct['on'] = tot_on
+	scriptlet_dct['init'] = tot_off + init_script
 
 	return [ tot_style, tot_content, tot_script, scriptlet_dct ]
 
@@ -168,7 +196,7 @@ def get_dct( pagekeys=None ):
 	newdct = {}
 	for code in pagekeys:	
 		if ( not code in pagekeys): continue
-		items = common.parse_spreadsheet1( MENUS_DEFS[code] )
+		items = common.parse_spreadsheet1( MENUS_DEFS[code] , "menus %s" % code )
 		dct = common.dct_join( items,'menu_name','option_name')
 		for ky in dct.keys():
 			newdct[ky] = dct[ky]	

@@ -21,6 +21,8 @@ import gen_movie_panels
 
 def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct, click_panels_dct, slide_shows_dct ):
 
+	print "SLIDESHOW EXPAND"
+
         asset_name = asset_def["asset_name"]
 	item_def = slide_shows_dct[asset_name]
 
@@ -51,10 +53,11 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 	dopage=1
 	while (True):
 		if not item_def.has_key( str(dopage) ):
+			#print "WARNING: breaking at ", dopage
 			break
 
 		# Create a div for each slide in slide show...	
-		divname = common.get_id( "%s_%d" % ( asset_name, dopage ), accum_ids )
+		divname = "%s_%d" % ( asset_name, dopage )
 		accum_ids.append(divname)
 		style  = ""
 		style += common.emit_line("#%s {" % divname )
@@ -75,7 +78,9 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 		pagedef = item_def[str(dopage)]
 		for page_item in pagedef:
 			page_asset_name = page_item["asset_name"]
-			
+		
+			print "SLIDE SHOW name=%s page=%d asset_name=%s" % (asset_name, dopage, page_asset_name )
+	
 			if ( page_asset_name.startswith("img") ):
 
 				# determine script, ahref, if any...
@@ -97,7 +102,9 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 						sys.exit(1)
 
 				# determine init vis, if any...
-				init_vis = "inherit"
+                        	init_vis = None
+                        	if page_item.has_key("init") and page_item["init"]!="":
+                                	init_vis = page_item["init"]
 	
 				style, content, script, scriptlet_dct = gen_images.expand_item( accum_ids, page_item, images_dct, script, init_vis, ahref )
 				tot_style += style
@@ -132,7 +139,7 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 		all_off+= tot_offscrl
 
 		# the init script is first page...
-		if not init_script:
+		if init_script == False:
 			init_script = "%s ();" % funcname
 
 		dopage += 1
@@ -172,7 +179,7 @@ def get_dct(pagekeys=None):
 	newdct = {}
 	for code in pagekeys:
 		if ( not SLIDE_SHOW_DEFS.has_key(code) ): continue
-		items = common.parse_spreadsheet1( SLIDE_SHOW_DEFS[code] )
+		items = common.parse_spreadsheet1( SLIDE_SHOW_DEFS[code], "slideshows %s" % code )
 		pagedct = common.dct_join( items,'name','page')
 		for ky in pagedct.keys():
 			newdct[ky] = pagedct[ky]

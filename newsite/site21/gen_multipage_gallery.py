@@ -3,7 +3,8 @@
 # Configuration...
 #
 
-MPG_DEFS = { "animation_gallery": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGR5RGRySEhpenV1Z3ZocklGZTF3ekE&output=csv" }
+MPG_DEFS = { "animation_gallery": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGR5RGRySEhpenV1Z3ZocklGZTF3ekE&output=csv", \
+	"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedG96WS1DdGhzYnRTaklMZEFWWWRZNFE&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 PHIL_PREFIX = "../phil_assets"
@@ -128,7 +129,7 @@ def get_item_path( name, images_dct ):
         fpath = fpath.replace("VIDEOS",VIDEOS_PREFIX)
         return fpath
 
-def gen_page( multipage_def, multipage_style, multipage_content, mp_dct, movies_dct, img_dct ):
+def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, movies_dct, img_dct ):
 
 	# iterate over pages...
 	for page_def in multipage_def:
@@ -166,16 +167,17 @@ def gen_page( multipage_def, multipage_style, multipage_content, mp_dct, movies_
                 common.gen_page( "%s.html" % page_name, style, content, head_script, load_script )
 
 
-def gen_pages( multipage_style, multipage_content, mp_dct, movies_dct, img_dct ):
+def gen_pages( page_def, multipage_style, multipage_content, mp_dct, movies_dct, img_dct ):
+	asset_name = page_def['asset_name']
+
 	mpgs_dct = get_dct()
+	print "MPGS->", mpgs_dct.keys()
 
-	# iterate over all multipage sets ( or subset )...
-	for key in mpgs_dct.keys():
-		multipage_def = mpgs_dct[key]
-		print "MULTIPAGE DCT->", multipage_def
+	mpgs_items = mpgs_dct[asset_name]
+	print "MPGS ITEMS->", mpgs_items
 
-		# generate the pages for this set...
-		gen_page( multipage_def, multipage_style, multipage_content, mp_dct, movies_dct, img_dct )
+	# generate the pages for this set...
+	gen_page_set( mpgs_items, multipage_style, multipage_content, mp_dct, movies_dct, img_dct )
 
 def get_dct( pagekeys=None ):
 	if pagekeys==None:

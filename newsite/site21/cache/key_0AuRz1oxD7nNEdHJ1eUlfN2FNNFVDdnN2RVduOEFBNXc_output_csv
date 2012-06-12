@@ -1,0 +1,15 @@
+name,path,filename
+img_tfi_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,01_TFI.png
+img_mymet_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,02_MyMet.png
+img_greenfish_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,03_GreenFish.png
+img_gerber_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,04_Gerber.png
+img_wi_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,05_WI.png
+img_pfizer_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,06_Pfizer.png
+img_abc_industrial_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,07_ABC_Industrial.png
+img_og_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,08_OG.png
+img_poltron_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,09_PoltronaFrau.png
+img_dexnet_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,10_DexNet.png
+img_particles_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,11_particles.png
+img_emd_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,12_EMD.png
+,,
+img_captions,assets/pages/motiondesign,motiondesign_captions.png

@@ -1,3 +1,3 @@
-subpage_key,asset_name
-etcetera page,
-subpage_etcetera,menu_etcetera
+subpage_key,asset_name,init
+etcetera page,,
+subpage_etcetera,menu_etcetera,option:motion

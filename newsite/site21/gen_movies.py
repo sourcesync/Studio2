@@ -5,10 +5,13 @@
 #MOVIES_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHFxcjk0RlA3RkxlaWdxdmIyZWJlM1E&output=csv"
 
 MOVIES_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGIwRUFBYWVabjN3amhvc2dXVTZDQWc&output=csv", \
-		"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHhXaDVyU3k0c1YtTXZ0Z0RJRG5wZ1E&output=csv" }
+		"partners":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHpsQWhEMi02UDJBeEl1S09uLTYxeEE&output=csv", \
+		"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHhXaDVyU3k0c1YtTXZ0Z0RJRG5wZ1E&output=csv",\
+		"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedHYzLUxpQ2M5X0FaakFvZmVwSEcwQnc&output=csv", \
+		"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFB5cFJiaEhIaF9lY0Q0cVg5Njl0clE&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
-MOVIES2_PREFIX = "../movies"
+MOVIES2_PREFIX = "../videos"
 
 #
 # Library...
@@ -24,7 +27,7 @@ def get_dct(pagekeys=None):
 	newdct = {}
 	for code in pagekeys:
 		if not MOVIES_DEFS.has_key(code): continue
-		items = common.parse_spreadsheet1( MOVIES_DEFS[code] )
+		items = common.parse_spreadsheet1( MOVIES_DEFS[code], "movies %s" % code )
 		dct = common.dct_join( items,'name')
 		for ky in dct.keys():
 			newdct[ky] = dct[ky]
@@ -45,7 +48,6 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct ):
 	asset_name = asset_def["asset_name"]
 	item_def = movies_dct[asset_name][0]
 
-	print "ITEMDEF->", item_def
 	
 	htmlid = common.get_id( asset_name, accum_ids )
 	accum_ids.append(htmlid)
@@ -58,6 +60,7 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct ):
 	movie_path = get_item_path( asset_name, movies_dct )
 	x = asset_def['x']
 	y = asset_def['y']
+	z = asset_def['z']
 
 	style  = ""
 	#style  = common.emit_line( "<style>" )
@@ -65,11 +68,12 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct ):
 	style += common.emit_line( "position: absolute;")
 	style += common.emit_line( "left: %dpx;" % int(x) )
 	style += common.emit_line( "top: %dpx;" % int(y) )
+	style += common.emit_line( "z-index: %d;" % int(z) )
 	style += common.emit_line( "}" )
 	#style += common.emit_line( "</style>")
 
 	if poster_path == "":	
-		content = common.emit_line( "<video controls id=%s ><source src=\"%s\" /></video>" % (htmlid, movie_path) )
+		content = common.emit_line( "<video controls id=%s ><source src=\"%s\" />CANNOT LOAD</video>" % (htmlid, movie_path) )
 	else:	
 		content = common.emit_line( "<video controls id=%s poster=\"%s\" ><source src=\"%s\" /></video>" % (htmlid, poster_path, movie_path) )
 	

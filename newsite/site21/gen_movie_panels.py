@@ -3,7 +3,9 @@
 #
 
 MOVIE_PANEL_DEFS = { \
-	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEg4VGhhZzVKNU5JdmE4ejhfLUNtVmc&output=csv" }
+	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEg4VGhhZzVKNU5JdmE4ejhfLUNtVmc&output=csv", \
+	"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedG1GWkRVUWtQdl9sOFZWcDhpd1ZrYnc&output=csv", \
+	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDNvUDE2NVVCRTgxQ2M3OFpRbnIyaWc&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../movies"
@@ -50,7 +52,6 @@ def expand_item( accum_ids, page_item, images_dct, movies_dct, movie_panels_dct 
 	accum_ids.append( htmlid )
 
 	for item in item_def:
-		print "MP ITEM->", item
 
 		asn = item["asset_name"]
 		if asn.startswith("mov"):
@@ -59,7 +60,26 @@ def expand_item( accum_ids, page_item, images_dct, movies_dct, movie_panels_dct 
 			tot_content += content
 		
 		elif asn.startswith("img"):
-			style, content, foo, scriptlet_dct = gen_images.expand_item( accum_ids, item, images_dct, None, None, None )
+
+			# determine the script, if any...
+                        script = None
+                        ahref = None
+                        if item.has_key("link") and item["link"]!="":
+                                link = item["link"]
+                                if link.startswith("option:"):
+                                        ltype,parm = link.split(":")
+                                        funcname = "func_%s_%s" % (menu_name, parm)
+                                        test = action_scripts[funcname]
+                                        script = "%s ();" % funcname
+                                elif link.startswith("url:"):
+                                        idx = link.find(":") + 1
+                                        ahref = link[idx:]
+                                        print "MENUS AHREF->", ahref
+                                else:
+                                        print "ERROR: Unknown link type", asset_name, item
+                                        sys.exit(1)    
+
+			style, content, foo, scriptlet_dct = gen_images.expand_item( accum_ids, item, images_dct, script, None, ahref )
 			tot_style += style
 			tot_content += content
 
