@@ -21,7 +21,6 @@ POSTERS_PREFIX = "../posters"
 def expand_def( dct, item_def ):
 
 	asset_name = item_def['asset_name']
-	print "EXPANDDEF->", dct.keys(), item_def, asset_name, dct
 	
 	deff = dct[ asset_name ][0]
 	
@@ -30,7 +29,6 @@ def expand_def( dct, item_def ):
 
 	fidx = filename.find("[")
 	eidx = filename.find("]")
-	print "idx->", fidx, eidx
 
 	regexpr = filename[0:fidx] + "%02d" + filename[eidx+1:]	
 
@@ -60,7 +58,7 @@ def get_attr( prop, asset_name, asset_def, default=None):
 		return False
 
 def expand_item( accum_ids, asset_def, is_dct, onclick=None, init_vis=None, ahref=None ):
-	print "IMAGE SET EXPAND", asset_def, is_dct
+	print "IMAGE SET EXPAND"
 
 	# get the asset definition...
         asset_name = asset_def["asset_name"]
@@ -162,7 +160,6 @@ def get_dct( pagekeys=None ):
 	for code in pagekeys:
 		if not IMAGE_SET_DEFS.has_key(code): continue
 		items = common.parse_spreadsheet1( IMAGE_SET_DEFS[code], "image set %s" % code )
-		print "IIIIII->", items
 		dct = common.dct_join( items,'name')
 		for ky in dct.keys():
 			newdct[ky] = dct[ky]

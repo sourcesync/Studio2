@@ -172,8 +172,6 @@ def render_page(accum_ids, page, page_templates_dct, template_dct, template_asse
 		wth_x = page_template_item["with_x"]
 		wth_y = page_template_item["with_y"]
 
-		print "PAGE TEMPLATE IMAGECODE->", image_code
-
 		if image_code == "temp":
 
 			# Is there a replace directive ? ...
@@ -193,13 +191,11 @@ def render_page(accum_ids, page, page_templates_dct, template_dct, template_asse
 
 			# first look in template dct...
 			if template_dct_cp.has_key(image_code):
-				print "TEMPLATE DCT FOUND->", image_code
 				findel = template_dct_cp[image_code][0]
 				render_dct[image_code] = [ copy.deepcopy(findel) ]
 			
 			# then look in temmplate assets...
 			elif template_assets_dct.has_key(image_code):
-				print "TEMPLATE ASS FOUND->", image_code
 				findel = template_assets_dct[image_code][0]
 				render_dct[image_code] = [ copy.deepcopy(findel) ]
 			else:
@@ -216,18 +212,13 @@ def render_page(accum_ids, page, page_templates_dct, template_dct, template_asse
 				item = render_dct[replace][0]
 				item['y'] = wth_y
 
-			#print "GOT IT->", render_dct[replace]
 	
 	# do the render...
 	for render_item_key in render_dct.keys():
 		render_item = render_dct[render_item_key][0]	
-		print "RIK->", render_item_key, render_item
 		style, content = expand_item( accum_ids, render_item , template_dct, template_assets_dct )
 		tot_style += style
 		tot_content += content
-
-	print "TOT->",tot_content
-	#sys.exit(1)
 
 	return [ tot_style, tot_content ]
 

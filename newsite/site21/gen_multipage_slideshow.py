@@ -138,9 +138,6 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
 		else:
 			remaining_defs.append( page_def )
 
-	print "ISD->", is_def
-	print "REM->", remaining_defs
-
 	# expand the IS...
 	asset_defs = gen_image_set.expand_def( is_dct, is_def )
 	for asset in asset_defs:
@@ -169,13 +166,11 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
                                 	elif link.startswith("url:"):
                                         	idx = link.find(":") + 1
                                         	ahref = link[idx:]
-                                        	print "MENUS AHREF->", ahref
                                 	else:
-                                        	print "ERROR: Unknown link type", asset_name, item
-                                        	sys.exit(1)
+                                        	print "ERROR: Unknown link type", page_def
+                                        	#sys.exit(1)
 
                         	style, content, foo, scriptlet_dct = gen_images.expand_item( accum_ids, page_def, img_dct, script, None, ahref )
-				print "IMG->", style, content
 
                         	tot_style += style
                         	tot_content += content
@@ -207,10 +202,8 @@ def gen_pages( page_def, multipage_style, multipage_content, mp_dct, movies_dct,
 	asset_name = page_def['asset_name']
 
 	mpgs_dct = get_dct()
-	print "MPSS SS->", mpgs_dct.keys()
 
 	mpgs_items = mpgs_dct[asset_name]
-	print "MPSS SS ITEMS->", mpgs_items
 
 	# generate the pages for this set...
 	gen_page_set( mpgs_items, multipage_style, multipage_content, mp_dct, movies_dct, img_dct, is_dct )
@@ -221,8 +214,7 @@ def get_dct( pagekeys=None ):
 	newdct = {}
 	for code in pagekeys:
 		if not MPG_SS_DEFS.has_key(code): continue
-		items = common.parse_spreadsheet1( MPG_SS_DEFS[code] )
-		print "II->", [ k.keys() for k in items ]
+		items = common.parse_spreadsheet1( MPG_SS_DEFS[code], "multipage slide show %s" % str(pagekeys))
 		dct = common.dct_join( items,'multipage_key')
 		for ky in dct.keys():
 			newdct[ky] = dct[ky]

@@ -63,7 +63,7 @@ def get_dct():
         newdct = {}
         for code in pagekeys:
                 if not IMAGE_SET_DEFS.has_key(code): continue
-                items = common.parse_spreadsheet1( IMAGE_SET_DEFS[code] )
+                items = common.parse_spreadsheet1( IMAGE_SET_DEFS[code], "image sets %s" % str(pagekeys) )
                 dct = common.dct_join( items,'multipage_key')
                 for ky in dct.keys():
                         newdct[ky] = dct[ky]

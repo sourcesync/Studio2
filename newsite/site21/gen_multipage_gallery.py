@@ -185,7 +185,7 @@ def get_dct( pagekeys=None ):
 	newdct = {}
 	for code in pagekeys:
 		if not MPG_DEFS.has_key(code): continue
-		items = common.parse_spreadsheet1( MPG_DEFS[code] )
+		items = common.parse_spreadsheet1( MPG_DEFS[code], "multipage gallery=%s" % str(pagekeys) )
 		dct = common.dct_join( items,'multipage_key')
 		for ky in dct.keys():
 			newdct[ky] = dct[ky]

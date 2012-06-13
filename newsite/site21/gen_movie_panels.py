@@ -26,7 +26,7 @@ def get_dct( pagekeys=None ):
         newdct = {}
         for code in pagekeys:
                 if not MOVIE_PANEL_DEFS.has_key(code): continue
-                items = common.parse_spreadsheet1( MOVIE_PANEL_DEFS[code] )
+                items = common.parse_spreadsheet1( MOVIE_PANEL_DEFS[code], "movie panels %s" % str(pagekeys) )
                 dct = common.dct_join( items,'name')
                 for ky in dct.keys():
                         newdct[ky] = dct[ky]
