@@ -21,7 +21,7 @@ import gen_movie_panels
 
 def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct, click_panels_dct, slide_shows_dct ):
 
-	print "SLIDESHOW EXPAND"
+	print "SLIDESHOW EXPAND", movie_panels_dct
 
         asset_name = asset_def["asset_name"]
 	item_def = slide_shows_dct[asset_name]

@@ -67,7 +67,6 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 				elif link.startswith("url:"):
 					idx = link.find(":") + 1
 					ahref = link[idx:]		
-					print "MENUS AHREF->", ahref
 				else:
 					print "ERROR: Unknown link type", asset_name, item
 					sys.exit(1)	
@@ -88,7 +87,7 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 
 		elif asset_name.startswith("ss"):
 			print "MENU - CALLING GEN SLIDE SHOWS EXPAND", asset_name
-			style, content, script, scriptlet_dct = gen_slide_shows.expand_item( accum_ids, item, images_dct, None, None, None, slide_shows_dct )
+			style, content, script, scriptlet_dct = gen_slide_shows.expand_item( accum_ids, item, images_dct, movies_dct, mp_dct, None, slide_shows_dct )
 
 			tot_style += style
 			tot_content += content
@@ -120,7 +119,9 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 	return [ tot_style, tot_content, tot_scripts, scriptlet_dct ]
 
 def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct, movies_dct, mp_dct ):
+
 	print "MENU EXPAND"
+
 	menu_name = item["asset_name"]
 	menu_def = menus_dct[menu_name]
 
@@ -189,13 +190,13 @@ def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct, movies_
 	return [ tot_style, tot_content, tot_script, scriptlet_dct ]
 
 def get_dct( pagekeys=None ):
-	
+
 	if pagekeys==None:
 		pagekeys = MENUS_DEFS.keys()
 
 	newdct = {}
 	for code in pagekeys:	
-		if ( not code in pagekeys): continue
+		if ( not code in MENUS_DEFS.keys()): continue
 		items = common.parse_spreadsheet1( MENUS_DEFS[code] , "menus %s" % code )
 		dct = common.dct_join( items,'menu_name','option_name')
 		for ky in dct.keys():

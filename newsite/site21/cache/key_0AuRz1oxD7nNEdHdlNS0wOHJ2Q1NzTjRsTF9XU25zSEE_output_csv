@@ -1,3 +1,5 @@
 name,path,filename,,,x,y
 sneak peek,,,,,,
+,,,,,,
 img_sneakpeek,assets/main/O/,o01_tempmain.png,,,415,235
+img_banner,assets/main/O/,o01_banner.png,,,616,72

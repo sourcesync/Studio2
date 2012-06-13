@@ -238,10 +238,16 @@ left: 415px;
 top: 235px;
 z-index: 0;
 }
+#img_banner {
+position: absolute;
+left: 616px;
+top: 72px;
+z-index: 1;
+}
 </style>
 <script>
 
-function docload () { document.getElementById('img_sneakpeek').style.visibility = 'visible';; } 
+function docload () { document.getElementById('img_sneakpeek').style.visibility = 'visible';document.getElementById('img_banner').style.visibility = 'visible';; } 
 
  window.onload=docload;
 </script>
@@ -312,5 +318,6 @@ function docload () { document.getElementById('img_sneakpeek').style.visibility 
 <img id=dph src="assets/margin_left/assets_deselected/d_photos.png" onmouseover="document.getElementById('dphline').style.visibility='visible';document.getElementById('dphline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dphline').style.visibility='hidden';"  />
 </a>
 <img id=img_sneakpeek src="assets/main/O/o01_tempmain.png" onmouseover="" onmouseout="" >
+<img id=img_banner src="assets/main/O/o01_banner.png" onmouseover="" onmouseout="" >
 
 </body></html>

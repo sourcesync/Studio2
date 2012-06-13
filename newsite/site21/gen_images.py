@@ -11,7 +11,7 @@ IMAGES_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7n
 	"clients":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFRjOXdiRFJEazRadTh5ZFlIbk1CTVE&output=csv", \
 	"contacts":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDN6d2xaYktMSlBCZnpqaXJGOEVnY0E&output=csv", \
 	"community":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEVrOUcxQ3dkMlNzejVGdERYZ2tXb2c&output=csv", \
-	"map":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEZnY3B0UkZnNlFNYTI2TWNBRVJwSUE&output=csv", \
+	"map":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHVRdFF4N0tfVmJTeXE0SFZNYUwxeVE&output=csv", \
 	"partners":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHNwVmwyMGRRT2xBWkJJcVd2MW93bnc&output=csv", \
 	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDAwTzFCaHZpZDNaT0dPbmtldXdoUlE&output=csv", \
 	"etcetera":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHR0LV9KX2pHVnR2Y3BVMkl6c1NuU0E&output=csv", \
@@ -20,7 +20,8 @@ IMAGES_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7n
 	"motiondesign":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHJ1eUlfN2FNNFVDdnN2RVduOEFBNXc&output=csv", \
 	"animation":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHlEV3RzRjJINmFpREo5SWtFajBvbGc&output=csv", \
 	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdG9ncThyNTRrMXIwdGJnYkpDUzhVZ1E&output=csv", \
-	"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedG5BenJiMzdGZzQyYmk4ZDh5SFllQ3c&output=csv" }
+	"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedG5BenJiMzdGZzQyYmk4ZDh5SFllQ3c&output=csv", \
+	"stbd_artists":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDBvU3pwSlJ0TEVfRFZteGxpUGQtSHc&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 PHIL_PREFIX = "../phil_assets"

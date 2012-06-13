@@ -19,7 +19,8 @@ SUB_PAGE_DEFS = { "home":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7
 	"motiondesign":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdE90aTV1V0h2X0FMM2RRVWtaNHBkNWc&output=csv", \
 	"animation":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGlEWjNVYWM5VlcwcXZ6V3MydzB4Y3c&output=csv", \
 	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDRJbnhOeFZOMjdSMWp1TmZzZVV4S2c&output=csv", \
-	"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedHpTS0VGcmxoUnI4ckRwRHA1N2ZpdkE&output=csv" \
+	"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedHpTS0VGcmxoUnI4ckRwRHA1N2ZpdkE&output=csv", \
+	"stbd_artists":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFdUaXc2VFFmcjVmNm0yWGpjMlNXRGc&output=csv" \
 	}
 
 #
@@ -28,7 +29,7 @@ SUB_PAGE_DEFS = { "home":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7
 import common
 
 def get_dct( subset=None ):
-
+	print "SUBPAGE GETDCT"
 	newdct = {}
 	if subset==None: subset = SUB_PAGE_DEFS.keys()
 	for code in subset:

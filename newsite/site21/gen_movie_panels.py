@@ -5,7 +5,8 @@
 MOVIE_PANEL_DEFS = { \
 	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEg4VGhhZzVKNU5JdmE4ejhfLUNtVmc&output=csv", \
 	"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedG1GWkRVUWtQdl9sOFZWcDhpd1ZrYnc&output=csv", \
-	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDNvUDE2NVVCRTgxQ2M3OFpRbnIyaWc&output=csv" }
+	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDNvUDE2NVVCRTgxQ2M3OFpRbnIyaWc&output=csv", \
+	"interactive":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedHg2cGstNGI4bk1WZHpma0p6RG5STVE&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../movies"

@@ -8,7 +8,8 @@ MOVIES_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7n
 		"partners":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHpsQWhEMi02UDJBeEl1S09uLTYxeEE&output=csv", \
 		"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHhXaDVyU3k0c1YtTXZ0Z0RJRG5wZ1E&output=csv",\
 		"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedHYzLUxpQ2M5X0FaakFvZmVwSEcwQnc&output=csv", \
-		"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFB5cFJiaEhIaF9lY0Q0cVg5Njl0clE&output=csv" }
+		"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFB5cFJiaEhIaF9lY0Q0cVg5Njl0clE&output=csv", \
+		"interactive":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedE5xOGE0SlFwaWFmZS1DWnFPSWdsQ3c&output=csv" }
 
 MOVIES1_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../videos"

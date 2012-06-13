@@ -19,7 +19,8 @@ PAGE_TEMPLATE_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuR
 	"motiondesign":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDZQRHBXbFhWLWV4Z3B5NkRRTDI3ZFE&output=csv", \
 	"animation":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdE9XeFA2Sl9qZHZNWEcxYTBGcEszRWc&output=csv", \
 	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdENHMnNHaHlheFZMU3FqNzFwY3A1Ymc&output=csv", \
-	"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedFhBR3hzT1JGX1ZibkNsX1A0YjdXdUE&output=csv" \
+	"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedFhBR3hzT1JGX1ZibkNsX1A0YjdXdUE&output=csv", \
+	"stbd_artists":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGZWcFVFQ2NUaWpEY1Myc1FmWk1DMnc&output=csv" \
 	}
 
 MOVIES1_PREFIX = "../phil_assets"
@@ -171,8 +172,7 @@ def render_page(accum_ids, page, page_templates_dct, template_dct, template_asse
 		wth_x = page_template_item["with_x"]
 		wth_y = page_template_item["with_y"]
 
-
-		print "IMAGECODE->", image_code
+		print "PAGE TEMPLATE IMAGECODE->", image_code
 
 		if image_code == "temp":
 
@@ -193,13 +193,15 @@ def render_page(accum_ids, page, page_templates_dct, template_dct, template_asse
 
 			# first look in template dct...
 			if template_dct_cp.has_key(image_code):
+				print "TEMPLATE DCT FOUND->", image_code
 				findel = template_dct_cp[image_code][0]
-				render_dct[replace] = [ copy.deepcopy(findel) ]
+				render_dct[image_code] = [ copy.deepcopy(findel) ]
 			
 			# then look in temmplate assets...
 			elif template_assets_dct.has_key(image_code):
+				print "TEMPLATE ASS FOUND->", image_code
 				findel = template_assets_dct[image_code][0]
-				render_dct[replace] = [ copy.deepcopy(findel) ]
+				render_dct[image_code] = [ copy.deepcopy(findel) ]
 			else:
 				print "ERROR: (1)For replacexy, could not find->", page, image_code
 				sys.exit(0)
@@ -214,22 +216,27 @@ def render_page(accum_ids, page, page_templates_dct, template_dct, template_asse
 				item = render_dct[replace][0]
 				item['y'] = wth_y
 
+			#print "GOT IT->", render_dct[replace]
 	
 	# do the render...
 	for render_item_key in render_dct.keys():
 		render_item = render_dct[render_item_key][0]	
+		print "RIK->", render_item_key, render_item
 		style, content = expand_item( accum_ids, render_item , template_dct, template_assets_dct )
 		tot_style += style
 		tot_content += content
+
+	print "TOT->",tot_content
+	#sys.exit(1)
 
 	return [ tot_style, tot_content ]
 
 def get_dct( pagekey=None ):
 	if pagekey == None:
 		pagekey = PAGE_TEMPLATE_DEFS.keys()
-	print "GETDCT PK->", pagekey
 	newdct = {}
 	for code in pagekey:
+		if ( not code in PAGE_TEMPLATE_DEFS.keys() ): continue
 		items = common.parse_spreadsheet1( PAGE_TEMPLATE_DEFS[code] )
 		dct = common.dct_join( items,'page_code')
 		newdct[ code ] = dct[code]

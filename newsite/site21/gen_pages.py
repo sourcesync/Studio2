@@ -8,7 +8,8 @@ SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,\
 	"community", "map", "partners", "photos", "etcetera", "interactive", "animation", \
 	"animation_gallery", "motiondesign","motiondesign_gallery" ]
 
-SUBSET = [ "clients" ]
+SUBSET = [ "stbd_artists" ]
+
 
 #
 # Library...
@@ -26,6 +27,8 @@ import gen_click_panels
 import gen_slide_shows
 import gen_embeds
 import gen_multipage_gallery
+import gen_multipage_slideshow
+import gen_image_set
 
 # old style...
 import gen_templates
@@ -94,6 +97,7 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
 	return accum_style, accum_body, accum_script, load_script
 
 if __name__ == "__main__":
+	
 	dct = get_dct()
 
         # figure out which pages to render...
@@ -125,6 +129,9 @@ if __name__ == "__main__":
 	
 	# get slide shows...
 	slide_shows_dct = gen_slide_shows.get_dct( pagekeys )
+
+	# get image sets...
+	image_sets_dct = gen_image_set.get_dct( pagekeys )
 
 	# get old template schema...
 	template_dct = gen_templates.get_dct()
@@ -161,8 +168,15 @@ if __name__ == "__main__":
 		elif page_def[0]['asset_name'] == "mpg_motiondesign_gallery":
 			gen_multipage_gallery.gen_pages( page_def[0], template_style, template_content, movie_panels_dct, movies_dct, images_dct )
 
-		else:
+		elif page_def[0]['asset_name'].startswith("mss_"):
+			for item_def in page_def:
+				if ( item_def['asset_name'].startswith("mss_") ):
+					gen_multipage_slideshow.gen_pages( item_def, template_style, template_content, movie_panels_dct, movies_dct, images_dct, image_sets_dct )
+				else:
+					print "ERROR: Cannot process->", item_def
+					sys.exit(1)
 
+		else:
 			print "MAIN - GENERATING PAGE FOR", page_name
 
 			# generate the subpage content...	

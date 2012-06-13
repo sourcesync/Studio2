@@ -26,12 +26,12 @@ map,subpage_map
 ,
 photos,subpage_photos
 ,
-,
 animation_gallery,subpage_animation_gallery
 ,
 previs,subpage_previs
 ,
 motiondesign,subpage_motiondesign
 ,
-,
 motiondesign_gallery,subpage_motiondesign_gallery
+,
+stbd_artists,subpage_stbd_artists

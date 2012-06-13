@@ -21,6 +21,7 @@ ss_interactive_website,img_gsbb4,4,391,215,1,,hidden
 ss_interactive_website,img_m1motiondesign2,4,375,818,0,url:motiondesign.html,hidden
 ,,,,,,,
 ss_interactive_touchscreen,img_m2m1,1,391,215,0,page:2,hidden
+ss_interactive_touchscreen,mp_novartis,1,391,215,1,,hidden
 ss_interactive_touchscreen,img_social_face1,1,1012,485,0,,hidden
 ss_interactive_touchscreen,img_social_twit1,1,1043,485,0,,hidden
 ss_interactive_touchscreen,img_social_pint1,1,1075,485,0,,hidden
@@ -28,6 +29,7 @@ ss_interactive_touchscreen,img_social_stumble1,1,1106,485,0,,hidden
 ss_interactive_touchscreen,img_gagl5,1,1135,494,2,page:2,hidden
 ss_interactive_touchscreen,img_gagr5,1,1164,494,2,page:2,hidden
 ss_interactive_touchscreen,img_m2m2,2,391,215,0,page:1,hidden
+ss_interactive_touchscreen,mp_hivtimeline,2,391,215,1,,hidden
 ss_interactive_touchscreen,img_social_face2,2,1012,485,0,,hidden
 ss_interactive_touchscreen,img_social_twit2,2,1043,485,0,,hidden
 ss_interactive_touchscreen,img_social_pint2,2,1075,485,0,,hidden

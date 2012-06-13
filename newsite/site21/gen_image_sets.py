@@ -3,7 +3,7 @@
 # Configuration...
 #
 
-IMAGE_SETS_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFlPUUdVV0YzZkZoR01lNmNTTkhfSWc&output=csv"
+IMAGE_SETS_DEF = {"stbd_artists":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEFOWVdmZ2RFbVV4WWtUalNHN1RrcVE&output=csv" }
 
 PHIL_PREFIX = "../phil_assets"
 MOVIES1_PREFIX = "../phil_assets"
@@ -58,9 +58,16 @@ def get_item_path( name, images_dct ):
         return fpath
 
 def get_dct():
-	items = common.parse_spreadsheet1( IMAGE_SETS_DEF )
-	dct = common.dct_join( items,'name')
-	return dct
+        if pagekeys==None:
+                pagekeys = IMAGE_SET_DEFS.keys()
+        newdct = {}
+        for code in pagekeys:
+                if not IMAGE_SET_DEFS.has_key(code): continue
+                items = common.parse_spreadsheet1( IMAGE_SET_DEFS[code] )
+                dct = common.dct_join( items,'multipage_key')
+                for ky in dct.keys():
+                        newdct[ky] = dct[ky]
+        return newdct
 
 if __name__ == "__main__":
 	dct = get_dct()

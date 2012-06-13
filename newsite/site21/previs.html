@@ -1,15 +1,8 @@
 <html>
 <body>
-<style>#gsbb {
-position: absolute;left: 391px;
-top: 215px;
-z-index: -1;
-overflow: hidden;
-border: 0px;
-}
-#sint {
-position: absolute;left: 738px;
-top: 560px;
+<style>#dint {
+position: absolute;left: 735px;
+top: 558px;
 z-index: 0;
 overflow: hidden;
 border: 0px;
@@ -165,7 +158,7 @@ z-index: 0;
 overflow: hidden;
 border: 0px;
 }
-#dpr {
+#spr {
 position: absolute;left: 49px;
 top: 560px;
 z-index: 0;
@@ -360,8 +353,9 @@ function docload () { document.getElementById('img_jsw3').style.visibility = 'hi
 
  window.onload=docload;
 </script>
-<img id=gsbb src="assets/main/assets_general/stationary/semiborder_b.png" />
-<img id=sint src="assets/margin_bottom/assets_selected/s_interactive.png" />
+<a href="interactive.html">
+<img id=dint src="assets/margin_bottom/assets_deselected/d_interactive.png" onmouseover="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_selected/s_interactive.png'" onmouseout="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_deselected/d_interactive.png'"  />
+</a>
 <img id=au src="assets/margin_left/assets_deselected/aboutus.png" />
 <a href="whoweare.html">
 <img id=dwwa src="assets/margin_left/assets_deselected/d_whoweare.png" onmouseover="document.getElementById('dwwaline').style.visibility='visible';document.getElementById('dwwaline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dwwaline').style.visibility='hidden';"  />
@@ -407,9 +401,7 @@ function docload () { document.getElementById('img_jsw3').style.visibility = 'hi
 <a href="motiondesign.html">
 <img id=dmd src="assets/margin_bottom/assets_deselected/d_motiondesign.png" onmouseover="document.getElementById('dmd').style.visibility='visible';document.getElementById('dmd').src='assets/margin_bottom/assets_selected/s_motiondesign.png'" onmouseout="document.getElementById('dmd').style.visibility='visible';document.getElementById('dmd').src='assets/margin_bottom/assets_deselected/d_motiondesign.png'"  />
 </a>
-<a href="previs.html">
-<img id=dpr src="assets/margin_bottom/assets_deselected/d_previs.png" onmouseover="document.getElementById('dpr').style.visibility='visible';document.getElementById('dpr').src='assets/margin_bottom/assets_selected/s_previs.png'" onmouseout="document.getElementById('dpr').style.visibility='visible';document.getElementById('dpr').src='assets/margin_bottom/assets_deselected/d_previs.png'"  />
-</a>
+<img id=spr src="assets/margin_bottom/assets_selected/s_previs.png" />
 <img id=dwwaline src="assets/main/assets_general/moving/underline.png" />
 <a href="etcetera.html">
 <img id=detc src="assets/margin_bottom/assets_deselected/d_etcetera.png" onmouseover="document.getElementById('detc').style.visibility='visible';document.getElementById('detc').src='assets/margin_bottom/assets_selected/s_etcetera.png'" onmouseout="document.getElementById('detc').style.visibility='visible';document.getElementById('detc').src='assets/margin_bottom/assets_deselected/d_etcetera.png'"  />
