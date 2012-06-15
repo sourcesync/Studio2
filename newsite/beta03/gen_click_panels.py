@@ -2,7 +2,7 @@
 # Configuration...
 #
 
-CLICK_PANEL_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHFWblhXeHdlYllteXlnNVBTOE11R3c&output=csv"
+CLICK_PANEL_DEFS = { "photos":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedEFLTGNNcHNhNmRCWHljUzlzN01SZ2c&output=csv" }
 
 #
 # Library...
