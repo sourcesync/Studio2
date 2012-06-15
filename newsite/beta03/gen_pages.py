@@ -184,7 +184,7 @@ if __name__ == "__main__":
 	menus_dct = gen_menus.get_dct( pagekeys )
 
 	# get click panels...
-	click_panels_dct = None #gen_click_panels.get_dct( pagekeys )
+	click_panels_dct = gen_click_panels.get_dct( pagekeys )
 	
 	# get movie panels...
 	movie_panels_dct = gen_movie_panels.get_dct( pagekeys )
