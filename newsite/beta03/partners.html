@@ -253,6 +253,7 @@ position: absolute;
 left: 393px;
 top: 215px;
 z-index: 1;
+visibility: hidden;
 }
 </style>
 </head>
@@ -260,12 +261,12 @@ z-index: 1;
 <script type="text/javascript" >
 
 
-function func_menu_c2d_dirs_dirs () { document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_directors_main').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_directors_main').style.visibility = 'visible'; };
-function docload () { document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_directors_main').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_directors_main').style.visibility = 'visible';; } 
+function func_menu_c2d_dirs_dirs () { document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_directors_main').style.visibility = 'hidden';document.getElementById('mov_directors').style.visibility='hidden';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_directors_main').style.visibility = 'visible';document.getElementById('mov_directors').style.visibility='visible'; };
+function docload () { document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_directors_main').style.visibility = 'hidden';document.getElementById('mov_directors').style.visibility='hidden';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_directors_main').style.visibility = 'visible';document.getElementById('mov_directors').style.visibility='visible';; } 
 
  window.onload=docload;
 </script>
-<a href="interactive.html">
+<a href="website.html">
 <img id="dint" src="assets/margin_bottom/assets_deselected/d_interactive.png" onmouseover="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_selected/s_interactive.png'" onmouseout="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_deselected/d_interactive.png'" alt="TheStudio" />
 </a>
 <img id="au" src="assets/margin_left/assets_deselected/aboutus.png" alt="TheStudio" />
@@ -339,6 +340,9 @@ function docload () { document.getElementById('img_d4d').style.visibility = 'hid
 <img id="img_directors_main" src="assets/pages/partners/partners_directors_main.png" onmouseover="" onmouseout="" alt="TheStudio" >
 </a>
 
-<video controls id=mov_directors poster="assets/main/D/d04_directors.png" ><source src="../videos/Video%20Files%20For%20Web/REELS/h264/DirectorsReelShort.mov" /></video>
-
+<video controls id=mov_directors poster="assets/main/D/d04_directors.png" >
+<source src="../videos/Video%20Files%20For%20Web/REELS/h264/DirectorsReelShort.mov" />
+<source src="../videos/Video%20Files%20For%20Web/REELS/webm/DirectorsReelShort.webm" />
+<source src="../videos/Video%20Files%20For%20Web/REELS/OggTheora/DirectorsReelShort.ogv" />
+</video>
 </div></body></html>

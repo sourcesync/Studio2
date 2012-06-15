@@ -232,30 +232,72 @@ z-index: 0;
 overflow: hidden;
 border: 0px;
 }
-#img_community1 {
+#img_main {
 position: absolute;
 left: 508px;
 top: 261px;
-z-index: 2;
+z-index: 1;
 border:none; 
+visibility: hidden;
 }
 #img_community_frame {
 position: absolute;
 left: 391px;
 top: 215px;
-z-index: 1;
+z-index: 2;
 border:none; 
+visibility: hidden;
+}
+#img_freedownload {
+position: absolute;
+left: 775px;
+top: 442px;
+z-index: 3;
+border:none; 
+visibility: hidden;
+}
+#img_appstore {
+position: absolute;
+left: 861px;
+top: 428px;
+z-index: 3;
+border:none; 
+visibility: hidden;
+}
+#img_facebook {
+position: absolute;
+left: 659px;
+top: 325px;
+z-index: 3;
+border:none; 
+visibility: hidden;
+}
+#img_pinterest {
+position: absolute;
+left: 732px;
+top: 325px;
+z-index: 3;
+border:none; 
+visibility: hidden;
+}
+#img_twitter {
+position: absolute;
+left: 878px;
+top: 325px;
+z-index: 3;
+border:none; 
+visibility: hidden;
 }
 </style>
 </head>
 <body><div>
 <script type="text/javascript" >
 
-function docload () { document.getElementById('img_community1').style.visibility = 'visible';document.getElementById('img_community_frame').style.visibility = 'visible';; } 
+function docload () { document.getElementById('img_main').style.visibility = 'visible';document.getElementById('img_community_frame').style.visibility = 'visible';document.getElementById('img_freedownload').style.visibility = 'visible';document.getElementById('img_appstore').style.visibility = 'visible';document.getElementById('img_facebook').style.visibility = 'visible';document.getElementById('img_pinterest').style.visibility = 'visible';document.getElementById('img_twitter').style.visibility = 'visible';; } 
 
  window.onload=docload;
 </script>
-<a href="interactive.html">
+<a href="website.html">
 <img id="dint" src="assets/margin_bottom/assets_deselected/d_interactive.png" onmouseover="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_selected/s_interactive.png'" onmouseout="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_deselected/d_interactive.png'" alt="TheStudio" />
 </a>
 <img id="au" src="assets/margin_left/assets_deselected/aboutus.png" alt="TheStudio" />
@@ -321,12 +363,37 @@ function docload () { document.getElementById('img_community1').style.visibility
 </a>
 <a href=# >
 
-<img id="img_community1" src="assets/main/I/i01_tempmain.png" onmouseover="" onmouseout="" alt="TheStudio" >
+<img id="img_main" src="assets/main/I/i01_main.png" onmouseover="" onmouseout="" alt="TheStudio" >
 </a>
 
 <a href=# >
 
 <img id="img_community_frame" src="assets/main/assets_general/stationary/semiborder_b.png" onmouseover="" onmouseout="" alt="TheStudio" >
+</a>
+
+<a href=http://itunes.apple.com/us/app/the-studio-app/id503937794?mt=8 target="_blank" >
+
+<img id="img_freedownload" src="assets/pages/community/community_freedownload.png" onmouseover="" onmouseout="" alt="TheStudio" >
+</a>
+
+<a href=# >
+
+<img id="img_appstore" src="assets/main/M/m03_1_appstore.png" onmouseover="" onmouseout="" alt="TheStudio" >
+</a>
+
+<a href=https://www.facebook.com/#!/STUDIONYC target="_blank" >
+
+<img id="img_facebook" src="assets/pages/community/community_facebook.png" onmouseover="" onmouseout="" alt="TheStudio" >
+</a>
+
+<a href=http://pinterest.com/studionyc/?d target="_blank" >
+
+<img id="img_pinterest" src="assets/pages/community/community_pinterest.png" onmouseover="" onmouseout="" alt="TheStudio" >
+</a>
+
+<a href=https://twitter.com/#!/thestudionyc target="_blank" >
+
+<img id="img_twitter" src="assets/pages/community/community_twitter.png" onmouseover="" onmouseout="" alt="TheStudio" >
 </a>
 
 

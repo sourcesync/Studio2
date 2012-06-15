@@ -98,6 +98,8 @@ def expand_item( accum_ids, page_item, images_dct, movies_dct, movie_panels_dct 
 		else:
 			print "ERROR: Cannot process->", item
 			sys.exit(1)			
+
+
 	
 	return [ tot_style, tot_content, scriptlet_dct ]
 

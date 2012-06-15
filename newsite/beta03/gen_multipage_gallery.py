@@ -139,7 +139,8 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
 		# intialize page style and content from template...
 		tot_style = multipage_style
 		tot_content = multipage_content
-		scriptlet_dct = None
+		tot_on = ""
+		tot_off = ""
 
 		# expand each asset...
 		if page_def['asset_name'].startswith("mp"):
@@ -147,6 +148,8 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
 
 			tot_style += style
 			tot_content += content
+			tot_on = scriptlet_dct['on']
+			tot_off = scriptlet_dct['off']	
 
 		else:
 			print "ERROR: Cannot process this asset type->", page_def
@@ -156,7 +159,7 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
                 style = "%s" % (tot_style)
                 content = tot_content
                 head_script = "" #subpage_head_script
-                load_script  = "" #subpage_load_script
+                load_script  = tot_on
 
 		# get the page name...
 		page_name = page_def['page_name']

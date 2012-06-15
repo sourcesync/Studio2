@@ -230,6 +230,7 @@ position: absolute;
 left: 391px;
 top: 215px;
 z-index: 1;
+visibility: hidden;
 }
 #img_gagl {
 position: absolute;
@@ -237,6 +238,7 @@ left: 1135px;
 top: 494px;
 z-index: 1;
 border:none; 
+visibility: hidden;
 }
 #img_gagr {
 position: absolute;
@@ -244,6 +246,7 @@ left: 1164px;
 top: 494px;
 z-index: 1;
 border:none; 
+visibility: hidden;
 }
 #img_frame {
 position: absolute;
@@ -251,6 +254,7 @@ left: 391px;
 top: 215px;
 z-index: 0;
 border:none; 
+visibility: hidden;
 }
 #img_xboxlol {
 position: absolute;
@@ -258,17 +262,18 @@ left: 1171px;
 top: 215px;
 z-index: 1;
 border:none; 
+visibility: hidden;
 }
 </style>
 </head>
 <body><div>
 <script type="text/javascript" >
 
-function docload () { ; } 
+function docload () { document.getElementById('mov_volt').style.visibility='visible';document.getElementById('img_gagl').style.visibility = 'visible';document.getElementById('img_gagr').style.visibility = 'visible';document.getElementById('img_frame').style.visibility = 'visible';document.getElementById('img_xboxlol').style.visibility = 'visible';; } 
 
  window.onload=docload;
 </script>
-<a href="interactive.html">
+<a href="website.html">
 <img id="dint" src="assets/margin_bottom/assets_deselected/d_interactive.png" onmouseover="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_selected/s_interactive.png'" onmouseout="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_deselected/d_interactive.png'" alt="TheStudio" />
 </a>
 <img id="au" src="assets/margin_left/assets_deselected/aboutus.png" alt="TheStudio" />
@@ -331,8 +336,10 @@ function docload () { ; }
 <a href="photos.html">
 <img id="dph" src="assets/margin_left/assets_deselected/d_photos.png" onmouseover="document.getElementById('dphline').style.visibility='visible';document.getElementById('dphline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dphline').style.visibility='hidden';" alt="TheStudio" />
 </a>
-<video controls id=mov_volt poster="../posters/Video Poster Images/animation/04_ChevyVolt.png" ><source src="../videos/Video%20Files%20For%20Web/animation/h264/04_ChevyVolt.mov" /></video>
-<a href=airhead.html >
+<video controls id=mov_volt poster="../posters/Video%20Poster%20Images/animation/04_ChevyVolt.png" >
+<source src="../videos/Video%20Files%20For%20Web/animation/h264/04_ChevyVolt.mov" />
+<source src="../videos/Video%20Files%20For%20Web/animation/OggTheora/04_ChevyVolt.ogv" />
+</video><a href=airhead.html >
 
 <img id="img_gagl" src="assets/pages/strybrd_artists/arrow_l_g.png" onmouseover="" onmouseout="" alt="TheStudio" >
 </a>

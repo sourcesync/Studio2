@@ -237,6 +237,7 @@ position: absolute;
 left: 391px;
 top: 212px;
 z-index: 0;
+visibility: hidden;
 }
 </style>
 </head>
@@ -247,7 +248,7 @@ function docload () { document.getElementById('mov_home_reel').style.visibility=
 
  window.onload=docload;
 </script>
-<a href="interactive.html">
+<a href="website.html">
 <img id="dint" src="assets/margin_bottom/assets_deselected/d_interactive.png" onmouseover="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_selected/s_interactive.png'" onmouseout="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_deselected/d_interactive.png'" alt="TheStudio" />
 </a>
 <img id="au" src="assets/margin_left/assets_deselected/aboutus.png" alt="TheStudio" />
@@ -311,6 +312,9 @@ function docload () { document.getElementById('mov_home_reel').style.visibility=
 <a href="photos.html">
 <img id="dph" src="assets/margin_left/assets_deselected/d_photos.png" onmouseover="document.getElementById('dphline').style.visibility='visible';document.getElementById('dphline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dphline').style.visibility='hidden';" alt="TheStudio" />
 </a>
-<video controls id=mov_home_reel poster="assets/main/B/b01_main.png" ><source src="../phil_assets/Home%20Page/homePage_reel.mov" /></video>
-
+<video controls id=mov_home_reel poster="assets/main/B/b01_main.png" >
+<source src="../videos/Video%20Files%20For%20Web/REELS/h264/studioReel_2012.mov" />
+<source src="../videos/Video%20Files%20For%20Web/REELS/webm/studioReel_2012.webm" />
+<source src="../videos/Video%20Files%20For%20Web/REELS/OggTheora/studioReel_2012.ogv" />
+</video>
 </div></body></html>

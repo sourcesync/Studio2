@@ -56,7 +56,6 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 	tot_scripts = ""
 	off_scriptlet = ""
 	on_scriptlet= ""
-	init_scriptlet = ""
 
 	for item in option_def:
 		asset_name = item["asset_name"]
@@ -111,10 +110,13 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
                         on_scriptlet += scriptlet_dct['on']
 
                 elif asset_name.startswith("mov"):
-                        style, content, scriptlet_dct = gen_movies.expand_item( accum_ids, item, images_dct, movies_dct )
+                        style, content, scr_dct = gen_movies.expand_item( accum_ids, item, images_dct, movies_dct )
                         tot_style += style
                         tot_content += content
-                
+               
+			off_scriptlet += scr_dct['off']
+                        on_scriptlet += scr_dct['on']
+   
 		elif asset_name.startswith("mp"):
 			style, content, scr_dct = gen_movie_panels.expand_item( accum_ids, item, images_dct, movies_dct, mp_dct )
 			tot_style += style
@@ -130,7 +132,6 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 	scriptlet_dct = {}
 	scriptlet_dct['on'] = on_scriptlet
 	scriptlet_dct['off'] = off_scriptlet
-	scriptlet_dct['init'] = init_scriptlet
 
 	return [ tot_style, tot_content, tot_scripts, scriptlet_dct ]
 
@@ -200,6 +201,8 @@ def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct, movies_
 	scriptlet_dct['off'] = tot_off
 	scriptlet_dct['on'] = tot_on
 	scriptlet_dct['init'] = tot_off + init_script
+
+	print "MENU SCRIPTLET INIT->", init_script
 
 	return [ tot_style, tot_content, tot_script, scriptlet_dct ]
 

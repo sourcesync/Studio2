@@ -84,11 +84,12 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
         style += common.emit_line( "left: %dpx;" % int(x) )
         style += common.emit_line( "top: %dpx;" % int(y) )
         style += common.emit_line( "z-index: %d;" % int(z) )
-	if init_vis!=None:
-		if init_vis:
-        		style += common.emit_line( "visibility: %s;" % init_vis  )
-		else:
-        		style += common.emit_line( "visibility: %s;" % init_vis )
+	style += common.emit_line( "visibility: hidden;" )
+	#if init_vis!=None:
+	#if init_vis:
+        #style += common.emit_line( "visibility: %s;" % init_vis  )
+	#else:
+        #style += common.emit_line( "visibility: %s;" % init_vis )
         style += common.emit_line( "}" )
 
 	# content...
@@ -113,8 +114,8 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
 	scriptlet_dct = {}
 	scriptlet_dct['on'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'visible' )
 	scriptlet_dct['off']  = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'hidden' )
-	if init_vis!=None:
-		scriptlet_dct['init'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, init_vis)
+	#if init_vis!=None:
+	#scriptlet_dct['init'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, init_vis)
 
         return [ style, content, "", scriptlet_dct ]
 
@@ -152,11 +153,9 @@ def get_link( item, is_dct, directive, page_name=None):
 
         # expand the IS...
         asset_defs = gen_image_set.expand_def( is_dct, is_def )
-	print "EXPANDED->", asset_defs
 
 	pages = [  asset['page_name'] for asset in asset_defs ]
 	pages.sort()
-	print "IMGS->", pages
 
 	if directive == "first":
 		return pages[0] + ".html"
@@ -194,6 +193,8 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
 		# intialize page style and content from template...
 		tot_style = multipage_style
 		tot_content = multipage_content
+		tot_on = ""
+		tot_off = ""
 
 		cur_page_name = asset['page_name']
 	
@@ -231,6 +232,8 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
 
                         	tot_style += style
                         	tot_content += content
+				tot_on += scriptlet_dct["on"]
+				tot_off += scriptlet_dct["off"]
 
 			elif page_def.has_key('type') and page_def['type'] == "image_set":
 
@@ -242,6 +245,8 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
 				style, content, foo, scriptlet_dct = gen_image_set.expand_item( accum_ids, page_def, is_dct, None, None, None )
                         	tot_style += style
                         	tot_content += content
+				tot_on += scriptlet_dct["on"]
+				tot_off += scriptlet_dct["off"]
 
 			else:
 				print "ERROR: Cannot process this asset type->", page_def
@@ -251,7 +256,7 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
 		style = "%s" % (tot_style)
 		content = tot_content
 		head_script = "" #subpage_head_script
-		load_script  = "" #subpage_load_script
+		load_script  = tot_on #subpage_load_script
 
 		# get the page name...
 		page_name = asset['page_name']

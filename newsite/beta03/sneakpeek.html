@@ -252,6 +252,7 @@ left: 415px;
 top: 235px;
 z-index: 0;
 border:none; 
+visibility: hidden;
 }
 #img_banner {
 position: absolute;
@@ -259,6 +260,7 @@ left: 616px;
 top: 72px;
 z-index: 1;
 border:none; 
+visibility: hidden;
 }
 </style>
 </head>
@@ -269,7 +271,7 @@ function docload () { document.getElementById('img_sneakpeek').style.visibility 
 
  window.onload=docload;
 </script>
-<a href="interactive.html">
+<a href="website.html">
 <img id="dint" src="assets/margin_bottom/assets_deselected/d_interactive.png" onmouseover="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_selected/s_interactive.png'" onmouseout="document.getElementById('dint').style.visibility='visible';document.getElementById('dint').src='assets/margin_bottom/assets_deselected/d_interactive.png'" alt="TheStudio" />
 </a>
 <img id="au" src="assets/margin_left/assets_deselected/aboutus.png" alt="TheStudio" />

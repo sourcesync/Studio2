@@ -116,6 +116,8 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 				style, content,scriptlet_dct = gen_movie_panels.expand_item( accum_ids, page_item, images_dct, movies_dct, movie_panels_dct )
 				tot_style += style
 				tot_content += content
+				tot_onscrl += scriptlet_dct["on"]
+				tot_offscrl += scriptlet_dct["off"]
 			
 			elif ( page_asset_name.startswith("ss") ):
 

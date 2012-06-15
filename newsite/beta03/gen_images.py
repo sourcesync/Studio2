@@ -86,7 +86,7 @@ def mouse_script_item( srcid, val, images_dct ):
 		return ""
 
 
-def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, ahref=None ):
+def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, ahref=None, exturl=False ):
 	print "IMAGE EXPAND"
 
 	# get the asset definition...
@@ -126,7 +126,6 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
 		parts = click.split(":")
 		onclick = click_script_item(parts[0], parts[1], parts[2], images_dct )
 
-	
 	# style...
 	style  = ""
         style += common.emit_line( "#%s {" % htmlid )
@@ -135,11 +134,12 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
         style += common.emit_line( "top: %dpx;" % int(y) )
         style += common.emit_line( "z-index: %d;" % int(z) )
 	style += common.emit_line( "border:none; " )
-	if init_vis!=None:
-		if init_vis:
-        		style += common.emit_line( "visibility: %s;" % init_vis  )
-		else:
-        		style += common.emit_line( "visibility: %s;" % init_vis )
+	style += common.emit_line( "visibility: hidden;")
+	#if init_vis!=None:
+	#if init_vis:
+        #style += common.emit_line( "visibility: %s;" % init_vis  )
+	#else:
+        #style += common.emit_line( "visibility: %s;" % init_vis )
         style += common.emit_line( "}" )
 
 	# content...
@@ -147,7 +147,10 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
 
 	# a href...
 	if ahref:
-		content += common.emit_line("<a href=%s >\n" % ahref )
+		if exturl:
+			content += common.emit_line("<a href=%s target=\"_blank\" >\n" % ahref )
+		else:
+			content += common.emit_line("<a href=%s >\n" % ahref )
 	else:
 		content += common.emit_line("<a href=# >\n"  )
 		
