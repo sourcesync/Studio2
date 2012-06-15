@@ -1,0 +1,63 @@
+name,path,filename
+img_bumbleville_thumb,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_bumbleville_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_takemethere_thumb,VIDEOS/Video Files For Web/animation/thumbnails,02_takeMeThere.png
+img_takemethere_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_airhead_thumb,VIDEOS/Video Files For Web/animation/thumbnails,03_Airhead.png
+img_airhead_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_volt_thumb,VIDEOS/Video Files For Web/animation/thumbnails,04_ChevyVolt.png
+img_volt_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_aparecio_thumb,VIDEOS/Video Files For Web/animation/thumbnails,05_Aparecio.png
+img_aparecio_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_aquafina_thumb,VIDEOS/Video Files For Web/animation/thumbnails,06_Aquafina.png
+img_aquafina_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_colgate_thumb,VIDEOS/Video Files For Web/animation/thumbnails,07_colgate_scientist.png
+img_colgate_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_thompson_thumb,VIDEOS/Video Files For Web/animation/thumbnails,08_ThompsonReuters.png
+img_thompson_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_digitas_thumb,VIDEOS/Video Files For Web/animation/thumbnails,09_Yahoo_Digitas.png
+img_digitas_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_globalfund_thumb,VIDEOS/Video Files For Web/animation/thumbnails,10_GlobalFund.png
+img_globalfund_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_successacademy_thumb,VIDEOS/Video Files For Web/animation/thumbnails,11_SuccessAcademy.png
+img_successacademy_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_bizzywater_thumb,VIDEOS/Video Files For Web/animation/thumbnails,12_Bizzywater.png
+img_bizzywater_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_animation01_captions,assets/pages/animation,animation01_captions.png
+img_gagl1,assets/main/assets_general/moving/,arrow_l_g.png
+img_gagr1,assets/main/assets_general/moving/,arrow_r_g.png
+img_gsbb1,assets/main/assets_general/stationary/,semiborder_b.png
+,,
+img_lovesentence_thumb,VIDEOS/Video Files For Web/animation/thumbnails,13_LoveSentence.png
+img_lovesentence_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_pristiq_thumb,VIDEOS/Video Files For Web/animation/thumbnails,14_Pristiq.png
+img_pristiq_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_abc1_thumb,VIDEOS/Video Files For Web/animation/thumbnails,15_ABC_car.png
+img_abc1_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_abc2_thumb,VIDEOS/Video Files For Web/animation/thumbnails,16_ABC_Headset.png
+img_abc2_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_etrade_thumb,VIDEOS/Video Files For Web/animation/thumbnails,17_eTrade.png
+img_etrade_caption,VIDEOS/Video Files For Web/animation/thumbnails,01_bumbleville.png
+img_animation02_captions,assets/pages/animation,animation02_captions.png
+img_gagl2,assets/main/assets_general/moving/,arrow_l_g.png
+img_gagr2,assets/main/assets_general/moving/,arrow_r_g.png
+img_gsbb2,assets/main/assets_general/stationary/,semiborder_b.png
+,,
+,,
+img_bumbleville_poster,VPOSTERS/Video Poster Images/animation,01_bumbleville.png
+img_takemethere_poster,VPOSTERS/Video Poster Images/animation,02_takeMeThere.png
+img_airhead_poster,VPOSTERS/Video Poster Images/animation,03_Airhead.png
+img_volt_poster,VPOSTERS/Video Poster Images/animation,04_ChevyVolt.png
+img_aparecio_poster,VPOSTERS/Video Poster Images/animation,05_Aparecio.png
+img_aquafina_poster,VPOSTERS/Video Poster Images/animation,06_Aquafina.png
+img_colgate_poster,VPOSTERS/Video Poster Images/animation,07_colgate_scientist.png
+img_thompson_poster,VPOSTERS/Video Poster Images/animation,08_ThompsonReuters.png
+img_digitas_poster,VPOSTERS/Video Poster Images/animation,09_Yahoo_Digitas.png
+img_globalfund_poster,VPOSTERS/Video Poster Images/animation,10_GlobalFund.png
+img_successacademy_poster,VPOSTERS/Video Poster Images/animation,11_SuccessAcademy.png
+img_bizzywater_poster,VPOSTERS/Video Poster Images/animation,12_Bizzywater.png
+img_lovesentence_poster,VPOSTERS/Video Poster Images/animation,13_LoveSentence.png
+img_pristiq_poster,VPOSTERS/Video Poster Images/animation,14_Pristiq.png
+img_abc1_poster,VPOSTERS/Video Poster Images/animation,15_ABC_car.png
+img_abc2_poster,VPOSTERS/Video Poster Images/animation,16_ABC_Headset.png
+img_etrade_poster,VPOSTERS/Video Poster Images/animation,17_eTrade.png

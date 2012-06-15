@@ -1,0 +1,50 @@
+<script>
+ var DSL;
+ var DTL;
+ var DST;
+ var DTT;
+ var DS;
+ var DT;
+
+ function errorHandler(evt) 
+ {
+    console.log(evt);
+    switch(evt.target.error.code) {
+      case evt.target.error.NOT_FOUND_ERR:
+        break;
+      case evt.target.error.NOT_READABLE_ERR:
+        break;
+      case evt.target.error.ABORT_ERR:
+        break; 
+      default:
+        console.log(evt.target.error);
+    };
+  }
+
+ function DODROP(e)
+ {
+   console.log( e.dataTransfer.files.length ); 
+   if (e.dataTransfer.files.length==0)
+   {
+     DS.style.left=DTL;
+     DS.style.top=DTT;
+     DT.style.left=DSL;
+     DT.style.top=DST;
+     DT.className='';
+   }
+   else
+   {
+     e.preventDefault();
+     DT = e.target;
+     var file = e.dataTransfer.files[0],
+      reader = new FileReader();
+     reader.onerror = errorHandler;
+     reader.onload = function (event) {
+        console.log(DT);
+        console.log(event.target.result);
+        DT.src = event.target.result;
+     };
+     reader.readAsDataURL(file);
+   }
+ }
+</script>

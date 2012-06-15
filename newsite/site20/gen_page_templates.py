@@ -44,12 +44,18 @@ def anim_script_item( anim, srcid, template_dct, template_assets_dct ):
         return script
 
 
-def emit_item(item, template_dct, template_assets_dct ):
+def emit_item(accum_ids, item, template_dct, template_assets_dct ):
 
-	nm = item["abbrev"]
+	_nm = item["abbrev"]
+
+	nm = common.get_id(_nm, accum_ids)
+
 	x = int( item["x"] )
 	y = int( item["y"] )
 	z = 0
+	if item["z"]!="":
+		z = int( item["z"] )
+		print "Z->",z
 	eltype = item["type"]
 	file_location = item["file_location"]
 	file_name = item["file_name"]
@@ -69,7 +75,7 @@ def emit_item(item, template_dct, template_assets_dct ):
 	if eltype == 'imganim':
 		style += "visibility: hidden;\n"
 	style += "}\n"
-	style += "#%s.hover { border: 1px dashed #333; }\n" % nm
+	#style += "#%s.hover { border: 1px dashed #333; }\n" % nm
 
 	# get link...
 	link = item["link"]
@@ -93,16 +99,21 @@ def emit_item(item, template_dct, template_assets_dct ):
 		pass
         elif mc!="":
 		pass
-        elif link:
-                html += '<a href="%s">' % (link+'.html')
-                html += '<img id=%s src="%s" onmouseover="%s" onmouseout="%s"  />\n' % (nm,fpath,mover,mout)
-                html += '</a>'
+        elif link and link!="0":
+		if link=="0": print "LINK0->",item['abbrev']
+		if item['abbrev']=='dint': print "DINT->", item
+                #html += '<a href="%s">\n' % (link+'.html')
+		if (mover!="") and (mout!=""):
+                	html += '<img id=%s src="%s" onmouseover="%s" onmouseout="%s"  />\n' % (nm,fpath,mover,mout)
+		else:
+                	html += '<img id=%s src="%s" />\n' % (nm,fpath)
+                #html += '</a>\n'
         else:
                 html += '<img id=%s src="%s" />\n' % (nm,fpath)
 
         return [ style, html ]
 
-def expand_item( asset_def , template_dct, template_assets_dct ):
+def expand_item( accum_ids, asset_def , template_dct, template_assets_dct ):
         asset_name = asset_def["abbrev"]
 
 	style = ""
@@ -110,13 +121,14 @@ def expand_item( asset_def , template_dct, template_assets_dct ):
 
 	atype = asset_def["type"]
 	if atype=="img":
-		style, content = emit_item( asset_def, template_dct, template_assets_dct )
+		style, content = emit_item( accum_ids, asset_def, template_dct, template_assets_dct )
 	elif atype=="imganim":
-		style, content = emit_item( asset_def, template_dct, template_assets_dct )
+		style, content = emit_item( accum_ids, asset_def, template_dct, template_assets_dct )
 
 	return [style,content]
 
-def render_page(page, page_templates_dct, template_dct, template_assets_dct ):
+def render_page(accum_ids, page, page_templates_dct, template_dct, template_assets_dct ):
+	
 	tot_style = ""
 	tot_content = ""
 
@@ -143,13 +155,14 @@ def render_page(page, page_templates_dct, template_dct, template_assets_dct ):
 		replace_y = page_template_item["replace_y"]
 		wth_x = page_template_item["with_x"]
 		wth_y = page_template_item["with_y"]
-	
+
 		if image_code == "temp" and  replace!="" and render_dct.has_key(replace):
 
 			# first look in template dct...
 			if template_dct_cp.has_key(wth):
 				findel = template_dct_cp[wth][0]
 				render_dct[replace] = [ copy.deepcopy(findel) ]
+			
 			# then look in temmplate assets...
 			else:
 				print "ERROR: For replace, could not find->", wth
@@ -161,6 +174,7 @@ def render_page(page, page_templates_dct, template_dct, template_assets_dct ):
 			if template_dct_cp.has_key(image_code):
 				findel = template_dct_cp[image_code][0]
 				render_dct[replace] = [ copy.deepcopy(findel) ]
+			
 			# then look in temmplate assets...
 			elif template_assets_dct.has_key(image_code):
 				findel = template_assets_dct[image_code][0]
@@ -183,7 +197,7 @@ def render_page(page, page_templates_dct, template_dct, template_assets_dct ):
 	# do the render...
 	for render_item_key in render_dct.keys():
 		render_item = render_dct[render_item_key][0]	
-		style, content = expand_item( render_item , template_dct, template_assets_dct )
+		style, content = expand_item( accum_ids, render_item , template_dct, template_assets_dct )
 		tot_style += style
 		tot_content += content
 

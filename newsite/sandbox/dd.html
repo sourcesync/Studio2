@@ -54,11 +54,11 @@ if (typeof window.FileReader === 'undefined') {
 holder.ondragover = function () { this.className = 'hover'; return false; };
 holder.ondragend = function () { this.className = ''; return false; };
 holder.ondrop = function (e) {
-  alert('drop!');
+  console.log(e);
   this.className = '';
   e.preventDefault();
-  alert('1');
-  alert( e.dataTransfer.files[0] );
+  console.log( e.dataTransfer.files.length );
+  console.log( e.dataTransfer.files[0] );
   var file = e.dataTransfer.files[0],
       reader = new FileReader();
   reader.onerror = errorHandler;

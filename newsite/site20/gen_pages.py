@@ -33,8 +33,7 @@ def get_dct():
 def emitLine(f, str):
 	f.write("%s\n" % str)	
 
-def gen_page( page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, slide_shows_dct ):
-	accum_ids = []
+def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, slide_shows_dct ):
 	accum_body = ""
 	accum_style = ""	
 	for item in page_def:
@@ -100,8 +99,11 @@ if __name__ == "__main__":
 	# iterate over all pages or subset...
 	for page_name in pagekeys:
 
+		# Restart the id namer...
+		accum_ids = []
+
 		# get the template based content...
-		template_style, template_content = gen_page_templates.render_page( page_name, page_templates_dct, template_dct, template_assets_dct )
+		template_style, template_content = gen_page_templates.render_page( accum_ids, page_name, page_templates_dct, template_dct, template_assets_dct )
 	
 		# get the subpage items...	
 		page_def = []
@@ -113,8 +115,8 @@ if __name__ == "__main__":
 				page_def.append( subpage_item )
 	
 		# generate the subpage content...	
-		subpage_style, subpage_content = \
-			gen_page( page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, slide_shows_dct )
+		subpage_style, subpage_content = ["",""] 
+		#gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, slide_shows_dct )
 
 		# create all the html content...	
 		style = "<style>%s</style>" % (template_style + subpage_style)

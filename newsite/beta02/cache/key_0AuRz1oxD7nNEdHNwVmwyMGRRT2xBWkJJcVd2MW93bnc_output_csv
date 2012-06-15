@@ -1,0 +1,12 @@
+name,path,filename
+partners,,
+img_d1m,assets/main/D/,d01_main.png
+img_d1c,assets/main/D/,d01_c2d.png
+img_d1d,assets/main/D/,d01_directors.png
+img_d1l,assets/main/D/,d01_leo
+img_d1g,assets/main/D/,d01_george
+img_d2m,assets/main/D/,d02_main.png
+img_d3m,assets/main/D/,d03_main.png
+img_directors_main,assets/pages/partners,partners_directors_main.png
+img_d4c,assets/main/D/,d04_c2d.png
+img_d4d,assets/main/D/,d04_directors.png
