@@ -16,6 +16,7 @@ IMAGES_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7n
 	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDAwTzFCaHZpZDNaT0dPbmtldXdoUlE&output=csv", \
 	"etcetera":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHR0LV9KX2pHVnR2Y3BVMkl6c1NuU0E&output=csv", \
 	"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGs5U3hqZkZ0VE1RblVTYTJrRndTZlE&output=csv", \
+	#"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDRPby1XeDZHckd6bW1FcWZrcHFOM0E&output=csv", \
 	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDRPby1XeDZHckd6bW1FcWZrcHFOM0E&output=csv", \
 	"motiondesign":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHJ1eUlfN2FNNFVDdnN2RVduOEFBNXc&output=csv", \
 	"animation":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHlEV3RzRjJINmFpREo5SWtFajBvbGc&output=csv", \
@@ -104,9 +105,9 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
         z = get_attr( 'z', asset_name, asset_def, images_dct,'0')
 
 	# init vis param override...
-	init = get_attr( 'init', asset_name, asset_def, images_dct )
-	if init and not init_vis:
-		init_vis = init
+	#init = get_attr( 'init', asset_name, asset_def, images_dct )
+	#if init and not init_vis:
+	#init_vis = init
 
 	# mouseover...
 	mouseover = get_attr( 'mouseover', asset_name, asset_def, images_dct )
@@ -171,10 +172,10 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
 	scriptlet_dct = {}
 	scriptlet_dct['on'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'visible' )
 	scriptlet_dct['off']  = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'hidden' )
-	if init_vis!=None:
-		scriptlet_dct['init'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, init_vis)
-	else:
-		scriptlet_dct['init'] =	"document.getElementById('%s').style.visibility = 'visible';" % (htmlid)
+	#if init_vis!=None:
+	#scriptlet_dct['init'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, init_vis)
+	#else:
+	scriptlet_dct['init'] =	"document.getElementById('%s').style.visibility = 'visible';" % (htmlid)
 
         return [ style, content, "", scriptlet_dct ]
 
@@ -196,7 +197,7 @@ def get_dct( pagekeys=None ):
 	newdct = {}
 	for code in pagekeys:
 		if not IMAGES_DEFS.has_key(code): continue
-		items = common.parse_spreadsheet1( IMAGES_DEFS[code], "images %s" % code )
+		items = common.parse_spreadsheet1( IMAGES_DEFS[code], "images->%s" % str(pagekeys) )
 		dct = common.dct_join( items,'name')
 		for ky in dct.keys():
 			newdct[ky] = dct[ky]

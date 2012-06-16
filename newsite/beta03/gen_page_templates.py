@@ -239,7 +239,7 @@ def get_dct( pagekey=None ):
 	newdct = {}
 	for code in pagekey:
 		if ( not code in PAGE_TEMPLATE_DEFS.keys() ): continue
-		items = common.parse_spreadsheet1( PAGE_TEMPLATE_DEFS[code] )
+		items = common.parse_spreadsheet1( PAGE_TEMPLATE_DEFS[code], "page_templates->%s" % str(pagekey) )
 		dct = common.dct_join( items,'page_code')
 		newdct[ code ] = dct[code]
 	return newdct

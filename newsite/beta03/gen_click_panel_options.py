@@ -2,7 +2,8 @@
 # Configuration...
 #
 
-CLICK_PANEL_OPTIONS_DEFS = { "photos":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedEtkUmFZbjE1YW90TkVOYWF1dVBneUE&output=csv" }
+CLICK_PANEL_OPTIONS_DEFS = { "photos":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedEtkUmFZbjE1YW90TkVOYWF1dVBneUE&output=csv", \
+	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFZ6RzRMWUtURWZOLUNjRUF6b3JocEE&output=csv" }
 
 #
 # Library...
@@ -18,7 +19,7 @@ def get_dct(pagekeys):
         newdct = {}
         for code in pagekeys:
                 if not CLICK_PANEL_OPTIONS_DEFS.has_key(code): continue
-		items = common.parse_spreadsheet1( CLICK_PANEL_OPTIONS_DEFS[code], "click panels->%s" % str(pagekeys) )
+		items = common.parse_spreadsheet1( CLICK_PANEL_OPTIONS_DEFS[code], "click panel options->%s" % str(pagekeys) )
 		dct = common.dct_join( items,'name')
 	return dct
 

@@ -47,7 +47,8 @@ def create_option_scripts( asset_name, menus_dct ):
 		script[key] = create_option_script( asset_name, key, menus_dct )
 	return script	
 
-def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, action_scripts, init_hidden, slide_shows_dct, movies_dct, mp_dct, is_dct ):
+def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, action_scripts, init_hidden, \
+	slide_shows_dct, movies_dct, mp_dct, is_dct, click_panels_dct, cpo_dct ):
 
 	option_def = menu_def[option_name]
 
@@ -99,11 +100,13 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 
 		elif asset_name.startswith("ss"):
 			print "MENU - CALLING GEN SLIDE SHOWS EXPAND", asset_name
-			style, content, script, scriptlet_dct = gen_slide_shows.expand_item( accum_ids, item, images_dct, movies_dct, mp_dct, None, slide_shows_dct )
+
+			style, content, top_script, scriptlet_dct = gen_slide_shows.expand_item( accum_ids, item, images_dct, movies_dct, \
+				mp_dct, click_panels_dct, slide_shows_dct, cpo_dct )
 
 			tot_style += style
 			tot_content += content
-			tot_scripts += script
+			tot_scripts += top_script
 
 			# accumulate on/off scriptlet...
                         off_scriptlet += scriptlet_dct['off']
@@ -135,7 +138,7 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 
 	return [ tot_style, tot_content, tot_scripts, scriptlet_dct ]
 
-def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct, movies_dct, mp_dct, is_dct ):
+def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct, movies_dct, mp_dct, is_dct, click_panels_dct, cpo_dct ):
 
 	print "MENU EXPAND"
 
@@ -166,7 +169,8 @@ def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct, movies_
 	for option in menu_def.keys():
 		item_def = menu_def[option]
 		style, content, script, scriptlet_dct = expand_option( \
-			accum_ids, menu_name, menu_def, option, images_dct, action_scripts, True, slide_shows_dct, movies_dct, mp_dct, is_dct )
+			accum_ids, menu_name, menu_def, option, images_dct, action_scripts, True, slide_shows_dct, \
+			movies_dct, mp_dct, is_dct, click_panels_dct, cpo_dct )
 		tot_style += style
 		tot_content += content
 		tot_script += script

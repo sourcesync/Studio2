@@ -12,6 +12,10 @@ menu_previs,anim_cinem,img_jsw1,391,180,option:stbd_artists,hidden,1
 menu_previs,anim_cinem,img_jar,578,180,,hidden,1
 menu_previs,anim_cinem,img_jcw2,767,180,option:char_dev,hidden,1
 menu_previs,anim_cinem,mp_anim_cinem,391,215,,hidden,
+menu_previs,anim_cinem,img_facebook,1012,485,,hidden,3
+menu_previs,anim_cinem,img_twitter,1043,485,,hidden,3
+menu_previs,anim_cinem,img_pinterest,1075,485,,hidden,3
+menu_previs,anim_cinem,img_tumblr,1106,485,,hidden,3
 ,,,,,,,
 menu_previs,char_dev,img_jsw3,391,180,option:stbd_artists,hidden,1
 menu_previs,char_dev,img_jaw3,578,180,option:anim_cinem,hidden,1

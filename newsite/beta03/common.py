@@ -28,6 +28,9 @@ def get_id(base,ids):
 		tryname = "%s_%d" % (base,counter)
 
 def gen_page( filename, style, content, head_script, load_script ):
+
+	load_script = "alert('s');" + load_script
+
 	f = open(filename,'w')
 	loader = "function docload () { %s; } \n\n window.onload=docload;" % load_script
 	f.write('<!DOCTYPE html >\n')  #"-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">')

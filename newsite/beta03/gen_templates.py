@@ -85,7 +85,7 @@ def render_template(template_dct):
 	return [ tot_style, tot_content ]
 
 def get_dct():
-	items = common.parse_spreadsheet1( TEMPLATE_DEF )
+	items = common.parse_spreadsheet1( TEMPLATE_DEF, "templates" )
 	dct = common.dct_join( items,'abbrev')
 	style, content = render_template( dct )
 	return dct

@@ -37,7 +37,7 @@ def get_dct( subset=None ):
 	if subset==None: subset = SUB_PAGE_DEFS.keys()
 	for code in subset:
 		if not code in SUB_PAGE_DEFS.keys(): continue
-		items = common.parse_spreadsheet1( SUB_PAGE_DEFS[code], "subpages %s" % code )
+		items = common.parse_spreadsheet1( SUB_PAGE_DEFS[code], "subpages->%s" % str(subset) )
 		dct = common.dct_join( items,'subpage_key')
 		for ky in dct.keys():
 			newdct[ky] = dct[ky]

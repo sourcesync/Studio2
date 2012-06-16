@@ -18,8 +18,9 @@ import os
 import sys
 import gen_images
 import gen_movie_panels
+import gen_click_panels
 
-def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct, click_panels_dct, slide_shows_dct ):
+def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct, click_panels_dct, slide_shows_dct, cpo_dct ):
 
         asset_name = asset_def["asset_name"]
 	item_def = slide_shows_dct[asset_name]
@@ -35,7 +36,7 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 	# accumulate the child elements...
 	tot_style = ""
 	tot_content = ""
-	tot_scripts = ""
+	tot_top_script = ""
 	all_on = ""
 	all_off = ""
 	init_script = False
@@ -104,12 +105,26 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
                         	if page_item.has_key("init") and page_item["init"]!="":
                                 	init_vis = page_item["init"]
 	
-				style, content, script, scriptlet_dct = gen_images.expand_item( accum_ids, page_item, images_dct, script, init_vis, ahref )
+				style, content, top_script, scriptlet_dct = gen_images.expand_item( accum_ids, page_item, images_dct, script, init_vis, ahref )
 				tot_style += style
 				tot_content += content
-				tot_scripts += script
+				tot_top_script += top_script
 				tot_onscrl += scriptlet_dct["on"]
 				tot_offscrl += scriptlet_dct["off"]
+
+			elif page_asset_name.startswith("cp"):
+	
+                        	print "GEN SLIDE SHOW - CALLING GEN CLICK PANEL", page_asset_name, page_item, \
+					len(click_panels_dct.keys()), len(cpo_dct.keys())
+
+                        	style, content, top_script, scriptlet_dct  = \
+					gen_click_panels.expand_item( accum_ids, page_item, images_dct, movies_dct, movie_panels_dct, click_panels_dct, cpo_dct )
+				
+				tot_style += style
+				tot_content += content
+				tot_onscrl += scriptlet_dct["on"]
+				tot_offscrl += scriptlet_dct["off"]
+				tot_top_script += top_script
 
 			elif ( page_asset_name.startswith("mp") ):
 				
@@ -119,15 +134,14 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 				tot_onscrl += scriptlet_dct["on"]
 				tot_offscrl += scriptlet_dct["off"]
 			
-			elif ( page_asset_name.startswith("ss") ):
-
-				style, content = gen_slide_show.expand_item( accum_ids, page_item, images_dct, movies_dct, movie_panels_dct )
-				tot_style += style
-				tot_content += content
+			#elif ( page_asset_name.startswith("ss") ):
+			#style, content = gen_slide_show.expand_item( accum_ids, page_item, images_dct, movies_dct, movie_panels_dct )
+			#tot_style += style
+			#tot_content += content
 
 			else:
 				print "ERROR: gen_slide_shows: Cannot process->", page_item
-				continue
+				sys.exit(1)
 
 		tot_content  += common.emit_line("</div>")
 
@@ -160,9 +174,9 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 	# add to header scripts...	
 	for item in action_scripts.keys():
 		funcdef = "function %s () { %s; }" % (item, all_off + action_scripts[item] )
-		tot_scripts += "\n\n" + funcdef
+		tot_top_script += "\n\n" + funcdef
 
-        return [ tot_style, tot_content, tot_scripts, scriptlet_dct ]
+        return [ tot_style, tot_content, tot_top_script, scriptlet_dct ]
 
 def get_item_path( name, images_dct ):
         item_def = images_dct[name][0]

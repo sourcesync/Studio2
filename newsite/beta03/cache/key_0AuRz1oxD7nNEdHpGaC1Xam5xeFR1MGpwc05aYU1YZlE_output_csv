@@ -26,7 +26,7 @@ _subpage_photos,img_Pte162,,,,
 _subpage_photos,img_Pte172,,,,
 _subpage_photos,img_Pte182,,,,
 ,,,,,
-subpage_photos,cp_photos,391,243,2,hidden
-_subpage_photos,img_frame,391,215,1,hidden
+subpage_photos,cp_photos,391,243,2,cpo_option1_11
+subpage_photos,img_frame,391,215,0,hidden
 _subpage_photos,img_gagl,1135,494,3,hidden
 _subpage_photos,img_gagr,1164,494,3,hidden

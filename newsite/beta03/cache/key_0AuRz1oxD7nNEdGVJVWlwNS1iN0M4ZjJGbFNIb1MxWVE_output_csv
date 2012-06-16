@@ -3,8 +3,8 @@ name,asset_name,page,x,y,z,init
 _ss_char_dev,img_j3m1,1,379,244,1,hidden
 _ss_char_dev,img_j3m2,2,379,244,1,hidden
 ,,,,,,
-ss_char_dev,cp_char_dev_1,1,379,244,1,hidden
-ss_char_dev,cp_char_dev_2,2,379,244,1,hidden
+ss_char_dev,cp_char_dev_1,1,379,244,1,cpo1_11
+ss_char_dev,cp_char_dev_2,2,379,244,1,cpo2_11
 ,,,,,,
 ss_char_dev,img_frame31,1,380,243,0,hidden
 ss_char_dev,img_gagl1,1,1135,494,1,hidden
