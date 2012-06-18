@@ -33,3 +33,8 @@ img_poltron_poster,VPOSTERS/Video Poster Images/Motion Design,09_PoltronaFrau.pn
 img_dexnet_poster,VPOSTERS/Video Poster Images/Motion Design,10_DexNet.png
 img_particles_poster,VPOSTERS/Video Poster Images/Motion Design,11_particles.png
 img_emd_poster,VPOSTERS/Video Poster Images/Motion Design,12_EMD Serono_Growth_Hormone.mov
+,,
+img_facebook,assets/main/assets_general/moving/,social_f.png
+img_twitter,assets/main/assets_general/moving/,social_t.png
+img_pinterest,assets/main/assets_general/moving/,social_p.png
+img_tumblr,assets/main/assets_general/moving/,social_tumblr.png

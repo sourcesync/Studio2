@@ -1,6 +1,6 @@
 name,asset_name,type,x,y,z,init,
 ,,,,,,,
-cp_char_dev_1,cpo_main1,preview,0,0,0,img_0_turn_around,"boundaries: 540,243 & 847,887"
+cp_char_dev_1,cpo_main1,preview,541,245,0,img_0_turn_around,"boundaries: 540,243 & 847,887"
 cp_char_dev_1,cpo1_11,option,858,243,0,,
 cp_char_dev_1,cpo1_12,option,934,243,0,,
 cp_char_dev_1,cpo1_13,option,1010,243,0,,
@@ -14,7 +14,7 @@ cp_char_dev_1,cpo1_32,option,934,396,0,,
 cp_char_dev_1,cpo1_33,option,1010,396,0,,
 cp_char_dev_1,cpo1_34,option,1086,396,0,,
 ,,,,,,,
-cp_char_dev_2,cpo_main2,preview,0,0,0,img_12_duck,
+cp_char_dev_2,cpo_main2,preview,541,245,0,img_12_duck,
 cp_char_dev_2,cpo2_11,option,858,243,0,,
 cp_char_dev_2,cpo2_12,option,934,243,0,,
 cp_char_dev_2,cpo2_13,option,1010,243,0,,

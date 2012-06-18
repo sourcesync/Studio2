@@ -82,8 +82,9 @@ def expand_item( accum_ids, asset_def, embeds_dct ):
 	content = common.emit_line( code )
 
 	scriptlet_dct = {}
-	#scriptlet_dct['on'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'visible' )
-	#scriptlet_dct['off']  = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'hidden' )
+	scriptlet_dct['on'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'visible' )
+	scriptlet_dct['off']  = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'hidden' )
+	scriptlet_dct['init'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'visible' )
 
         return [ style, content, "", scriptlet_dct ]
 

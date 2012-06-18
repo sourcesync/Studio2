@@ -12,10 +12,10 @@ SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,\
 #SUBSET = [ "home" ]
 #SUBSET = [ "interactive", "appdesign", "website", "touchscreen" ]
 #SUBSET = [ "community" ]
-SUBSET = [ "previs", "stbd_artists" ]
+#SUBSET = [ "previs", "stbd_artists" ]
 #SUBSET = [ "partners" ]
 #SUBSET = [ "motiondesign", "motiondesign_gallery" ]
-#SUBSET = [ "animation", "animation_gallery" ]
+SUBSET = [ "animation", "animation_gallery" ]
 
 #
 # Library...
@@ -72,9 +72,14 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
 		asset_name = item["asset_name"]
 
 		if asset_name.startswith("mov"):
+
+			print "MAIN - CALLING GEN MOV", asset_name, item
 			style, content, scriptlet_dct = gen_movies.expand_item( accum_ids, item, images_dct, movies_dct )
 
 		elif asset_name.startswith("img"):
+			
+			print "MAIN - CALLING GEN IMG", asset_name, item
+
                         # determine the script, if any...
                         script = None
                         ahref = None
@@ -102,10 +107,9 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
                                         print "ERROR: gen_menus: Unknown link type", asset_name, item
                                         sys.exit(1)
 
-			style, content, top_script, scriptlet_dct = gen_images.expand_item( accum_ids, item, images_dct, script, None, ahref, exturl )
+			style, content, top_script, scriptlet_dct = gen_images.expand_item( accum_ids, item, images_dct, script, None, \
+				ahref, exturl )
  
-			print "IMG SCRIPTLET->", scriptlet_dct
-
 		elif asset_name.startswith("embed"):
 
 			print "MAIN - CALLING GEN EMBED", asset_name, item
@@ -114,22 +118,21 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
 		elif asset_name.startswith("menu"):
 
 			print "MAIN - CALLING GEN MENUS EXPAND", asset_name, item
-
 			style, content, top_script, scriptlet_dct  = gen_menus.expand_item( accum_ids, item, images_dct, menus_dct, \
 				slide_shows_dct, movies_dct, movie_panels_dct, image_sets_dct, click_panels_dct, cpo_dct )
  
 		elif asset_name.startswith("cp"):
 
 			print "MAIN - CALLING GEN CLICK PANEL", asset_name, item, len(click_panels_dct.keys()), len(cpo_dct.keys())
-
-			style, content, top_script, scriptlet_dct  = gen_click_panels.expand_item( accum_ids, item, images_dct, movies_dct, movie_panels_dct, click_panels_dct, cpo_dct )
+			style, content, top_script, scriptlet_dct  = gen_click_panels.expand_item( accum_ids, item, images_dct, \
+				movies_dct, movie_panels_dct, click_panels_dct, cpo_dct )
 
 		elif asset_name.startswith("ss"):
 
 			print "MAIN - CALLING GEN SS", asset_name, item
-
 			style, content, top_script, scriptlet_dct = \
-				gen_slide_shows.expand_item( accum_ids, item, images_dct, movies_dct, movie_panels_dct, click_panels_dct, slide_shows_dct )
+				gen_slide_shows.expand_item( accum_ids, item, images_dct, movies_dct, movie_panels_dct, \
+				click_panels_dct, slide_shows_dct, cpo_dct )
  
 		else:
 
@@ -236,7 +239,8 @@ if __name__ == "__main__":
 
 			# generate the subpage content...	
 			subpage_style, subpage_content, subpage_head_script, subpage_load_script = \
-				gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, \
+				gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct, \
+					movie_panels_dct, click_panels_dct, \
 					slide_shows_dct, embeds_dct, cpo_dct )
 
 			# create all the html content...	

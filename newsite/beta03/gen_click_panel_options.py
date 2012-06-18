@@ -21,7 +21,7 @@ def get_dct(pagekeys):
                 if not CLICK_PANEL_OPTIONS_DEFS.has_key(code): continue
 		items = common.parse_spreadsheet1( CLICK_PANEL_OPTIONS_DEFS[code], "click panel options->%s" % str(pagekeys) )
 		dct = common.dct_join( items,'name')
-	return dct
+	return newdct
 
 def get_item_path( name, movies_dct ):
 	item_def = movies_dct[name][0]

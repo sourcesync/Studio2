@@ -29,6 +29,7 @@ PHIL_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../videos"
 VIDEOS_PREFIX = "../videos"
 POSTERS_PREFIX = "../posters"
+CAPTIONS_PREFIX = "../captions"
 
 #
 # Library...
@@ -188,7 +189,8 @@ def get_item_path( name, images_dct ):
         fpath = fpath.replace("MOVIES1",MOVIES1_PREFIX)
         fpath = fpath.replace("MOVIES2",MOVIES2_PREFIX)
         fpath = fpath.replace("VIDEOS",VIDEOS_PREFIX)
-        fpath = fpath.replace("VPOSTERS",POSTERS_PREFIX)
+	fpath = fpath.replace("VPOSTERS",POSTERS_PREFIX)
+        fpath = fpath.replace("CAPTIONS",CAPTIONS_PREFIX)
         return fpath
 
 def get_dct( pagekeys=None ):
