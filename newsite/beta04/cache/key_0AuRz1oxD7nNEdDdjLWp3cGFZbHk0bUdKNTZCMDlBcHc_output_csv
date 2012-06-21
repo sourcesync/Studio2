@@ -1,0 +1,14 @@
+menu_name,option_name,asset_name,x,y,link,init
+interactive,,,,,,
+menu_interactive,website,ss_interactive_website,414,233,,hidden
+menu_interactive,touchscreen,ss_interactive_touchscreen,391,215,,hidden
+menu_interactive,appdesign,ss_interactive_appdesign,414,233,,hidden
+menu_interactive,website,img_maw1,625,180,option:appdesign,hidden
+menu_interactive,website,img_mwr,392,180,,hidden
+menu_interactive,website,img_mtw1,508,180,option:touchscreen,hidden
+menu_interactive,touchscreen,img_maw2,625,180,option:appdesign,hidden
+menu_interactive,touchscreen,img_mtr,508,180,,hidden
+menu_interactive,touchscreen,img_mww1,392,180,option:website,hidden
+menu_interactive,appdesign,img_mww2,392,180,option:website,hidden
+menu_interactive,appdesign,img_mar,625,180,,hidden
+menu_interactive,appdesign,img_mtw2,508,180,option:touchscreen,hidden

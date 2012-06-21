@@ -1,0 +1,5 @@
+name,asset_name,x,y,z,link
+,,,,,
+mp_anim_cinem,mov_anim_cinem_vimeo,391,215,2,
+_mp_anim_cinem,img_frame,391,215,0,
+_mp_anim_cinem,img_poster,391,215,1,

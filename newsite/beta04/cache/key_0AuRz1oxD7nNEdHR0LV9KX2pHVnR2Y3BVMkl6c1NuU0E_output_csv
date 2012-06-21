@@ -1,0 +1,15 @@
+name,path,filename
+etcetera,,
+img_n1m,assets/main/N/,n01_main.png
+img_n2m,assets/main/N/,n02_main.png
+img_n3m,assets/main/N/,n03_main.png
+img_nmw,assets/main/N/,n_mot_w.png
+img_nmw2,assets/main/N/,n_mot_w.png
+img_nmr,assets/main/N/,n_mot_r.png
+img_nmr2,assets/main/N/,n_mot_r.png
+img_naw,assets/main/N/,n_axe_w.png
+img_naw2,assets/main/N/,n_axe_w.png
+img_nar,assets/main/N/,n_axe_r.png
+img_ncw,assets/main/N/,n_city_w.png
+img_ncw2,assets/main/N/,n_city_w.png
+img_ncr,assets/main/N/,n_city_r.png

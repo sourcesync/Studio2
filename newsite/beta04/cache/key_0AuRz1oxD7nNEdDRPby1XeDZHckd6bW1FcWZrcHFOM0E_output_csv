@@ -1,0 +1,154 @@
+name,path,filename
+img_j1m,assets/main/J/,j01_main.png
+img_jsr,assets/main/J/,j_story_r.png
+img_jaw1,assets/main/J/,j_ani_w.png
+img_jaw2,assets/main/J/,j_ani_w.png
+img_jaw3,assets/main/J/,j_ani_w.png
+img_jcw1,assets/main/J/,j_char_w.png
+img_jcw2,assets/main/J/,j_char_w.png
+img_jcw3,assets/main/J/,j_char_w.png
+img_j2m,assets/main/J/,j02_main.png
+img_jsw1,assets/main/J/,j_story_w.png
+img_jsw2,assets/main/J/,j_story_w.png
+img_jsw3,assets/main/J/,j_story_w.png
+img_jar,assets/main/J/,j_ani_r.png
+img_j3m1,assets/main/J/,j03_1_tempmain.png
+img_j3m2,assets/main/J/,j03_2_tempmain.png
+img_jcr,assets/main/J/,j_char_r.png
+img_jl,assets/main/J/,j_links.png
+img_j107,assets/main/J/,j01_matt01temp.png
+,,
+img_anim_cinem_poster,VPOSTERS/Video Poster Images/reels/,Cinematics_Animatics_Reel.png
+img_xboxlol,assets/pages/strybrd_artists/,strybrd_artists_xboxlol.png
+,,
+img_mateescu_adrian,PHIL/previsualization/storyboards-artists/ARTIST_THUMBNAILS/,adrian_thumb.png
+img_reid_andrew,PHIL/previsualization/storyboards-artists/ARTIST_THUMBNAILS/,andrew_thumb.png
+img_marte_anthony,PHIL/previsualization/storyboards-artists/ARTIST_THUMBNAILS/,anthony_thumb.png
+img_lee_david,PHIL/previsualization/storyboards-artists/ARTIST_THUMBNAILS/,dave_thumb.png
+img_holmes_john,PHIL/previsualization/storyboards-artists/ARTIST_THUMBNAILS/,john_thumb.png
+img_komoda_kurt,PHIL/previsualization/storyboards-artists/ARTIST_THUMBNAILS/,kurt_thumb.png
+img_buck_matt,PHIL/previsualization/storyboards-artists/ARTIST_THUMBNAILS/,matt_thumb.png
+img_ocasio_michael,PHIL/previsualization/storyboards-artists/ARTIST_THUMBNAILS/,michael_thumb.png
+img_marano_philomena,PHIL/previsualization/storyboards-artists/ARTIST_THUMBNAILS/,philo_thumb.png
+img_chalek_sarah,PHIL/previsualization/storyboards-artists/ARTIST_THUMBNAILS/,sarah_thumb.png
+,,
+img_captions,assets/pages/strybrd_artists/,strybrd_artists_captions.png
+img_frame3,assets/pages/strybrd_artists/,strybrd_artists_frame3.png
+img_frame,assets/pages/strybrd_artists,strybrd_artists_frame.png
+img_poster,assets/pages/anim_cinem/,anim_cinem_poster.png
+,,
+img_frame31,assets/pages/char_dev/,char_dev_frame.png
+img_gagl1,assets/main/assets_general/moving/,arrow_l_g.png
+img_gagr1,assets/main/assets_general/moving/,arrow_r_g.png
+,,
+img_frame32,assets/pages/char_dev,char_dev_frame.png
+img_gagl2,assets/main/assets_general/moving/,arrow_l_g.png
+img_gagr2,assets/main/assets_general/moving/,arrow_r_g.png
+,,
+img_facebook,assets/main/assets_general/moving/,social_f.png
+img_twitter,assets/main/assets_general/moving/,social_t.png
+img_pinterest,assets/main/assets_general/moving/,social_p.png
+img_tumblr,assets/main/assets_general/moving/,social_tumblr.png
+,,
+,,
+img_0_turn_around_BW,PHIL/previsualization/character development/thumbnails/,0_turn_around_BW.png
+img_0_turn_around_red,PHIL/previsualization/character development/thumbnails/,0_turn_around_red.png
+img_10_japanese_scene_BW,PHIL/previsualization/character development/thumbnails/,10_japanese_scene_BW.png
+img_10_japanese_scene_red,PHIL/previsualization/character development/thumbnails/,10_japanese_scene_red.png
+img_11_maestro_BW,PHIL/previsualization/character development/thumbnails/,11_maestro_BW.png
+img_11_maestro_red,PHIL/previsualization/character development/thumbnails/,11_maestro_red.png
+img_12_duck_BW,PHIL/previsualization/character development/thumbnails/,12_duck_BW.png
+img_12_duck_red,PHIL/previsualization/character development/thumbnails/,12_duck_red.png
+img_13_old_man_BW,PHIL/previsualization/character development/thumbnails/,13_old_man_BW.png
+img_13_old_man_red,PHIL/previsualization/character development/thumbnails/,13_old_man_red.png
+img_14_japanese_woman_BW,PHIL/previsualization/character development/thumbnails/,14_japanese_woman_BW.png
+img_14_japanese_woman_red,PHIL/previsualization/character development/thumbnails/,14_japanese_woman_red.png
+img_15_eye_monster_BW,PHIL/previsualization/character development/thumbnails/,15_eye_monster_BW.png
+img_15_eye_monster_red,PHIL/previsualization/character development/thumbnails/,15_eye_monster_red.png
+img_16_long_neck_monster_BW,PHIL/previsualization/character development/thumbnails/,16_long_neck_monster_BW.png
+img_16_long_neck_monster_red,PHIL/previsualization/character development/thumbnails/,16_long_neck_monster_red.png
+img_17_monster_duo_BW,PHIL/previsualization/character development/thumbnails/,17_monster_duo_BW.png
+img_17_monster_duo_red,PHIL/previsualization/character development/thumbnails/,17_monster_duo_red.png
+img_18.model_sheet_BW,PHIL/previsualization/character\ development/thumbnails/,18.model_sheet_BW.png
+img_18.model_sheet_red,PHIL/previsualization/character\ development/thumbnails/,18.model_sheet_red.png
+img_19_grandparents_BW,PHIL/previsualization/character development/thumbnails/,19_grandparents_BW.png
+img_19_grandparents_red,PHIL/previsualization/character development/thumbnails/,19_grandparents_red.png
+img_1_blue_reporter_BW,PHIL/previsualization/character development/thumbnails/,1_blue_reporter_BW.png
+img_1_blue_reporter_red,PHIL/previsualization/character development/thumbnails/,1_blue_reporter_red.png
+img_20_brown_monster_BW,PHIL/previsualization/character development/thumbnails/,20_brown_monster_BW.png
+img_20_brown_monster_red-copy,PHIL/previsualization/character development/thumbnails/,20_brown_monster_red-copy.png
+img_20_brown_monster_red,PHIL/previsualization/character development/thumbnails/,20_brown_monster_red.png
+img_21_dust_bunny_BW,PHIL/previsualization/character development/thumbnails/,21_dust_bunny_BW.png
+img_21_dust_bunny_red,PHIL/previsualization/character development/thumbnails/,21_dust_bunny_red.png
+img_22-pig_BW,PHIL/previsualization/character development/thumbnails/,22-pig_BW.png
+img_22-pig_red,PHIL/previsualization/character development/thumbnails/,22-pig_red.png
+img_23-Goodie_Meanie,PHIL/previsualization/character development/thumbnails/,23-Goodie_Meanie.png
+img_23-Goodie_Meanie_BW,PHIL/previsualization/character development/thumbnails/,23-Goodie_Meanie_BW.png
+img_23-Goodie_Meanie_red,PHIL/previsualization/character development/thumbnails/,23-Goodie_Meanie_red.png
+img_2_blue_driver_BW,PHIL/previsualization/character development/thumbnails/,2_blue_driver_BW.png
+img_2_blue_driver_red,PHIL/previsualization/character development/thumbnails/,2_blue_driver_red.png
+img_3_blue_cop_red,PHIL/previsualization/character development/thumbnails/,3_blue_cop_red.png
+img_3_blue_cop_red_BW,PHIL/previsualization/character development/thumbnails/,3_blue_cop_red_BW.png
+img_4_pilot_cow_BW,PHIL/previsualization/character development/thumbnails/,4_pilot_cow_BW.png
+img_4_pilot_cow_red,PHIL/previsualization/character development/thumbnails/,4_pilot_cow_red.png
+img_5-balloon_head_BW,PHIL/previsualization/character development/thumbnails/,5-balloon_head_BW.png
+img_5-balloon_head_red,PHIL/previsualization/character development/thumbnails/,5-balloon_head_red.png
+img_6_green_demon_BW,PHIL/previsualization/character development/thumbnails/,6_green_demon_BW.png
+img_6_green_demon_red,PHIL/previsualization/character development/thumbnails/,6_green_demon_red.png
+img_7_bacteria_rows_BW,PHIL/previsualization/character development/thumbnails/,7_bacteria_rows_BW.png
+img_7_bacteria_rows_red,PHIL/previsualization/character development/thumbnails/,7_bacteria_rows_red.png
+img_8_bacteria_group_BW,PHIL/previsualization/character development/thumbnails/,8_bacteria_group_BW.png
+img_8_bacteria_group_red,PHIL/previsualization/character development/thumbnails/,8_bacteria_group_red.png
+img_9_blue_monster_BW,PHIL/previsualization/character development/thumbnails/,9_blue_monster_BW.png
+img_9_blue_monster_red,PHIL/previsualization/character development/thumbnails/,9_blue_monster_red.png
+,,
+,,
+img_0_turn_around,PHIL/previsualization/character development/,0_turn_around.png
+img_10_japanese_scene,PHIL/previsualization/character development/,10_japanese_scene.png
+img_11_maestro,PHIL/previsualization/character development/,11_maestro.png
+img_12_duck,PHIL/previsualization/character development/,12_duck.png
+img_13_old_man,PHIL/previsualization/character development/,13_old_man.png
+img_14_japanese_woman,PHIL/previsualization/character development/,14_japanese_woman.png
+img_15_eye_monster,PHIL/previsualization/character development/,15_eye_monster.png
+img_16_long_neck_monster,PHIL/previsualization/character development/,16_long_neck_monster.png
+img_17_monster_duo,PHIL/previsualization/character development/,17_monster_duo.png
+img_18.MODEL_SHEET,PHIL/previsualization/character development/,18.MODEL_SHEET.png
+img_19_grandparents,PHIL/previsualization/character development/,19_grandparents.png
+img_1_blue_reporter,PHIL/previsualization/character development/,1_blue_reporter.png
+img_20_brown_monster,PHIL/previsualization/character development/,20_brown_monster.png
+img_21_dust_bunny,PHIL/previsualization/character development/,21_dust_bunny.png
+img_22-pig,PHIL/previsualization/character development/,22-pig.png
+img_23-Goodie_Meanie,PHIL/previsualization/character development/,23-Goodie_Meanie.png
+img_2_blue_driver,PHIL/previsualization/character development/,2_blue_driver.png
+img_3_blue_cop,PHIL/previsualization/character development/,3_blue_cop.png
+img_4_pilot_cow,PHIL/previsualization/character development/,4_pilot_cow.png
+img_5-balloon_head,PHIL/previsualization/character development/,5-balloon_head.png
+img_6_green_demon,PHIL/previsualization/character development/,6_green_demon.png
+img_7_bacteria_rows,PHIL/previsualization/character development/,7_bacteria_rows.png
+img_8_bacteria_group,PHIL/previsualization/character development/,8_bacteria_group.png
+img_9_blue_monster,PHIL/previsualization/character development/,9_blue_monster.png
+,,
+,,0_bumblevilleesuperhero.png
+,,1_bumblevillereporter.png
+,,3_bumblevilledriver.png
+,,4_bumblevillecop.png
+,,5_flight.png
+,,6_airheadmodelsheet.png
+,,7_nitionsleepusinterruptus.png
+,,8_prevnar13bacteria.png
+,,9_prevnar13bacteria.png
+,,10_prevnar13pneumo.png
+,,11_sparrow.png
+,,12_nitionsleepmaestro.png
+,,13_featherhood.png
+,,14_georgeandliz.png
+,,15_sparrow.png
+,,16_sparrowdemon.png
+,,17_sparrowdemon.png
+,,18_sparrowdemon.png
+,,19_cupidslastbow.png
+,,20_mmmsupergrandparents.png
+,,21_squonk.png
+,,22_dustbunnies.png
+,,23_alteregoproject.png
+,,24_goodiemeanieproject.png
