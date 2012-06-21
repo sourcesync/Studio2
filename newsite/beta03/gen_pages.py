@@ -9,13 +9,15 @@ SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,\
 	"animation_gallery", "motiondesign","motiondesign_gallery", "previs", "stbd_artists", \
 	"appdesign", "website", "touchscreen" ]
 
-#SUBSET = [ "home" ]
+SUBSET = [ "home" ]
 #SUBSET = [ "interactive", "appdesign", "website", "touchscreen" ]
 #SUBSET = [ "community" ]
 #SUBSET = [ "previs", "stbd_artists" ]
 #SUBSET = [ "partners" ]
 #SUBSET = [ "motiondesign", "motiondesign_gallery" ]
-SUBSET = [ "animation", "animation_gallery" ]
+#SUBSET = [ "animation", "animation_gallery" ]
+#SUBSET = [ "whoweare" ]
+SUBSET = [ "home", "previs", "storyboard", "stbd_artists", "anim_cinem" , "char_dev" ]
 
 #
 # Library...
@@ -175,6 +177,7 @@ if __name__ == "__main__":
 
 	# get click panels...
 	click_panels_dct = gen_click_panels.get_dct( pagekeys )
+	#print "cp->", click_panels_dct.keys()
 
 	# get click panel options...
 	cpo_dct = gen_click_panel_options.get_dct( pagekeys )
@@ -210,6 +213,7 @@ if __name__ == "__main__":
 
 		# get the subpage items...	
 		page_def = []
+		print "dct k->", dct.keys()
 		page_subpage_items = dct[page_name]
 		print "PAGE SUBPAGE->", page_subpage_items
 

@@ -1,4 +1,4 @@
-subpage_key,asset_name,x,y,link,z
-,,,,,
-home page,,,,,
-subpage_home_movie,mov_home_reel,391,212,,0
+subpage_key,asset_name,x,y,link,z,alt
+,,,,,,
+home page,,,,,,
+subpage_home_movie,mov_home_reel_h264,391,212,,0,mov_home_reel_wmv

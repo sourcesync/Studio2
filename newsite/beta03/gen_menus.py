@@ -6,7 +6,10 @@ MENUS_DEFS = { "clients":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7
 	"partners":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEkzVm1qWE13MklHZ0Q5bk5VOEdzZlE&output=csv", \
 	"etcetera":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHNZR1hwZWswcXQ3NEIxSjQ0S0hpY3c&output=csv", \
 	#"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDdjLWp3cGFZbHk0bUdKNTZCMDlBcHc&output=csv", \
-	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGlMZjVOSm40SzM1d1JBcW9IVjRIY3c&output=csv", \
+	#"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGlMZjVOSm40SzM1d1JBcW9IVjRIY3c&output=csv", \
+	"storyboard":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEhLRGdYUXNvcjJvaWhWWXR2Y0tzYkE&output=csv", \
+	"anim_cinem":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDRVRnBDUzQxbkdMbEUtRmsyM3Yza2c&output=csv", \
+	"char_dev":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdEpTc0V5dVhrdE5lbkVjbmRfU2paaVE&output=csv", \
 	"motiondesign":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFhaNkRlLWp1OVZldDc3R0h4VldHdGc&output=csv", \
 	"animation":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGMxeWcybnpzemtEVFdRbXlIS3ZtMWc&output=csv", \
 	"appdesign":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGcxYXAtVElIbDNhVS1fSEYzcFVYSlE&output=csv", \
@@ -99,7 +102,7 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 			on_scriptlet += scriptlet_dct['on']	
 
 		elif asset_name.startswith("ss"):
-			print "MENU - CALLING GEN SLIDE SHOWS EXPAND", asset_name
+			print "MENU - CALLING GEN SLIDE SHOWS EXPAND", asset_name, "cp->", click_panels_dct.keys()
 
 			style, content, top_script, scriptlet_dct = gen_slide_shows.expand_item( accum_ids, item, images_dct, movies_dct, \
 				mp_dct, click_panels_dct, slide_shows_dct, cpo_dct )
@@ -140,7 +143,7 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 
 def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct, movies_dct, mp_dct, is_dct, click_panels_dct, cpo_dct ):
 
-	print "MENU EXPAND"
+	print "MENU EXPAND", "cp->", click_panels_dct.keys()
 
 	menu_name = item["asset_name"]
 	menu_def = menus_dct[menu_name]
@@ -170,7 +173,7 @@ def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct, movies_
 		item_def = menu_def[option]
 		style, content, script, scriptlet_dct = expand_option( \
 			accum_ids, menu_name, menu_def, option, images_dct, action_scripts, True, slide_shows_dct, \
-			movies_dct, mp_dct, is_dct, click_panels_dct, cpo_dct )
+				movies_dct, mp_dct, is_dct, click_panels_dct, cpo_dct )
 		tot_style += style
 		tot_content += content
 		tot_script += script

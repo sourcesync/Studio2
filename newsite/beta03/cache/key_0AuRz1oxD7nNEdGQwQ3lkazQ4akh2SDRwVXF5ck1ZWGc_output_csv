@@ -37,3 +37,9 @@ appdesign,subpage_appdesign
 website,subpage_website
 ,
 touchscreen,subpage_touchscreen
+,
+storyboard,subpage_storyboard
+,
+anim_cinem,subpage_anim_cinem
+,
+char_dev,subpage_char_dev

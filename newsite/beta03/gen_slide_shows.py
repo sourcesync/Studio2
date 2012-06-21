@@ -114,7 +114,7 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 
 			elif page_asset_name.startswith("cp"):
 	
-                        	print "GEN SLIDE SHOW - CALLING GEN CLICK PANEL", page_asset_name, page_item, \
+                        	print "GEN SLIDE SHOW - CALLING GEN CLICK PANEL", page_asset_name, page_item, "cp->", str(click_panels_dct.keys()), \
 					len(click_panels_dct.keys()), len(cpo_dct.keys())
 
                         	style, content, top_script, scriptlet_dct  = \

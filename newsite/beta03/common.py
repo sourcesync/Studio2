@@ -8,6 +8,25 @@ CACHE_DIR = "cache"
 USE_CACHE = False
 #USE_CACHE = True
 
+MOVIES1_PREFIX = "../phil_assets"
+PHIL_PREFIX = "../phil_assets"
+MOVIES2_PREFIX = "../videos"
+VIDEOS_PREFIX = "../videos"
+POSTERS_PREFIX = "../posters"
+CAPTIONS_PREFIX = "../captions"
+CONTENT_620_PREFIX = "../content_6_20_2012"
+
+def path_replace(fpath):
+        fpath = fpath.replace("PHIL",PHIL_PREFIX)
+        fpath = fpath.replace("MOVIES1",MOVIES1_PREFIX)
+        fpath = fpath.replace("MOVIES2",MOVIES2_PREFIX)
+        fpath = fpath.replace("VIDEOS",VIDEOS_PREFIX)
+        fpath = fpath.replace("VPOSTERS",POSTERS_PREFIX)
+        fpath = fpath.replace("CAPTIONS",CAPTIONS_PREFIX)
+	fpath = fpath.replace("CONTENT620", CONTENT_620_PREFIX )
+	return fpath
+
+
 def create_path( path ):
 	str = path.replace(" ","%20")
 	return str

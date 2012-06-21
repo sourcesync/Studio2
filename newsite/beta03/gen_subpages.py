@@ -15,7 +15,10 @@ SUB_PAGE_DEFS = { "home":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7
 	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHpGaC1Xam5xeFR1MGpwc05aYU1YZlE&output=csv", \
 	"etcetera":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFhUTFlOQjVqR0VwRVg4UW9YeGc1d1E&output=csv", \
 	#"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHg4NTRKUU90cDZNczRxN0RVeEJDNXc&output=csv", \
-	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFlmQ0NTU012Q192MW82X1dsLWgxTmc&output=csv", \
+	#"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFlmQ0NTU012Q192MW82X1dsLWgxTmc&output=csv", \
+	"storyboard":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFYtWlMxTC1nM3l4aFFQeVJTamN4d2c&output=csv", \
+	"anim_cinem":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdF81OVNPeGNCTHk4SklacGVKNHBldXc&output=csv", \
+	"char_dev":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdE5jVW9ldk9QOGt1ejlvM29SWksxT1E&output=csv",\
 	"motiondesign":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdE90aTV1V0h2X0FMM2RRVWtaNHBkNWc&output=csv", \
 	"animation":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGlEWjNVYWM5VlcwcXZ6V3MydzB4Y3c&output=csv", \
 	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDRJbnhOeFZOMjdSMWp1TmZzZVV4S2c&output=csv", \

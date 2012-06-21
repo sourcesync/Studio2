@@ -30,12 +30,14 @@ MOVIES2_PREFIX = "../videos"
 VIDEOS_PREFIX = "../videos"
 POSTERS_PREFIX = "../posters"
 CAPTIONS_PREFIX = "../captions"
+CONTENT_620 = "../content_6_20_2012"
 
 #
 # Library...
 #
 import common
 import os
+
 
 
 def get_attr( prop, asset_name, asset_def, images_dct, default=None):
@@ -55,7 +57,7 @@ def get_attr( prop, asset_name, asset_def, images_dct, default=None):
 def click_script_item( target, operation, src, images_dct ):
         info = images_dct[ src ][0]
         fpath = os.path.join( info['path'], info['filename'] )
-	fpath = fpath.replace("PHIL",PHIL_PREFIX)
+	fpath = common.path_replace(fpath)
 	fpath = common.create_path( fpath )
         script = "document.getElementById('%s').src='%s';document.getElementById('%s').style.visibility='visible';" % (target,fpath,target)
         return script
@@ -68,7 +70,7 @@ def mouse_script_item( srcid, val, images_dct ):
                 nm = a
                 info = images_dct.has_key(nm)
                 fpath = os.path.join( info['path'], info['filename'] )
-		fpath = fpath.replace("PHIL", PHIL_PREFIX )
+		fpath = common.path_replace(fpath)
 		fpath = common.get_path( fpath )
                 script = "document.getElementById('%s').style.visibility='visible';document.getElementById('%s').src='%s'" % (nm,nm,fpath)
 		return script
@@ -80,7 +82,7 @@ def mouse_script_item( srcid, val, images_dct ):
                 nm = a
                 info = images_dct[nm][0]
                 fpath = os.path.join( info['path'], info['filename'] )
-		fpath = fpath.replace("PHIL", PHIL_PREFIX )
+		fpath = common.path_replace( fpath )
                 script = "document.getElementById('%s').style.visibility='visible';document.getElementById('%s').src='%s'" % (srcid,srcid,fpath)
         	return script
 	else:
@@ -185,12 +187,7 @@ def get_item_path( name, images_dct ):
         path = item_def['path']
         fname = item_def['filename']
         fpath = os.path.join(path,fname)
-        fpath = fpath.replace("PHIL",PHIL_PREFIX)
-        fpath = fpath.replace("MOVIES1",MOVIES1_PREFIX)
-        fpath = fpath.replace("MOVIES2",MOVIES2_PREFIX)
-        fpath = fpath.replace("VIDEOS",VIDEOS_PREFIX)
-	fpath = fpath.replace("VPOSTERS",POSTERS_PREFIX)
-        fpath = fpath.replace("CAPTIONS",CAPTIONS_PREFIX)
+        fpath = common.path_replace(fpath)
         return fpath
 
 def get_dct( pagekeys=None ):

@@ -15,7 +15,10 @@ PAGE_TEMPLATE_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuR
 	"photos":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFgtRlBjR1dzS19ZWFNLbnBadmtYcGc&output=csv", \
 	"etcetera":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFBWV3JXdndDSkpqVTl0ajl3X2EyakE&output=csv", \
 	#"interactive":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHp0N2ZTemc3YjMySmE4bkdRMk5VT2c&output=csv", \
-	"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHRjelI1SGw0ZDhXOEhYUHhxRnBPV0E&output=csv", \
+	#"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHRjelI1SGw0ZDhXOEhYUHhxRnBPV0E&output=csv", \
+	"storyboard":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFNHS0xVZThXdnR2T3d3UmZzZmpTT1E&output=csv", \
+	"anim_cinem":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdF9JWHRJeGpOdFpxN1VTWG96ZlFkNXc&output=csv",\
+	"char_dev":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDJ6ZUp5RHQtQ0ptQWlUaTlMSnd1eXc&output=csv", \
 	"motiondesign":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdDZQRHBXbFhWLWV4Z3B5NkRRTDI3ZFE&output=csv", \
 	"animation":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdE9XeFA2Sl9qZHZNWEcxYTBGcEszRWc&output=csv", \
 	"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdENHMnNHaHlheFZMU3FqNzFwY3A1Ymc&output=csv", \
@@ -241,6 +244,7 @@ def get_dct( pagekey=None ):
 		if ( not code in PAGE_TEMPLATE_DEFS.keys() ): continue
 		items = common.parse_spreadsheet1( PAGE_TEMPLATE_DEFS[code], "page_templates->%s" % str(pagekey) )
 		dct = common.dct_join( items,'page_code')
+		print dct.keys()
 		newdct[ code ] = dct[code]
 	return newdct
 

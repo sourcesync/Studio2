@@ -21,6 +21,7 @@ POSTERS_PREFIX = "../posters"
 
 
 def get_dct(pagekeys):
+	print "cp getdct->", pagekeys
         if pagekeys==None:
                 pagekeys = CLICK_PANEL_DEFS.keys()
         newdct = {}
@@ -28,6 +29,8 @@ def get_dct(pagekeys):
                 if not CLICK_PANEL_DEFS.has_key(code): continue
 		items = common.parse_spreadsheet1( CLICK_PANEL_DEFS[code], "click panels->%s" % str(pagekeys) )
 		dct = common.dct_join( items,'name')
+                for ky in dct.keys():
+			newdct[ky] = dct[ky]
 	return newdct
 
 def get_item_path( name, movies_dct ):

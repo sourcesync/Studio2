@@ -11,10 +11,6 @@ MOVIES_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7n
 		"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFB5cFJiaEhIaF9lY0Q0cVg5Njl0clE&output=csv", \
 		"interactive":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedE5xOGE0SlFwaWFmZS1DWnFPSWdsQ3c&output=csv" }
 
-MOVIES1_PREFIX = "../phil_assets"
-PHIL_PREFIX = "../phil_assets"
-MOVIES2_PREFIX = "../videos"
-
 #
 # Library...
 #
@@ -41,34 +37,46 @@ def get_item_path( name, movies_dct ):
 	path = item_def['path']
         fname = item_def['filename']
         fpath = os.path.join(path,fname)
-        fpath = fpath.replace("MOVIES1",MOVIES1_PREFIX)
-        fpath = fpath.replace("MOVIES2",MOVIES2_PREFIX)
-        fpath = fpath.replace("PHIL",PHIL_PREFIX)
+        fpath = common.path_replace(fpath)
 	return fpath
 	
-
 def expand_item( accum_ids, asset_def, images_dct, movies_dct ):
 
+	# get the movie asset name...
 	asset_name = asset_def["asset_name"]
 	item_def = movies_dct[asset_name][0]
-	
+
+	# get the alt movie asset name, if any...
+	alt_name = ""
+	if asset_def.has_key("alt"): alt_name = asset_def["alt"]
+
+	# get an html id for video element...	
 	htmlid = common.get_id( asset_name, accum_ids )
 	accum_ids.append(htmlid)
 
+	# get the poster path, if any...
 	poster_path = ""
 	if item_def["poster"].strip()!="":
 		poster = item_def["poster"].strip()
 		poster_path = gen_images.get_item_path( poster, images_dct )
 		poster_path = common.create_path( poster_path )
 
+	# get the alternate movie path src, if any...
+	alt_path = ""
+	if alt_name != "":
+		alt_path = get_item_path( alt_name, movies_dct )
+		alt_path = common.create_path( alt_path )
+
+	# finally, get the primary movie path src...
 	movie_path = get_item_path( asset_name, movies_dct )
-	local_path = movie_path
 	movie_path = common.create_path( movie_path )
 
+	# get coords for def...
 	x = asset_def['x']
 	y = asset_def['y']
 	z = asset_def['z']
 
+	# create the style...
 	style  = ""
 	style += common.emit_line( "#%s {" % htmlid )
 	style += common.emit_line( "position: absolute;")
@@ -80,32 +88,13 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct ):
 
 	if poster_path == "":	
 		content = common.emit_line( "<video controls id=%s ><source src=\"%s\" />CANNOT LOAD</video>" % (htmlid, movie_path) )
-	else:	
-		if os.path.exists( local_path ):
-			print "TRYING TO LOCATE ALL VIDEOS", local_path
-			content = common.emit_line( "<video controls id=%s poster=\"%s\" >" % (htmlid, poster_path) )
-			content += "<source src=\"%s\" />\n" % movie_path
-
-			# try webm...
-			movdir = os.path.dirname( local_path )
-			webmdir = os.path.join( os.path.dirname( movdir ), "webm" )
-			webmpath = os.path.join( webmdir, os.path.basename( os.path.splitext(local_path)[0] + ".webm" ) )
-			webmpathenc = common.create_path( webmpath )
-			print "TRYING WEBM->", movdir, webmdir, webmpath, webmpathenc
-			if os.path.exists( webmpath ):
-				content += "<source src=\"%s\" />\n" % webmpathenc
-
-			# try ogg...
-			movdir = os.path.dirname( local_path )
-			ogdir = os.path.join( os.path.dirname( movdir ), "OggTheora" )
-			ogpath = os.path.join( ogdir, os.path.basename( os.path.splitext(local_path)[0] + ".ogv" ) )
-			ogpathenc = common.create_path( ogpath )
-			print "TRYING OGV->", ogdir, ogpath, ogpathenc
-			if os.path.exists( ogpath ):
-				content += "<source src=\"%s\" />\n" % ogpathenc
-	
-			content += "</video>" 
-		else:
+	else:
+		if alt_path != "":
+			content = common.emit_line( "<video controls id=%s poster=\"%s\" >" % ( htmlid, poster_path ) )
+			content += common.emit_line( "<source src=\"%s\" />" % movie_path )
+			content += common.emit_line( "<source src=\"%s\" />" % alt_path )
+			content += common.emit_line( "</video>" )
+		else:	
 			content = common.emit_line( "<video controls id=%s poster=\"%s\" ><source src=\"%s\" /></video>" % (htmlid, poster_path, movie_path) )
 
 	scriptlet_dct = {}
