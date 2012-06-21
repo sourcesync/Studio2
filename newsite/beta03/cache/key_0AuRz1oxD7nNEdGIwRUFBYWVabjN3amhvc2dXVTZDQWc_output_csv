@@ -1,4 +1,5 @@
-name,path,filename,poster
-home,,,
-mov_home_reel_h264,CONTENT620/REELS/h264/,studioReel_2012.mov,img_mov_home_reel
-mov_home_reel_wmv,CONTENT620/REELS/wmv/,studioReel_2012.wmv,img_mov_home_reel
+name,path,filename,poster,type,width,height
+home,,,,,,
+mov_home_reel_h264,CONTENT620/REELS/h264/,studioReel_2012.mov,img_mov_home_reel,file,550,309
+mov_home_reel_wmv,CONTENT620/REELS/wmv/,studioReel_2012.wmv,img_mov_home_reel,file,550,309
+mov_home_reel_vimeo,http://player.vimeo.com/video/44346156,,,vimeo,550,309

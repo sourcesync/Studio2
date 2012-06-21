@@ -1,3 +1,4 @@
-name,path,filename,poster,z,x,y
-previs,,,,,,
-mov_anim_cinem,PHIL/previsualization/Animatics Cinematics Reel/,Animatics_Cinematic_Reel.mov,img_anim_cinem_poster,1,391,215
+name,path,filename,poster,z,x,y,type,width,height
+previs,,,,,,,,,
+mov_anim_cinem,PHIL/previsualization/Animatics Cinematics Reel/,Animatics_Cinematic_Reel.mov,img_anim_cinem_poster,1,391,215,file,,
+mov_anim_cinem_vimeo,http://player.vimeo.com/video/44408376,,,,,,vimeo,550,309

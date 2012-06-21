@@ -17,8 +17,9 @@ MOVIES_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7n
 import common
 import os
 import sys
-
 import gen_images
+
+VIMEO_EMBED = "embeds/vimeo.txt"
 
 def get_dct(pagekeys=None):
 	if pagekeys==None:
@@ -39,12 +40,74 @@ def get_item_path( name, movies_dct ):
         fpath = os.path.join(path,fname)
         fpath = common.path_replace(fpath)
 	return fpath
+
+
+def expand_vimeo_item( accum_ids, asset_def, images_dct, movies_dct ):
+
+	# get the movie asset name...
+        asset_name = asset_def["asset_name"]
+
+	# get the base def of the item...
+        item_def = movies_dct[asset_name][0]
+
+        # get an html id for video element...
+        htmlid = common.get_id( asset_name, accum_ids )
+        accum_ids.append(htmlid)
+
+	# path is url...
+	url = item_def["path"]
+
+	# must have width and height...
+	width = item_def['width']
+	height = item_def['height']
+
+        # get coords for def...
+        x = int(asset_def['x'])
+        y = int(asset_def['y'])
+        z = asset_def['z']
+
+	# content from template...
+	f = open( VIMEO_EMBED, 'r')
+	txt = f.read()
+	f.close()
+	content = txt.replace("URL",url)
+	content = content.replace("HTMLID",htmlid)
+	content = content.replace("WIDTH", width)
+	content = content.replace("HEIGHT",height)
+	content = content.replace("STYLE","position:absolute;top:%dpx;left:%dpx;" % (y,x) )
+	#print content
+	#sys.exit(1)
+	
+	# style...
+	style = ""
+
+	# dct...
+        scriptlet_dct = {}
+        scriptlet_dct['on'] = "document.getElementById('%s').style.visibility='visible';" % htmlid
+        scriptlet_dct['off'] = "document.getElementById('%s').style.visibility='hidden';" % htmlid
+        scriptlet_dct['init'] = "document.getElementById('%s').style.visibility='visible';" % htmlid
+
+        return [ style, content, scriptlet_dct ]
+
 	
 def expand_item( accum_ids, asset_def, images_dct, movies_dct ):
 
+	print "mov->", movies_dct.keys()
+
 	# get the movie asset name...
 	asset_name = asset_def["asset_name"]
+
+	# get the base def of the item...
 	item_def = movies_dct[asset_name][0]
+
+	# get type...
+	typ = "file"
+	if item_def.has_key("type"):
+		typ = item_def["type"]
+
+	# if video type, branch here...
+	if typ == "vimeo":
+		return expand_vimeo_item( accum_ids, asset_def, images_dct, movies_dct )
 
 	# get the alt movie asset name, if any...
 	alt_name = ""

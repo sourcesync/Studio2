@@ -5,11 +5,12 @@
 PAGE_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGQwQ3lkazQ4akh2SDRwVXF5ck1ZWGc&output=csv"
 
 SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,\
-	"community", "map", "partners", "photos", "etcetera", "interactive", "animation", \
+	"community", "map", "partners", "photos", "etcetera", "animation", \
 	"animation_gallery", "motiondesign","motiondesign_gallery", "previs", "stbd_artists", "anim_cinem", "char_dev",  "storyboard", \
-	"appdesign", "website", "touchscreen" ]
+	"appdesign", "website", "touchscreen", "interactive" ]
 
-#SUBSET = [ "home" ]
+SUBSET = [ "home", "whoweare", "clients", "contacts", "sneakpeek" ]
+
 #SUBSET = [ "interactive", "appdesign", "website", "touchscreen" ]
 #SUBSET = [ "community" ]
 #SUBSET = [ "previs", "stbd_artists" ]
@@ -18,6 +19,9 @@ SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,\
 #SUBSET = [ "animation", "animation_gallery" ]
 #SUBSET = [ "whoweare" ]
 #SUBSET = [ "home", "previs", "storyboard", "stbd_artists", "anim_cinem" , "char_dev" ]
+#SUBSET = [ "previs", "anim_cinem", "partners" ]
+
+SUBSET = [ "sneakpeek" ]
 
 #
 # Library...

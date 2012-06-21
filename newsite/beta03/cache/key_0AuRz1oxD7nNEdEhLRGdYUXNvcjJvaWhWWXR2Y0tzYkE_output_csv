@@ -6,7 +6,7 @@ menu_storyboard,stbd_artists,img_jaw1,578,180,url:anim_cinem.html,hidden,1
 menu_storyboard,stbd_artists,img_jcw1,767,180,url:char_dev.html,hidden,1
 _menu_stbd,stbd_artists,img_j1m,391,243,,hidden,1
 menu_storyboard,stbd_artists,img_captions,429,333,,,0
-menu_storyboard,stbd_artists,img_frame2,391,215,,,1
+menu_storyboard,stbd_artists,img_frame3,391,215,,,1
 ,,,,,,,
 menu_storyboard,stbd_artists,img_mateescu_adrian,391,243,mss_mateescu_adrian:first,hidden,1
 menu_storyboard,stbd_artists,img_reid_andrew,520,243,mss_reid_andrew:first,hidden,1
