@@ -6,10 +6,10 @@ PAGE_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGQwQ3lkazQ
 
 SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,\
 	"community", "map", "partners", "photos", "etcetera", "interactive", "animation", \
-	"animation_gallery", "motiondesign","motiondesign_gallery", "previs", "stbd_artists", \
+	"animation_gallery", "motiondesign","motiondesign_gallery", "previs", "stbd_artists", "anim_cinem", "char_dev",  "storyboard", \
 	"appdesign", "website", "touchscreen" ]
 
-SUBSET = [ "home" ]
+#SUBSET = [ "home" ]
 #SUBSET = [ "interactive", "appdesign", "website", "touchscreen" ]
 #SUBSET = [ "community" ]
 #SUBSET = [ "previs", "stbd_artists" ]
@@ -17,7 +17,7 @@ SUBSET = [ "home" ]
 #SUBSET = [ "motiondesign", "motiondesign_gallery" ]
 #SUBSET = [ "animation", "animation_gallery" ]
 #SUBSET = [ "whoweare" ]
-SUBSET = [ "home", "previs", "storyboard", "stbd_artists", "anim_cinem" , "char_dev" ]
+#SUBSET = [ "home", "previs", "storyboard", "stbd_artists", "anim_cinem" , "char_dev" ]
 
 #
 # Library...
