@@ -37,8 +37,7 @@ CONTENT_620 = "../content_6_20_2012"
 #
 import common
 import os
-
-
+import sys
 
 def get_attr( prop, asset_name, asset_def, images_dct, default=None):
 	if asset_def.has_key(prop):
@@ -139,6 +138,7 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
         style += common.emit_line( "z-index: %d;" % int(z) )
 	style += common.emit_line( "border:none; " )
 	style += common.emit_line( "visibility: hidden;")
+	
 	#if init_vis!=None:
 	#if init_vis:
         #style += common.emit_line( "visibility: %s;" % init_vis  )
@@ -172,6 +172,10 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
 	else:
 		content += common.emit_line("</a>\n" )
 
+        if ( asset_name.find("caption_big") > 0 ):
+                print "content->", content
+                print "style->", style
+
 	scriptlet_dct = {}
 	scriptlet_dct['on'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'visible' )
 	scriptlet_dct['off']  = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'hidden' )
@@ -183,9 +187,12 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
         return [ style, content, "", scriptlet_dct ]
 
 def get_item_path( name, images_dct ):
+	print "GIP->", name, images_dct.keys()
         item_def = images_dct[name][0]
+	print "ID->", item_def
         path = item_def['path']
         fname = item_def['filename']
+	print "PARTS->", path, fname
         fpath = os.path.join(path,fname)
         fpath = common.path_replace(fpath)
         return fpath

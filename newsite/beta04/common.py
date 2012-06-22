@@ -26,7 +26,6 @@ def path_replace(fpath):
 	fpath = fpath.replace("CONTENT620", CONTENT_620_PREFIX )
 	return fpath
 
-
 def create_path( path ):
 	str = path.replace(" ","%20")
 	return str

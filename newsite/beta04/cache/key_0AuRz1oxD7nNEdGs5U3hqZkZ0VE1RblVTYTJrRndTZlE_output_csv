@@ -15,10 +15,11 @@ img_m1m1,assets/main/M/,m01_1_main.png
 img_m1m2,assets/main/M/,m01_2_main.png
 img_m1m3,assets/main/M/,m01_3_main.png
 img_m1m4,assets/main/M/,m01_4_main.png
-img_m1appdesign1,assets/main/M/,m01_appdesign.png
-img_m1motiondesign1,assets/main/M/,m01_motiondesign.png
-img_m1appdesign2,assets/main/M/,m01_appdesign.png
-img_m1motiondesign2,assets/main/M/,m01_motiondesign.png
+img_viewappdesign1,assets/main/M/,m01_appdesign.png
+img_viewmotiondesign1,assets/main/M/,m01_motiondesign.png
+img_viewmotiondesign2,assets/main/M/,m01_motiondesign.png
+img_viewmotiondesign3,assets/main/M/,m01_motiondesign.png
+img_viewwebsitedesign1,assets/main/M/,m03_2_webdesign.png
 img_gagl1,assets/main/assets_general/moving/,arrow_l_g.png
 img_gagl2,assets/main/assets_general/moving/,arrow_l_g.png
 img_gagl3,assets/main/assets_general/moving/,arrow_l_g.png

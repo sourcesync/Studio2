@@ -9,19 +9,16 @@ SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,\
 	"animation_gallery", "motiondesign","motiondesign_gallery", "previs", "stbd_artists", "anim_cinem", "char_dev",  "storyboard", \
 	"appdesign", "website", "touchscreen", "interactive" ]
 
-SUBSET = [ "home", "whoweare", "clients", "contacts", "sneakpeek" ]
-
-#SUBSET = [ "interactive", "appdesign", "website", "touchscreen" ]
+#SUBSET = [ "home", "whoweare", "clients", "contacts", "sneakpeek" ]
 #SUBSET = [ "community" ]
 #SUBSET = [ "previs", "stbd_artists" ]
 #SUBSET = [ "partners" ]
 #SUBSET = [ "motiondesign", "motiondesign_gallery" ]
-#SUBSET = [ "animation", "animation_gallery" ]
+#SUBSET = [ "animation", "animation_gallery", "photos" ]
 #SUBSET = [ "whoweare" ]
-#SUBSET = [ "home", "previs", "storyboard", "stbd_artists", "anim_cinem" , "char_dev" ]
+SUBSET = [ "home", "previs", "storyboard", "stbd_artists", "anim_cinem" , "char_dev" ]
 #SUBSET = [ "previs", "anim_cinem", "partners" ]
-
-SUBSET = [ "sneakpeek" ]
+#SUBSET = [ "sneakpeek" ]
 
 #
 # Library...
