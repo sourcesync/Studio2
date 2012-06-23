@@ -27,10 +27,12 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 	item_def = slide_shows_dct[asset_name]
 
 	# prep some global action functions...
-	action_scripts = {}
+	action_scripts = {}	
+	action_dct = {}
 	for pagekey2 in item_def.keys():
 		funcname = "func_%s_%s" % ( asset_name, pagekey2 )
 		action_scripts[funcname] = None;
+		action_dct[funcname] = pagekey2
 	funcname = "func_%s_off " % ( asset_name )
 	action_scripts[funcname] = None
 
@@ -182,9 +184,10 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 	scriptlet_dct = {}
 	scriptlet_dct['on'] = all_off + init_script
 	scriptlet_dct['off'] = all_off
-	scriptlet_dct['init'] = all_off + init_script;
 
-	print "ss init->", scriptlet_dct['init']
+	# we do this in query respond func below...
+	#scriptlet_dct['init'] = all_off + init_script;
+	default_init = all_off + init_script
 
 	# finalize the global action script dct for this control...
 	# create an all off...
@@ -193,8 +196,45 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 
 	# add to header scripts...	
 	for item in action_scripts.keys():
+		#funcdef = "function %s () { %s; }" % (item, "alert('s');" + all_off + action_scripts[item] + "alert('e');")
 		funcdef = "function %s () { %s; }" % (item, all_off + action_scripts[item] )
 		tot_top_script += "\n\n" + funcdef
+
+	# create an if else ladder to query param responder...
+	ifelse = ""
+	for item in action_scripts.keys():
+		if not action_dct.has_key(item): continue
+		pg = action_dct[item]
+		ifelse += \
+			"var opt = keyValuePair[1];\n" + \
+			"if ( opt == '%s' )\n" % pg + \
+			"{\n" + \
+				" %s();\n" % item + \
+			"}\n" 
+	detect_query_func = \
+		"function %s_respond()\n{\n" % asset_name + \
+		"var querystring = unescape(location.search);\n" + \
+		"if (querystring)\n" + \
+		"{\n" + \
+        		"querystring = querystring.substring(1);\n" + \
+        		"var pairs = querystring.split('&');\n" + \
+        		"if ( pairs.length>0 )\n" + \
+        		"{\n" + \
+                		"var keyValuePair = pairs[0].split('=');\n" + \
+                		"if (( keyValuePair[0]=='page'))\n" + \
+				"{\n" + \
+                        		ifelse + \
+				"}\n" + \
+			"}\n" + \
+		"}\n" + \
+		"else\n" + \
+		"{\n" + \
+			default_init + \
+		"}\n" + \
+		"}"
+	tot_top_script += detect_query_func
+
+	scriptlet_dct['init'] = "%s_respond();" % asset_name
 
         return [ tot_style, tot_content, tot_top_script, scriptlet_dct ]
 
