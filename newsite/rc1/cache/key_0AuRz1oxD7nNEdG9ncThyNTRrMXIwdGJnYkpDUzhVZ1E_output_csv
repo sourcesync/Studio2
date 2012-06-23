@@ -1,0 +1,49 @@
+name,path,filename
+,,
+home,,
+,,
+img_gagl,assets/pages/strybrd_artists,arrow_l_g.png
+img_gagr,assets/pages/strybrd_artists,arrow_r_g.png
+img_frame,assets/pages/strybrd_artists,strybrd_artists_frame.png
+img_xboxlol,assets/pages/strybrd_artists,strybrd_artists_xboxlol.png
+img_facebook,assets/main/assets_general/moving/,social_f.png
+img_twitter,assets/main/assets_general/moving/,social_t.png
+img_pinterest,assets/main/assets_general/moving/,social_p.png
+img_tumblr,assets/main/assets_general/moving/,social_tumblr.png
+,,
+img_bumbleville_poster,VPOSTERS/Video Poster Images/animation,01_bumbleville.png
+img_takemethere_poster,VPOSTERS/Video Poster Images/animation,02_takeMeThere.png
+img_airhead_poster,VPOSTERS/Video Poster Images/animation,03_Airhead.png
+img_volt_poster,VPOSTERS/Video Poster Images/animation,04_ChevyVolt.png
+img_aparecio_poster,VPOSTERS/Video Poster Images/animation,05_Aparecio.png
+img_aquafina_poster,VPOSTERS/Video Poster Images/animation,06_Aquafina.png
+img_colgate_poster,VPOSTERS/Video Poster Images/animation,07_colgate_scientist.png
+img_thompson_poster,VPOSTERS/Video Poster Images/animation,08_ThompsonReuters.png
+img_digitas_poster,VPOSTERS/Video Poster Images/animation,09_Yahoo_Digitas.png
+img_globalfund_poster,VPOSTERS/Video Poster Images/animation,10_GlobalFund.png
+img_successacademy_poster,VPOSTERS/Video Poster Images/animation,11_SuccessAcademy.png
+img_bizzywater_poster,VPOSTERS/Video Poster Images/animation,12_Bizzywater.png
+img_lovesentence_poster,VPOSTERS/Video Poster Images/animation,13_LoveSentence.png
+img_pristiq_poster,VPOSTERS/Video Poster Images/animation,14_Pristiq.png
+img_abc1_poster,VPOSTERS/Video Poster Images/animation,15_ABC_car.png
+img_abc2_poster,VPOSTERS/Video Poster Images/animation,16_ABC_Headset.png
+img_etrade_poster,VPOSTERS/Video Poster Images/animation,17_eTrade.png
+,,
+img_bumbleville_caption_big,CAPTIONS/Animation/,01_bumbleville.png
+img_takemethere_caption_big,CAPTIONS/Animation/,02_takemethere.png
+img_airhead_caption_big,CAPTIONS/Animation/,03_airhead.png
+img_chevyvolt_caption_big,CAPTIONS/Animation/,04_chevyvolt.png
+img_aparecio_caption_big,CAPTIONS/Animation/,05_theapareciofoundation.png
+img_aquafina_caption_big,CAPTIONS/Animation/,06_aquafina.png
+img_colgate_caption_big,CAPTIONS/Animation/,07_colgatescientist.png
+img_thompson_caption_big,CAPTIONS/Animation/,08_thompsonreuters.png
+img_yahoodigitas_caption_big,CAPTIONS/Animation/,09_yahoodigitas.png
+img_globalfund_caption_big,CAPTIONS/Animation/,10_theglobalfund.png
+img_successacademy_caption_big,CAPTIONS/Animation/,11_thesuccessacademy.png
+img_bizzywater_caption_big,CAPTIONS/Animation/,12_bizzywater.png
+img_lovesentence_caption_big,CAPTIONS/Animation/,13_lovesentence.png
+img_pristiq_caption_big,CAPTIONS/Animation/,14_pristiq.png
+img_abc1_caption_big,CAPTIONS/Animation/,15_ABCcar.png
+img_abc2_caption_big,CAPTIONS/Animation/,16_ABCheadset.png
+img_etrade_caption_big,CAPTIONS/Animation/,17_etrade.png
+img_interactive_caption_big,CAPTIONS/Animation/,18_interactiveanimation.png

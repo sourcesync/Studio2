@@ -1,0 +1,1 @@
+<div ><iframe id="HTMLID" src="URL?title=0&byline=0" width="WIDTH" height="HEIGHT" style="STYLE" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
