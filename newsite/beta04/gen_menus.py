@@ -60,6 +60,7 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 	tot_scripts = ""
 	off_scriptlet = ""
 	on_scriptlet= ""
+	init_scriptlet = ""
 
 	for item in option_def:
 		asset_name = item["asset_name"]
@@ -68,6 +69,7 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 			# determine the script, if any...
 			script = None
 			ahref = None
+			exturl = None
 			if item.has_key("link") and item["link"]!="":
         			link = item["link"]
                 		if link.startswith("option:"):
@@ -78,6 +80,10 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 				elif link.startswith("url:"):
 					idx = link.find(":") + 1
 					ahref = link[idx:]
+                                elif link.startswith("nurl:"):
+                                        idx = link.find(":") + 1
+                                        ahref = link[idx:]
+                                        exturl = True
 				elif link.startswith("mss"):
 					idx = link.find(":") + 1
 					page_name = gen_multipage_slideshow.get_link( item, is_dct,"first")
@@ -91,7 +97,7 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 			init_vis = None
 			if item.has_key("init") and item["init"]!="":
 				init_vis = item["init"] 
-			style, content, script, scriptlet_dct = gen_images.expand_item( accum_ids, item, images_dct, script, init_vis, ahref )
+			style, content, script, scriptlet_dct = gen_images.expand_item( accum_ids, item, images_dct, script, init_vis, ahref, exturl )
 
 			tot_style += style
 			tot_content += content
@@ -100,6 +106,7 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 			# accumulate on/off scriptlet...
 			off_scriptlet += scriptlet_dct['off']	
 			on_scriptlet += scriptlet_dct['on']	
+			init_scriptlet += scriptlet_dct['init']
 
 		elif asset_name.startswith("ss"):
 			print "MENU - CALLING GEN SLIDE SHOWS EXPAND", asset_name, "cp->", click_panels_dct.keys()
@@ -114,6 +121,8 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 			# accumulate on/off scriptlet...
                         off_scriptlet += scriptlet_dct['off']
                         on_scriptlet += scriptlet_dct['on']
+			init_scriptlet += scriptlet_dct['init']
+			print "ss init->", init_scriptlet
 
                 elif asset_name.startswith("mov"):
                         style, content, scr_dct = gen_movies.expand_item( accum_ids, item, images_dct, movies_dct )
@@ -122,7 +131,9 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
                
 			off_scriptlet += scr_dct['off']
                         on_scriptlet += scr_dct['on']
-   
+			init_scriptlet += scr_dct['init']
+
+
 		elif asset_name.startswith("mp"):
 			style, content, scr_dct = gen_movie_panels.expand_item( accum_ids, item, images_dct, movies_dct, mp_dct )
 			tot_style += style
@@ -130,6 +141,7 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 
 			off_scriptlet += scr_dct['off']
 			on_scriptlet += scr_dct['on']
+			init_scriptlet += scr_dct['init']
 
 		else:
 			print "ERROR: gen_menus: Can't process asset->", asset_name, item
@@ -138,6 +150,7 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 	scriptlet_dct = {}
 	scriptlet_dct['on'] = on_scriptlet
 	scriptlet_dct['off'] = off_scriptlet
+	scriptlet_dct['init'] = init_scriptlet
 
 	return [ tot_style, tot_content, tot_scripts, scriptlet_dct ]
 
@@ -160,6 +173,7 @@ def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct, movies_
 		val = item["init"]
 		if val.startswith("option:"):
 			foo, init_option_name = val.split(":")
+			print foo, init_option_name
 
 	# iterate individual assets and expand...
 	tot_style = ""
@@ -180,8 +194,11 @@ def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct, movies_
 		scriptlets_dct[option] = scriptlet_dct
 
 		# possibly use this option as init...
+		print "options->", option, init_option_name
 		if not init_script and option == init_option_name:
-			init_script = scriptlets_dct[option]['on']
+			# your problem might be here!
+			init_script = scriptlets_dct[option]['init']
+			print "menu option init->", init_script
 
         # create a total off scriplet for menu...
         tot_off = ""

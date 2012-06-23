@@ -20,15 +20,15 @@ mov_abc2,MOVIES2/Video Files For Web/animation/h264/,16_ABC_headset.mov,img_abc2
 mov_etrade,MOVIES2/Video Files For Web/animation/h264/,17_eTrade.mov,img_etrade_poster,1,file,550,309
 ,,,,,,,
 mov_bumbleville_vimeo,http://player.vimeo.com/video/22555820,,,1,vimeo,550,309
-mov_takemethere_vimeo,http://player.vimeo.com/video/22256296,,,1,vimeo,550,309
+mov_takemethere_vimeo,http://player.vimeo.com/video/22050133,,,1,vimeo,550,309
 mov_airhead_vimeo,http://player.vimeo.com/video/22555691,,,1,vimeo,550,309
-mov_volt_vimeo,http://player.vimeo.com/video/23289324,,,1,vimeo,550,309
+mov_volt_vimeo,http://player.vimeo.com/video/22715502,,,1,vimeo,550,309
 mov_aparecio_vimeo,http://player.vimeo.com/video/44406481,,,1,vimeo,550,309
 mov_aquafina_vimeo,http://player.vimeo.com/video/44406482,,,1,vimeo,550,309
 mov_aparecio_vimeo,http://player.vimeo.com/video/44406481,,,1,vimeo,550,309
 mov_colgate_vimeo,http://player.vimeo.com/video/44406483,,,1,vimeo,550,309
 mov_thompson_vimeo,http://player.vimeo.com/video/44406484,,,1,vimeo,550,309
-mov_digitas_vimeo,,,,1,vimeo,550,309
+mov_digitas_vimeo,http://player.vimeo.com/video/44406752,,,1,vimeo,550,309
 mov_globalfund_vimeo,http://player.vimeo.com/video/44406485,,,1,vimeo,550,309
 mov_successacademy_vimeo,http://player.vimeo.com/video/44406754,,,1,vimeo,550,309
 mov_bizzywater_vimeo,http://player.vimeo.com/video/22288214,,,1,vimeo,550,309
@@ -37,7 +37,7 @@ mov_pristiq_vimeo,http://player.vimeo.com/video/44406755,,,1,vimeo,550,309
 mov_abc1_vimeo,http://player.vimeo.com/video/44406756,,,1,vimeo,550,309
 mov_abc2_vimeo,http://player.vimeo.com/video/44406757,,,1,vimeo,550,309
 mov_etrade_vimeo,http://player.vimeo.com/video/23483041,,,1,vimeo,550,309
-mov_interactive_vimeo,http://player.vimeo.com/video/23483041,,,1,vimeo,550,309
+mov_interactive_vimeo,http://player.vimeo.com/video/44410393,,,1,vimeo,550,309
 ,,,,,,,
 ,,,,,,,
 ,,,,,,,

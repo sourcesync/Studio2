@@ -272,22 +272,14 @@ z-index: 3;
 border:none; 
 visibility: hidden;
 }
-#img_tumblr {
-position: absolute;
-left: 1106px;
-top: 485px;
-z-index: 3;
-border:none; 
-visibility: hidden;
-}
 </style>
 </head>
 <body><div>
 <script type="text/javascript" >
 
 
-function func_menu_c2d_dirs_dirs () { document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_directors_main').style.visibility = 'hidden';document.getElementById('mov_directors_vimeo').style.visibility='hidden';document.getElementById('img_facebook').style.visibility = 'hidden';document.getElementById('img_twitter').style.visibility = 'hidden';document.getElementById('img_pinterest').style.visibility = 'hidden';document.getElementById('img_tumblr').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_directors_main').style.visibility = 'visible';document.getElementById('mov_directors_vimeo').style.visibility='visible';document.getElementById('img_facebook').style.visibility = 'visible';document.getElementById('img_twitter').style.visibility = 'visible';document.getElementById('img_pinterest').style.visibility = 'visible';document.getElementById('img_tumblr').style.visibility = 'visible'; };
-function docload () { document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_directors_main').style.visibility = 'hidden';document.getElementById('mov_directors_vimeo').style.visibility='hidden';document.getElementById('img_facebook').style.visibility = 'hidden';document.getElementById('img_twitter').style.visibility = 'hidden';document.getElementById('img_pinterest').style.visibility = 'hidden';document.getElementById('img_tumblr').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_directors_main').style.visibility = 'visible';document.getElementById('mov_directors_vimeo').style.visibility='visible';document.getElementById('img_facebook').style.visibility = 'visible';document.getElementById('img_twitter').style.visibility = 'visible';document.getElementById('img_pinterest').style.visibility = 'visible';document.getElementById('img_tumblr').style.visibility = 'visible';; } 
+function func_menu_c2d_dirs_dirs () { document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_directors_main').style.visibility = 'hidden';document.getElementById('mov_directors_vimeo').setAttribute('src','');document.getElementById('img_facebook').style.visibility = 'hidden';document.getElementById('img_twitter').style.visibility = 'hidden';document.getElementById('img_pinterest').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_directors_main').style.visibility = 'visible';document.getElementById('mov_directors_vimeo').setAttribute('src','http://player.vimeo.com/video/44408374?title=0&byline=0');document.getElementById('img_facebook').style.visibility = 'visible';document.getElementById('img_twitter').style.visibility = 'visible';document.getElementById('img_pinterest').style.visibility = 'visible'; };
+function docload () { document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_directors_main').style.visibility = 'hidden';document.getElementById('mov_directors_vimeo').setAttribute('src','');document.getElementById('img_facebook').style.visibility = 'hidden';document.getElementById('img_twitter').style.visibility = 'hidden';document.getElementById('img_pinterest').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_directors_main').style.visibility = 'visible';document.getElementById('mov_directors_vimeo').setAttribute('src','http://player.vimeo.com/video/44408374?title=0&byline=0');document.getElementById('img_facebook').style.visibility = 'visible';document.getElementById('img_twitter').style.visibility = 'visible';document.getElementById('img_pinterest').style.visibility = 'visible';; } 
 
  window.onload=docload;
 </script>
@@ -365,25 +357,20 @@ function docload () { document.getElementById('img_d4d').style.visibility = 'hid
 <img id="img_directors_main" src="assets/pages/partners/partners_directors_main.png" onmouseover="" onmouseout="" alt="TheStudio" >
 </a>
 
-<div id="mov_directors_vimeo"><iframe src="http://player.vimeo.com/video/44408374?title=0&byline=0" width="550" height="309" style="position:absolute;top:215px;left:393px;" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
-<a href=# >
+<div ><iframe id="mov_directors_vimeo" src="http://player.vimeo.com/video/44408374?title=0&byline=0" width="550" height="309" style="position:absolute;visibility:inherit;top:217px;left:393px;z-index:4;" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+<a href=https://www.facebook.com/#!/STUDIONYC target="_blank" >
 
 <img id="img_facebook" src="assets/main/assets_general/moving/social_f.png" onmouseover="" onmouseout="" alt="TheStudio" >
 </a>
 
-<a href=# >
+<a href=https://twitter.com/#!/thestudionyc target="_blank" >
 
 <img id="img_twitter" src="assets/main/assets_general/moving/social_t.png" onmouseover="" onmouseout="" alt="TheStudio" >
 </a>
 
-<a href=# >
+<a href=http://pinterest.com/studionyc/?d target="_blank" >
 
 <img id="img_pinterest" src="assets/main/assets_general/moving/social_p.png" onmouseover="" onmouseout="" alt="TheStudio" >
-</a>
-
-<a href=# >
-
-<img id="img_tumblr" src="assets/main/assets_general/moving/social_s.png" onmouseover="" onmouseout="" alt="TheStudio" >
 </a>
 
 

@@ -14,11 +14,17 @@ SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,\
 #SUBSET = [ "previs", "stbd_artists" ]
 #SUBSET = [ "partners" ]
 #SUBSET = [ "motiondesign", "motiondesign_gallery" ]
-#SUBSET = [ "animation", "animation_gallery", "photos" ]
+#SUBSET = [ "animation", "animation_gallery" ]
 #SUBSET = [ "whoweare" ]
-SUBSET = [ "home", "previs", "storyboard", "stbd_artists", "anim_cinem" , "char_dev" ]
-#SUBSET = [ "previs", "anim_cinem", "partners" ]
+#SUBSET = [ "previs", "storyboard", "stbd_artists", "anim_cinem" , "char_dev" ]
+#SUBSET = [ "previs", "char_dev", "anim_cinem" ]
 #SUBSET = [ "sneakpeek" ]
+#SUBSET = [ "appdesign", "website", "touchscreen", "interactive" ]
+SUBSET = [ "etcetera" ]
+#SUBSET = [ "photos" ]
+#SUBSET = [ "home"]
+#SUBSET = [ "etcetera" ]
+#SUBSET = [ "home" ]
 
 #
 # Library...
@@ -130,13 +136,17 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
 			style, content, top_script, scriptlet_dct  = gen_click_panels.expand_item( accum_ids, item, images_dct, \
 				movies_dct, movie_panels_dct, click_panels_dct, cpo_dct )
 
+			print "CP SCRIPTLET INIT->", scriptlet_dct['init']
+
 		elif asset_name.startswith("ss"):
 
 			print "MAIN - CALLING GEN SS", asset_name, item
 			style, content, top_script, scriptlet_dct = \
 				gen_slide_shows.expand_item( accum_ids, item, images_dct, movies_dct, movie_panels_dct, \
 				click_panels_dct, slide_shows_dct, cpo_dct )
- 
+
+			print "SS SCRIPTLET INIT->",scriptlet_dct['init']
+			sys.exit(1)	
 		else:
 
 			print "ERROR: gen_page: Unknown asset type->", asset_name
@@ -178,7 +188,6 @@ if __name__ == "__main__":
 
 	# get click panels...
 	click_panels_dct = gen_click_panels.get_dct( pagekeys )
-	#print "cp->", click_panels_dct.keys()
 
 	# get click panel options...
 	cpo_dct = gen_click_panel_options.get_dct( pagekeys )

@@ -9,7 +9,8 @@ MOVIES_DEFS = { "home": "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7n
 		"animation_gallery":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdHhXaDVyU3k0c1YtTXZ0Z0RJRG5wZ1E&output=csv",\
 		"motiondesign_gallery":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedHYzLUxpQ2M5X0FaakFvZmVwSEcwQnc&output=csv", \
 		"previs":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFB5cFJiaEhIaF9lY0Q0cVg5Njl0clE&output=csv", \
-		"interactive":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedE5xOGE0SlFwaWFmZS1DWnFPSWdsQ3c&output=csv" }
+		"interactive":"https://docs.google.com/spreadsheet/pub?key=0AvPzUVdJ7YGedE5xOGE0SlFwaWFmZS1DWnFPSWdsQ3c&output=csv", \
+		"etcetera":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFhpSHdRVm1VeFVpUHdhWjhYY0tlckE&output=csv" }
 
 #
 # Library...
@@ -74,18 +75,20 @@ def expand_vimeo_item( accum_ids, asset_def, images_dct, movies_dct ):
 	content = content.replace("HTMLID",htmlid)
 	content = content.replace("WIDTH", width)
 	content = content.replace("HEIGHT",height)
-	content = content.replace("STYLE","position:absolute;top:%dpx;left:%dpx;" % (y,x) )
-	#print content
-	#sys.exit(1)
+	content = content.replace("STYLE","position:absolute;visibility:inherit;top:%dpx;left:%dpx;z-index:4;" % (y,x) )
 	
 	# style...
 	style = ""
 
 	# dct...
         scriptlet_dct = {}
-        scriptlet_dct['on'] = "document.getElementById('%s').style.visibility='visible';" % htmlid
-        scriptlet_dct['off'] = "document.getElementById('%s').style.visibility='hidden';" % htmlid
-        scriptlet_dct['init'] = "document.getElementById('%s').style.visibility='visible';" % htmlid
+        #scriptlet_dct['on'] = "document.getElementById('%s').style.visibility='visible';" % htmlid
+        #scriptlet_dct['off'] = "document.getElementById('%s').style.visibility='hidden';" % htmlid
+        #scriptlet_dct['init'] = "document.getElementById('%s').style.visibility='visible';" % htmlid
+        
+	scriptlet_dct['on'] = "document.getElementById('%s').setAttribute('src','%s?title=0&byline=0');" % (htmlid,url)
+        scriptlet_dct['off'] = "document.getElementById('%s').setAttribute('src','');" % (htmlid)
+        scriptlet_dct['init'] = "document.getElementById('%s').setAttribute('src','%s?title=0&byline=0');" % (htmlid,url)
 
         return [ style, content, scriptlet_dct ]
 

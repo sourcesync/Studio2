@@ -15,6 +15,7 @@ VIDEOS_PREFIX = "../videos"
 POSTERS_PREFIX = "../posters"
 CAPTIONS_PREFIX = "../captions"
 CONTENT_620_PREFIX = "../content_6_20_2012"
+GEORGE_PREFIX = "../george_assets"
 
 def path_replace(fpath):
         fpath = fpath.replace("PHIL",PHIL_PREFIX)
@@ -24,6 +25,7 @@ def path_replace(fpath):
         fpath = fpath.replace("VPOSTERS",POSTERS_PREFIX)
         fpath = fpath.replace("CAPTIONS",CAPTIONS_PREFIX)
 	fpath = fpath.replace("CONTENT620", CONTENT_620_PREFIX )
+	fpath = fpath.replace("GEORGE", GEORGE_PREFIX )
 	return fpath
 
 def create_path( path ):

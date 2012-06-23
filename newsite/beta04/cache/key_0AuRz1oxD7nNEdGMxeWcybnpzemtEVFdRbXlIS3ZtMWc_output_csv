@@ -37,7 +37,7 @@ menu_animation,second,img_pristiq_thumb,520,243,url:pristiq.html,hidden,2
 menu_animation,second,img_abc1_thumb,649,243,url:abc1.html,hidden,2
 menu_animation,second,img_abc2_thumb,778,243,url:abc2.html,hidden,2
 menu_animation,second,img_etrade_thumb,907,243,url:etrade.html,hidden,2
-_menu_animation,second,img_interactiveanimation_thumb,1036,243,url:interactive.html,hidden,2
+menu_animation,second,img_interactiveanimation_thumb,1036,243,url:interactive.html,hidden,2
 ,,,,,,,
 _menu_animation,second,img_pristiq_caption,558,333,,hidden,1
 _menu_animation,second,img_abccar_caption,683,333,,hidden,1

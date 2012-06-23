@@ -19,6 +19,7 @@ import sys
 import gen_images
 import gen_movie_panels
 import gen_click_panels
+import time
 
 def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct, click_panels_dct, slide_shows_dct, cpo_dct ):
 
@@ -73,6 +74,7 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 		# Accumulate the scriptlet to turn each slide item on/off for this page...
 		tot_onscrl = "document.getElementById('%s').style.visibility='visible';" % divname
 		tot_offscrl = "document.getElementById('%s').style.visibility='hidden';" % divname
+		cp_init = ""
 	
 		pagedef = item_def[str(dopage)]
 		for page_item in pagedef:
@@ -85,6 +87,7 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 				# determine script, ahref, if any...
 				script = None
 				ahref = None
+				exturl = None
 				if page_item.has_key("link") and page_item["link"]!="":
 					link = page_item["link"]
 					if link.startswith("page"):
@@ -96,6 +99,10 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 						idx = link.find(":")+1
 						url = link[idx:]
 						ahref = url
+		                        elif link.startswith("nurl:"):
+                                        	idx = link.find(":") + 1
+                                        	ahref = link[idx:]
+                                        	exturl = True
 					else:
 						print "ERROR: gen_slide_show: unknown link type", ltype
 						sys.exit(1)
@@ -105,7 +112,8 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
                         	if page_item.has_key("init") and page_item["init"]!="":
                                 	init_vis = page_item["init"]
 	
-				style, content, top_script, scriptlet_dct = gen_images.expand_item( accum_ids, page_item, images_dct, script, init_vis, ahref )
+				style, content, top_script, scriptlet_dct = gen_images.expand_item( \
+					accum_ids, page_item, images_dct, script, init_vis, ahref, exturl )
 				tot_style += style
 				tot_content += content
 				tot_top_script += top_script
@@ -116,15 +124,22 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 	
                         	print "GEN SLIDE SHOW - CALLING GEN CLICK PANEL", page_asset_name, page_item, "cp->", str(click_panels_dct.keys()), \
 					len(click_panels_dct.keys()), len(cpo_dct.keys())
-
                         	style, content, top_script, scriptlet_dct  = \
 					gen_click_panels.expand_item( accum_ids, page_item, images_dct, movies_dct, movie_panels_dct, click_panels_dct, cpo_dct )
-				
+			
+				print "cp on->", scriptlet_dct['on']
+	
 				tot_style += style
 				tot_content += content
 				tot_onscrl += scriptlet_dct["on"]
 				tot_offscrl += scriptlet_dct["off"]
 				tot_top_script += top_script
+			
+				# total hack...
+				if page_asset_name == "cp_char_dev_1":
+					cp_init += "cpo1_11_desel_click();"
+				else:
+					cp_init += "cpo2_11_desel_click();"
 
 			elif ( page_asset_name.startswith("mp") ):
 				
@@ -148,14 +163,15 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 
 		# deal with action scripts for this page...
         	funcname = "func_%s_%d" % ( asset_name, dopage )
-		action_scripts[funcname] = tot_onscrl;
+		#THISISHERE !action_scripts[funcname] = tot_onscrl
+		action_scripts[funcname] = tot_offscrl + tot_onscrl + cp_init
 		
 		all_on += tot_onscrl
 		all_off+= tot_offscrl
 
 		# the init script is first page...
 		if init_script == False:
-			init_script = "%s ();" % funcname
+			init_script = "%s ();" % funcname 
 
 		dopage += 1
 
@@ -166,7 +182,9 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 	scriptlet_dct = {}
 	scriptlet_dct['on'] = all_off + init_script
 	scriptlet_dct['off'] = all_off
-	scriptlet_dct['init'] = init_script
+	scriptlet_dct['init'] = all_off + init_script;
+
+	print "ss init->", scriptlet_dct['init']
 
 	# finalize the global action script dct for this control...
 	# create an all off...

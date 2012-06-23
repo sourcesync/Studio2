@@ -225,13 +225,6 @@ z-index: 0;
 overflow: hidden;
 border: 0px;
 }
-#mov_pfizer_vimeo {
-position: absolute;
-left: 391px;
-top: 215px;
-z-index: 1;
-visibility: hidden;
-}
 #img_gagl {
 position: absolute;
 left: 1135px;
@@ -288,11 +281,11 @@ z-index: 3;
 border:none; 
 visibility: hidden;
 }
-#img_tumblr {
+#img_pfizer_caption_big {
 position: absolute;
-left: 1106px;
-top: 485px;
-z-index: 3;
+left: 937px;
+top: 335px;
+z-index: 1;
 border:none; 
 visibility: hidden;
 }
@@ -301,7 +294,7 @@ visibility: hidden;
 <body><div>
 <script type="text/javascript" >
 
-function docload () { document.getElementById('mov_pfizer_vimeo').style.visibility='visible';document.getElementById('img_gagl').style.visibility = 'visible';document.getElementById('img_gagr').style.visibility = 'visible';document.getElementById('img_frame').style.visibility = 'visible';document.getElementById('img_xboxlol').style.visibility = 'visible';document.getElementById('img_facebook').style.visibility = 'visible';document.getElementById('img_twitter').style.visibility = 'visible';document.getElementById('img_pinterest').style.visibility = 'visible';document.getElementById('img_tumblr').style.visibility = 'visible';; } 
+function docload () { document.getElementById('mov_pfizer_vimeo').setAttribute('src','http://player.vimeo.com/video/44408182?title=0&byline=0');document.getElementById('img_gagl').style.visibility = 'visible';document.getElementById('img_gagr').style.visibility = 'visible';document.getElementById('img_frame').style.visibility = 'visible';document.getElementById('img_xboxlol').style.visibility = 'visible';document.getElementById('img_facebook').style.visibility = 'visible';document.getElementById('img_twitter').style.visibility = 'visible';document.getElementById('img_pinterest').style.visibility = 'visible';document.getElementById('img_pfizer_caption_big').style.visibility = 'visible';; } 
 
  window.onload=docload;
 </script>
@@ -368,7 +361,7 @@ function docload () { document.getElementById('mov_pfizer_vimeo').style.visibili
 <a href="photos.html">
 <img id="dph" src="assets/margin_left/assets_deselected/d_photos.png" onmouseover="document.getElementById('dphline').style.visibility='visible';document.getElementById('dphline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dphline').style.visibility='hidden';" alt="TheStudio" />
 </a>
-<video controls id=mov_pfizer_vimeo poster="../posters/Video%20Poster%20Images/Motion%20Design/06_Pfizer.png" ><source src="http://player.vimeo.com/video/44408182/" /></video>
+<div ><iframe id="mov_pfizer_vimeo" src="http://player.vimeo.com/video/44408182?title=0&byline=0" width="550" height="309" style="position:absolute;visibility:inherit;top:217px;left:391px;z-index:4;" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
 <a href=wi.html >
 
 <img id="img_gagl" src="assets/pages/strybrd_artists/arrow_l_g.png" onmouseover="" onmouseout="" alt="TheStudio" >
@@ -389,24 +382,24 @@ function docload () { document.getElementById('mov_pfizer_vimeo').style.visibili
 <img id="img_xboxlol" src="assets/pages/strybrd_artists/strybrd_artists_xboxlol.png" onmouseover="" onmouseout="" alt="TheStudio" >
 </a>
 
-<a href=# >
+<a href=https://www.facebook.com/#!/STUDIONYC target="_blank" >
 
 <img id="img_facebook" src="assets/main/assets_general/moving/social_f.png" onmouseover="" onmouseout="" alt="TheStudio" >
 </a>
 
-<a href=# >
+<a href=https://twitter.com/#!/thestudionyc target="_blank" >
 
 <img id="img_twitter" src="assets/main/assets_general/moving/social_t.png" onmouseover="" onmouseout="" alt="TheStudio" >
 </a>
 
-<a href=# >
+<a href=http://pinterest.com/studionyc/?d target="_blank" >
 
 <img id="img_pinterest" src="assets/main/assets_general/moving/social_p.png" onmouseover="" onmouseout="" alt="TheStudio" >
 </a>
 
 <a href=# >
 
-<img id="img_tumblr" src="assets/main/assets_general/moving/social_s.png" onmouseover="" onmouseout="" alt="TheStudio" >
+<img id="img_pfizer_caption_big" src="../captions/Motion Design/06_pfizer.png" onmouseover="" onmouseout="" alt="TheStudio" >
 </a>
 
 

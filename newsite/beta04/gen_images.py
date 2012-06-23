@@ -53,6 +53,15 @@ def get_attr( prop, asset_name, asset_def, images_dct, default=None):
 		else:
 			return False
 
+def click_script_items( fieldstr ):
+	scriptstr = ""	
+	fields = fieldstr.split(":")
+	for field in fields:	
+                parts = click.split(":")
+                onclick = click_script_item(parts[0], parts[1], parts[2], images_dct )
+		scriptstr += onclick + ";"
+	return scriptstr
+
 def click_script_item( target, operation, src, images_dct ):
         info = images_dct[ src ][0]
         fpath = os.path.join( info['path'], info['filename'] )
@@ -126,8 +135,9 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
 	# onclick param override...
 	click = get_attr('click', asset_name, asset_def, images_dct, '')
 	if click!='' and onclick==None:
-		parts = click.split(":")
-		onclick = click_script_item(parts[0], parts[1], parts[2], images_dct )
+		onclick = click_script_items( click )
+		#parts = click.split(":")
+		#onclick = click_script_item(parts[0], parts[1], parts[2], images_dct )
 
 	# style...
 	style  = ""

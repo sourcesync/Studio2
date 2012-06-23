@@ -240,6 +240,14 @@ border: 0px;
  border:none;
  visibility: hidden;
 }
+#cpo_cap1 {
+ position: absolute;
+ top: 435px;
+ left: 844px;
+ z-index: 1;
+ border:none;
+ visibility: hidden;
+}
 #cpo_option1_11_desel {
  position: absolute;
  top: 243px;
@@ -380,28 +388,28 @@ visibility: hidden;
 </head>
 <body><div>
 <script type="text/javascript" >
-function cpo_option1_23_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_23_sel' ); hide( 'cpo_option1_23_desel' );  cp_photos_sel = 'cpo_option1_23_sel'; cp_photos_desel = 'cpo_option1_23_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/7office.png' );} 
-function cpo_option1_24_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_24_sel' ); hide( 'cpo_option1_24_desel' );  cp_photos_sel = 'cpo_option1_24_sel'; cp_photos_desel = 'cpo_option1_24_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/8inspirationboard.png' );} 
+function cpo_option1_23_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_23_sel' ); hide( 'cpo_option1_23_desel' );  cp_photos_sel = 'cpo_option1_23_sel'; cp_photos_desel = 'cpo_option1_23_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/7office.png','cpo_cap1','../captions/Photos/07_bosssoffice.png');} 
+function cpo_option1_24_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_24_sel' ); hide( 'cpo_option1_24_desel' );  cp_photos_sel = 'cpo_option1_24_sel'; cp_photos_desel = 'cpo_option1_24_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/8inspirationboard.png','cpo_cap1','../captions/Photos/08_inspirationboard.png');} 
 function cpo_option1_21_sel_click() {} 
-function preview(id,path) { document.getElementById(id).src = path; }
-function cpo_option1_14_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_14_sel' ); hide( 'cpo_option1_14_desel' );  cp_photos_sel = 'cpo_option1_14_sel'; cp_photos_desel = 'cpo_option1_14_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/4suite.png' );} 
+function preview(id,path,capid,cappath) { document.getElementById(id).src = path; document.getElementById(capid).src=cappath;}
+function cpo_option1_14_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_14_sel' ); hide( 'cpo_option1_14_desel' );  cp_photos_sel = 'cpo_option1_14_sel'; cp_photos_desel = 'cpo_option1_14_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/4suite.png','cpo_cap1','../captions/Photos/04_edit2suite.png');} 
 function cpo_option1_24_sel_click() {} 
 var cp_photos_sel = null; var cp_photos_desel = null;
 function cpo_option1_12_sel_click() {} 
-function cpo_option1_21_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_21_sel' ); hide( 'cpo_option1_21_desel' );  cp_photos_sel = 'cpo_option1_21_sel'; cp_photos_desel = 'cpo_option1_21_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/5illustrators.png' );} 
+function cpo_option1_21_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_21_sel' ); hide( 'cpo_option1_21_desel' );  cp_photos_sel = 'cpo_option1_21_sel'; cp_photos_desel = 'cpo_option1_21_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/5illustrators.png','cpo_cap1','../captions/Photos/05_thoughtfulartists.png');} 
 function cpo_option1_14_sel_click() {} 
-function cpo_option1_22_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_22_sel' ); hide( 'cpo_option1_22_desel' );  cp_photos_sel = 'cpo_option1_22_sel'; cp_photos_desel = 'cpo_option1_22_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/6meeting.png' );} 
+function cpo_option1_22_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_22_sel' ); hide( 'cpo_option1_22_desel' );  cp_photos_sel = 'cpo_option1_22_sel'; cp_photos_desel = 'cpo_option1_22_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/6meeting.png','cpo_cap1','../captions/Photos/06_brainstormintheclientlounge.png');} 
 function cpo_option1_11_sel_click() {} 
-function cpo_option1_11_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_11_sel' ); hide( 'cpo_option1_11_desel' );  cp_photos_sel = 'cpo_option1_11_sel'; cp_photos_desel = 'cpo_option1_11_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/1axe.png' );} 
-function cpo_option1_12_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_12_sel' ); hide( 'cpo_option1_12_desel' );  cp_photos_sel = 'cpo_option1_12_sel'; cp_photos_desel = 'cpo_option1_12_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/2mocap.png' );} 
-function cpo_option1_13_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_13_sel' ); hide( 'cpo_option1_13_desel' );  cp_photos_sel = 'cpo_option1_13_sel'; cp_photos_desel = 'cpo_option1_13_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/3Panorama.png' );} 
+function cpo_option1_11_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_11_sel' ); hide( 'cpo_option1_11_desel' );  cp_photos_sel = 'cpo_option1_11_sel'; cp_photos_desel = 'cpo_option1_11_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/1axe.png','cpo_cap1','../captions/Photos/01_axemannequinshoot.png');} 
+function cpo_option1_12_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_12_sel' ); hide( 'cpo_option1_12_desel' );  cp_photos_sel = 'cpo_option1_12_sel'; cp_photos_desel = 'cpo_option1_12_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/2mocap.png','cpo_cap1','../captions/Photos/02_mocapwarmup.png');} 
+function cpo_option1_13_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_13_sel' ); hide( 'cpo_option1_13_desel' );  cp_photos_sel = 'cpo_option1_13_sel'; cp_photos_desel = 'cpo_option1_13_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/3Panorama.png','cpo_cap1','../captions/Photos/03_panorama.png');} 
 function show(id) { if (id!=null) document.getElementById(id).style.visibility='visible';}
 function cpo_option1_23_sel_click() {} 
 function cpo_option1_13_sel_click() {} 
 function cpo_option1_22_sel_click() {} 
 function hide(id) { if (id!=null) document.getElementById(id).style.visibility='hidden';}
 
-function docload () { document.getElementById('cpo_main1').style.visibility='visible';document.getElementById('cpo_option1_11_desel').style.visibility='visible';document.getElementById('cpo_option1_11_sel').style.visibility='visible';document.getElementById('cpo_option1_12_desel').style.visibility='visible';document.getElementById('cpo_option1_12_sel').style.visibility='visible';document.getElementById('cpo_option1_13_desel').style.visibility='visible';document.getElementById('cpo_option1_13_sel').style.visibility='visible';document.getElementById('cpo_option1_14_desel').style.visibility='visible';document.getElementById('cpo_option1_14_sel').style.visibility='visible';document.getElementById('cpo_option1_21_desel').style.visibility='visible';document.getElementById('cpo_option1_21_sel').style.visibility='visible';document.getElementById('cpo_option1_22_desel').style.visibility='visible';document.getElementById('cpo_option1_22_sel').style.visibility='visible';document.getElementById('cpo_option1_23_desel').style.visibility='visible';document.getElementById('cpo_option1_23_sel').style.visibility='visible';document.getElementById('cpo_option1_24_desel').style.visibility='visible';document.getElementById('cpo_option1_24_sel').style.visibility='visible';show('cpo_option1_11_sel');hide('cpo_option1_11_desel');cp_photos_sel = 'cpo_option1_11_sel'; cp_photos_desel = 'cpo_option1_11_desel';document.getElementById('img_frame').style.visibility = 'visible';; } 
+function docload () { document.getElementById('cpo_main1').style.visibility='visible';document.getElementById('cpo_cap1').style.visibility='visible';document.getElementById('cpo_option1_11_desel').style.visibility='visible';document.getElementById('cpo_option1_11_sel').style.visibility='visible';document.getElementById('cpo_option1_12_desel').style.visibility='visible';document.getElementById('cpo_option1_12_sel').style.visibility='visible';document.getElementById('cpo_option1_13_desel').style.visibility='visible';document.getElementById('cpo_option1_13_sel').style.visibility='visible';document.getElementById('cpo_option1_14_desel').style.visibility='visible';document.getElementById('cpo_option1_14_sel').style.visibility='visible';document.getElementById('cpo_option1_21_desel').style.visibility='visible';document.getElementById('cpo_option1_21_sel').style.visibility='visible';document.getElementById('cpo_option1_22_desel').style.visibility='visible';document.getElementById('cpo_option1_22_sel').style.visibility='visible';document.getElementById('cpo_option1_23_desel').style.visibility='visible';document.getElementById('cpo_option1_23_sel').style.visibility='visible';document.getElementById('cpo_option1_24_desel').style.visibility='visible';document.getElementById('cpo_option1_24_sel').style.visibility='visible';show('cpo_option1_11_sel');hide('cpo_option1_11_desel');cp_photos_sel = 'cpo_option1_11_sel'; cp_photos_desel = 'cpo_option1_11_desel';document.getElementById('img_frame').style.visibility = 'visible';; } 
 
  window.onload=docload;
 </script>
@@ -470,6 +478,7 @@ function docload () { document.getElementById('cpo_main1').style.visibility='vis
 <img id="con" src="assets/margin_left/assets_deselected/contact.png" alt="TheStudio" />
 <img id="sph" src="assets/margin_left/assets_selected/s_photos.png" alt="TheStudio" />
 <img id="cpo_main1" src="../phil_assets/about%20us/photos/1axe.png" alt="TheStudio"  />
+<img id="cpo_cap1" src="../captions/Photos/01_axemannequinshoot.png" alt="TheStudio"  />
 <a href="#" >
 <img id="cpo_option1_11_desel" src="../phil_assets/about us/photos/1axe_BW.png" alt="TheStudio" onclick="cpo_option1_11_desel_click();"  />
 </a>

@@ -1,6 +1,7 @@
 name,asset_name,type,x,y,z,init
 ,,,,,,
 cp_photos,cpo_main1,preview,391,243,0,img_Pmain
+cp_photos,cpo_cap1,caption,844,435,0,img_caption_cd
 cp_photos,cpo_option1_11,option,791,243,0,img_1axe_red.png
 cp_photos,cpo_option1_12,option,884,243,0,img_2mocap_BW.png
 cp_photos,cpo_option1_13,option,977,243,0,img_3Panorama_BW.png

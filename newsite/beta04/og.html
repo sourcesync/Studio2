@@ -225,13 +225,6 @@ z-index: 0;
 overflow: hidden;
 border: 0px;
 }
-#mov_og_vimeo {
-position: absolute;
-left: 391px;
-top: 215px;
-z-index: 1;
-visibility: hidden;
-}
 #img_gagl {
 position: absolute;
 left: 1135px;
@@ -288,11 +281,11 @@ z-index: 3;
 border:none; 
 visibility: hidden;
 }
-#img_tumblr {
+#img_og_caption_big {
 position: absolute;
-left: 1106px;
-top: 485px;
-z-index: 3;
+left: 937px;
+top: 335px;
+z-index: 1;
 border:none; 
 visibility: hidden;
 }
@@ -301,7 +294,7 @@ visibility: hidden;
 <body><div>
 <script type="text/javascript" >
 
-function docload () { document.getElementById('mov_og_vimeo').style.visibility='visible';document.getElementById('img_gagl').style.visibility = 'visible';document.getElementById('img_gagr').style.visibility = 'visible';document.getElementById('img_frame').style.visibility = 'visible';document.getElementById('img_xboxlol').style.visibility = 'visible';document.getElementById('img_facebook').style.visibility = 'visible';document.getElementById('img_twitter').style.visibility = 'visible';document.getElementById('img_pinterest').style.visibility = 'visible';document.getElementById('img_tumblr').style.visibility = 'visible';; } 
+function docload () { document.getElementById('mov_og_vimeo').setAttribute('src','http://player.vimeo.com/video/44408064?title=0&byline=0');document.getElementById('img_gagl').style.visibility = 'visible';document.getElementById('img_gagr').style.visibility = 'visible';document.getElementById('img_frame').style.visibility = 'visible';document.getElementById('img_xboxlol').style.visibility = 'visible';document.getElementById('img_facebook').style.visibility = 'visible';document.getElementById('img_twitter').style.visibility = 'visible';document.getElementById('img_pinterest').style.visibility = 'visible';document.getElementById('img_og_caption_big').style.visibility = 'visible';; } 
 
  window.onload=docload;
 </script>
@@ -368,7 +361,7 @@ function docload () { document.getElementById('mov_og_vimeo').style.visibility='
 <a href="photos.html">
 <img id="dph" src="assets/margin_left/assets_deselected/d_photos.png" onmouseover="document.getElementById('dphline').style.visibility='visible';document.getElementById('dphline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dphline').style.visibility='hidden';" alt="TheStudio" />
 </a>
-<video controls id=mov_og_vimeo poster="../posters/Video%20Poster%20Images/Motion%20Design/08_OG.png" ><source src="http://player.vimeo.com/video/44408064/" /></video>
+<div ><iframe id="mov_og_vimeo" src="http://player.vimeo.com/video/44408064?title=0&byline=0" width="550" height="309" style="position:absolute;visibility:inherit;top:217px;left:391px;z-index:4;" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
 <a href=abc_industrial.html >
 
 <img id="img_gagl" src="assets/pages/strybrd_artists/arrow_l_g.png" onmouseover="" onmouseout="" alt="TheStudio" >
@@ -406,7 +399,7 @@ function docload () { document.getElementById('mov_og_vimeo').style.visibility='
 
 <a href=# >
 
-<img id="img_tumblr" src="assets/main/assets_general/moving/social_s.png" onmouseover="" onmouseout="" alt="TheStudio" >
+<img id="img_og_caption_big" src="../captions/Motion Design/08_outtenandgolden.png" onmouseover="" onmouseout="" alt="TheStudio" >
 </a>
 
 

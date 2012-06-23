@@ -14,6 +14,7 @@ VIDEOS_PREFIX = "../videos"
 import common
 import os
 import sys
+import time
 
 import gen_movie_panels
 import gen_movies
@@ -206,6 +207,7 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
 				# determine the script, if any...
                         	script = None
                         	ahref = None
+				exturl = None
 
 				print "MSS IMG DEF->", page_def
                         	if page_def.has_key("link") and page_def["link"]!="":
@@ -219,6 +221,10 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
                                 	elif link.startswith("url:"):
                                         	idx = link.find(":") + 1
                                         	ahref = link[idx:]
+                                	elif link.startswith("nurl:"):
+                                        	idx = link.find(":") + 1
+                                        	ahref = link[idx:]
+                                        	exturl = True
 					elif link.startswith("mss"):
                                         	idx = link.find(":") + 1
 						directive = link[idx:]
@@ -228,7 +234,7 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
                                         	print "ERROR: multipage_slide_show: Unknown link type", page_def
 						sys.exit(1)
 
-                        	style, content, foo, scriptlet_dct = gen_images.expand_item( accum_ids, page_def, img_dct, script, None, ahref )
+                        	style, content, foo, scriptlet_dct = gen_images.expand_item( accum_ids, page_def, img_dct, script, None, ahref, exturl )
 
                         	tot_style += style
                         	tot_content += content
@@ -237,16 +243,28 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
 
 			elif page_def.has_key('type') and page_def['type'] == "image_set":
 
-                                #if page_def.has_key("link") and page_def["link"]!="":
-                                #        link = page_def["link"]
-                                #        print "LINK PAGE DEF->", link, page_def.keys(), page_def['asset_name']
-                                #        sys.exit(0)
+				# Note, we are requiring a valid cap file...
+                                if page_def.has_key('cap_file') and page_def['cap_file']!=None:
+					print "WARNING: Got cap file->", page_def['cap_file']	
+				else:	
+					print "WARNING: No cap file->", page_def
+					time.sleep(2)
+					continue
 
 				style, content, foo, scriptlet_dct = gen_image_set.expand_item( accum_ids, page_def, is_dct, None, None, None )
                         	tot_style += style
                         	tot_content += content
 				tot_on += scriptlet_dct["on"]
 				tot_off += scriptlet_dct["off"]
+
+				# expand the caption too...
+                                if page_def.has_key('cap_path'):
+					style, content, foo, scriptlet_dct = \
+						gen_image_set.expand_caption( accum_ids, page_def )
+                                	tot_style += style
+                                	tot_content += content
+                                	tot_on += scriptlet_dct["on"]
+                                	tot_off += scriptlet_dct["off"]
 
 			else:
 				print "ERROR: Cannot process this asset type->", page_def

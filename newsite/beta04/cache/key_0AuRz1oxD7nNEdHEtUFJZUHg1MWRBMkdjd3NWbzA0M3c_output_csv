@@ -1,0 +1,5 @@
+name,asset_name,x,y,z,link
+,,,,,
+mp_etc_mocap,mov_etc_mocap_vimeo,391,217,2,
+mp_etc_axe,mov_etc_axe_vimeo,391,217,2,
+mp_etc_citypoly,mov_etc_citypoly_vimeo,391,217,2,

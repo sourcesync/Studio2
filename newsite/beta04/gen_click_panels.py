@@ -83,6 +83,49 @@ def cpo_expand_preview_item( accum_ids, parent, asset_def, cp_dct, cpo_dct, imag
 
 	return [ style, content, scriptlet_dct ]
 
+def cpo_expand_caption_item( accum_ids, parent, asset_def, cp_dct, cpo_dct, images_dct, init_item, action_scripts ):
+
+        print "CPO EXPAND CAPTION->", asset_def, cpo_dct.keys()
+
+        typ = asset_def["type"]
+        x = int(asset_def['x'])
+        y = int(asset_def['y'])
+        z = int(asset_def['z'])
+        name = asset_def['asset_name']
+        hid = common.get_id( name, accum_ids )
+
+        # get the individual images and create ids...
+        img_init_asset = images_dct[init_item][0]
+        path = img_init_asset['path']
+        fname = img_init_asset['filename']
+        src = os.path.join(path,fname)
+        src = src.replace("PHIL", PHIL_PREFIX)
+	src = common.path_replace( src )
+        src = common.create_path( src )
+	print "init src->", src
+
+        # style...
+        style = ""
+        style += common.emit_line("#%s {" % hid )
+        style += common.emit_line(" position: absolute;")
+        style += common.emit_line(" top: %dpx;" % y )
+        style += common.emit_line(" left: %dpx;" % x )
+        style += common.emit_line(" z-index: %d;" % (z+1) )
+        style += common.emit_line(" border:none;" )
+        style += common.emit_line(" visibility: hidden;" )
+        style += common.emit_line("}")
+
+        # content...
+        content = "<img id=\"%s\" src=\"%s\" alt=\"TheStudio\"  />\n"  % (hid, src)
+
+        # scriptlet dct...
+        scriptlet_dct = {}
+        scriptlet_dct['on'] = "document.getElementById('%s').style.visibility='visible';" % hid
+        scriptlet_dct['off'] = "document.getElementById('%s').style.visibility='hidden';" % hid
+        scriptlet_dct['init'] = "document.getElementById('%s').style.visibility='visible';" % hid
+
+        return [ style, content, scriptlet_dct ]
+
 
 def cpo_expand_option_item( accum_ids, parent, asset_def, cpo_dct, images_dct, init_option, action_scripts ):
 	
@@ -190,6 +233,7 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 
 	# get the init option...
 	init_option = asset_def['init']
+	print "init_option->", init_option
 
 	# find the main preview item...
 	preview_def = None
@@ -204,11 +248,24 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 		sys.exit(1)
 	preview_id = preview_def['asset_name']
 
+        # find the main caption item...
+        caption_def = None
+        for item in item_def:
+                asn = item["asset_name"]
+                typ = item["type"]
+                if asn.startswith("cpo") and (typ=="caption"):
+                        caption_def = item
+                        break
+        if not caption_def:
+                print "ERROR: gen_click_panels: Could not find caption item"
+                sys.exit(1)
+        caption_id = caption_def['asset_name']
+
 	# prepare action script dct...
         action_scripts = {}
 	action_scripts['common_show'] = "function show(id) { if (id!=null) document.getElementById(id).style.visibility='visible';}"
 	action_scripts['common_hide'] = "function hide(id) { if (id!=null) document.getElementById(id).style.visibility='hidden';}"
-	action_scripts['common_preview'] = "function preview(id,path) { document.getElementById(id).src = path; }"
+	action_scripts['common_preview'] = "function preview(id,path,capid,cappath) { document.getElementById(id).src = path; document.getElementById(capid).src=cappath;}"
 	action_scripts['global'] = "var %s_sel = null; var %s_desel = null;" % (asset_name, asset_name )
 	for item in item_def:
 		asn = item["asset_name"]
@@ -221,6 +278,7 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 			img_desel = asn_def['deselected']
 			img_sel = asn_def['selected']
 			img_preview = asn_def['preview']
+			img_caption = asn_def['caption']
 
 			# get path to img preview...
 			print "IMAGES->", asn, item, images_dct.keys()
@@ -230,6 +288,14 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 			src = os.path.join(path,fname)
 			src = src.replace("PHIL",PHIL_PREFIX)
 
+			# get path to caption...
+			img_caption_asset = images_dct[img_caption][0]
+			print "img->",img_caption_asset
+			path = img_caption_asset['path']
+			fname = img_caption_asset['filename']
+			capsrc = os.path.join(path,fname)
+			capsrc = common.path_replace( capsrc )
+
 			desel_id = "%s_desel" % asn
 			sel_id = "%s_sel" % asn
 
@@ -238,7 +304,7 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 				"{ show( %s_desel ); hide( %s_sel ); show( '%s' ); hide( '%s' ); " % \
 					( asset_name, asset_name, sel_id, desel_id ) + \
 				" %s_sel = '%s'; %s_desel = '%s'; " % ( asset_name, sel_id, asset_name, desel_id ) + \
-				"preview( '%s','%s' );} " % (preview_id, src)
+				"preview( '%s','%s','%s','%s');} " % (preview_id, src, caption_id, capsrc)
 	
 			# do sel scripts...
 			action_scripts["%s_sel_click" % asn] = "function %s_sel_click() {} "  % asn 
@@ -248,7 +314,6 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 		typ = item["type"]
 
 		if asn.startswith("cpo") and (typ=="option"):
-
 			# expand the cpo item...
 			style, content, master_dct = cpo_expand_option_item( accum_ids, asset_name, item, cpo_dct, images_dct, init_option, action_scripts )
 			tot_style += style
@@ -279,8 +344,20 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
                         tot_off += scriptlet_dct['off']
                         init_script += scriptlet_dct['init']
 
-		elif asn.startswith("cpo") and (typ=="preview"):
-			pass
+		elif asn.startswith("cpo") and (typ=="caption"):
+
+                        init_img = item['init']
+
+                        # expand the cpo item...
+                        style, content, scriptlet_dct = \
+                                cpo_expand_caption_item( accum_ids, asset_name, item, click_panels_dct, cpo_dct, images_dct, init_img, action_scripts )
+                        tot_style += style
+                        tot_content += content
+
+                        # desel...
+                        tot_on += scriptlet_dct['on']
+                        tot_off += scriptlet_dct['off']
+                        init_script += scriptlet_dct['init']
 
 		else:
 			print "ERROR: Click_Panel: Cannot process asset->", item
@@ -294,6 +371,7 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 	if init_option:
 		scriptlet_dct['init'] += "show('%s');hide('%s');" % ( '%s_sel' % init_option, '%s_desel' % init_option ) + \
 			"cp_photos_sel = '%s'; cp_photos_desel = '%s';" % ( '%s_sel' % init_option, '%s_desel' % init_option )
+		print scriptlet_dct['init']
 
 	load_script = ""
 	for key in action_scripts.keys():

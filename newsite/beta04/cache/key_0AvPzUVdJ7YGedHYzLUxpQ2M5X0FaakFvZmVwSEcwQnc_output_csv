@@ -14,15 +14,15 @@ mov_dexnet,MOVIES2/Video Files For Web/motion design/h264/,10_DexNet.mov,img_dex
 mov_particles,MOVIES2/Video Files For Web/motion design/h264/,11_particles.mov,img_particles_poster,1,file,550,309
 mov_emd,MOVIES2/Video Files For Web/motion design/h264/,12_EMD Serono_Growth_Hormone.mov,img_emd_poster,1,file,550,309
 ,,,,,,,
-mov_tfi_vimeo,http://player.vimeo.com/video/44408179,,img_tfi_poster,1,file,550,309
-mov_mymet_vimeo,http://player.vimeo.com/video/44408180,,img_mymet_poster,1,file,550,309
-mov_greenfish_vimeo,http://player.vimeo.com/video/22049808,,img_greenfish_poster,1,file,550,309
-mov_gerber_vimeo,,,img_ferber_poster,1,file,550,309
-mov_wi_vimeo,http://player.vimeo.com/video/44408062,,img_wi_poster,1,file,550,309
-mov_pfizer_vimeo,http://player.vimeo.com/video/44408182,,img_pfizer_poster,1,file,550,309
-mov_abc_industrial_vimeo,http://player.vimeo.com/video/44406756,,img_abc_industrial_poster,1,file,550,309
-mov_og_vimeo,http://player.vimeo.com/video/44408064,,img_og_poster,1,file,550,309
-mov_poltronafrau_vimeo,http://player.vimeo.com/video/44408066,,img_poltron_poster,1,file,550,309
-mov_dexnet_vimeo,http://player.vimeo.com/video/44408373,,img_dexnet_poster,1,file,550,309
-mov_particles_vimeo,http://player.vimeo.com/video/44408069,,img_particles_poster,1,file,550,309
-mov_emd_vimeo,http://player.vimeo.com/video/44408375,,img_emd_poster,1,file,550,309
+mov_tfi_vimeo,http://player.vimeo.com/video/44408179,,img_tfi_poster,1,vimeo,550,309
+mov_mymet_vimeo,http://player.vimeo.com/video/44408180,,img_mymet_poster,1,vimeo,550,309
+mov_greenfish_vimeo,http://player.vimeo.com/video/22049808,,img_greenfish_poster,1,vimeo,550,309
+mov_gerber_vimeo,http://player.vimeo.com/video/27251571,,img_ferber_poster,1,vimeo,550,309
+mov_wi_vimeo,http://player.vimeo.com/video/44408062,,img_wi_poster,1,vimeo,550,309
+mov_pfizer_vimeo,http://player.vimeo.com/video/44408182,,img_pfizer_poster,1,vimeo,550,309
+mov_abc_industrial_vimeo,http://player.vimeo.com/video/44408183,,img_abc_industrial_poster,1,vimeo,550,309
+mov_og_vimeo,http://player.vimeo.com/video/44408064,,img_og_poster,1,vimeo,550,309
+mov_poltronafrau_vimeo,http://player.vimeo.com/video/44408066,,img_poltron_poster,1,vimeo,550,309
+mov_dexnet_vimeo,http://player.vimeo.com/video/44408373,,img_dexnet_poster,1,vimeo,550,309
+mov_particles_vimeo,http://player.vimeo.com/video/44408069,,img_particles_poster,1,vimeo,550,309
+mov_emd_vimeo,http://player.vimeo.com/video/44408375,,img_emd_poster,1,vimeo,550,309

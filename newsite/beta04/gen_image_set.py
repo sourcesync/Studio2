@@ -11,6 +11,8 @@ IMAGE_SET_DEFS = { "stbd_artists": "https://docs.google.com/spreadsheet/pub?key=
 import common
 import os
 import copy
+import gen_lookup
+import sys
 
 MOVIES1_PREFIX = "../phil_assets"
 PHIL_PREFIX = "../phil_assets"
@@ -19,29 +21,43 @@ VIDEOS_PREFIX = "../videos"
 POSTERS_PREFIX = "../posters"
 
 def expand_def( dct, item_def ):
-
 	asset_name = item_def['asset_name']
-
-	print "EXPAND DEF->", item_def, asset_name, dct.keys()
-	
 	deff = dct[ asset_name ][0]
-	
+
+	#print "EXPAND DEF->", item_def, asset_name, dct.keys(), deff
 	path = deff["path"]
 
 	spath = path.replace("PHIL",PHIL_PREFIX)
 	if os.path.exists(spath):
 		fnames = os.listdir(spath)
-		print "FNAMES->", fnames
+		#print "FNAMES->", fnames
+
 		asset_defs = []
 		for f in fnames:
 			if f.startswith(".B"): continue
+			if f.endswith("pdf"): continue
 			ad = copy.deepcopy( item_def )
 			ad['path'] = path
 			ad['filename'] = f
 			ad['page_name'] = ad['filename'].split(".")[0]
 			ad['asset_name'] = ad['page_name']
 			ad['type'] = 'image_set'
+
+			# caption?...
+			if deff.has_key('cap_path'):
+				cap_path = deff["cap_path"]
+				info = gen_lookup.get_cap_file(f)
+				if info!=None:
+					print info
+					[ capfile, width, height ] = info
+					print cap_path, capfile
+					ad['cap_path'] = cap_path
+					ad['cap_file'] = capfile
+					ad['cap_width'] = width
+					ad['cap_height'] = height
+
 			asset_defs.append( ad )
+
 		return asset_defs
 
 	else:
@@ -69,6 +85,58 @@ def get_attr( prop, asset_name, asset_def, default=None):
 		return asset_def[prop]
 	else:
 		return False
+
+def expand_caption( accum_ids, asset_def ):
+
+        print "IMAGE SET EXPAND CAPTION", asset_def
+
+        # get the asset definition...
+        asset_name = asset_def["asset_name"] + "_cap"
+        item_def = asset_def
+
+        # get id...
+        htmlid = common.get_id(asset_name,accum_ids)
+        accum_ids.append( htmlid )
+	
+	# get cap path...
+	cap_path = asset_def['cap_path']
+	capfile = asset_def['cap_file']
+	print "caps->", cap_path, capfile
+	capsrc = os.path.join( cap_path, capfile )
+	capsrc = common.path_replace(capsrc)
+
+	# compute the coord...
+	centerx = 1067
+	centery = 371
+	capw = asset_def['cap_width']
+	caph = asset_def['cap_height']
+	x = centerx - (int)(capw*1.0/2)
+	y = centery - (int)(caph*1.0/2)
+
+	# get z...
+	z = 3
+
+        # style...
+        style  = ""
+        style += common.emit_line( "#%s {" % htmlid )
+        style += common.emit_line( "position: absolute;")
+        style += common.emit_line( "left: %dpx;" % int(x) )
+        style += common.emit_line( "top: %dpx;" % int(y) )
+        style += common.emit_line( "z-index: %d;" % int(z) )
+        style += common.emit_line( "}" )
+
+        # content...
+        content = ""
+	content += common.emit_line( "<img id=%s src=\"%s\" alt=\"TheStudio\" >" % (htmlid, capsrc) )
+
+        scriptlet_dct = {}
+        scriptlet_dct['on'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'visible' )
+        scriptlet_dct['off']  = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'hidden' )
+        scriptlet_dct['init'] = "document.getElementById('%s').style.visibility = '%s';" % (htmlid, 'visible' )
+
+        return [ style, content, "", scriptlet_dct ]
+
+
 
 def expand_item( accum_ids, asset_def, is_dct, onclick=None, init_vis=None, ahref=None ):
 	print "IMAGE SET EXPAND"

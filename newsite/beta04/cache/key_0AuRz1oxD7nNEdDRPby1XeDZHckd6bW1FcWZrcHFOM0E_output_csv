@@ -82,7 +82,6 @@ img_21_dust_bunny_BW,PHIL/previsualization/character development/thumbnails/,21_
 img_21_dust_bunny_red,PHIL/previsualization/character development/thumbnails/,21_dust_bunny_red.png
 img_22-pig_BW,PHIL/previsualization/character development/thumbnails/,22-pig_BW.png
 img_22-pig_red,PHIL/previsualization/character development/thumbnails/,22-pig_red.png
-img_23-Goodie_Meanie,PHIL/previsualization/character development/thumbnails/,23-Goodie_Meanie.png
 img_23-Goodie_Meanie_BW,PHIL/previsualization/character development/thumbnails/,23-Goodie_Meanie_BW.png
 img_23-Goodie_Meanie_red,PHIL/previsualization/character development/thumbnails/,23-Goodie_Meanie_red.png
 img_2_blue_driver_BW,PHIL/previsualization/character development/thumbnails/,2_blue_driver_BW.png
@@ -127,28 +126,29 @@ img_6_green_demon,PHIL/previsualization/character development/,6_green_demon.png
 img_7_bacteria_rows,PHIL/previsualization/character development/,7_bacteria_rows.png
 img_8_bacteria_group,PHIL/previsualization/character development/,8_bacteria_group.png
 img_9_blue_monster,PHIL/previsualization/character development/,9_blue_monster.png
-,,
-,,0_bumblevilleesuperhero.png
-,,1_bumblevillereporter.png
-,,3_bumblevilledriver.png
-,,4_bumblevillecop.png
-,,5_flight.png
-,,6_airheadmodelsheet.png
-,,7_nitionsleepusinterruptus.png
-,,8_prevnar13bacteria.png
-,,9_prevnar13bacteria.png
-,,10_prevnar13pneumo.png
-,,11_sparrow.png
-,,12_nitionsleepmaestro.png
-,,13_featherhood.png
-,,14_georgeandliz.png
-,,15_sparrow.png
-,,16_sparrowdemon.png
-,,17_sparrowdemon.png
-,,18_sparrowdemon.png
-,,19_cupidslastbow.png
-,,20_mmmsupergrandparents.png
-,,21_squonk.png
-,,22_dustbunnies.png
-,,23_alteregoproject.png
-,,24_goodiemeanieproject.png
+img_caption_cd,CAPTIONS/Character Development/,0_bumblevilleesuperhero.png
+img_cap_cd_0,CAPTIONS/Character Development/,0_bumblevilleesuperhero.png
+img_cap_cd_1,CAPTIONS/Character Development/,1_bumblevillereporter.png
+img_cap_cd_2,CAPTIONS/Character Development/,1_bumblevillereporter.png
+img_cap_cd_3,CAPTIONS/Character Development/,3_bumblevilledriver.png
+img_cap_cd_4,CAPTIONS/Character Development/,4_bumblevillecop.png
+img_cap_cd_5,CAPTIONS/Character Development/,5_flight.png
+img_cap_cd_6,CAPTIONS/Character Development/,6_airheadmodelsheet.png
+img_cap_cd_7,CAPTIONS/Character Development/,7_nitionsleepusinterruptus.png
+img_cap_cd_8,CAPTIONS/Character Development/,8_prevnar13bacteria.png
+img_cap_cd_9,CAPTIONS/Character Development/,9_prevnar13bacteria.png
+img_cap_cd_10,CAPTIONS/Character Development/,10_prevnar13pneumo.png
+img_cap_cd_11,CAPTIONS/Character Development/,11_sparrow.png
+img_cap_cd_12,CAPTIONS/Character Development/,12_nitionsleepmaestro.png
+img_cap_cd_13,CAPTIONS/Character Development/,13_featherhood.png
+img_cap_cd_14,CAPTIONS/Character Development/,14_georgeandliz.png
+img_cap_cd_15,CAPTIONS/Character Development/,15_sparrow.png
+img_cap_cd_16,CAPTIONS/Character Development/,16_sparrowdemon.png
+img_cap_cd_17,CAPTIONS/Character Development/,17_sparrowdemon.png
+img_cap_cd_18,CAPTIONS/Character Development/,18_sparrowdemon.png
+img_cap_cd_19,CAPTIONS/Character Development/,19_cupidslastbow.png
+img_cap_cd_20,CAPTIONS/Character Development/,20_mmmsupergrandparents.png
+img_cap_cd_21,CAPTIONS/Character Development/,21_squonk.png
+img_cap_cd_22,CAPTIONS/Character Development/,22_dustbunnies.png
+img_cap_cd_23,CAPTIONS/Character Development/,23_alteregoproject.png
+img_cap_cd_24,CAPTIONS/Character Development/,24_goodiemeanieproject.png
