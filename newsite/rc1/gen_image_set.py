@@ -27,7 +27,19 @@ def expand_def( dct, item_def ):
 	#print "EXPAND DEF->", item_def, asset_name, dct.keys(), deff
 	path = deff["path"]
 
+	# get alt entries...
+	altpath = deff["alt_path"]
+	altfiles = {}
+	if (altpath!=""):
+		altfiles = deff["alt_files"].split(";")
+		pairs = [ a.split(":") for a in altfiles ]
+		print "expand def->", pairs
+		altfiles = dict( pairs )
+		altpath = common.path_replace( altpath )
+
+	# fixup path...
 	spath = path.replace("PHIL",PHIL_PREFIX)
+
 	if os.path.exists(spath):
 		fnames = os.listdir(spath)
 		#print "FNAMES->", fnames
@@ -37,8 +49,18 @@ def expand_def( dct, item_def ):
 			if f.startswith(".B"): continue
 			if f.endswith("pdf"): continue
 			ad = copy.deepcopy( item_def )
+			
 			ad['path'] = path
 			ad['filename'] = f
+
+			# possibly use an altpath...
+			if f in altfiles.keys():
+				substf = altfiles[f]
+				substp = altpath
+				print "WARNING: substitute->", f,substf
+				ad['path'] = substp
+				ad['filename'] = substf
+
 			ad['page_name'] = ad['filename'].split(".")[0]
 			ad['asset_name'] = ad['page_name']
 			ad['type'] = 'image_set'
@@ -50,11 +72,23 @@ def expand_def( dct, item_def ):
 				if info!=None:
 					print info
 					[ capfile, width, height ] = info
-					print cap_path, capfile
-					ad['cap_path'] = cap_path
-					ad['cap_file'] = capfile
 					ad['cap_width'] = width
 					ad['cap_height'] = height
+					ad['cap_path'] = cap_path
+					ad['cap_file'] = capfile
+
+					# check for subst...
+					alt_cap_path = deff['alt_cap_path']
+					_alt_cap_files = deff['alt_cap_files']
+					if _alt_cap_files != "":
+						alt_cap_files = _alt_cap_files.split(";")
+						alt_cap_files = [ a.split(":") for a in alt_cap_files ]
+						alt_cap_files = dict( alt_cap_files )
+						alt_cap_path = common.path_replace( alt_cap_path )
+						if capfile in alt_cap_files.keys():
+							ad['cap_file'] = alt_cap_files[ capfile ]
+							ad['cap_path'] = alt_cap_path
+							print ad
 
 			asset_defs.append( ad )
 
