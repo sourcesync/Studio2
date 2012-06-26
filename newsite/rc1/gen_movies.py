@@ -86,9 +86,9 @@ def expand_vimeo_item( accum_ids, asset_def, images_dct, movies_dct ):
         #scriptlet_dct['off'] = "document.getElementById('%s').style.visibility='hidden';" % htmlid
         #scriptlet_dct['init'] = "document.getElementById('%s').style.visibility='visible';" % htmlid
         
-	scriptlet_dct['on'] = "document.getElementById('%s').setAttribute('src','%s?title=0&byline=0');" % (htmlid,url)
-        scriptlet_dct['off'] = "document.getElementById('%s').setAttribute('src','');" % (htmlid)
-        scriptlet_dct['init'] = "document.getElementById('%s').setAttribute('src','%s?title=0&byline=0');" % (htmlid,url)
+	scriptlet_dct['on'] = "document.getElementById('%s').style.zIndex='4';document.getElementById('%s').setAttribute('src','%s?title=0&byline=0');" % (htmlid,htmlid,url)
+        scriptlet_dct['off'] = "document.getElementById('%s').style.zIndex='0';document.getElementById('%s').setAttribute('src','');" % (htmlid, htmlid)
+        scriptlet_dct['init'] = "document.getElementById('%s').style.zIndex='4';document.getElementById('%s').setAttribute('src','%s?title=0&byline=0');" % (htmlid,htmlid,url)
 
         return [ style, content, scriptlet_dct ]
 

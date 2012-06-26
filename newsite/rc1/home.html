@@ -237,7 +237,7 @@ border: 0px;
 <body><div>
 <script type="text/javascript" >
 
-function docload () { document.getElementById('mov_home_reel_vimeo').setAttribute('src','http://player.vimeo.com/video/44346156?title=0&byline=0');; } 
+function docload () { document.getElementById('mov_home_reel_vimeo').style.zIndex='4';document.getElementById('mov_home_reel_vimeo').setAttribute('src','http://player.vimeo.com/video/44346156?title=0&byline=0');; } 
 
  window.onload=docload;
 </script>
@@ -305,6 +305,14 @@ function docload () { document.getElementById('mov_home_reel_vimeo').setAttribut
 <a href="photos.html">
 <img id="dph" src="assets/margin_left/assets_deselected/d_photos.png" onmouseover="document.getElementById('dphline').style.visibility='visible';document.getElementById('dphline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dphline').style.visibility='hidden';" alt="TheStudio" />
 </a>
+<div style="visibility:hidden">
+	<img style="visibility:inherit" src="../assets/margin_bottom/assets_selected/s_animation.png" />
+	<img style="visibility:inherit" src="../assets/margin_bottom/assets_selected/s_etcetera.png" />
+	<img style="visibility:inherit" src="../assets/margin_bottom/assets_selected/s_interactive.png" />
+	<img style="visibility:inherit" src="../assets/margin_bottom/assets_selected/s_motiondesign.png" />
+	<img style="visibility:inherit" src="../assets/margin_bottom/assets_selected/s_previs.png" />
+</div>
+
 <div ><iframe id="mov_home_reel_vimeo" src="http://player.vimeo.com/video/44346156?title=0&byline=0" width="550" height="309" style="position:absolute;visibility:inherit;top:212px;left:391px;z-index:4;" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
 
 </div></body></html>

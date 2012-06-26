@@ -108,6 +108,13 @@ overflow: hidden;
 border: 0px;
 visibility: hidden;
 }
+#wo {
+position: absolute;left: 121px;
+top: 528px;
+z-index: 2;
+overflow: hidden;
+border: 0px;
+}
 #bm {
 position: absolute;left: 0px;
 top: 0px;
@@ -402,7 +409,7 @@ function cpo_option1_22_desel_click() { show( cp_photos_desel ); hide( cp_photos
 function cpo_option1_11_sel_click() {} 
 function cpo_option1_11_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_11_sel' ); hide( 'cpo_option1_11_desel' );  cp_photos_sel = 'cpo_option1_11_sel'; cp_photos_desel = 'cpo_option1_11_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/1axe.png','cpo_cap1','../captions/Photos/01_axemannequinshoot.png');} 
 function cpo_option1_12_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_12_sel' ); hide( 'cpo_option1_12_desel' );  cp_photos_sel = 'cpo_option1_12_sel'; cp_photos_desel = 'cpo_option1_12_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/2mocap.png','cpo_cap1','../captions/Photos/02_mocapwarmup.png');} 
-function cpo_option1_13_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_13_sel' ); hide( 'cpo_option1_13_desel' );  cp_photos_sel = 'cpo_option1_13_sel'; cp_photos_desel = 'cpo_option1_13_desel'; preview( 'cpo_main1','../phil_assets/about us/photos/3Panorama.png','cpo_cap1','../captions/Photos/03_panorama.png');} 
+function cpo_option1_13_desel_click() { show( cp_photos_desel ); hide( cp_photos_sel ); show( 'cpo_option1_13_sel' ); hide( 'cpo_option1_13_desel' );  cp_photos_sel = 'cpo_option1_13_sel'; cp_photos_desel = 'cpo_option1_13_desel'; preview( 'cpo_main1','../content_6_25_2012/RC1_revises_2012_0625/new photo/5Panorama_v2.png','cpo_cap1','../captions/Photos/03_panorama.png');} 
 function show(id) { if (id!=null) document.getElementById(id).style.visibility='visible';}
 function cpo_option1_23_sel_click() {} 
 function cpo_option1_13_sel_click() {} 
@@ -446,6 +453,7 @@ function docload () { document.getElementById('cpo_main1').style.visibility='vis
 <img id="dcl" src="assets/margin_left/assets_deselected/d_clients.png" onmouseover="document.getElementById('dcline').style.visibility='visible';document.getElementById('dcline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dcline').style.visibility='hidden';" alt="TheStudio" />
 </a>
 <img id="dphline" src="assets/main/assets_general/moving/underline.png" alt="TheStudio" />
+<img id="wo" src="assets/margin_bottom/assets_deselected/work.png" alt="TheStudio" />
 <img id="bm" src="assets/margin_top/banner_margin.png" alt="TheStudio" />
 <a href="animation.html">
 <img id="dan" src="assets/margin_bottom/assets_deselected/d_animation.png" onmouseover="document.getElementById('dan').style.visibility='visible';document.getElementById('dan').src='assets/margin_bottom/assets_selected/s_animation.png'" onmouseout="document.getElementById('dan').style.visibility='visible';document.getElementById('dan').src='assets/margin_bottom/assets_deselected/d_animation.png'" alt="TheStudio" />
@@ -477,6 +485,14 @@ function docload () { document.getElementById('cpo_main1').style.visibility='vis
 <img id="dwvline" src="assets/main/assets_general/moving/underline.png" alt="TheStudio" />
 <img id="con" src="assets/margin_left/assets_deselected/contact.png" alt="TheStudio" />
 <img id="sph" src="assets/margin_left/assets_selected/s_photos.png" alt="TheStudio" />
+<div style="visibility:hidden">
+	<img style="visibility:inherit" src="../assets/margin_bottom/assets_selected/s_animation.png" />
+	<img style="visibility:inherit" src="../assets/margin_bottom/assets_selected/s_etcetera.png" />
+	<img style="visibility:inherit" src="../assets/margin_bottom/assets_selected/s_interactive.png" />
+	<img style="visibility:inherit" src="../assets/margin_bottom/assets_selected/s_motiondesign.png" />
+	<img style="visibility:inherit" src="../assets/margin_bottom/assets_selected/s_previs.png" />
+</div>
+
 <img id="cpo_main1" src="../phil_assets/about%20us/photos/1axe.png" alt="TheStudio"  />
 <img id="cpo_cap1" src="../captions/Photos/01_axemannequinshoot.png" alt="TheStudio"  />
 <a href="#" >

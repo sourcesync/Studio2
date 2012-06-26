@@ -3,7 +3,7 @@ name,filename,path,x,y,link,z,mouseover,mouseout,init,click
 img_Pmain,1axe.png,PHIL/about us/photos/,391,242,,1,,,visible,
 img_1axe.png,1axe.png,PHIL/about us/photos/,391,242,,0,,,hidden,
 img_2mocap.png,2mocap.png,PHIL/about us/photos/,391,242,,0,,,hidden,
-img_3Panorama.png,3Panorama.png,PHIL/about us/photos/,391,242,,0,,,hidden,
+img_3Panorama.png,5Panorama_v2.png,CONTENT625/RC1_revises_2012_0625/new photo/,391,242,,0,,,hidden,
 img_4suite.png,4suite.png,PHIL/about us/photos/,391,242,,0,,,hidden,
 img_5illustrators.png,5illustrators.png,PHIL/about us/photos/,391,242,,0,,,hidden,
 img_6meeting.png,6meeting.png,PHIL/about us/photos/,391,242,,0,,,hidden,

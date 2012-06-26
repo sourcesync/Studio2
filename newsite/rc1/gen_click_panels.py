@@ -58,7 +58,7 @@ def cpo_expand_preview_item( accum_ids, parent, asset_def, cp_dct, cpo_dct, imag
         path = img_init_asset['path']
         fname = img_init_asset['filename']
         src = os.path.join(path,fname)
-        src = src.replace("PHIL", PHIL_PREFIX)
+        src = common.path_replace( src )
        	src = common.create_path( src )
  
 	# style...
@@ -99,8 +99,7 @@ def cpo_expand_caption_item( accum_ids, parent, asset_def, cp_dct, cpo_dct, imag
         path = img_init_asset['path']
         fname = img_init_asset['filename']
         src = os.path.join(path,fname)
-        src = src.replace("PHIL", PHIL_PREFIX)
-	src = common.path_replace( src )
+        src = common.path_replace( src )
         src = common.create_path( src )
 	print "init src->", src
 
@@ -192,7 +191,7 @@ def cpo_expand_option_item( accum_ids, parent, asset_def, cpo_dct, images_dct, i
 	path = img_desel_asset['path']	
 	fname = img_desel_asset['filename']	
 	src = os.path.join(path,fname)
-	src = src.replace("PHIL", PHIL_PREFIX)	
+        src = common.path_replace( src )
 	content += "<a href=\"#\" >\n"
 	#content += "<img id=\"%s\" src=\"%s\" alt=\"TheStudio\" onclick=\"%s;\" onmouseover=\"%s;\" onmouseout=\"%s;\" />\n" % \
 	#(desel_id, src, "%s_click()" % desel_id, "%s_mouseover()" % desel_id, "%s_mouseout()" % desel_id )
@@ -205,7 +204,7 @@ def cpo_expand_option_item( accum_ids, parent, asset_def, cpo_dct, images_dct, i
 	path = img_sel_asset['path']	
 	fname = img_sel_asset['filename']	
 	src = os.path.join(path,fname)
-	src = src.replace("PHIL", PHIL_PREFIX)	
+        src = common.path_replace( src )
 	content += "<a href=\"#\" >\n"
 	#content += "<img id=\"%s\" src=\"%s\" alt=\"TheStudio\" onclick=\"%s;\" onmouseover=\"%s;\" onmouseout=\"%s;\" />\n" % \
 	#(sel_id, src, "%s_click()" % sel_id, "%s_mouseover()" % sel_id, "%s_mouseout()" % sel_id )
@@ -286,7 +285,7 @@ def expand_item( accum_ids, asset_def, images_dct, movies_dct, movie_panels_dct,
 			path = img_preview_asset['path']
 			fname = img_preview_asset['filename']
 			src = os.path.join(path,fname)
-			src = src.replace("PHIL",PHIL_PREFIX)
+			src = common.path_replace( src )
 
 			# get path to caption...
 			img_caption_asset = images_dct[img_caption][0]

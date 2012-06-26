@@ -101,8 +101,12 @@ def gen_lookup():
 
 if __name__ == "__main__":
 
-	lookup = gen_lookup()
-	print lookup
-	pickle.dump( lookup, open( LOOKUP_FILE, "wb" ) )
-	print "wrote file->", LOOKUP_FILE
+	if sys.argv[1] == "gen":
+		lookup = gen_lookup()
+		pickle.dump( lookup, open( LOOKUP_FILE, "wb" ) )
+		print "wrote file->", LOOKUP_FILE
 
+	elif sys.argv[1] == "read":
+		lookup = pickle.load( open( LOOKUP_FILE, "rb" ) )
+		lst =  [  (ky, lookup[ky]) for ky in lookup.keys() if ky.lower().startswith( sys.argv[2] ) ]
+		print lst

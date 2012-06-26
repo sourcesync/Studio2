@@ -31,6 +31,7 @@ VIDEOS_PREFIX = "../videos"
 POSTERS_PREFIX = "../posters"
 CAPTIONS_PREFIX = "../captions"
 CONTENT_620 = "../content_6_20_2012"
+CONTENT_625 = "../content_6_25_2012"
 
 #
 # Library...

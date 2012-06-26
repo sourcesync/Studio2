@@ -17,11 +17,11 @@ SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,\
 #SUBSET = [ "animation", "animation_gallery" ]
 #SUBSET = [ "whoweare" ]
 #SUBSET = [ "previs", "storyboard", "stbd_artists", "anim_cinem" , "char_dev" ]
-#SUBSET = [ "previs", "char_dev", "anim_cinem" ]
+#SUBSET = [ "previs", "char_dev" ] 
 #SUBSET = [ "sneakpeek" ]
-SUBSET = [ "appdesign", "website", "touchscreen", "interactive" ]
+#SUBSET = [ "appdesign", "website", "touchscreen", "interactive" ]
 #SUBSET = [ "etcetera" ]
-#SUBSET = [ "photos" ]
+SUBSET = [ "photos" ]
 #SUBSET = [ "home"]
 #SUBSET = [ "etcetera" ]
 #SUBSET = [ "home" ]
@@ -146,7 +146,6 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
 				click_panels_dct, slide_shows_dct, cpo_dct )
 
 			print "SS SCRIPTLET INIT->",scriptlet_dct['init']
-			sys.exit(1)	
 		else:
 
 			print "ERROR: gen_page: Unknown asset type->", asset_name
@@ -220,6 +219,15 @@ if __name__ == "__main__":
 
 		# get the template based content...
 		template_style, template_content = gen_page_templates.render_page( accum_ids, page_name, page_templates_dct, template_dct, template_assets_dct )
+
+		# insert precache...
+		if os.path.exists("precache.txt"):
+			f = open( "precache.txt",'r')
+			txt = f.read()
+			f.close()
+			template_content += txt
+
+		print template_content
 
 		# get the subpage items...	
 		page_def = []
