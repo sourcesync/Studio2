@@ -44,7 +44,7 @@ _menu_animation,second,img_abccar_caption,683,333,,hidden,1
 _menu_animation,second,img_abcheadset_caption,798,333,,hidden,1
 _menu_animation,second,img_etrade_caption,945,333,,hidden,1
 _menu_animation,second,img_interactiveanimation_caption,1037,333,,hidden,1
-menu_animation,second,img_animation02_captions2,405,333,,hidden,0
+menu_animation,second,img_animation02_captions3,405,333,,hidden,0
 ,,,,,,,
 menu_animation,second,img_gagl2,1135,494,option:first,hidden,2
 menu_animation,second,img_gagr2,1164,494,option:first,hidden,2

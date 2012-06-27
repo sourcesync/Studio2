@@ -4,10 +4,19 @@
 
 PAGE_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGQwQ3lkazQ4akh2SDRwVXF5ck1ZWGc&output=csv"
 
-SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,\
-	"community", "map", "partners", "photos", "etcetera", "animation", \
-	"animation_gallery", "motiondesign","motiondesign_gallery", "previs", "stbd_artists", "anim_cinem", "char_dev",  "storyboard", \
-	"appdesign", "website", "touchscreen", "interactive" ]
+SUBSET = [ "home",\
+	"whoweare",\
+	"sneakpeek",\
+	"clients", \
+	"contacts", \
+	"community", \
+	"map", \
+	"partners", \
+	"etcetera", \
+	"animation", "animation_gallery", \
+	"motiondesign","motiondesign_gallery", "previs", "stbd_artists", "anim_cinem", "char_dev",  "storyboard", \
+	"appdesign", "website", "touchscreen", "interactive", \
+	"photos" ]
 
 #SUBSET = [ "home", "whoweare", "clients", "contacts", "sneakpeek" ]
 #SUBSET = [ "community" ]
@@ -16,7 +25,7 @@ SUBSET = [ "home","whoweare","sneakpeek","clients", "contacts" ,\
 #SUBSET = [ "motiondesign", "motiondesign_gallery" ]
 #SUBSET = [ "animation", "animation_gallery" ]
 #SUBSET = [ "whoweare" ]
-SUBSET = [ "previs", "storyboard", "stbd_artists" ] #  "anim_cinem" , "char_dev" ]
+#SUBSET = [ "previs", "storyboard", "stbd_artists", "anim_cinem" , "char_dev" ]
 #SUBSET = [ "previs", "char_dev" ] 
 #SUBSET = [ "sneakpeek" ]
 #SUBSET = [ "appdesign", "website", "touchscreen", "interactive" ]

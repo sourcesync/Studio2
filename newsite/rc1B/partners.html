@@ -108,6 +108,13 @@ overflow: hidden;
 border: 0px;
 visibility: hidden;
 }
+#wo {
+position: absolute;left: 121px;
+top: 528px;
+z-index: 2;
+overflow: hidden;
+border: 0px;
+}
 #bm {
 position: absolute;left: 0px;
 top: 0px;
@@ -278,8 +285,8 @@ visibility: hidden;
 <script type="text/javascript" >
 
 
-function func_menu_c2d_dirs_dirs () { document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_directors_main').style.visibility = 'hidden';document.getElementById('mov_directors_vimeo').setAttribute('src','');document.getElementById('img_facebook').style.visibility = 'hidden';document.getElementById('img_twitter').style.visibility = 'hidden';document.getElementById('img_pinterest').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_directors_main').style.visibility = 'visible';document.getElementById('mov_directors_vimeo').setAttribute('src','http://player.vimeo.com/video/44408374?title=0&byline=0');document.getElementById('img_facebook').style.visibility = 'visible';document.getElementById('img_twitter').style.visibility = 'visible';document.getElementById('img_pinterest').style.visibility = 'visible'; };
-function docload () { document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_directors_main').style.visibility = 'hidden';document.getElementById('mov_directors_vimeo').setAttribute('src','');document.getElementById('img_facebook').style.visibility = 'hidden';document.getElementById('img_twitter').style.visibility = 'hidden';document.getElementById('img_pinterest').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_directors_main').style.visibility = 'visible';document.getElementById('mov_directors_vimeo').setAttribute('src','http://player.vimeo.com/video/44408374?title=0&byline=0');document.getElementById('img_facebook').style.visibility = 'visible';document.getElementById('img_twitter').style.visibility = 'visible';document.getElementById('img_pinterest').style.visibility = 'visible';; } 
+function func_menu_c2d_dirs_dirs () { document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_directors_main').style.visibility = 'hidden';document.getElementById('mov_directors_vimeo').style.zIndex='0';document.getElementById('mov_directors_vimeo').setAttribute('src','');document.getElementById('img_facebook').style.visibility = 'hidden';document.getElementById('img_twitter').style.visibility = 'hidden';document.getElementById('img_pinterest').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_directors_main').style.visibility = 'visible';document.getElementById('mov_directors_vimeo').style.zIndex='4';document.getElementById('mov_directors_vimeo').setAttribute('src','http://player.vimeo.com/video/44408374?title=0&byline=0');document.getElementById('img_facebook').style.visibility = 'visible';document.getElementById('img_twitter').style.visibility = 'visible';document.getElementById('img_pinterest').style.visibility = 'visible'; };
+function docload () { document.getElementById('img_d4d').style.visibility = 'hidden';document.getElementById('img_directors_main').style.visibility = 'hidden';document.getElementById('mov_directors_vimeo').style.zIndex='0';document.getElementById('mov_directors_vimeo').setAttribute('src','');document.getElementById('img_facebook').style.visibility = 'hidden';document.getElementById('img_twitter').style.visibility = 'hidden';document.getElementById('img_pinterest').style.visibility = 'hidden';document.getElementById('img_d4d').style.visibility = 'visible';document.getElementById('img_directors_main').style.visibility = 'visible';document.getElementById('mov_directors_vimeo').style.zIndex='4';document.getElementById('mov_directors_vimeo').setAttribute('src','http://player.vimeo.com/video/44408374?title=0&byline=0');document.getElementById('img_facebook').style.visibility = 'visible';document.getElementById('img_twitter').style.visibility = 'visible';document.getElementById('img_pinterest').style.visibility = 'visible';; } 
 
  window.onload=docload;
 </script>
@@ -316,6 +323,7 @@ function docload () { document.getElementById('img_d4d').style.visibility = 'hid
 <img id="dcl" src="assets/margin_left/assets_deselected/d_clients.png" onmouseover="document.getElementById('dcline').style.visibility='visible';document.getElementById('dcline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dcline').style.visibility='hidden';" alt="TheStudio" />
 </a>
 <img id="dphline" src="assets/main/assets_general/moving/underline.png" alt="TheStudio" />
+<img id="wo" src="assets/margin_bottom/assets_deselected/work.png" alt="TheStudio" />
 <img id="bm" src="assets/margin_top/banner_margin.png" alt="TheStudio" />
 <a href="animation.html">
 <img id="dan" src="assets/margin_bottom/assets_deselected/d_animation.png" onmouseover="document.getElementById('dan').style.visibility='visible';document.getElementById('dan').src='assets/margin_bottom/assets_selected/s_animation.png'" onmouseout="document.getElementById('dan').style.visibility='visible';document.getElementById('dan').src='assets/margin_bottom/assets_deselected/d_animation.png'" alt="TheStudio" />
@@ -347,6 +355,14 @@ function docload () { document.getElementById('img_d4d').style.visibility = 'hid
 <a href="photos.html">
 <img id="dph" src="assets/margin_left/assets_deselected/d_photos.png" onmouseover="document.getElementById('dphline').style.visibility='visible';document.getElementById('dphline').src='assets/main/assets_general/moving/underline.png'" onmouseout="document.getElementById('dphline').style.visibility='hidden';" alt="TheStudio" />
 </a>
+<div style="visibility:hidden">
+	<img style="visibility:inherit" src="assets/margin_bottom/assets_selected/s_animation.png" />
+	<img style="visibility:inherit" src="assets/margin_bottom/assets_selected/s_etcetera.png" />
+	<img style="visibility:inherit" src="assets/margin_bottom/assets_selected/s_interactive.png" />
+	<img style="visibility:inherit" src="assets/margin_bottom/assets_selected/s_motiondesign.png" />
+	<img style="visibility:inherit" src="assets/margin_bottom/assets_selected/s_previs.png" />
+</div>
+
 <a href=# >
 
 <img id="img_d4d" src="assets/main/D/d04_directors.png" onmouseover="" onmouseout="" alt="TheStudio" >
