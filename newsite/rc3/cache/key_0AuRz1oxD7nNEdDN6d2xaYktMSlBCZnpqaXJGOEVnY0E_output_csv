@@ -1,0 +1,6 @@
+name,path,filename,x,y,z,link
+,,,,,,
+img_main,assets/pages/contact,contact_main.png,438,255,0,
+img_mary,assets/pages/contact,contact_mary.png,,,,
+img_gary,assets/pages/contact,contact_gary.png,,,,
+img_submissions,assets/pages/contact,contact_submissions.png,,,,

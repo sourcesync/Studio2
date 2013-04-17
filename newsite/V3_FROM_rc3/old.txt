@@ -1,0 +1,9 @@
+function func_menu_touchscreen_touchscreen () { document.getElementById('img_maw2').style.visibility = 'hidden';document.getElementById('img_mtr').style.visibility = 'hidden';document.getElementById('img_mww1').style.visibility = 'hidden';document.getElementById('img_maw2').style.visibility = 'visible';document.getElementById('img_mtr').style.visibility = 'visible';document.getElementById('img_mww1').style.visibility = 'visible'; };
+function docload () { document.getElementById('img_maw2').style.visibility = 'hidden';document.getElementById('img_mtr').style.visibility = 'hidden';document.getElementById('img_mww1').style.visibility = 'hidden';document.getElementById('img_maw2').style.visibility = 'visible';document.getElementById('img_mtr').style.visibility = 'visible';document.getElementById('img_mww1').style.visibility = 'visible';; }
+
+ window.onload=docload;
+</script>
+<img id="frame" src="assets/margin_bottom/assets_deselected/frame.png" alt="TheStudio" />
+<img id="sint" src="assets/margin_bottom/assets_selected/s_interactive.png" alt="TheStudio" />
+<img id="au" src="assets/margin_left/assets_deselected/aboutus.png" alt="TheStudio" />
+

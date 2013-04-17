@@ -278,7 +278,11 @@ def emit_item( page, DCT, item, PK=None, RDCT=None, PREFIX=None):
 		link = info['link']
 
 	# get z...
-	z = int(info['z'])
+	print "INFO->", info
+	if info['z'] == '':
+		z = 0
+	else:
+		z = int(info['z'])
 
 	# get path...
 	fpath = info['fp']
@@ -377,6 +381,7 @@ for page in PAGES:
 
 		elif item.startswith("P"): # web page phil...
 			txt = emit_item( page, WEBPAGE_PHIL_DCT, item, None, None, PHIL_PREFIX )
+			print 'txt=',txt
 			html += txt
 	
 		else: # look in assets then in template...

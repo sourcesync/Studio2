@@ -1,0 +1,33 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>TheStudio</title>
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<style type="text/css" >
+#img_viewourreel {
+position: absolute;
+left: 0px;
+top: 0px;
+z-index: 1;
+border:none; 
+visibility: hidden;
+}
+</style>
+</head>
+<body>
+
+<div>
+<script type="text/javascript" >
+ function docload () { document.getElementById('img_viewourreel').style.visibility = 'visible';; } 
+ window.onload=docload;
+</script>
+
+<object id="mov_home_reel_brightcove" style="position:absolute;visibility:inherit;top:0px;left:0px;z-index:4;" width="550" height="309" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0"><param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&isUI=1" /><param name="bgcolor" value="#FFFFFF" /><param name="flashVars" value="@videoPlayer=1722544535001&playerID=1722534940001&playerKey=AQ~~,AAABkQpwoJk~,gMLKrmf9KMv7qY57OPDDok-6Iwbrq_j7&domain=embed&dynamicStreaming=true" /><param name="base" value="http://admin.brightcove.com" /><param name="seamlesstabbing" value="false" /><param name="allowFullScreen" value="true" /><param name="swLiveConnect" value="true" /><param name="allowScriptAccess" value="always" /><embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&isUI=1" bgcolor="#FFFFFF" flashVars="@videoPlayer=1722544535001&playerID=1722534940001&playerKey=AQ~~,AAABkQpwoJk~,gMLKrmf9KMv7qY57OPDDok-6Iwbrq_j7&domain=embed&dynamicStreaming=true" base="http://admin.brightcove.com" name="mov_home_reel_brightcove" width="550" height="309" seamlesstabbing="false" type="application/x-shockwave-flash" allowFullScreen="true" allowScriptAccess="always" swLiveConnect="true" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed></object>
+<img id="img_viewourreel" src="assets/pages/watchvideo/watchvideo_viewourreel.png" onmouseover="" onmouseout="" alt="TheStudio" >
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+menu_name,option_name,asset_name,x,y,link,init,z
+char_dev,,,,,,,
+menu_char_dev,char_dev,img_jsw3,391,180,url:storyboard.html,hidden,1
+menu_char_dev,char_dev,img_jaw3,578,180,url:anim_cinem.html,hidden,1
+menu_char_dev,char_dev,img_jcr,767,180,,hidden,1
+menu_char_dev,char_dev,ss_char_dev,379,244,,hidden,

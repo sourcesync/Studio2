@@ -1,0 +1,10 @@
+menu_name,option_name,asset_name,x,y,link,init,z,image
+anim_cinem,,,,,,,,
+menu_anim_cinem,anim_cinem,img_jsw1,391,180,url:storyboard.html,hidden,1,
+menu_anim_cinem,anim_cinem,img_jar,578,180,,hidden,1,
+menu_anim_cinem,anim_cinem,img_jcw2,767,180,url:char_dev.html,hidden,1,
+menu_anim_cinem,anim_cinem,mp_anim_cinem,391,215,,hidden,,
+menu_anim_cinem,anim_cinem,embed_facebook,1068,477,SITE/anim_cinem.html,hidden,3,
+menu_anim_cinem,anim_cinem,embed_twitter,1005,477,SITE/anim_cinem.html,hidden,3,
+menu_anim_cinem,anim_cinem,embed_pinterest,955,477,SITE/anim_cinem.html,hidden,3,SITE/../posters/Video Poster Images/reels/Cinematics_Animatics_Reel.png
+_menu_anim_cinem,anim_cinem,img_tumblr,1106,485,,hidden,3,

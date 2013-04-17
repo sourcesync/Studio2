@@ -1,0 +1,11 @@
+menu_name,option_name,asset_name,x,y,z,link,init,image
+mocap,,,,,,,,
+,,,,,,,,
+menu_mocap,mocap,mp_etc_mocap,391,215,1,,visible,
+menu_mocap,mocap,img_nmr,391,180,1,,visible,
+menu_mocap,mocap,img_naw,623,180,1,url:axe.html,visible,
+menu_mocap,mocap,img_ncw,706,180,1,url:citypoly.html,visible,
+menu_mocap,mocap,img_mocap_copy,948,215,1,,hidden,
+menu_mocap,mocap,embed_facebook3,1068,477,10,SITE/mocap.html,hidden,
+menu_mocap,mocap,embed_twitter3,1005,477,10,SITE/mocap.html,hidden,
+menu_mocap,mocap,embed_pinterest3,955,477,10,SITE/mocap.html,hidden,SITE/CONTENT620/etcetera/Poster Images/mocap.png

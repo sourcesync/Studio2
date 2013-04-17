@@ -1,0 +1,53 @@
+name,path,filename
+,,
+motiondesign gallery,,
+,,
+img_gagl,assets/pages/strybrd_artists,arrow_l_g.png
+img_gagr,assets/pages/strybrd_artists,arrow_r_g.png
+img_frame,assets/pages/strybrd_artists,strybrd_artists_frame.png
+img_xboxlol,assets/pages/strybrd_artists,strybrd_artists_xboxlol.png
+,,
+,,
+img_tfi_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,01_TFI.png
+img_mymet_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,02_MyMet.png
+img_greenfish_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,03_GreenFish.png
+img_gerber_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,04_Gerber.png
+img_wi_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,05_WI.png
+img_pfizer_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,06_Pfizer.png
+img_abc_industrial_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,07_ABC_Industrial.png
+img_og_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,08_OG.png
+img_poltronafrau_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,09_PoltronaFrau.png
+img_dexnet_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,10_DexNet.png
+img_particles_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,11_particles.png
+img_emd_thumb,VIDEOS/Video Files For Web/motion design/thumbnails,12_EMD.png
+,,
+img_tfi_poster,VPOSTERS/Video Poster Images/Motion Design,01_TFI.png
+img_mymet_poster,VPOSTERS/Video Poster Images/Motion Design,02_MyMet.png
+img_greenfish_poster,VPOSTERS/Video Poster Images/Motion Design,03_GreenFish.png
+img_gerber_poster,VPOSTERS/Video Poster Images/Motion Design,04_Gerber.png
+img_wi_poster,VPOSTERS/Video Poster Images/Motion Design,05_WI.png
+img_pfizer_poster,VPOSTERS/Video Poster Images/Motion Design,06_Pfizer.png
+img_abc_industrial_poster,VPOSTERS/Video Poster Images/Motion Design,07_ABC_Industrial.png
+img_og_poster,VPOSTERS/Video Poster Images/Motion Design,08_OG.png
+img_poltron_poster,VPOSTERS/Video Poster Images/Motion Design,09_PoltronaFrau.png
+img_dexnet_poster,VPOSTERS/Video Poster Images/Motion Design,10_DexNet.png
+img_particles_poster,VPOSTERS/Video Poster Images/Motion Design,11_particles.png
+img_emd_poster,VPOSTERS/Video Poster Images/Motion Design,12_EMD Serono_Growth_Hormone.mov
+,,
+img_facebook,assets/main/assets_general/moving/,social_f.png
+img_twitter,assets/main/assets_general/moving/,social_t.png
+img_pinterest,assets/main/assets_general/moving/,social_p.png
+img_tumblr,assets/main/assets_general/moving/,social_tumblr.png
+,,
+img_tfi_caption_big,CONTENT625/Updated Caption Assets/Motion Design/,01_tribecafilminstitutetrailer_2.png
+img_mymet_caption_big,CAPTIONS/Motion Design/,02_mymet.png
+img_greenfish_caption_big,CAPTIONS/Motion Design/,03_greenfish.png
+img_gerber_caption_big,CAPTIONS/Motion Design/,04_gerber.png
+img_wi_caption_big,CAPTIONS/Motion Design/,05_waltonisaacson.png
+img_pfizer_caption_big,CAPTIONS/Motion Design/,06_pfizer.png
+img_abc_industrial_caption_big,CAPTIONS/Motion Design/,07_abcindustrialrevolution.png
+img_og_caption_big,CAPTIONS/Motion Design/,08_outtenandgolden.png
+img_poltron_caption_big,CAPTIONS/Motion Design/,09_poltronafraugroup.png
+img_dexnet_caption_big,CAPTIONS/Motion Design/,10_dexnet.png
+img_particles_caption_big,CONTENT625/Updated Caption Assets/Motion Design/,11_particletest_2.png
+img_emd_caption_big,CAPTIONS/Motion Design/,12_EMDseronogrowthhormone.png

@@ -1,0 +1,6 @@
+CANDIDATE=V3_FROM_rc3
+SOURCE="$CANDIDATE"
+TARGET="../../ftp/ftp.studionyc.com/$CANDIDATE"
+mkdir $TARGET
+cp $SOURCE/*.html $TARGET/
+cp -r $SOURCE/assets $TARGET/

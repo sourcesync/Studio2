@@ -1,0 +1,8 @@
+<div style="visibility:hidden">
+	<img style="visibility:inherit" src="assets/margin_bottom/assets_selected/s_animation.png" />
+	<img style="visibility:inherit" src="assets/margin_bottom/assets_selected/s_etcetera.png" />
+	<img style="visibility:inherit" src="assets/margin_bottom/assets_selected/s_interactive.png" />
+	<img style="visibility:inherit" src="assets/margin_bottom/assets_selected/s_motiondesign.png" />
+	<img style="visibility:inherit" src="assets/margin_bottom/assets_selected/s_previs.png" />
+</div>
+
