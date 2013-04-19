@@ -1,7 +1,7 @@
 subpage_key,asset_name,x,y,z,link
 community,,,,,
 ,,,,,
-subpage_community,img_main,508,261,1,
+subpage_community,img_cmain,508,261,1,
 subpage_community,img_community_frame,391,215,2,
 subpage_community,img_freedownload,775,442,3,nurl:http://itunes.apple.com/us/app/the-studio-app/id503937794?mt=8
 subpage_community,img_appstore,861,428,3,

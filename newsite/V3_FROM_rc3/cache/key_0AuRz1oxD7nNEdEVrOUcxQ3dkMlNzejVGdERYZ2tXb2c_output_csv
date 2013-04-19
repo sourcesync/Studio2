@@ -1,6 +1,6 @@
 name,path,filename
 ,,
-img_main,assets/main/I,i01_main.png
+img_cmain,assets/main/I,i01_main.png
 img_community_frame,assets/main/assets_general/stationary,semiborder_b.png
 img_freedownload,assets/pages/community,community_freedownload.png
 img_appstore,assets/pages/community,community_appstore.png

@@ -9,8 +9,8 @@ SITE = "http://www.studionyc.com/v2"
 
 CACHE_DIR = "cache"
 
-#USE_CACHE = False
-USE_CACHE = True
+USE_CACHE = False
+#USE_CACHE = True
 
 MOVIES1_PREFIX = "../phil_assets"
 PHIL_PREFIX = "../phil_assets"

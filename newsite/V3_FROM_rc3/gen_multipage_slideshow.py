@@ -233,6 +233,8 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
 						directive = link[idx:]
 						ahref = get_link( page_def, is_dct, directive, cur_page_name )
 						print "MS LINK->", ahref
+						if ( ahref == "sarah11.html" ):
+							exit(1)
                                 	else:
                                         	print "ERROR: multipage_slide_show: Unknown link type", page_def
 						sys.exit(1)
