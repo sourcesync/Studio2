@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /
+
+User-agent: *
+Allow: /v3/
+
+User-agent: *
+Allow: /index.html
+
+User-agent: *
+Allow: /index.php
