@@ -1,0 +1,18 @@
+menu_name,option_name,asset_name,x,y,link,init,z,image
+,,,,,,,,
+partners,,,,,,,,
+_menu_c2d_dirs,dirs,img_d4d,391,180,,hidden,0,
+menu_c2d_dirs,dirs,img_frame1,391,215,,hidden,2,
+menu_c2d_dirs,dirs,img_directors_captionsmall,1021,339,,hidden,3,
+menu_c2d_dirs,dirs,mov_directors_vimeo,393,217,,hidden,1,
+menu_c2d_dirs,dirs,embed_facebook,1068,477,SITE/c2d_dirs.html,hidden,3,
+menu_c2d_dirs,dirs,embed_twitter,1005,477,SITE/c2d_dirs.html,hidden,3,
+menu_c2d_dirs,dirs,embed_pinterest,955,477,SITE/c2d_dirs.html,hidden,3,SITE/../posters/Video Poster Images/reels/DirectorsReelShort.png
+_menu_c2d_dirs,dirs,img_tumblr,1106,485,,hidden,3,
+,,,,,,,,
+,,,,,,,,
+_menu_c2d_dirs,c2d,img_d1c,391,180,,visible,0,
+_menu_c2d_dirs,c2d,img_d1d,533,180,option:dirs,visible,0,
+_menu_c2d_dirs,c2d,img_d1m,402,243,,visible,0,
+_menu_c2d_dirs,dirs,img_d4c,391,180,option:c2d,hidden,0,
+_menu_c2d_dirs,dirs,img_d4d,533,180,,hidden,0,

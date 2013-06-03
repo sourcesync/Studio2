@@ -1,0 +1,12 @@
+subpage_key,asset_name,x,y,link,z,image
+,,,,,,
+sneak peek,,,,,,
+subpage_sneakpeek,img_sneakpeek2,415,235,,0,
+subpage_sneakpeek,img_banner,616,72,,1,
+_subpage_sneakpeek,img_social_face1,607,500,nurl:https://www.facebook.com/#!/STUDIONYC,0,
+_subpage_sneakpeek,img_social_twit1,639,500,nurl:https://twitter.com/#!/thestudionyc,0,
+_subpage_sneakpeek,img_social_pint1,670,500,nurl:http://pinterest.com/studionyc/?d,0,
+,,,,,,
+subpage_sneakpeek,embed_facebook,520,481,SITE/sneakpeek.html,10,
+subpage_sneakpeek,embed_twitter,605,481,SITE/sneakpeek.html,10,
+subpage_sneakpeek,embed_pinterest,670,481,SITE/sneakpeek.html,10,SITE/assets/pages/sneakpeek/sneakpeek_main.png

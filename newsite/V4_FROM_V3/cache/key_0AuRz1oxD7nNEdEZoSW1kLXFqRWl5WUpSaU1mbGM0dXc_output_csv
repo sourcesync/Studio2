@@ -1,0 +1,11 @@
+name,path,filename,x,y,z,link
+,,,,,,
+_img_main,assets/pages/contact,contact_main.png,438,255,0,
+img_mary,assets/pages/contact/,contact_mary.png,,,,
+_img_gary,assets/pages/contact,contact_gary.png,,,,
+img_submissions,assets/pages/contact/,contact_submissions.png,,,,
+,,,,,,
+_img_main2,assets/main/G/,g01_main02.png,,,,
+img_marylink1,assets/pages/whoweare/,c_mary.png,,,,
+img_marylink2,assets/pages/whoweare/,c_mary.png,,,,
+img_g_main2,assets/main/G/,g01_main02.png,,,,

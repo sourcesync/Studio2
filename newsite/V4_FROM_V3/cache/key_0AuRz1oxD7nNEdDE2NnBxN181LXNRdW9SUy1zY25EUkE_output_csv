@@ -1,0 +1,18 @@
+name,path,filename,x,y,z,link
+sneak peek,,,,,,
+,,,,,,
+_img_banner,assets/main/O/,o01_banner.png,616,72,,
+,,,,,,
+_img_sneakpeek2,assets/pages/sneakpeek,sneakpeek_main.png,415,235,,
+,,,,,,
+_img_social_face1,assets/main/assets_general/moving/,social_f.png,,,,
+_img_social_twit1,assets/main/assets_general/moving/,social_t.png,,,,
+_img_social_pint1,assets/main/assets_general/moving/,social_p.png,,,,
+,,,,,,
+_img_main2,assets/main/O/,o01_main02.png,,,,
+_img_banner2,assets/main/O/,o01_banner02.png,,,,
+img_url1,assets/main/O/,o01_url_adcolor.png,,,1,url:http://adcolor.org
+img_xbox1,assets/main/O/,o01_xbox1.png,,,,
+img_main3,assets/main/O/,o01_main03.png,,,,
+_img_banner3,assets/main/O/,o01_banner03.png,,,,
+img_banner4,assets/main/O/,o01_banner04.png,,,,

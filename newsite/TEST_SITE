@@ -1,6 +1,7 @@
-CANDIDATE=V3_FROM_rc3
+#CANDIDATE=V3_FROM_rc3
+CANDIDATE=V4_FROM_V3
 SOURCE="$CANDIDATE"
-TARGET="../../ftp/ftp.studionyc.com/v3c3"
+TARGET="../../ftp/ftp.studionyc.com/v4candidate"
 rm -fr $TARGET
 mkdir $TARGET
 cp $SOURCE/*.html $TARGET/

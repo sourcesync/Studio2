@@ -1,7 +1,4 @@
 User-agent: *
-Disallow: /
-
-User-agent: *
 Allow: /v3/
 
 User-agent: *

@@ -1,0 +1,38 @@
+Common: Getting pagedef -> https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdGQwQ3lkazQ4akh2SDRwVXF5ck1ZWGc&output=csv
+{'sub page key': 'subpage_home_movie', 'parent page key': 'home'}
+{'sub page key': 'subpage_clients', 'parent page key': 'clients'}
+{'sub page key': 'subpage_partners', 'parent page key': 'partners'}
+{'sub page key': 'subpage_animation', 'parent page key': 'animation'}
+{'sub page key': 'subpage_whoweare', 'parent page key': 'whoweare'}
+{'sub page key': 'subpage_sneakpeek', 'parent page key': 'sneakpeek'}
+{'sub page key': 'subpage_contacts', 'parent page key': 'contacts'}
+{'sub page key': 'subpage_community', 'parent page key': 'community'}
+{'sub page key': 'subpage_map', 'parent page key': 'map'}
+{'sub page key': 'subpage_photos', 'parent page key': 'photos'}
+{'sub page key': 'subpage_animation_gallery', 'parent page key': 'animation_gallery'}
+{'sub page key': 'subpage_motiondesign', 'parent page key': 'motiondesign'}
+{'sub page key': 'subpage_motiondesign_gallery', 'parent page key': 'motiondesign_gallery'}
+{'sub page key': 'subpage_stbd_artists', 'parent page key': 'stbd_artists'}
+{'sub page key': 'subpage_appdesign', 'parent page key': 'appdesign'}
+{'sub page key': 'subpage_website', 'parent page key': 'website'}
+{'sub page key': 'subpage_touchscreen', 'parent page key': 'touchscreen'}
+{'sub page key': 'subpage_storyboard', 'parent page key': 'storyboard'}
+{'sub page key': 'subpage_anim_cinem', 'parent page key': 'anim_cinem'}
+{'sub page key': 'subpage_char_dev', 'parent page key': 'char_dev'}
+{'sub page key': 'subpage_mocap', 'parent page key': 'mocap'}
+{'sub page key': 'subpage_axe', 'parent page key': 'axe'}
+{'sub page key': 'subpage_citypoly', 'parent page key': 'citypoly'}
+SUBPAGE GETDCT
+Common: Getting subpages->['previs', 'stbd_artists', 'storyboard'] -> https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFdUaXc2VFFmcjVmNm0yWGpjMlNXRGc&output=csv
+{'subpage_key': 'previs_page', 'asset_name': '', 'init': ''}
+{'subpage_key': 'subpage_stbd_artists', 'asset_name': 'mss_mateescu_adrian', 'init': ''}
+{'subpage_key': 'subpage_stbd_artists', 'asset_name': 'mss_reid_andrew', 'init': ''}
+{'subpage_key': 'subpage_stbd_artists', 'asset_name': 'mss_marte_anthony', 'init': ''}
+{'subpage_key': 'subpage_stbd_artists', 'asset_name': 'mss_lee_david', 'init': ''}
+{'subpage_key': 'subpage_stbd_artists', 'asset_name': 'mss_holmes_john', 'init': ''}
+{'subpage_key': 'subpage_stbd_artists', 'asset_name': 'mss_komoda_kurt', 'init': ''}
+{'subpage_key': 'subpage_stbd_artists', 'asset_name': 'mss_buck_matt', 'init': ''}
+{'subpage_key': 'subpage_stbd_artists', 'asset_name': 'mss_ocasio_michael', 'init': ''}
+{'subpage_key': 'subpage_stbd_artists', 'asset_name': 'mss_marano_philomena', 'init': ''}
+{'subpage_key': 'subpage_stbd_artists', 'asset_name': 'mss_chalek_sarah', 'init': ''}
+Common: Getting subpages->['previs', 'stbd_artists', 'storyboard'] -> https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFYtWlMxTC1nM3l4aFFQeVJTamN4d2c&output=csv

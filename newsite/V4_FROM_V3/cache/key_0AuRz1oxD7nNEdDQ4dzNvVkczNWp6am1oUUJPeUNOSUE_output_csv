@@ -1,0 +1,11 @@
+menu_name,option_name,asset_name,x,y,z,link,init,image
+axe,,,,,,,,
+,,,,,,,,
+menu_axe,axe,mp_etc_axe,391,215,1,,hidden,
+menu_axe,axe,img_nmw2,391,180,1,url:mocap.html,hidden,
+menu_axe,axe,img_nar,623,180,1,,hidden,
+menu_axe,axe,img_ncw2,706,180,1,url:citypoly.html,hidden,
+menu_axe,axe,img_axe_copy,948,215,1,,hidden,
+menu_axe,axe,embed_facebook,1068,477,10,SITE/axe.html,hidden,
+menu_axe,axe,embed_twitter,1005,477,10,SITE/axe.html,hidden,
+menu_axe,axe,embed_pinterest,955,477,10,SITE/axe.html,hidden,SITE/CONTENT620/etcetera/Poster Images/Axe.png

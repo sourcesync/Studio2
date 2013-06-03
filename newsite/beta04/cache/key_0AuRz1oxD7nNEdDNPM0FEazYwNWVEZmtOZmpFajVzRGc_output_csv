@@ -1,6 +1,0 @@
-menu_name,option_name,asset_name,x,y,link,init
-touchscreen,,,,,,
-menu_touchscreen,touchscreen,ss_interactive_touchscreen,391,215,,hidden
-menu_touchscreen,touchscreen,img_maw2,625,180,url:appdesign.html,hidden
-menu_touchscreen,touchscreen,img_mtr,508,180,,hidden
-menu_touchscreen,touchscreen,img_mww1,392,180,url:website.html,hidden

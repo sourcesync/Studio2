@@ -1,0 +1,11 @@
+menu_name,option_name,asset_name,x,y,z,link,init,image
+citypoly,,,,,,,,
+,,,,,,,,
+menu_citypoly,citypoly,mp_etc_citypoly,391,215,1,,hidden,
+menu_citypoly,citypoly,img_naw2,623,180,1,url:axe.html,hidden,
+menu_citypoly,citypoly,img_ncr,706,180,1,,hidden,
+menu_citypoly,citypoly,img_nmw3,391,180,1,url:mocap.html,hidden,
+menu_citypoly,citypoly,img_city_copy,948,215,1,,hidden,
+menu_citypoly,citypoly,embed_facebook2,1068,477,10,SITE/citypoly.html,hidden,
+menu_citypoly,citypoly,embed_twitter2,1005,477,10,SITE/citypoly.html,hidden,
+menu_citypoly,citypoly,embed_pinterest2,955,477,10,SITE/citypoly.html,hidden,SITE/CONTENT620/etcetera/Poster Images/citypoly.png

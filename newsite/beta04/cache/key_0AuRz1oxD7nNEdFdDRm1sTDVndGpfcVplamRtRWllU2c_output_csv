@@ -1,8 +1,0 @@
-menu_name,option_name,asset_name,x,y,z,link,init
-clients,,,,,,,
-menu_client_testi,client,img_clients_main1,399,230,0,,visible
-menu_client_testi,client,img_f1c,391,180,0,,visible
-menu_client_testi,client,img_f1t,511,180,0,option:testimonial,visible
-menu_client_testi,testimonial,img_clients_main2,403,263,0,,hidden
-menu_client_testi,testimonial,img_f2c,391,180,0,option:client,hidden
-menu_client_testi,testimonial,img_f2t,511,180,0,,hidden

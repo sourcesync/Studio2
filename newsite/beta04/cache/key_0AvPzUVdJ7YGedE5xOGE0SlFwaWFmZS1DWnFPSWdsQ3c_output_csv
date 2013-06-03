@@ -1,8 +1,0 @@
-name,path,filename,poster,z,type,width,height
-interactive gallery,,,,,,,
-,,,,,,,
-mov_novartis,MOVIES2/Video Files For Web/interactive-touchScreen/h264/,Novartis.mov,img_novartis,1,file,,
-mov_hivtimeline,MOVIES2/Video Files For Web/interactive-touchScreen/h264/,hiv_touch_screen.mov,img_hivtimeline,1,file,,
-,,,,,,,
-mov_novartis_vimeo,http://player.vimeo.com/video/44407499,,,,vimeo,550,309
-mov_hivtimeline_vimeo,http://player.vimeo.com/video/44407495,,,,vimeo,550,309

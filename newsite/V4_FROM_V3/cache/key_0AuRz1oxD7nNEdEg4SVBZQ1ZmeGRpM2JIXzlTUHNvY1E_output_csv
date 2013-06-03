@@ -1,0 +1,8 @@
+subpage_key,asset_name,x,y,z,link
+contacts,,,,,
+,,,,,
+_subpage_contacts,img_main2,391,215,0,
+subpage_contacts,img_mary,948,312,1,mailto:mary@studionyc.com
+_subpage_contacts,img_gary,902,330,1,mailto:gary@studionyc.com
+subpage_contacts,img_submissions,819,470,1,mailto:submissions@studionyc.com
+subpage_contacts,img_g_main2,176,120,0,

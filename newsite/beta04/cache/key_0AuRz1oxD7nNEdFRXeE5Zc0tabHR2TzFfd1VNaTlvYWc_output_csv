@@ -1,6 +1,0 @@
-menu_name,option_name,asset_name,x,y,link,init
-website,,,,,,
-menu_website,website,ss_interactive_website,414,233,,hidden
-menu_website,website,img_maw1,625,180,url:appdesign.html,hidden
-menu_website,website,img_mwr,392,180,,hidden
-menu_website,website,img_mtw1,508,180,url:touchscreen.html,hidden
