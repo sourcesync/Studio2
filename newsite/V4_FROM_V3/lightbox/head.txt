@@ -24,6 +24,8 @@
   padding:10px;
   background-color:#ffffff;
   content:url(assets/NewsLightBoxPicture.png);
+  background:url(assets/NewsLightBoxPicture.png);
+  background-repeat: no-repeat;
 }
 </style>
 
