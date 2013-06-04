@@ -38,8 +38,10 @@ img_mary2,assets/pages/whoweare,whoweare_mary2.png
 ,,
 img_maryimage1,assets/pages/whoweare,whoweare_maryimage.png
 img_maryimage2,assets/pages/whoweare,whoweare_maryimage.png
-img_wwa_main1,assets/pages/whoweare,whoweare_main1.png
 img_wwa_main2,assets/pages/whoweare,whoweare_main2.png
 ,,
-img_cmary3,assets/main/C/,c_mary.png
-img_cmary4,assets/main/C/,c_mary.png
+img_wwa_marylink1,assets/pages/whoweare,whoweare_marylink.png
+img_wwa_marylink2,assets/pages/whoweare,whoweare_marylink.png
+,,
+,,
+img_c1main2,assets/main/C/,c01_main02.png
