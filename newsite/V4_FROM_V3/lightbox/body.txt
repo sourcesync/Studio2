@@ -49,5 +49,9 @@
 });
 
 </script>
-<div id="lb_dialog" class="lb_window"> </div>
+<div id="lb_dialog" class="lb_window">
+<div style="position:absolute;top:95%;left:85%;color:white;">
+        <font size="2" >Photo by Emmanuel Andre</font>
+</div>
+</div>
 <div id="mask"></div>
