@@ -1,0 +1,26 @@
+Making a new site:
+
+1.  Figure out which folder was used last ( like V4_FROM_V3 ) and copy
+2.  cd into that directory 
+3.  decide on if you are using cached spreadsheets or not ( top of file common.py )
+4.  copy server-side spreadsheets as needed and update the appropriate gen_*.py file with the doc's publish address ( don't forgot to publish changes server doc side! )
+5.  probably clean the directory of html files
+6.  download as assets.zip if needed ( the google doc assets directory )
+7.  generate the site:  /opt/local/bin/python2.7 gen_pages.py
+
+Testing site:
+
+1. cd into "newsite"
+2. modify the TEST_SITE script as needed ( it copies the dev folder above into the ftp folder, which has other assets in the right place )
+3. cd into the copied directory
+4. open the html files you need to test ( open home.html for example )
+
+Pushing to candidate site at server:
+1. use filezilla and copy the test directory under ftp ( create in above step ) to an appropriate "subdirectory" at public site
+2. test
+
+Making candidate site public:
+1. rename the candidate directory to a bumped version number
+2. change site's index.html, index.php to point to this
+3. test !!!
+
