@@ -2,7 +2,8 @@
 # Configuration...
 #
 
-TEMPLATE_ASSETS_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFpLb1JBSTMwZzJHM25pVTF0TF9Xc3c&output=csv"
+#TEMPLATE_ASSETS_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdFpLb1JBSTMwZzJHM25pVTF0TF9Xc3c&output=csv"
+TEMPLATE_ASSETS_DEF = "https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7nNEdG1aVVpHNi1UWGVQdFQxWmJZR1o2cnc&output=csv"
 
 MOVIES1_PREFIX = "../phil_assets"
 MOVIES2_PREFIX = "../movies"

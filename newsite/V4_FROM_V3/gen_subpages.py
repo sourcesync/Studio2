@@ -40,7 +40,7 @@ SUB_PAGE_DEFS = { "home":"https://docs.google.com/spreadsheet/pub?key=0AuRz1oxD7
 import common
 
 def get_dct( subset=None ):
-	print "SUBPAGE GETDCT"
+	#print "SUBPAGE GETDCT"
 	newdct = {}
 	if subset==None: subset = SUB_PAGE_DEFS.keys()
 	for code in subset:

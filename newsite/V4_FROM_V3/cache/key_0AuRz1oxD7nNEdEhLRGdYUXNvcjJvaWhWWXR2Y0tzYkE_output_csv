@@ -1,7 +1,7 @@
 menu_name,option_name,asset_name,x,y,link,init,z
 storyboard,,,,,,,
 ,,,,,,,
-menu_storyboard,stbd_artists,img_jsr,391,180,,hidden,1
+menu_storyboard,stbd_artists,img_jsr,391,180,url:storyboard.html,hidden,1
 menu_storyboard,stbd_artists,img_jaw1,578,180,url:anim_cinem.html,hidden,1
 menu_storyboard,stbd_artists,img_jcw1,767,180,url:char_dev.html,hidden,1
 _menu_stbd,stbd_artists,img_j1m,391,243,,hidden,1

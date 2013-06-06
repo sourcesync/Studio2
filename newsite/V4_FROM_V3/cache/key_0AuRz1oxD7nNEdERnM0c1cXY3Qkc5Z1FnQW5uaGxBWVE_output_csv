@@ -20,7 +20,7 @@ img,smd,s_motiondesign.png,1,assets/margin_bottom/assets_selected,508,560,0,0,,,
 img,sint,s_interactive.png,1,assets/margin_bottom/assets_selected,735,558,0,0,,,1
 img,setc,s_etcetera.png,1,assets/margin_bottom/assets_selected,968,560,0,0,,,1
 ,,,,,,,,,,,
-img,logo,main_logo4.png,0,CONTENT76/,106,77,0,1,,,0
+img,logo,main_logo4.png,0,CONTENT76/,106,77,home,1,,,0
 img,au,aboutus.png,0,assets/margin_left/assets_deselected,121,161,0,0,,,0
 imganim,dwvline,underline.png,0,assets/main/assets_general/moving/,138,217,0,0,,,0
 img,dwv,d_watchvideo.png,0,assets/margin_left/assets_deselected,139,206,home,0,dwvline:show,dwvline:hide,0

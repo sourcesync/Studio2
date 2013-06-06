@@ -43,6 +43,7 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
 
 	# get the asset definition...
         asset_name = asset_def["asset_name"]
+	print "expanding item", asset_name
         item_def = images_dct[asset_name][0]
 
 	# get id...
@@ -134,14 +135,14 @@ def get_item_path( name, images_dct ):
 def get_link( item, is_dct, directive, page_name=None):
 	global mpgs_dct
 
-	print "GET LINK->", item, is_dct.keys()
+	#print "GET LINK->", item, is_dct.keys()
 
 	if mpgs_dct == None:
         	mpgs_dct = get_dct()
-	print "MPGS DCT->", mpgs_dct.keys()
+	#print "MPGS DCT->", mpgs_dct.keys()
 		
 	link_name = item['link'].split(":")[0]
-	print "LINK->",  link_name, mpgs_dct.keys()
+	#print "LINK->",  link_name, mpgs_dct.keys()
 
 	multipage_def = mpgs_dct[link_name]
 
@@ -161,12 +162,12 @@ def get_link( item, is_dct, directive, page_name=None):
 	if directive == "first":
 		return pages[0] + ".html"
 	elif directive == "previous":
-		print "ITEM->", item.keys(), page_name
+		#print "ITEM->", item.keys(), page_name
 		idx = pages.index( page_name ) -1
 		if idx<0: idx = len(pages)-1
 		return pages[idx] + ".html"
 	elif directive == "next":
-		print "ITEM->", item.keys(), page_name
+		#print "ITEM->", item.keys(), page_name
 		idx = pages.index( page_name ) + 1
 		if idx>=len(pages): idx = 0
 		return pages[idx] + ".html"
@@ -176,6 +177,8 @@ def get_link( item, is_dct, directive, page_name=None):
 
 def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, movies_dct, img_dct, is_dct, embeds_dct ):
 
+	#print "GEN_PAGE_SET"
+
 	# find the is and the rest...
 	is_def = None
 	remaining_defs = []
@@ -184,6 +187,9 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
                         is_def = page_def
 		else:
 			remaining_defs.append( page_def )
+
+	#print "MPC->", multipage_content
+	#sys.exit(1)
 
 	# expand the IS...
 	asset_defs = gen_image_set.expand_def( is_dct, is_def )
@@ -212,10 +218,16 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
                         	ahref = None
 				exturl = None
 
-				print "MSS IMG DEF->", page_def
+				aname = page_def["asset_name"]
+				#print "ANAME=", aname
+				if aname == "img_jsr":
+					print "JSR!"
+					sys.exit(1)
+
+				#print "MSS IMG DEF->", page_def
                         	if page_def.has_key("link") and page_def["link"]!="":
                                 	link = page_def["link"]
-					print "LINK PAGE DEF->", link, page_def.keys(), page_def['asset_name'], page_def['link']
+					#print "LINK PAGE DEF->", link, page_def.keys(), page_def['asset_name'], page_def['link']
                                 	if link.startswith("option:"):
                                         	ltype,parm = link.split(":")
                                         	funcname = "func_%s_%s" % (menu_name, parm)
@@ -232,7 +244,7 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
                                         	idx = link.find(":") + 1
 						directive = link[idx:]
 						ahref = get_link( page_def, is_dct, directive, cur_page_name )
-						print "MS LINK->", ahref
+						#print "MS LINK->", ahref
 						if ( ahref == "sarah11.html" ):
 							exit(1)
                                 	else:
@@ -257,6 +269,8 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
 					continue
 
 				style, content, foo, scriptlet_dct = gen_image_set.expand_item( accum_ids, page_def, is_dct, None, None, None )
+				#print "CONTENT->", content
+
                         	tot_style += style
                         	tot_content += content
 				tot_on += scriptlet_dct["on"]
@@ -273,12 +287,12 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
 
 			elif page_def['asset_name'].startswith("embed"):
 
-				print cur_page_name
-				print page_def
+				#print cur_page_name
+				#print page_def
 
 				override_link = common.SITE + "/" + cur_page_name + ".html"
 				override_image = common.SITE + "/" + cur_asset_path
-				print override_link, override_image
+				#print override_link, override_image
 
 				style, content, foo, scriptlet_dct = gen_embeds.expand_item( accum_ids, page_def, embeds_dct, img_dct, override_link, override_image )
                                 tot_style += style
@@ -300,8 +314,9 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
 		page_name = asset['page_name']
 
 		# write the file...
-		common.gen_page( "%s.html" % page_name, style, content, head_script, load_script )
+		common.gen_page( "%s.html" % page_name, style, "", content, head_script, load_script )
 
+		#sys.exit(1)
 
 def gen_pages( page_def, multipage_style, multipage_content, mp_dct, movies_dct, img_dct, is_dct, embed_dct ):
 	asset_name = page_def['asset_name']

@@ -23,8 +23,9 @@ SUBSET = [ "home",\
 #SUBSET = [ "home", "whoweare", "clients", "contacts", "sneakpeek" ]
 #SUBSET = [ "community" ]
 #SUBSET = [ "sneakpeek" ]
-SUBSET = [ "whoweare" ]
-#SUBSET = [ "previs", "stbd_artists", "storyboard" ]
+#SUBSET = [ "whoweare" ]
+#UBSET = [ "previs" ]
+#SUBSET = [ "previs", "storyboard", "stbd_artists" ]
 #SUBSET = [ "motiondesign", "motiondesign_gallery" ]
 #SUBSET = [ "animation", "animation_gallery" ]
 #SUBSET = [ "whoweare" ]
@@ -81,7 +82,7 @@ def emitLine(f, str):
 
 def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct, movie_panels_dct, click_panels_dct, slide_shows_dct, embeds_dct, cpo_dct ):
 	
-	print "MAIN - GEN PAGE ITEMS->", page_def, [ a["asset_name"] for a in page_def ]
+	#print "MAIN - GEN PAGE ITEMS->", page_def, [ a["asset_name"] for a in page_def ]
 
 	accum_body = ""
 	accum_style = ""
@@ -131,7 +132,7 @@ def gen_page( accum_ids, page_name, page_def, movies_dct, images_dct, menus_dct,
                                 elif link.startswith("mss"):
                                         idx = link.find(":") + 1
                                         page_name = gen_multipage_slideshow.get_link( item, is_dct,"first")
-                                        print "PAGEN->", page_name
+                                        #print "PAGEN->", page_name
                                         ahref = page_name
 				elif link.startswith("cp:next:"):
 					parts = link.split(":")
@@ -247,6 +248,11 @@ if __name__ == "__main__":
 		accum_ids = []
 
 		# get the template based content...
+		#print "TCKEYS->", template_dct.keys()
+		#print "TAD->", template_assets_dct.keys()
+		#print "k->", template_assets_dct["jsr"]
+		#print "PTD->", page_templates_dct.keys()
+		#sys.exit(1)
 		template_style, template_content = gen_page_templates.render_page( accum_ids, page_name, page_templates_dct, template_dct, template_assets_dct )
 
 		# insert precache...
@@ -256,13 +262,11 @@ if __name__ == "__main__":
 			f.close()
 			template_content += txt
 
-		print template_content
-
 		# get the subpage items...	
 		page_def = []
-		print "dct k->", dct.keys()
+		#print "dct k->", dct.keys()
 		page_subpage_items = dct[page_name]
-		print "PAGE SUBPAGE->", page_subpage_items
+		#print "PAGE SUBPAGE->", page_subpage_items
 
 		for page_subpage_item in page_subpage_items:
 			subpage_key = page_subpage_item['sub page key']
@@ -301,12 +305,12 @@ if __name__ == "__main__":
 				lb_head = lbh.read()
 				lbh.close()
 				head_tail += lb_head
-				print "SPHEAD->", head_tail
+				#print "SPHEAD->", head_tail
 				lbb = open("lightbox/body.txt")
 				lb_body = lbb.read()
 				lbb.close()
 				subpage_content += lb_body
-				print "SPBODY->", subpage_head_script
+				#print "SPBODY->", subpage_head_script
 
 			# create all the html content...	
 			style = '%s' % (template_style + subpage_style)

@@ -164,7 +164,7 @@ def expand_item( accum_ids, asset_def, embeds_dct, images_dct, override_link, ov
 
 	# get the asset definition...
         asset_name = asset_def["asset_name"]
-	print "ed->", embeds_dct
+	#print "ed->", embeds_dct
 
 	if (asset_name.startswith("embed_facebook")):
 		return expand_facebook( accum_ids, asset_def, embeds_dct, override_link )

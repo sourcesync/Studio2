@@ -104,7 +104,7 @@ def mouse_script_item( srcid, val, images_dct ):
 
 
 def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, ahref=None, exturl=False, clickpanel_cb=None ):
-	print "IMAGE EXPAND"
+	#print "IMAGE EXPAND"
 
 	# get the asset definition...
         asset_name = asset_def["asset_name"]
@@ -207,12 +207,12 @@ def expand_item( accum_ids, asset_def, images_dct, onclick=None, init_vis=None, 
         return [ style, content, "", scriptlet_dct ]
 
 def get_item_path( name, images_dct ):
-	print "GIP->", name, images_dct.keys()
+	#print "GIP->", name, images_dct.keys()
         item_def = images_dct[name][0]
-	print "ID->", item_def
+	#print "ID->", item_def
         path = item_def['path']
         fname = item_def['filename']
-	print "PARTS->", path, fname
+	#print "PARTS->", path, fname
         fpath = os.path.join(path,fname)
         fpath = common.path_replace(fpath)
         return fpath

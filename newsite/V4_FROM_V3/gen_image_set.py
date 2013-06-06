@@ -33,7 +33,7 @@ def expand_def( dct, item_def ):
 	if (altpath!=""):
 		altfiles = deff["alt_files"].split(";")
 		pairs = [ a.split(":") for a in altfiles ]
-		print "expand def->", pairs
+		#print "expand def->", pairs
 		altfiles = dict( pairs )
 		altpath = common.path_replace( altpath )
 
@@ -57,7 +57,7 @@ def expand_def( dct, item_def ):
 			if f in altfiles.keys():
 				substf = altfiles[f]
 				substp = altpath
-				print "WARNING: substitute->", f,substf
+				#print "WARNING: substitute->", f,substf
 				ad['path'] = substp
 				ad['filename'] = substf
 
@@ -70,7 +70,7 @@ def expand_def( dct, item_def ):
 				cap_path = deff["cap_path"]
 				info = gen_lookup.get_cap_file(f)
 				if info!=None:
-					print info
+					#print info
 					[ capfile, width, height ] = info
 					ad['cap_width'] = width
 					ad['cap_height'] = height
@@ -83,13 +83,13 @@ def expand_def( dct, item_def ):
 					if _alt_cap_files != "":
 						alt_cap_files = _alt_cap_files.split(";")
 						alt_cap_files = [ a.split(":") for a in alt_cap_files ]
-						print alt_cap_files
+						#print alt_cap_files
 						alt_cap_files = dict( alt_cap_files )
 						alt_cap_path = common.path_replace( alt_cap_path )
 						if capfile in alt_cap_files.keys():
 							ad['cap_file'] = alt_cap_files[ capfile ]
 							ad['cap_path'] = alt_cap_path
-							print ad
+							#print ad
 
 			asset_defs.append( ad )
 
@@ -123,7 +123,7 @@ def get_attr( prop, asset_name, asset_def, default=None):
 
 def expand_caption( accum_ids, asset_def ):
 
-        print "IMAGE SET EXPAND CAPTION", asset_def
+        #print "IMAGE SET EXPAND CAPTION", asset_def
 
         # get the asset definition...
         asset_name = asset_def["asset_name"] + "_cap"
@@ -174,7 +174,7 @@ def expand_caption( accum_ids, asset_def ):
 
 
 def expand_item( accum_ids, asset_def, is_dct, onclick=None, init_vis=None, ahref=None ):
-	print "IMAGE SET EXPAND"
+	#print "IMAGE SET EXPAND"
 
 	# get the asset definition...
         asset_name = asset_def["asset_name"]

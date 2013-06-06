@@ -165,7 +165,7 @@ def gen_page_set( multipage_def, multipage_style, multipage_content, mp_dct, mov
 		page_name = page_def['page_name']
 
                 # write the file...
-                common.gen_page( "%s.html" % page_name, style, content, head_script, load_script )
+                common.gen_page( "%s.html" % page_name, style, "", content, head_script, load_script )
 
 
 def gen_pages( page_def, multipage_style, multipage_content, mp_dct, movies_dct, img_dct , embeds_dct ):

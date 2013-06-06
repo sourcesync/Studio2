@@ -66,7 +66,7 @@ def get_id(base,ids):
 def get_title( filename ):
 
 	bname = os.path.basename( filename ).split(".")[0]
-	print "get title->", bname
+	#print "get title->", bname
 		
 	titlepath = "SEO/title/" + bname
 	if ( os.path.exists( titlepath ) ):
@@ -80,7 +80,7 @@ def get_title( filename ):
 def get_description( filename ):
 
         bname = os.path.basename( filename ).split(".")[0]
-        print "get description->", bname
+        #print "get description->", bname
 
         dpath = "SEO/description/" + bname
         if ( os.path.exists( dpath ) ):
@@ -93,7 +93,7 @@ def get_description( filename ):
 
 def get_keywords( filename ):
         bname = os.path.basename( filename ).split(".")[0]
-        print "get keywords->", bname
+        #print "get keywords->", bname
         dpath = "SEO/keywords/" + bname
         if ( os.path.exists( dpath ) ):
                 f = open( dpath, 'r')
@@ -106,7 +106,7 @@ def get_keywords( filename ):
 def get_analytics( ):
 	cfile = "google/code.txt"
 	if ( os.path.exists( cfile ) ):
-		print "file exists!",cfile
+		#print "file exists!",cfile
 		f = open(cfile,'r')
 		contents = f.read()
 		f.close()
@@ -132,8 +132,8 @@ def gen_page( filename, style, head_tail, content, head_script, load_script ):
 	loader = "function docload () { %s; } \n\n window.onload=docload;" % load_script
 	f.write('<!DOCTYPE html >\n')  #"-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">')
 	fmt = '<html xmlns="http://www.w3.org/1999/xhtml" >\n<head><title>%s</title>' + \
-		"<meta name=\"description=\" content=\"%s\">" + \
-		"<meta name=\"keywords=\" content=\"%s\">" + \
+		"<meta name=\"description\" content=\"%s\">" + \
+		"<meta name=\"keywords\" content=\"%s\">" + \
 		'<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\" />' + \
 		"<style type=\"text/css\" >%s</style>\n%s\n%s</head>\n" + \
 		'<body><div>\n' + \
@@ -192,7 +192,7 @@ def dct_join(items,join_key,key2=None):
 	ndct = {}	
 	for item in items:
 
-		print item
+		#print item
 		key = item[join_key]
 		if (key==""):
 			continue

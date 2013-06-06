@@ -93,7 +93,7 @@ def expand_option( accum_ids, menu_name, menu_def, option_name, images_dct, acti
 				elif link.startswith("mss"):
 					idx = link.find(":") + 1
 					page_name = gen_multipage_slideshow.get_link( item, is_dct,"first")
-					print "PAGEN->", page_name
+					#print "PAGEN->", page_name
 					ahref = page_name
 				else:
 					print "ERROR: gen_menus: Unknown link type", asset_name, item
@@ -212,11 +212,11 @@ def expand_item(accum_ids, item, images_dct, menus_dct, slide_shows_dct, movies_
 		scriptlets_dct[option] = scriptlet_dct
 
 		# possibly use this option as init...
-		print "options->", option, init_option_name
+		#print "options->", option, init_option_name
 		if not init_script and option == init_option_name:
 			# your problem might be here!
 			init_script = scriptlets_dct[option]['init']
-			print "menu option init->", init_script
+			#print "menu option init->", init_script
 
         # create a total off scriplet for menu...
         tot_off = ""
